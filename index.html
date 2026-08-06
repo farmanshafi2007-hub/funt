@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden" style="scroll-padding-top: 6rem;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- Core Web Vitals & Performance Preconnects / DNS Prefetching -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    
+    <!-- Preloading Critical Resources for Millisecond Paint -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://unpkg.com/lucide@latest" as="script">
+
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- SEO & Search Engine Optimization Tags -->
+    <title>Nexum Hero</title>
+    <meta name="description" content="Forge Softwares provides custom web architecture, autonomous AI agents, and SaaS solutions designed to scale operations and automate acquisition.">
+    <meta name="keywords" content="Web Architecture, Software Development, AI Automation, AI Agents, SaaS, Systems Engineering, Srinagar, Kashmir">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Forge Softwares">
+    <link rel="canonical" href="https://forgesoftwares.in/" />
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Forge Softwares | Intelligent Web Architecture">
+    <meta property="og:description" content="Autonomous AI systems and scalable web architecture engineered to operate continuously.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://forgesoftwares.in/">
+    <meta property="og:site_name" content="Forge Softwares">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Forge Softwares | Web & AI Infrastructure">
+    <meta name="twitter:description" content="Autonomous AI systems and scalable web architecture engineered to operate continuously.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://forgesoftwares.in/#localbusiness",
+          "name": "Forge Softwares",
+          "description": "Systems engineering and AI automation company in Srinagar, Kashmir.",
+          "url": "https://forgesoftwares.in/",
+          "telephone": "+91-0000000000",
+          "email": "forgesoftwares@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Srinagar",
+            "addressRegion": "Jammu & Kashmir",
+            "addressCountry": "IN"
+          },
+          "priceRange": "$$"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://forgesoftwares.in/#organization",
+          "name": "Forge Softwares",
+          "url": "https://forgesoftwares.in/",
+          "logo": "https://forgesoftwares.in/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr",
+            "https://x.com/pellixperfumes?s=21"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://forgesoftwares.in/#website",
+          "url": "https://forgesoftwares.in/",
+          "name": "Forge Softwares",
+          "publisher": {
+            "@id": "https://forgesoftwares.in/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "AI Automation & Systems Architecture",
+          "provider": {
+            "@id": "https://forgesoftwares.in/#organization"
+          },
+          "description": "Custom web platforms, SaaS applications, and intelligent AI agents."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the standard deployment timeline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is infrastructure maintenance included?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We manage the technical stack, ensuring reliability, security, and continuous optimization."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Deferring Ad Scripts -->
+    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6651904672008274" crossorigin="anonymous" defer></script>
+
+    <!-- Tailwind & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        silkscreen: ['Silkscreen', 'cursive'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                        display: ['Geist', 'sans-serif'], 
+                        tech: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        nhm: {
+                            bg: '#fcfcfc',
+                            text: '#111111',
+                            dark: '#0a0a0a',
+                            subtle: '#1a1a1a'
+                        }
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'letter-block': 'letterBlock 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        letterBlock: {
+                            '0%': { opacity: '0', transform: 'translateY(120px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            /* Strict Monochrome Theme */
+            --bg-light: #fcfcfc;
+            --text-main: #111111;
+            --bg-dark: #0a0a0a;
+            --border-light: rgba(17, 17, 17, 0.1);
+            --border-dark: rgba(255, 255, 255, 0.1);
+        }
+
+        html, body { 
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-main);
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        /* Selection styling */
+        ::selection {
+            background-color: #000;
+            color: #fff;
+        }
+
+        section:not(#home) {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 800px;
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-light); }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+        .bg-gradient-to-r, .bg-gradient-to-br, .text-transparent, .bg-clip-text {
+            background: none !important;
+            color: inherit !important;
+            -webkit-text-fill-color: inherit !important;
+            background-clip: border-box !important;
+        }
+
+        /* --- NEXUM BUTTON SYSTEM --- */
+        .nhm-btn {
+            background: linear-gradient(to bottom, #2B2B2B, #101010);
+            color: #ffffff;
+            border: 1px solid #1a1a1a;
+            border-radius: 9999px; /* Fully rounded for Nexum pills */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            font-weight: 500; 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            position: relative;
+            z-index: 1;
+        }
+        .nhm-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .nhm-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .nhm-btn-icon {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nhm-btn:hover .nhm-btn-icon {
+            transform: scale(1.1) rotate(-12deg) translateY(-2px);
+        }
+
+        /* --- MINIMALIST PANELS --- */
+        .physical-panel {
+            background-color: var(--bg-light); 
+            border: 1px solid var(--border-light);
+            border-radius: 0px;
+            box-shadow: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .physical-panel:hover {
+            box-shadow: 8px 8px 0px rgba(17,17,17,0.05);
+        }
+
+        .physical-recessed {
+            background-color: transparent;
+            border: 1px solid var(--border-light);
+            border-radius: 0px;
+        }
+
+        .texture-overlay, .screw, .ai-glow, .bg-grid { display: none !important; }
+        .text-3d { text-shadow: none !important; }
+        .icon-3d { filter: none !important; }
+        .etched-text { color: var(--text-main) !important; }
+
+        .led-indicator {
+            width: 8px; height: 8px; border-radius: 50%;
+            background-color: #111; box-shadow: none;
+        }
+        .led-green, .led-purple, .led-guava, .led-red { background-color: #111; color: #111; box-shadow: none; }
+        .led-indicator.white { background-color: #fff; }
+
+        .lcd-screen {
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 0;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace; 
+            box-shadow: none;
+        }
+
+        .cursor-blink {
+            display: inline-block; width: 8px; height: 16px;
+            background-color: #ffffff; animation: blink 1s step-end infinite;
+            vertical-align: middle; margin-left: 2px;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .reveal {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0); 
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .accordion-content {
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-in-out;
+        }
+        .accordion-content.expanded { max-height: 1000px; opacity: 1; margin-top: 0; }
+        
+        .dark-section { background-color: var(--bg-dark); color: #ffffff; }
+        .dark-section .physical-panel, .dark-section .physical-recessed { background-color: #111; border-color: #333; color: #fff; }
+        .dark-section .text-[#000000], .dark-section .text-[#111111] { color: #ffffff !important; }
+        .dark-section .text-[#555555], .dark-section .text-gray-600 { color: #888888 !important; }
+        .dark-section .border-[#E5E5EA], .dark-section .border-gray-200 { border-color: #333 !important; }
+        .dark-section .bg-[#FAFAFA], .dark-section .bg-white { background-color: #0a0a0a !important; }
+
+        .sand-filter-active { filter: url(#sand-dissolve); }
+        .parallax-element { will-change: transform; transition: transform 0.1s ease-out; }
+    </style>
+</head>
+<body class="selection:bg-black selection:text-white w-full max-w-full overflow-x-hidden font-sans">
+
+    <svg class="hidden w-0 h-0 absolute pointer-events-none">
+        <defs>
+            <filter id="sand-dissolve" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="4" result="noise" />
+                <feDisplacementMap id="sand-disp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+                <feGaussianBlur id="sand-blur" in="displaced" stdDeviation="0" result="blurred" />
+                <feColorMatrix id="sand-matrix" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <main class="w-full overflow-x-hidden">
+        
+        <section id="home" class="relative h-[100dvh] w-full overflow-hidden">
+            <!-- Full-bleed background video -->
+            <video class="absolute inset-0 h-full w-full object-cover z-0" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260803_192301_9231ed6b-c55c-4a48-909c-4ebe11cf2e11.mp4"></video>
+
+            <div class="relative z-10 flex flex-col h-full w-full pointer-events-none">
+                
+                <!-- Top Nav Bar -->
+                <nav class="w-full px-5 py-5 sm:px-8 sm:py-6 lg:px-12 flex items-center justify-between pointer-events-auto">
+                    <!-- Logo Plate -->
+                    <div class="flex items-center gap-2 text-[#010101] lg:text-white transition-colors duration-300">
+                        <svg viewBox="0 0 256 256" class="w-6 h-6 fill-current">
+                            <path d="M 128 128 C 128 198.692 70.692 256 0 256 C 0 185.308 57.308 128 128 128 Z M 128 128 C 198.692 128 256 185.308 256 256 C 185.308 256 128 198.692 128 128 Z M 0 0 C 70.692 0 128 57.308 128 128 C 57.308 128 0 70.692 0 0 Z M 256 0 C 256 70.692 198.692 128 128 128 C 128 57.308 185.308 0 256 0 Z" />
+                        </svg>
+                        <span class="text-lg font-semibold tracking-tight">nexum</span>
+                    </div>
+
+                    <!-- Desktop Nav Menu -->
+                    <div class="hidden md:flex items-center gap-3">
+                        <div class="flex items-center gap-1 rounded-full bg-white/10 px-1.5 py-1.5 backdrop-blur-lg border border-white/10">
+                            <a href="#what-we-do" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors">Infrastructure</a>
+                            <a href="#services" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors flex items-center gap-1">Systems <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></a>
+                            <a href="#portfolio" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors">Deployment</a>
+                            <a href="#pricing" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors">Pricing</a>
+                        </div>
+                        <button onclick="openEnquiryModal()" class="rounded-full px-5 py-1.5 text-sm font-medium text-white hover:opacity-90 transition-opacity flex items-center self-stretch border border-[#333] shadow-sm" style="background: linear-gradient(to bottom, #2B2B2B, #101010);">
+                            Get started
+                        </button>
+                    </div>
+
+                    <!-- Mobile Hamburger -->
+                    <button id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center h-10 w-10 rounded-full bg-white/10 backdrop-blur-lg border border-white/10 text-[#010101] lg:text-white relative z-50 overflow-hidden">
+                        <i data-lucide="menu" id="nexumMenuIcon" class="absolute w-5 h-5 transition-all duration-300 transform scale-100 opacity-100 rotate-0"></i>
+                        <i data-lucide="x" id="nexumXIcon" class="absolute w-5 h-5 transition-all duration-300 transform scale-0 opacity-0 -rotate-90"></i>
+                    </button>
+                </nav>
+
+                <!-- Bottom Anchored Main Content -->
+                <div class="mt-auto px-5 pb-8 sm:px-8 sm:pb-12 lg:px-12 lg:pb-16 flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-end lg:justify-between w-full pointer-events-auto">
+                    
+                    <!-- Left: Headline & Email CTA -->
+                    <div class="flex-1 max-w-xl">
+                        <h1 class="text-3xl sm:text-4xl lg:text-[3.5rem] font-semibold leading-[1.1] tracking-tight text-[#010101] lg:text-white transition-colors duration-300">
+                            Ship AI workers that grind while you rest
+                        </h1>
+                        
+                        <div class="mt-6 sm:mt-8 flex flex-col sm:inline-flex sm:flex-row sm:items-center sm:rounded-full sm:bg-white sm:p-1.5 gap-3 sm:gap-0">
+                            <input type="email" placeholder="Type your email" class="rounded-full bg-white px-5 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none sm:w-64 sm:rounded-none sm:bg-transparent sm:px-4 sm:py-2 border sm:border-none border-gray-200" />
+                            <button onclick="openEnquiryModal()" class="rounded-full px-6 py-3 sm:py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 border border-[#333] sm:border-none shadow-md whitespace-nowrap" style="background: linear-gradient(to bottom, #2B2B2B, #101010);">
+                                Get started
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Glass Cards -->
+                    <div class="flex flex-col gap-4 sm:flex-row lg:w-auto lg:gap-5">
+                        
+                        <!-- Stats Card -->
+                        <div class="flex flex-col justify-between rounded-2xl bg-white/10 backdrop-blur-lg p-5 sm:p-6 sm:w-64 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]">
+                            <div class="font-silkscreen text-3xl sm:text-4xl font-normal tracking-tight text-[#010101] lg:text-white transition-colors duration-300">
+                                42,500+
+                            </div>
+                            <p class="mt-3 sm:mt-4 text-sm leading-relaxed text-[#010101]/70 lg:text-white/70 transition-colors duration-300">
+                                Teams run Nexum to handle recurring ops daily.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial Card -->
+                        <div class="flex flex-col justify-between rounded-2xl bg-white/10 backdrop-blur-lg p-5 sm:p-6 sm:w-64 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]">
+                            <div class="mb-3 sm:mb-4 flex items-center gap-2">
+                                <div class="flex h-6 w-6 items-center justify-center rounded bg-[#010101] lg:bg-white text-white lg:text-[#010101] text-sm font-semibold transition-colors duration-300">
+                                    S
+                                </div>
+                                <span class="text-sm font-semibold text-[#010101] lg:text-white transition-colors duration-300">Stratify</span>
+                            </div>
+                            <p class="text-sm leading-relaxed text-[#010101]/80 lg:text-white/80 transition-colors duration-300">
+                                "With Nexum we went from managing tedious operational work to having AI agents that handle everything."
+                            </p>
+                            <div class="mt-4 sm:mt-5 flex items-center gap-3">
+                                <img src="https://i.pravatar.cc/72?img=12" alt="Sara Klein" class="h-9 w-9 rounded-full object-cover bg-white/20" />
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-semibold text-[#010101] lg:text-white transition-colors duration-300">Sara Klein</span>
+                                    <span class="text-xs text-[#010101]/60 lg:text-white/60 transition-colors duration-300">Dir of Operations</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="nexumMobileOverlay" class="fixed inset-0 z-40 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300"></div>
+        <div id="nexumMobileDrawer" class="fixed right-0 top-0 z-40 h-full w-72 bg-black/90 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-24 px-6 pb-10">
+            <div class="flex flex-col gap-2">
+                <a href="#what-we-do" class="nexum-mob-link rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors opacity-0 translate-x-[24px]">Infrastructure</a>
+                <a href="#services" class="nexum-mob-link rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors flex justify-between items-center opacity-0 translate-x-[24px]">Systems <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                <a href="#portfolio" class="nexum-mob-link rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors opacity-0 translate-x-[24px]">Deployment</a>
+                <a href="#pricing" class="nexum-mob-link rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors opacity-0 translate-x-[24px]">Pricing</a>
+                <a href="#about" class="nexum-mob-link rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors opacity-0 translate-x-[24px]">About</a>
+            </div>
+            
+            <button onclick="document.getElementById('nexumMobileMenuBtn').click(); openEnquiryModal();" id="nexumMobCta" class="mt-auto rounded-full w-full py-3.5 text-base font-medium text-white hover:opacity-90 border border-[#333] transition-all duration-400 opacity-0 translate-y-[16px] shadow-lg" style="background: linear-gradient(to bottom, #2B2B2B, #101010);">
+                Get started
+            </button>
+        </div>
+
+        <section id="trust-logos" class="py-16 border-y border-gray-200 bg-white w-full relative overflow-hidden">
+            <div class="w-full mx-auto text-center reveal relative z-10 overflow-hidden">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-gray-500 mb-6">Deployed by forward-thinking organizations</p>
+                <h3 class="sr-only">Our Special Clients</h3>
+
+                <div class="relative w-full overflow-hidden flex items-center py-4 group">
+                    <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
+                    <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
+                    
+                    <div class="animate-marquee-ltr opacity-90 hover:opacity-100 transition-opacity duration-500 flex-nowrap">
+                        
+                        <div class="flex items-center gap-12 sm:gap-16 md:gap-24 justify-around min-w-max pr-12 sm:pr-16 md:pr-24">
+                            <!-- Monochrome Logos -->
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="layers" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> NexaCore</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="activity" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Lumina</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="shopping-bag" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Horizon</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="briefcase" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Elevate</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="cpu" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Quantum</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="pie-chart" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Vertex</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="zap" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Apex</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="globe" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> GlobalNet</div>
+                        </div>
+                        
+                        <!-- Duplicate Set -->
+                        <div class="flex items-center gap-12 sm:gap-16 md:gap-24 justify-around min-w-max pr-12 sm:pr-16 md:pr-24">
+                            <!-- Logos -->
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="layers" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> NexaCore</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="activity" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Lumina</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="shopping-bag" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Horizon</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="briefcase" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Elevate</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="cpu" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Quantum</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="pie-chart" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Vertex</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="zap" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> Apex</div>
+                            <div class="whitespace-nowrap shrink-0 text-lg sm:text-2xl font-bold tracking-tight text-[#111] uppercase flex items-center justify-center gap-3 font-sans opacity-60 hover:opacity-100 transition-opacity cursor-default"><i data-lucide="globe" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0"></i> GlobalNet</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics" class="py-16 md:py-24 px-4 sm:px-6 relative bg-[#fcfcfc] w-full">
+            <div class="w-full max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-1">
+                    <div class="physical-panel reveal p-12 text-center flex flex-col items-center bg-white w-full border border-gray-200">
+                        <h4 class="text-4xl sm:text-5xl lg:text-[4rem] font-medium text-[#111] mb-4 tracking-tighter">350%</h4>
+                        <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500">Lead Velocity</p>
+                    </div>
+                    <div class="physical-panel reveal p-12 text-center flex flex-col items-center bg-white w-full border border-gray-200" style="transition-delay: 100ms;">
+                        <h4 class="text-4xl sm:text-5xl lg:text-[4rem] font-medium text-[#111] mb-4 tracking-tighter">24/7</h4>
+                        <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500">Autonomous Operations</p>
+                    </div>
+                    <div class="physical-panel reveal p-12 text-center flex flex-col items-center bg-white w-full border border-gray-200" style="transition-delay: 200ms;">
+                        <h4 class="text-4xl sm:text-5xl lg:text-[4rem] font-medium text-[#111] mb-4 tracking-tighter">99.9%</h4>
+                        <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500">System Reliability</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-playground" class="py-16 md:py-28 px-4 sm:px-6 relative border-y border-gray-200 bg-white w-full">
+            <div class="w-full max-w-4xl mx-auto text-center mb-12 reveal">
+                <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] font-medium tracking-tight leading-[1.1] mb-4 text-[#111] px-2 break-words">
+                    Interact.<br />Test our autonomous agent.
+                </h2>
+                <p class="text-gray-500 font-mono font-bold uppercase tracking-widest text-[10px] sm:text-[11px] break-words">Live Terminal Simulation</p>
+            </div>
+            
+            <div class="w-full max-w-3xl mx-auto border border-gray-200 bg-white p-2 sm:p-4 reveal shadow-sm box-border physical-panel" id="terminal-container">
+                <div class="bg-black p-1.5 sm:p-2 relative overflow-hidden w-full">
+                    <div class="lcd-screen p-6 sm:p-8 h-[320px] sm:h-[400px] flex flex-col relative z-10 w-full overflow-hidden border border-[#333]">
+                        
+                        <div class="border-b border-[#333] pb-4 mb-6 flex items-center justify-between opacity-80 relative z-20">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="terminal" class="w-4 h-4 text-gray-400 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-mono font-bold tracking-widest uppercase text-xs text-white">Forge AI Node</h4>
+                                    <p class="text-[10px] uppercase tracking-widest font-mono text-gray-400 mt-1">Status: Active_</p>
+                                </div>
+                            </div>
+                            <div class="text-[10px] font-mono font-bold hidden sm:block text-gray-500 whitespace-nowrap">SYS_TIME: <span id="sys-time" class="text-white">--:--:--</span></div>
+                        </div>
+                        
+                        <div class="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar pr-4 space-y-5 text-sm relative z-20 text-white" id="terminal-output">
+                            <!-- Content will be injected by JavaScript typing simulator -->
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-[#333] flex gap-3 relative z-20 items-center">
+                            <div class="font-mono font-bold shrink-0 text-white">></div>
+                            <input type="text" placeholder="SYSTEM LOCKED. AWAITING OVERRIDE..." class="w-full bg-transparent border-none text-white font-mono focus:outline-none placeholder-gray-600 uppercase text-[10px] sm:text-xs tracking-wider" disabled="disabled">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex flex-col sm:flex-row items-center justify-between px-2 sm:px-4 gap-4 box-border">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="led-indicator shrink-0"></div>
+                            <span class="text-[9px] font-mono font-bold uppercase text-gray-500 tracking-widest">PWR</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="led-indicator white animate-pulse shrink-0"></div>
+                            <span class="text-[9px] font-mono font-bold uppercase text-gray-500 tracking-widest">NET</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="led-indicator shrink-0" id="data-led"></div>
+                            <span class="text-[9px] font-mono font-bold uppercase text-gray-500 tracking-widest">DAT</span>
+                        </div>
+                    </div>
+                    
+                    <button class="nhm-btn w-full sm:w-auto px-6 py-2.5 text-[10px] font-mono font-bold uppercase tracking-widest flex items-center justify-center gap-2" onclick="openEnquiryModal()">
+                        <i data-lucide="power" class="w-3 h-3 shrink-0 nhm-btn-icon"></i> System Override
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-4 sm:px-6 md:px-16 border-b border-gray-200 bg-[#fcfcfc] w-full">
+            <div class="w-full max-w-6xl mx-auto">
+                <div class="mb-16 text-center reveal">
+                    <span class="text-[10px] font-mono font-bold text-gray-500 tracking-widest uppercase break-words">System Infrastructure</span>
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] font-medium mt-4 leading-[1.1] text-[#111] tracking-tight break-words">Architecture Shift</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 reveal w-full box-border">
+                    <div class="physical-panel p-8 sm:p-12 flex flex-col bg-white border border-gray-200 w-full box-border">
+                        <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-6">
+                            <div class="border border-gray-200 p-3 bg-gray-50"><i data-lucide="x" class="w-5 h-5 text-gray-400 shrink-0"></i></div>
+                            <h3 class="text-xl sm:text-2xl font-medium text-[#111] tracking-tight break-words">Legacy Systems</h3>
+                        </div>
+                        <ul class="space-y-6 text-[13px] md:text-[14px] text-gray-600 leading-[1.6]">
+                            <li class="flex items-start gap-4"><i data-lucide="clock" class="w-5 h-5 text-gray-400 shrink-0"></i> <span class="break-words">Delayed responses lead to high prospect attrition.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="smartphone" class="w-5 h-5 text-gray-400 shrink-0"></i> <span class="break-words">Suboptimal mobile UI increases bounce rates.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="search" class="w-5 h-5 text-gray-400 shrink-0"></i> <span class="break-words">Zero search visibility limits organic discovery.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="physical-panel p-8 sm:p-12 flex flex-col bg-[#111] text-white border-transparent w-full z-10 box-border">
+                        <div class="flex items-center gap-4 mb-8 border-b border-gray-800 pb-6">
+                            <div class="border border-gray-700 p-3 bg-[#1a1a1a]"><i data-lucide="check" class="w-5 h-5 text-white shrink-0"></i></div>
+                            <h3 class="text-xl sm:text-2xl font-medium text-white tracking-tight break-words">Forge Protocol</h3>
+                        </div>
+                        <ul class="space-y-6 text-[13px] md:text-[14px] text-gray-300 leading-[1.6]">
+                            <li class="flex items-start gap-4"><i data-lucide="zap" class="w-5 h-5 text-white shrink-0"></i> <span class="break-words">AI agents process inquiries and book meetings instantly.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="layout" class="w-5 h-5 text-white shrink-0"></i> <span class="break-words">Fluid, mobile-native interfaces built for conversion.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="trending-up" class="w-5 h-5 text-white shrink-0"></i> <span class="break-words">Technical SEO infrastructure captures high-intent traffic.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="what-we-do" class="py-16 md:py-28 px-4 sm:px-6 md:px-16 relative bg-white w-full">
+            <div class="w-full max-w-5xl mx-auto">
+                <div class="mb-16 reveal text-center">
+                    <span class="text-[10px] md:text-[11px] font-mono font-bold text-gray-500 tracking-widest uppercase break-words">Infrastructure</span>
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] lg:text-[4.2rem] font-medium mt-4 mb-6 leading-[1.1] tracking-tight text-[#111] break-words">Core Focus</h2>
+                </div>
+                <div class="physical-panel bg-[#fcfcfc] p-8 sm:p-12 md:p-16 reveal relative z-0 border border-gray-200 w-full box-border">
+                    <div class="border border-gray-200 bg-white p-6 md:p-10 w-full box-border">
+                        <p class="text-[#111] text-[13px] md:text-[15px] leading-[1.7] mb-8 break-words max-w-3xl mx-auto text-center font-medium">
+                            Forge Softwares operates as the central infrastructure for our specialized subsidiaries, <strong class="font-bold">Cobra</strong> and <strong class="font-bold">Runo</strong>. We architect custom web platforms, SaaS products, and autonomous business tools designed for scale. Our focus is on speed, security, and measurable conversion.
+                        </p>
+                        <p class="text-[#111] text-[13px] md:text-[15px] leading-[1.7] break-words max-w-3xl mx-auto text-center font-medium">
+                            We deliver comprehensive digital ecosystems—from interface design to CRM integration. By bridging advanced technology with practical utility, we enable businesses to streamline operations and accelerate growth in complex markets.
+                        </p>
+
+                        <div class="mt-12 pt-10 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-center gap-8 relative w-full box-border">
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500 text-center break-words">Official Subsidiaries</span>
+                            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full sm:w-auto box-border">
+                                <div class="px-6 py-3 flex items-center justify-center gap-3 border border-gray-200 bg-[#fcfcfc] w-full sm:w-auto physical-panel">
+                                    <div class="led-indicator"></div>
+                                    <span class="font-bold text-sm tracking-widest text-[#111] uppercase">Cobra</span>
+                                </div>
+                                <div class="px-6 py-3 flex items-center justify-center gap-3 border border-gray-200 bg-[#fcfcfc] w-full sm:w-auto physical-panel">
+                                    <div class="led-indicator"></div>
+                                    <span class="font-bold text-sm tracking-widest text-[#111] uppercase">Runo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-16 md:py-24 px-4 sm:px-6 md:px-16 border-y border-gray-200 bg-[#fcfcfc] w-full">
+            <div class="w-full max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] font-medium tracking-tight leading-[1.1] text-[#111] break-words">Deployment Protocol</h2>
+                    <p class="text-gray-500 font-mono font-bold mt-6 uppercase tracking-widest text-[10px] break-words">Standardized execution pipeline.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1 w-full box-border">
+                    <div class="physical-panel reveal p-10 text-center flex flex-col items-center bg-white border border-gray-200 w-full box-border">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-gray-200 bg-[#fcfcfc] shrink-0"><span class="text-lg font-mono font-bold text-[#111]">1</span></div>
+                        <h3 class="text-xl font-medium tracking-tight mb-4 text-[#111] break-words">Audit & Architect</h3>
+                        <p class="text-[13px] text-gray-600 leading-[1.6] break-words">Map business logic, identify constraints, and architect a custom technical blueprint.</p>
+                    </div>
+                    <div class="physical-panel reveal p-10 text-center flex flex-col items-center bg-white border border-gray-200 w-full box-border" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-gray-200 bg-[#fcfcfc] shrink-0"><span class="text-lg font-mono font-bold text-[#111]">2</span></div>
+                        <h3 class="text-xl font-medium tracking-tight mb-4 text-[#111] break-words">Build & Automate</h3>
+                        <p class="text-[13px] text-gray-600 leading-[1.6] break-words">Engineer the frontend and integrate autonomous AI agents to automate acquisition.</p>
+                    </div>
+                    <div class="physical-panel reveal p-10 text-center flex flex-col items-center bg-white border border-gray-200 w-full box-border" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-gray-200 bg-[#fcfcfc] shrink-0"><span class="text-lg font-mono font-bold text-[#111]">3</span></div>
+                        <h3 class="text-xl font-medium tracking-tight mb-4 text-[#111] break-words">Launch & Scale</h3>
+                        <p class="text-[13px] text-gray-600 leading-[1.6] break-words">Live deployment. Systems operate continuously, converting traffic into booked meetings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-16 md:py-28 px-4 sm:px-6 md:px-16 border-b border-gray-200 bg-white w-full">
+            <div class="w-full max-w-7xl mx-auto">
+                <div class="mb-16 md:mb-24 reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12 w-full box-border">
+                    <div class="w-full lg:w-auto text-center lg:text-left shrink-0">
+                        <h2 class="text-[2.5rem] sm:text-5xl md:text-[4rem] font-medium tracking-tight leading-[1] mb-2 text-[#111] break-words">Core <br class="hidden lg:block"/> Systems</h2>
+                    </div>
+                    <p class="text-gray-600 text-[13px] md:text-[14px] w-full max-w-md mx-auto lg:mx-0 text-center lg:text-right border-t border-gray-200 lg:border-t-0 lg:border-l lg:border-gray-200 pt-6 lg:pt-0 lg:pl-8 leading-[1.6] break-words font-medium">
+                        Engineered for conversion. Replace manual workflows with intelligent automation.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 w-full box-border">
+                    <article class="physical-panel bg-[#fcfcfc] border border-gray-200 p-10 lg:p-12 reveal flex flex-col relative z-0 w-full box-border">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="p-2 border border-gray-200 bg-white"><i data-lucide="layout" class="w-6 h-6 text-[#111] shrink-0"></i></div>
+                            <span class="text-lg font-mono font-bold text-gray-400 shrink-0">01</span>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4 text-[#111] tracking-tight break-words">Premium Websites</h3>
+                        <p class="text-gray-600 text-[13px] leading-[1.6] mt-auto break-words font-medium">High-fidelity web applications designed to capture intent and establish authority.</p>
+                    </article>
+
+                    <article class="physical-panel bg-[#fcfcfc] border border-gray-200 p-10 lg:p-12 reveal flex flex-col relative z-0 w-full box-border" style="transition-delay: 100ms;">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="p-2 border border-gray-200 bg-white"><i data-lucide="bot" class="w-6 h-6 text-[#111] shrink-0"></i></div>
+                            <span class="text-lg font-mono font-bold text-gray-400 shrink-0">02</span>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4 text-[#111] tracking-tight break-words">AI Sales Agents</h3>
+                        <p class="text-gray-600 text-[13px] leading-[1.6] mt-auto break-words font-medium">Custom LLMs that qualify leads, resolve queries, and secure meetings autonomously.</p>
+                    </article>
+
+                    <article class="physical-panel bg-[#fcfcfc] border border-gray-200 p-10 lg:p-12 reveal flex flex-col relative z-0 w-full sm:col-span-2 lg:col-span-1 box-border" style="transition-delay: 200ms;">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="p-2 border border-gray-200 bg-white"><i data-lucide="cpu" class="w-6 h-6 text-[#111] shrink-0"></i></div>
+                            <span class="text-lg font-mono font-bold text-gray-400 shrink-0">03</span>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4 text-[#111] tracking-tight break-words">Automated Pipelines</h3>
+                        <p class="text-gray-600 text-[13px] leading-[1.6] mt-auto break-words font-medium">End-to-end CRM integration. Scale operations without scaling human headcount.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="dark-section py-24 md:py-40 px-4 sm:px-6 md:px-16 relative w-full border-y border-[#333] bg-[#0a0a0a] overflow-hidden">
+            
+            <img src="https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779625001/ChatGPT_Image_May_23_2026_12_24_44_PM_1_lv1dne.png" 
+                 id="pterodactyl-img"
+                 class="absolute top-0 left-1/2 -translate-x-1/2 w-[160vw] md:w-[1100px] pointer-events-none z-0 -translate-y-[20%] md:-translate-y-[40%] opacity-80 mix-blend-lighten parallax-element" 
+                 alt="Pterodactyl Background" aria-hidden="true">
+
+            <div class="w-full max-w-7xl mx-auto relative z-10">
+                <div class="mb-16 md:mb-24 reveal flex flex-col items-center justify-center text-center w-full box-border">
+                    <span class="text-[10px] font-mono font-bold text-gray-500 tracking-widest mb-4 uppercase">Client Deployment</span>
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[4rem] font-medium tracking-tight leading-[1.1] mb-6 text-white break-words">Live Environments</h2>
+                    <p class="text-gray-400 text-[13px] max-w-2xl leading-[1.6] px-2 break-words font-medium">
+                        Inspect active infrastructure in production.
+                    </p>
+                </div>
+
+                <div class="w-full max-w-4xl mx-auto physical-panel border border-[#333] p-4 sm:p-6 md:p-8 reveal shadow-none box-border mb-24 bg-[#111]">
+                    <div class="bg-black p-2 sm:p-3 relative overflow-hidden w-full border border-[#222] box-border">
+                        <div class="p-8 md:p-12 flex flex-col items-center justify-center text-center relative z-10 min-h-[300px] w-full box-border border border-gray-800">
+                            <div class="absolute top-6 left-6 flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-white animate-pulse shrink-0"></div>
+                                <span class="text-[9px] font-mono font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">Status: Live</span>
+                            </div>
+                            
+                            <h3 class="text-4xl md:text-6xl font-medium tracking-tighter mb-4 mt-12 break-words text-white w-full">VIZORRA</h3>
+                            <p class="text-[10px] font-mono font-bold tracking-widest uppercase mb-12 text-gray-500 px-2">Premium Web Architecture</p>
+                            
+                            <a href="https://farmanshafi2007-hub.github.io/VIZORRA/" target="_blank" rel="noopener noreferrer" class="nhm-btn !bg-white !text-black !border-white hover:!opacity-90 px-8 py-4 text-[10px] font-mono font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 no-underline w-full sm:w-auto whitespace-nowrap" style="background: white !important;">
+                                <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i> Access System
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-24 reveal relative z-20">
+                    <div class="flex flex-col xl:flex-row justify-between mb-16 px-4 md:px-8">
+                        <h2 class="text-[1.8rem] md:text-[3rem] lg:text-[3.8rem] xl:text-[4rem] leading-[1.15] font-medium tracking-tight text-white max-w-4xl">
+                            Curated from millions of years of wonder 
+                            <span class="inline-flex gap-2 md:gap-3 align-middle mx-2 md:mx-4 translate-y-[-4px]">
+                                <span class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center transition-colors hover:bg-white hover:text-black hover:border-white cursor-pointer"><i data-lucide="bone" class="w-5 h-5 md:w-6 md:h-6"></i></span>
+                                <span class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center transition-colors hover:bg-white hover:text-black hover:border-white cursor-pointer"><i data-lucide="dna" class="w-5 h-5 md:w-6 md:h-6"></i></span>
+                                <span class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-600 bg-black text-gray-400 flex items-center justify-center transition-colors hover:bg-white hover:text-black hover:border-white cursor-pointer"><i data-lucide="leaf" class="w-5 h-5 md:w-6 md:h-6"></i></span>
+                            </span>
+                            & discovery.
+                        </h2>
+                        <div class="mt-8 xl:mt-0 flex flex-col items-start xl:items-end">
+                            <p class="text-[9px] md:text-[10px] font-mono tracking-widest text-gray-400 uppercase mb-6 leading-relaxed xl:text-right">
+                                WE DON'T JUST DISPLAY FOSSILS<br/>WE SHARE EARTH'S STORY
+                            </p>
+                            <div class="flex gap-3">
+                                <span class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black transition-colors cursor-pointer">Educational</span>
+                                <span class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black transition-colors cursor-pointer hidden sm:block">Authentic</span>
+                                <span class="px-5 py-2 rounded-full border border-gray-600 text-[9px] font-mono tracking-widest uppercase text-gray-300 hover:bg-white hover:text-black transition-colors cursor-pointer">Inspiring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-800 flex flex-col lg:flex-row w-full bg-[#050505]">
+                        <div class="w-full lg:w-[35%] border-b lg:border-b-0 lg:border-r border-gray-800 flex flex-col p-8 min-h-[400px] md:min-h-[500px] relative">
+                            <div class="text-gray-500 text-xl tracking-[0.3em]">***</div>
+                            <div class="flex-1 relative flex items-center justify-center w-full my-8">
+                                <img id="chapter-image" src="https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624236/03_hcp3jc.png" class="absolute inset-0 w-[80%] h-[80%] m-auto object-contain mix-blend-lighten sand-filter-active grayscale hover:grayscale-0 transition-all duration-700" alt="Fossil Gallery">
+                            </div>
+                            <div class="mt-auto">
+                                <p id="chapter-counter" class="text-[10px] font-mono tracking-widest text-[#888] uppercase overflow-hidden h-4">
+                                    03 <span class="text-[#333] mx-1">/</span> 05
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-[65%] flex flex-col">
+                            <div class="border-b border-gray-800 p-8 flex justify-between items-center text-[10px] font-mono text-gray-400 tracking-widest uppercase">
+                                <span>Explore the past. Understand the present.</span>
+                                <span id="chapter-label">Chapter 03</span>
+                            </div>
+                            <div class="flex-1 flex flex-col" id="chapter-list">
+                                <!-- Generated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-gray-800 bg-[#0a0a0a] px-8 py-8 text-[10px] font-mono tracking-widest text-gray-500 uppercase">
+                        DIGGING INTO OUR PLANET'S PAST
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 md:py-24 px-4 sm:px-6 md:px-16 bg-[#fcfcfc] w-full">
+            <div class="w-full max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] font-medium tracking-tight leading-[1.1] text-[#111] break-words">Telemetry</h2>
+                    <p class="text-gray-500 font-mono font-bold mt-6 uppercase tracking-widest text-[10px] break-words">Operator Feedback</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 w-full box-border">
+                    <div class="physical-panel reveal bg-white border border-gray-200 p-8 sm:p-12 w-full box-border">
+                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-8 text-center sm:text-left box-border">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 border border-gray-200 bg-[#fcfcfc]">
+                                <i data-lucide="user" class="w-5 h-5 text-[#111] shrink-0"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-[#111] tracking-tight text-base break-words">Sarah J.</h4>
+                                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500 mt-1 break-words">Clinic Director</p>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-left break-words box-border">
+                            <p class="font-sans text-[15px] text-gray-700 leading-[1.7] font-medium">
+                                "The AI agent handles 90% of our inquiries and books appointments autonomously. It fundamentally shifted our operational efficiency."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="physical-panel reveal bg-white border border-gray-200 p-8 sm:p-12 w-full box-border" style="transition-delay: 100ms;">
+                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-8 text-center sm:text-left box-border">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 border border-gray-200 bg-[#fcfcfc]">
+                                <i data-lucide="user" class="w-5 h-5 text-[#111] shrink-0"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-[#111] tracking-tight text-base break-words">Riyaz A.</h4>
+                                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500 mt-1 break-words">E-com Founder</p>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-left break-words box-border">
+                            <p class="font-sans text-[15px] text-gray-700 leading-[1.7] font-medium">
+                                "The minimal aesthetic elevated our brand authority instantly. Combined with system optimizations, our conversion velocity accelerated."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guarantee" class="py-16 px-4 bg-[#111] text-white text-center w-full border-t border-gray-800">
+            <div class="w-full max-w-4xl mx-auto box-border">
+                <i data-lucide="shield-check" class="w-8 h-8 text-white mx-auto mb-6 shrink-0"></i>
+                <h2 class="text-xl sm:text-2xl font-medium tracking-tight mb-4 break-words">System Guarantee</h2>
+                <p class="text-[13px] text-gray-400 leading-[1.6] mb-2 px-4 break-words max-w-2xl mx-auto">
+                    If our systems fail to operate as scoped, we resolve it at no cost. Lifetime bug support. Zero hidden retainers. Complete code transparency.
+                </p>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-16 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-white border-b border-gray-200 w-full">
+            <div class="w-full max-w-7xl mx-auto">
+                <div class="text-center mb-16 md:mb-24 space-y-6 reveal px-2 box-border">
+                    <div class="inline-flex items-center gap-2 text-[10px] font-mono font-bold text-[#111] tracking-widest uppercase border border-gray-200 px-4 py-2 bg-gray-50">
+                        <i data-lucide="zap" class="w-3 h-3 text-[#111] shrink-0"></i> Clear Investment
+                    </div>
+                    
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] lg:text-[4rem] font-medium leading-[1.1] w-full max-w-4xl mx-auto tracking-tight text-[#111] break-words">
+                        Scalable infrastructure.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 items-stretch lg:py-6 w-full box-border bg-gray-200 p-px">
+                    
+                    <!-- Starter Tier -->
+                    <article class="bg-[#fcfcfc] p-8 md:p-10 flex flex-col h-full relative z-10 w-full box-border hover:bg-white transition-colors physical-panel">
+                        <div class="mb-10 text-[#111]">
+                            <div class="border border-gray-200 bg-white inline-block p-3 mb-6"><i data-lucide="layout" class="w-5 h-5 text-[#111] shrink-0"></i></div>
+                            <h3 class="text-xl font-medium tracking-tight mb-2 break-words">Starter</h3>
+                            <p class="text-gray-500 text-[13px] break-words font-medium">Foundational digital presence.</p>
+                        </div>
+                        
+                        <div class="mb-10 text-[2.5rem] font-medium text-[#111] tracking-tighter break-words font-mono">₹3,000</div>
+                        
+                        <button onclick="openEnquiryModal()" class="nhm-btn w-full py-4 text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-10 whitespace-nowrap bg-white text-black border-gray-300 hover:opacity-90" aria-label="Request Quote for Starter Plan">
+                            Book Your Website
+                        </button>
+                        
+                        <div class="border-t border-gray-200 pt-8 flex-1 mt-auto box-border">
+                            <p class="text-[10px] font-mono font-bold tracking-widest uppercase mb-6 text-gray-400 break-words">Core Functionality</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Single-Page Architecture</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Basic Lead Capture Form</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Mobile-Native Design</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Foundational SEO Setup</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Pro Tier -->
+                    <article class="bg-[#111] p-8 md:p-12 flex flex-col h-full relative z-20 transform lg:scale-[1.02] w-full box-border shadow-2xl shadow-black/20 physical-panel border-[#111]" style="transition-delay: 100ms;">
+                        <div class="mx-auto lg:absolute lg:-top-4 lg:right-6 lg:mx-0 flex w-max items-center gap-2 bg-[#1a1a1a] border border-[#333] px-4 py-2 mb-8 lg:mb-0 box-border">
+                            <div class="w-2 h-2 rounded-full bg-white animate-pulse shrink-0"></div>
+                            <span class="text-[9px] font-mono font-bold text-white uppercase tracking-widest whitespace-nowrap">High Demand - Act Fast</span>
+                        </div>
+
+                        <div class="mb-10 text-white">
+                            <div class="border border-[#333] bg-[#1a1a1a] inline-block p-3 mb-6"><i data-lucide="bot" class="w-5 h-5 text-white shrink-0"></i></div>
+                            <h3 class="text-2xl text-white font-medium tracking-tight mb-2 break-words">Business Pro</h3>
+                            <p class="text-gray-400 text-[13px] break-words font-medium">Autonomous sales architecture.</p>
+                        </div>
+                        
+                        <div class="mb-10 text-[3rem] font-medium text-white tracking-tighter break-words font-mono">₹7,000</div>
+                        
+                        <button onclick="openEnquiryModal()" class="nhm-btn w-full py-4 text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-10 whitespace-nowrap" aria-label="Start Business Pro Project">
+                            Book Your Website
+                        </button>
+                        
+                        <div class="border-t border-[#333] pt-8 flex-1 mt-auto box-border"> 
+                            <p class="text-[10px] font-mono font-bold tracking-widest uppercase mb-6 text-gray-500 break-words">Full Automation</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 text-[13px] text-gray-300 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-white shrink-0"></i>
+                                    <span class="break-words leading-tight">Multi-Page Architecture</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-300 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-white shrink-0"></i>
+                                    <span class="break-words leading-tight">Autonomous AI Agent</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-300 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-white shrink-0"></i>
+                                    <span class="break-words leading-tight">Continuous Deal Processing</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-300 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-white shrink-0"></i>
+                                    <span class="break-words leading-tight">Ongoing System Iteration</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-300 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-white shrink-0"></i>
+                                    <span class="break-words leading-tight">Free Domain Included</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Enterprise Tier -->
+                    <article class="bg-[#fcfcfc] p-8 md:p-10 flex flex-col h-full relative z-10 w-full sm:col-span-2 lg:col-span-1 box-border hover:bg-white transition-colors physical-panel" style="transition-delay: 200ms;">
+                        <div class="mb-10 text-[#111]">
+                            <div class="border border-gray-200 bg-white inline-block p-3 mb-6"><i data-lucide="cpu" class="w-5 h-5 text-[#111] shrink-0"></i></div>
+                            <h3 class="text-xl font-medium tracking-tight text-[#111] mb-2 break-words">Custom Build</h3>
+                            <p class="text-gray-500 text-[13px] break-words font-medium">Customized enterprise logic.</p>
+                        </div>
+                        
+                        <div class="mb-10 text-[2.5rem] font-medium text-[#111] tracking-tighter break-words font-mono">₹15,000</div>
+                        
+                        <button onclick="openEnquiryModal()" class="nhm-btn w-full py-4 text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-10 whitespace-nowrap hover:opacity-90" aria-label="Request Quote for Custom Build">
+                            Book Your Website
+                        </button>
+                        
+                        <div class="border-t border-gray-200 pt-8 flex-1 mt-auto box-border">
+                            <p class="text-[10px] font-mono font-bold tracking-widest uppercase mb-6 text-gray-400 break-words">Everything In Pro, Plus:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Expanded Architecture</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Voice & Text AI Sales Agents</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Advanced Workflow Logic</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-[13px] text-gray-700 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 text-[#111] shrink-0"></i>
+                                    <span class="break-words leading-tight">Custom API Integrations</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-16 md:py-24 px-4 sm:px-6 bg-[#fcfcfc] border-b border-gray-200 w-full">
+            <div class="w-full max-w-3xl mx-auto box-border">
+                <div class="text-center mb-16 reveal px-2 box-border">
+                    <h2 class="text-[2.2rem] sm:text-4xl font-medium tracking-tight leading-[1] text-[#111] break-words">Knowledge Base</h2>
+                    <p class="text-gray-500 font-mono font-bold mt-6 uppercase tracking-widest text-[10px] break-words">System Protocols</p>
+                </div>
+                
+                <div class="space-y-2 reveal w-full box-border" role="tablist">
+                    <div class="bg-white border border-gray-200 p-5 cursor-pointer w-full hover:bg-gray-50 transition-colors box-border" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-1" tabindex="0">
+                        <div class="flex justify-between items-center w-full box-border">
+                            <h4 class="font-medium text-[#111] tracking-tight text-sm md:text-base pr-4 break-words">What is the standard deployment timeline?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-[#111] shrink-0"></i>
+                        </div>
+                    </div>
+                    <div id="faq-content-1" class="accordion-content bg-gray-50 border-x border-b border-gray-200 mx-2 relative -z-10 box-border" role="region">
+                        <div class="p-6 text-[13px] text-gray-600 leading-[1.6] break-words font-medium">
+                            Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 p-5 cursor-pointer w-full hover:bg-gray-50 transition-colors box-border mt-2" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-2" tabindex="0">
+                        <div class="flex justify-between items-center w-full box-border">
+                            <h4 class="font-medium text-[#111] tracking-tight text-sm md:text-base pr-4 break-words">Who retains asset ownership?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-[#111] shrink-0"></i>
+                        </div>
+                    </div>
+                    <div id="faq-content-2" class="accordion-content bg-gray-50 border-x border-b border-gray-200 mx-2 relative -z-10 box-border" role="region">
+                        <div class="p-6 text-[13px] text-gray-600 leading-[1.6] break-words font-medium">
+                            You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 p-5 cursor-pointer w-full hover:bg-gray-50 transition-colors box-border mt-2" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-3" tabindex="0">
+                        <div class="flex justify-between items-center w-full box-border">
+                            <h4 class="font-medium text-[#111] tracking-tight text-sm md:text-base pr-4 break-words">How is AI accuracy maintained?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-[#111] shrink-0"></i>
+                        </div>
+                    </div>
+                    <div id="faq-content-3" class="accordion-content bg-gray-50 border-x border-b border-gray-200 mx-2 relative -z-10 box-border" role="region">
+                        <div class="p-6 text-[13px] text-gray-600 leading-[1.6] break-words font-medium">
+                            Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="py-16 md:py-24 px-4 sm:px-6 bg-white border-b border-gray-200 w-full">
+            <div class="w-full max-w-5xl mx-auto text-center reveal box-border">
+                <div class="mb-16 text-center px-2 box-border">
+                    <span class="text-[10px] font-mono font-bold text-gray-500 tracking-widest uppercase break-words">System Architects</span>
+                    <h2 class="text-[2.2rem] sm:text-4xl md:text-[3.5rem] font-medium tracking-tight mt-4 leading-[1] text-[#111] break-words">Engineered in Kashmir</h2>
+                    <p class="text-gray-600 mt-6 text-[13px] max-w-2xl mx-auto break-words leading-[1.6] font-medium">A specialized team of systems engineers treating your infrastructure as our own.</p>
+                </div>
+                
+                <div class="flex justify-center w-full px-2 box-border">
+                    <div class="physical-panel bg-[#fcfcfc] border border-gray-200 p-10 max-w-sm w-full box-border">
+                        <div class="border border-gray-200 bg-white w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                             <i data-lucide="terminal-square" class="w-6 h-6 text-[#111] shrink-0"></i>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-[#111] break-words">Farman Shafi</h3>
+                        <p class="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest mt-2 mb-8 break-words">Lead Systems Engineer</p>
+                        <div class="px-2 box-border border-t border-gray-200 pt-6">
+                            <p class="font-sans text-[13px] text-gray-700 leading-[1.6] break-words font-medium">"We replace outdated marketing with autonomous systems engineered for revenue."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 md:py-40 px-4 sm:px-6 relative bg-[#fcfcfc] w-full">
+            <div class="w-full max-w-3xl mx-auto physical-panel bg-white border border-gray-200 p-10 md:p-16 text-center reveal relative z-10 box-border">
+                <div class="border border-gray-200 bg-[#fcfcfc] w-16 h-16 flex items-center justify-center mx-auto mb-10">
+                    <i data-lucide="rocket" class="w-6 h-6 text-[#111] shrink-0"></i>
+                </div>
+                <h2 class="text-[2.5rem] md:text-[4rem] font-medium mb-6 tracking-tight leading-[1] text-[#111] break-words">Initialize Protocol.</h2>
+                <p class="text-gray-600 mb-12 text-[13px] md:text-[14px] max-w-xl mx-auto leading-[1.6] px-2 break-words font-medium">
+                    We build scalable infrastructure that actively acquires and converts.
+                </p>
+                
+                <button onclick="openEnquiryModal()" class="nhm-btn px-10 py-5 font-mono font-bold text-[11px] uppercase tracking-[0.2em] inline-flex items-center gap-3 whitespace-nowrap">
+                    Book Your Website <i data-lucide="arrow-right" class="w-4 h-4 text-white shrink-0 nhm-btn-icon"></i>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-16 md:py-24 px-4 sm:px-6 bg-white text-center relative border-t border-gray-200 w-full">
+        <div class="w-full max-w-7xl mx-auto box-border">
+            <div class="text-xl md:text-2xl font-mono font-bold tracking-[0.2em] uppercase text-[#111] flex items-center justify-center gap-4 mb-10 cursor-pointer break-words">
+                <div class="border border-gray-200 bg-[#fcfcfc] p-3 inline-flex items-center justify-center">
+                    <i data-lucide="hexagon" class="text-[#111] w-5 h-5 shrink-0"></i>
+                </div>
+                <span>FORGE<span class="text-gray-400">SOFTWARE</span></span>
+            </div>
+            
+            <div class="flex justify-center items-center gap-6 mb-12 w-full box-border">
+                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-[#111] rounded-full" title="Facebook" aria-label="Visit Facebook Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="shrink-0" role="img" aria-labelledby="fbIconTitle">
+                        <title id="fbIconTitle">Facebook</title>
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/pellixperfumes?s=21" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors text-[#111] rounded-full" title="X (Twitter)" aria-label="Visit Twitter Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0" role="img" aria-labelledby="twitterIconTitle">
+                        <title id="twitterIconTitle">Twitter</title>
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="h-[1px] w-24 bg-gray-200 mx-auto mb-10"></div>
+            <p class="text-gray-500 text-[9px] md:text-[10px] uppercase font-mono font-bold tracking-widest leading-loose break-words w-full box-border">
+                Premium B2B Agency &copy; 2026. All rights reserved. <br class="sm:hidden block mt-2" /> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> 
+                Parent Group of Cobra & Runo
+                <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+                <span class="sm:hidden inline-block px-2">|</span>
+                <button onclick="openTerms()" class="hover:text-black transition-colors underline underline-offset-4 decoration-transparent hover:decoration-black mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-black">Terms & Conditions</button>
+                <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+                <span class="sm:hidden inline-block px-2">|</span>
+                <button onclick="openPrivacy()" class="hover:text-black transition-colors underline underline-offset-4 decoration-transparent hover:decoration-black mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-black">Privacy Policy</button>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ENQUIRY MODAL -->
+    <div id="enquiryModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+        <div class="physical-panel bg-white max-w-md w-[92%] sm:w-full max-h-[90dvh] flex flex-col relative border border-gray-200 transform scale-95 transition-transform duration-300 mx-auto box-border" id="enquiryContent">
+            
+            <button onclick="closeEnquiryModal()" class="absolute top-4 right-4 bg-gray-50 border border-gray-200 w-8 h-8 flex items-center justify-center z-[100] focus:outline-none focus-visible:ring-2 focus-visible:ring-black hover:bg-gray-100" aria-label="Close Modal">
+                <i data-lucide="x" class="w-4 h-4 text-[#111] shrink-0"></i>
+            </button>
+            
+            <div class="pt-8 px-6 sm:px-10 pb-6 shrink-0 border-b border-gray-200 relative overflow-hidden box-border">
+                <div class="relative z-10 text-left pr-8 w-full box-border">
+                    <div class="flex items-center gap-3 mb-3">
+                        <h3 id="enquiryTitle" class="text-xl sm:text-2xl font-medium text-[#111] tracking-tight break-words">System Init</h3>
+                        <div class="w-2 h-2 bg-[#111] animate-pulse shrink-0"></div>
+                    </div>
+                    <p class="text-gray-500 text-[10px] font-mono font-bold tracking-widest uppercase break-words">Input project parameters. Fast response active.</p>
+                </div>
+            </div>
+            
+            <div class="overflow-y-auto custom-scrollbar p-6 sm:p-10 flex-1 box-border">
+                <form onsubmit="handleEnquirySubmit(event)" class="space-y-6 text-left relative z-10 w-full pb-2 box-border">
+                    
+                    <div class="w-full box-border">
+                        <label for="name" class="text-[10px] font-mono font-bold text-[#111] uppercase tracking-widest mb-2 block">Company / Person Name</label>
+                        <div class="relative group bg-[#fcfcfc] border border-gray-200 focus-within:border-black transition-colors">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                            </div>
+                            <input type="text" id="name" name="name" required="required" autocomplete="name" class="w-full bg-transparent pl-11 pr-4 py-3.5 text-[13px] focus:outline-none placeholder-gray-400 text-[#111]" placeholder="Enter full name" />
+                        </div>
+                    </div>
+                    
+                    <div class="w-full box-border">
+                        <label for="phone" class="text-[10px] font-mono font-bold text-[#111] uppercase tracking-widest mb-2 block">Phone Number (WhatsApp)</label>
+                        <div class="relative group bg-[#fcfcfc] border border-gray-200 focus-within:border-black transition-colors">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <input type="tel" id="phone" name="phone" required="required" autocomplete="tel" class="w-full bg-transparent pl-11 pr-4 py-3.5 text-[13px] focus:outline-none placeholder-gray-400 text-[#111]" placeholder="Enter contact number" />
+                        </div>
+                    </div>
+
+                    <div class="w-full box-border">
+                        <label for="country" class="text-[10px] font-mono font-bold text-[#111] uppercase tracking-widest mb-2 block">Country / State Location</label>
+                        <div class="relative group bg-[#fcfcfc] border border-gray-200 focus-within:border-black transition-colors">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                                <i data-lucide="globe-2" class="w-4 h-4"></i>
+                            </div>
+                            <select id="country" name="country" required="required" autocomplete="country" class="w-full bg-transparent pl-11 pr-10 py-3.5 text-[13px] focus:outline-none text-[#111] appearance-none cursor-pointer relative z-10 rounded-none">
+                                <option value="" disabled selected class="text-gray-400">Select country or state...</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="India">India</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Mexico">Mexico</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-0">
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full nhm-btn py-4 font-mono font-bold text-[11px] uppercase tracking-[0.2em] mt-8 text-white disabled:bg-gray-400 whitespace-nowrap box-border">
+                        Book Your Website
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+        <div class="physical-panel bg-white max-w-md w-[92%] sm:w-full max-h-[90dvh] overflow-y-auto custom-scrollbar p-10 sm:p-16 text-center transform scale-95 transition-transform duration-300 relative border border-gray-200 mx-auto box-border" id="successContent">
+            
+            <div class="bg-[#fcfcfc] border border-gray-200 w-20 h-20 flex items-center justify-center mx-auto mb-10 rounded-full">
+                <i data-lucide="check" class="w-8 h-8 text-[#111] shrink-0"></i>
+            </div>
+            
+            <h3 id="successTitle" class="text-2xl sm:text-3xl font-medium text-[#111] tracking-tight mb-6 break-words">Priority Access Confirmed</h3>
+            
+            <p class="text-gray-600 text-[13px] leading-[1.6] mb-10 break-words font-medium">
+                Your response is securely recorded. Our senior team will call you shortly to outline the next steps. Welcome to the new standard.
+            </p>
+            
+            <button onclick="closeSuccessModal()" class="nhm-btn w-full py-4 font-mono font-bold text-[11px] uppercase tracking-[0.2em] whitespace-nowrap">
+                Return to Main Page
+            </button>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+        <div class="physical-panel bg-white max-w-4xl w-[92%] sm:w-full max-h-[90dvh] p-6 sm:p-10 flex flex-col relative border border-gray-200 transform scale-95 transition-transform duration-300 mx-auto overflow-hidden box-border" id="termsContent">
+            
+            <button onclick="closeTerms()" class="absolute top-6 right-6 bg-gray-50 border border-gray-200 w-10 h-10 flex items-center justify-center z-20 focus:outline-none hover:bg-gray-100" aria-label="Close Terms">
+                <i data-lucide="x" class="w-4 h-4 text-[#111] shrink-0"></i>
+            </button>
+            
+            <div class="text-center mb-8 shrink-0 border-b border-gray-200 pr-12 lg:pr-0 w-full pb-6 box-border">
+                <h3 id="termsTitle" class="text-xl md:text-3xl font-medium mb-3 text-[#111] tracking-tight break-words">Terms & Conditions</h3>
+                <p class="text-gray-500 text-[10px] font-mono font-bold tracking-widest uppercase break-words">Forge Softwares</p>
+            </div>
+            
+            <div class="bg-[#fcfcfc] border border-gray-200 flex-1 overflow-y-auto p-6 md:p-10 text-[13px] text-[#111] leading-[1.6] custom-scrollbar break-words w-full box-border font-medium">
+                <p class="italic text-gray-500 mb-6">Last Updated: 8:00 pm, 2 June 2026<br><br>These Terms govern service utilization. Engaging Forge Softwares or our subsidiaries implies strict agreement with these parameters.</p>
+                
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">1. Core Operations</h4>
+                <p class="mb-3">Forge Softwares executes custom digital architecture:</p>
+                <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-600">
+                    <li class="break-words">Web infrastructure development</li>
+                    <li class="break-words">AI automation deployment</li>
+                    <li class="break-words">SaaS and custom software logic</li>
+                </ul>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">2. Eligibility</h4>
+                <p class="mb-6 text-gray-600 break-words">Services are accessible to verified organizations and individuals. We reserve operational discretion for project acceptance.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">3. Financial Protocol</h4>
+                <p class="mb-6 text-gray-600 break-words">A 10% initiation retainer is mandatory. Final balance is required prior to deployment. Accepted modalities include standard digital transfer protocols.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">4. Refund Parameters</h4>
+                <p class="mb-6 text-gray-600 break-words">Custom engineering negates refunds post-initiation. Advance retainers remain non-refundable.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">5. Delivery Specifications</h4>
+                <p class="mb-6 text-gray-600 break-words">Deployment constitutes functional implementation on client architecture. Source code retention remains with Forge unless contractually specified.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">6. Intellectual Property</h4>
+                <p class="mb-6 text-gray-600 break-words">Clients retain domain and operational output. Forge retains proprietary internal architecture and framework rights.</p>
+                
+                <div class="pt-6 mt-10 border-t border-gray-200 text-center text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500 break-words">
+                    Utilization of Forge Softwares indicates explicit agreement with these protocols.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+        <div class="physical-panel bg-white max-w-4xl w-[92%] sm:w-full max-h-[90dvh] p-6 sm:p-10 flex flex-col relative border border-gray-200 transform scale-95 transition-transform duration-300 m-auto mx-4 sm:mx-auto overflow-hidden box-border" id="privacyContent">
+            
+            <button onclick="closePrivacy()" class="absolute top-6 right-6 bg-gray-50 border border-gray-200 w-10 h-10 flex items-center justify-center z-20 focus:outline-none hover:bg-gray-100" aria-label="Close Privacy Policy">
+                <i data-lucide="x" class="w-4 h-4 text-[#111] shrink-0"></i>
+            </button>
+            
+            <div class="text-center mb-8 shrink-0 border-b border-gray-200 pr-12 lg:pr-0 w-full pb-6 box-border">
+                <h3 id="privacyTitle" class="text-xl md:text-3xl font-medium mb-3 text-[#111] tracking-tight break-words">Privacy Policy</h3>
+                <p class="text-gray-500 text-[10px] font-mono font-bold tracking-widest uppercase break-words">Forge Softwares</p>
+            </div>
+            
+            <div class="bg-[#fcfcfc] border border-gray-200 flex-1 overflow-y-auto p-6 md:p-10 text-[13px] text-[#111] leading-[1.6] custom-scrollbar break-words w-full box-border font-medium">
+                <p class="italic text-gray-500 mb-6">Last Updated: 12:35 pm, 3 June 2026<br><br>We enforce strict data protocol. This document outlines information processing parameters.</p>
+                
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">1. Data Acquisition</h4>
+                <p class="mb-6 text-gray-600 break-words">We collect precise operational data required for deployment: identification, contact channels, and system specifications.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">2. Processing Protocol</h4>
+                <p class="mb-6 text-gray-600 break-words">Data is utilized strictly for service execution, system architecture, and operational communication.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">3. Security Infrastructure</h4>
+                <p class="mb-6 text-gray-600 break-words">We implement robust storage security. Data distribution to third parties is explicitly denied unless legally mandated.</p>
+
+                <h4 class="font-medium text-[#111] text-base mt-8 mb-3 tracking-tight break-words">4. Telemetry & Tracking</h4>
+                <p class="mb-6 text-gray-600 break-words">Standard analytic cookies are utilized to optimize system performance and traffic flow.</p>
+                
+                <div class="pt-6 mt-10 border-t border-gray-200 text-center text-[10px] font-mono font-bold uppercase tracking-widest text-gray-500 break-words">
+                    System interaction constitutes consent to this policy.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Init Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    lucide.createIcons();
+                });
+            }, 150);
+        });
+
+        // --- NEXUM MOBILE MENU LOGIC ---
+        const nexumMobileMenuBtn = document.getElementById('nexumMobileMenuBtn');
+        const nexumMenuIcon = document.getElementById('nexumMenuIcon');
+        const nexumXIcon = document.getElementById('nexumXIcon');
+        const nexumMobileOverlay = document.getElementById('nexumMobileOverlay');
+        const nexumMobileDrawer = document.getElementById('nexumMobileDrawer');
+        const nexumMobLinks = document.querySelectorAll('.nexum-mob-link');
+        const nexumMobCta = document.getElementById('nexumMobCta');
+        let isNexumMenuOpen = false;
+
+        function toggleNexumMenu() {
+            isNexumMenuOpen = !isNexumMenuOpen;
+            
+            if (isNexumMenuOpen) {
+                document.body.style.overflow = 'hidden';
+                
+                // Icon Animation
+                nexumMenuIcon.classList.replace('scale-100', 'scale-0');
+                nexumMenuIcon.classList.replace('opacity-100', 'opacity-0');
+                nexumMenuIcon.classList.replace('rotate-0', 'rotate-90');
+                
+                nexumXIcon.classList.replace('scale-0', 'scale-100');
+                nexumXIcon.classList.replace('opacity-0', 'opacity-100');
+                nexumXIcon.classList.replace('-rotate-90', 'rotate-0');
+                
+                // Overlay & Drawer
+                nexumMobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                nexumMobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
+                nexumMobileDrawer.classList.replace('translate-x-full', 'translate-x-0');
+                
+                // Stagger Links
+                nexumMobLinks.forEach((link, idx) => {
+                    setTimeout(() => {
+                        link.style.transition = 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+                        link.classList.remove('opacity-0', 'translate-x-[24px]');
+                    }, (idx + 1) * 60);
+                });
+                
+                // Bottom CTA
+                setTimeout(() => {
+                    nexumMobCta.classList.remove('opacity-0', 'translate-y-[16px]');
+                }, 300);
+                
+            } else {
+                document.body.style.overflow = '';
+                
+                // Icon Animation
+                nexumMenuIcon.classList.replace('scale-0', 'scale-100');
+                nexumMenuIcon.classList.replace('opacity-0', 'opacity-100');
+                nexumMenuIcon.classList.replace('rotate-90', 'rotate-0');
+                
+                nexumXIcon.classList.replace('scale-100', 'scale-0');
+                nexumXIcon.classList.replace('opacity-100', 'opacity-0');
+                nexumXIcon.classList.replace('rotate-0', '-rotate-90');
+                
+                // Overlay & Drawer
+                nexumMobileOverlay.classList.replace('opacity-100', 'opacity-0');
+                nexumMobileOverlay.classList.replace('pointer-events-auto', 'pointer-events-none');
+                nexumMobileDrawer.classList.replace('translate-x-0', 'translate-x-full');
+                
+                // Reset Animations
+                nexumMobLinks.forEach((link) => {
+                    link.style.transition = 'none';
+                    link.classList.add('opacity-0', 'translate-x-[24px]');
+                });
+                nexumMobCta.classList.add('opacity-0', 'translate-y-[16px]');
+            }
+        }
+
+        if(nexumMobileMenuBtn) {
+            nexumMobileMenuBtn.addEventListener('click', toggleNexumMenu);
+        }
+        
+        nexumMobLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(isNexumMenuOpen) toggleNexumMenu();
+            });
+        });
+
+        // Background Video Delay Logic (Preserved)
+        setTimeout(() => {
+            const video = document.getElementById('hero-bg-video');
+            if (video) video.classList.remove('opacity-0');
+        }, 2800);
+
+        // Parallax Effect
+        document.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                const ptero = document.getElementById('pterodactyl-img');
+                if(ptero) {
+                    const scrolled = window.scrollY;
+                    ptero.style.transform = `translateX(-50%) translateY(calc(-40% - ${scrolled * 0.15}px))`;
+                }
+            });
+        }, { passive: true });
+
+        // Accurate Local Time Sync
+        setInterval(() => {
+            requestAnimationFrame(() => {
+                const timeEl = document.getElementById('sys-time');
+                if(timeEl) {
+                    const now = new Date();
+                    timeEl.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+                }
+            });
+        }, 1000);
+
+        // Optimized Interactive Terminal Simulator
+        const terminalOutput = document.getElementById('terminal-output');
+        const dataLed = document.getElementById('data-led');
+        const terminalSequence = [
+            { type: 'user', text: "I need to automate my outreach." },
+            { type: 'agent', text: "PROCESSING QUERY..." },
+            { type: 'agent', text: "We embed autonomous agents into your infrastructure. They process logic, resolve queries, and execute meeting schedules continuously." },
+            { type: 'agent', text: "Shall we initiate a diagnostic protocol?" }
+        ];
+
+        let terminalTriggered = false;
+
+        function typeText(element, text, speed, callback) {
+            let i = 0;
+            if(dataLed) dataLed.classList.add('animate-pulse'); 
+            
+            element.innerHTML = ''; 
+            const textNode = document.createTextNode('');
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor-blink';
+            
+            element.appendChild(textNode);
+            element.appendChild(cursor);
+
+            function type() {
+                if (i < text.length) {
+                    textNode.nodeValue += text.charAt(i); 
+                    i++;
+                    requestAnimationFrame(() => {
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                    });
+                    setTimeout(type, speed);
+                } else {
+                    if(dataLed) dataLed.classList.remove('animate-pulse');
+                    if(callback) callback();
+                }
+            }
+            type();
+        }
+
+        function runTerminalSequence() {
+            if(terminalTriggered) return;
+            terminalTriggered = true;
+            terminalOutput.innerHTML = ''; 
+            let delay = 0;
+
+            terminalSequence.forEach((msg, index) => {
+                setTimeout(() => {
+                    const block = document.createElement('div');
+                    block.className = 'flex gap-3 mb-5 w-full opacity-0 transform translate-y-2 transition-all duration-300';
+                    
+                    const sender = document.createElement('div');
+                    sender.className = 'font-mono font-bold shrink-0 text-xs text-gray-400';
+                    sender.textContent = msg.type === 'user' ? '> USER:' : '> AGENT:';
+                    
+                    const content = document.createElement('div');
+                    content.className = 'leading-[1.6] font-mono break-words text-xs w-full text-white';
+                    
+                    block.appendChild(sender);
+                    block.appendChild(content);
+                    terminalOutput.appendChild(block);
+
+                    setTimeout(() => {
+                        block.classList.remove('opacity-0', 'translate-y-2');
+                    }, 50);
+
+                    typeText(content, msg.text, 25, () => {
+                        const cursors = terminalOutput.querySelectorAll('.cursor-blink');
+                        cursors.forEach(c => c.remove());
+                        
+                        if (index === terminalSequence.length - 1) {
+                            const finalCursor = document.createElement('span');
+                            finalCursor.className = 'cursor-blink';
+                            content.appendChild(finalCursor);
+                        }
+                    });
+
+                }, delay);
+                delay += (msg.text.length * 25) + 1200; 
+            });
+        }
+
+        // --- NHM ANCIENT COLLECTION (FOSSIL CHAPTERS) LOGIC ---
+        const chaptersData = [
+            { name: "Age of Dinosaurs", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624247/01_udnber.png" },
+            { name: "Fossils of Ancient Life", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624374/02_pmvxxl.png" },
+            { name: "Reptiles of the Mesozoic", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624236/03_hcp3jc.png" },
+            { name: "Marine Fossil Gallery", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624256/04_get63z.png" },
+            { name: "Prehistoric Giants", image: "https://res.cloudinary.com/dsdxaxkiz/image/upload/v1779624251/05_kz1tyu.png" }
+        ];
+        
+        let activeChapterIndex = 2; // Default to "Reptiles" per requirements
+        let isAnimatingChapter = false;
+
+        function renderChapters() {
+            const listContainer = document.getElementById('chapter-list');
+            if(!listContainer) return;
+            listContainer.innerHTML = '';
+            
+            chaptersData.forEach((chapter, index) => {
+                const isActive = index === activeChapterIndex;
+                const textColor = isActive ? 'text-white' : 'text-[#444] hover:text-[#999]';
+                
+                let arrowHtml = isActive 
+                    ? `<svg class="w-6 h-6 stroke-[1.5] text-gray-400 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>` 
+                    : `<svg class="w-6 h-6 stroke-[1.5] text-gray-400 opacity-0 -translate-y-2 translate-x-2 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+
+                const html = `
+                    <div class="border-b border-gray-800/80 py-8 px-8 flex justify-between items-center cursor-pointer transition-colors duration-300 ${textColor}" onclick="changeChapter(${index})">
+                        <span class="text-2xl md:text-[2rem] font-medium tracking-tight">${chapter.name}</span>
+                        ${arrowHtml}
+                    </div>
+                `;
+                listContainer.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChapters();
+            
+            setInterval(() => {
+                const nextIndex = (activeChapterIndex + 1) % chaptersData.length;
+                changeChapter(nextIndex);
+            }, 3500);
+        });
+
+        function changeChapter(newIndex) {
+            if (isAnimatingChapter || newIndex === activeChapterIndex) return;
+            isAnimatingChapter = true;
+            
+            const img = document.getElementById('chapter-image');
+            const disp = document.getElementById('sand-disp');
+            const blur = document.getElementById('sand-blur');
+            const matrix = document.getElementById('sand-matrix');
+            
+            if(!img || !disp || !blur || !matrix) {
+                isAnimatingChapter = false;
+                return;
+            }
+
+            let start = performance.now();
+            
+            // Phase 1: Dissolve OUT
+            function animateOut(time) {
+                let progress = (time - start) / 450; 
+                if (progress > 1) progress = 1;
+                
+                let ease = Math.pow(progress, 3);
+                disp.setAttribute('scale', ease * 150);
+                blur.setAttribute('stdDeviation', ease * 6);
+                matrix.setAttribute('values', `1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 ${Math.max(0, 1 - progress * 1.2)} 0`);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animateOut);
+                } else {
+                    img.src = chaptersData[newIndex].image;
+                    activeChapterIndex = newIndex;
+                    
+                    document.getElementById('chapter-counter').innerHTML = `0${newIndex + 1} <span class="text-[#333] mx-1">/</span> 05`;
+                    document.getElementById('chapter-label').innerText = `Chapter 0${newIndex + 1}`;
+                    renderChapters(); 
+                    
+                    start = performance.now();
+                    requestAnimationFrame(animateIn);
+                }
+            }
+            
+            // Phase 2: Dissolve IN
+            function animateIn(time) {
+                let progress = (time - start) / 450;
+                if (progress > 1) progress = 1;
+                
+                let ease = 1 - Math.pow(1 - progress, 4);
+                let invEase = 1 - ease;
+                
+                disp.setAttribute('scale', invEase * 150);
+                blur.setAttribute('stdDeviation', invEase * 6);
+                matrix.setAttribute('values', `1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 ${ease} 0`);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animateIn);
+                } else {
+                    disp.setAttribute('scale', 0);
+                    blur.setAttribute('stdDeviation', 0);
+                    matrix.setAttribute('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0');
+                    isAnimatingChapter = false;
+                }
+            }
+            
+            requestAnimationFrame(animateOut);
+        }
+
+        // Universal Modals Logic
+        function openGenericModal(modalElement, contentElement) {
+            modalElement.classList.remove('hidden');
+            modalElement.classList.add('flex');
+            
+            document.body.style.overflow = 'hidden'; 
+            document.documentElement.style.overflow = 'hidden'; 
+            
+            requestAnimationFrame(() => {
+                modalElement.classList.remove('opacity-0');
+                if (contentElement) {
+                    contentElement.classList.remove('scale-95');
+                    contentElement.classList.add('scale-100');
+                }
+            });
+        }
+
+        function closeGenericModal(modalElement, contentElement) {
+            modalElement.classList.add('opacity-0');
+            if (contentElement) {
+                contentElement.classList.remove('scale-100');
+                contentElement.classList.add('scale-95');
+            }
+            
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            
+            setTimeout(() => {
+                modalElement.classList.add('hidden');
+                modalElement.classList.remove('flex');
+            }, 300);
+        }
+
+        // Enquiry Form & Success Modal Logic
+        const enquiryModal = document.getElementById('enquiryModal');
+        const enquiryContent = document.getElementById('enquiryContent');
+        const successModal = document.getElementById('successModal');
+        const successContent = document.getElementById('successContent');
+
+        function openEnquiryModal() { openGenericModal(enquiryModal, enquiryContent); }
+        function closeEnquiryModal() { closeGenericModal(enquiryModal, enquiryContent); }
+        function openSuccessModal() { openGenericModal(successModal, successContent); }
+        function closeSuccessModal() { closeGenericModal(successModal, successContent); }
+        
+        enquiryModal.addEventListener('click', function(e) { if (e.target === enquiryModal) closeEnquiryModal(); });
+        successModal.addEventListener('click', function(e) { if (e.target === successModal) closeSuccessModal(); });
+
+        async function handleEnquirySubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'PROCESSING DATA...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const url = "https://script.google.com/macros/s/AKfycbzK0V8AbooKYaBoVOqOe1iDgHXB5XOo8pGV0xPRuGmEMfzueVA3fBCTeEGFBZ8dlpHqzg/exec";
+
+            try {
+                await fetch(url, {
+                    method: "POST",
+                    mode: "no-cors",
+                    body: formData 
+                });
+
+                btn.innerHTML = 'DATA TRANSMITTED';
+                
+                setTimeout(() => {
+                    closeEnquiryModal();
+                    form.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    
+                    setTimeout(() => {
+                        openSuccessModal();
+                    }, 300);
+                }, 500);
+
+            } catch (error) {
+                console.error("Failed to Send", error);
+                btn.innerHTML = 'TRANSMISSION FAILED';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }
+        }
+
+        // Legal Modals
+        const termsModal = document.getElementById('termsModal');
+        const termsContent = document.getElementById('termsContent');
+        function openTerms() { openGenericModal(termsModal, termsContent); }
+        function closeTerms() { closeGenericModal(termsModal, termsContent); }
+        termsModal.addEventListener('click', function(e) { if (e.target === termsModal) closeTerms(); });
+
+        const privacyModal = document.getElementById('privacyModal');
+        const privacyContent = document.getElementById('privacyContent');
+        function openPrivacy() { openGenericModal(privacyModal, privacyContent); }
+        function closePrivacy() { closeGenericModal(privacyModal, privacyContent); }
+        privacyModal.addEventListener('click', function(e) { if (e.target === privacyModal) closePrivacy(); });
+
+        // Scroll Intersection Observer Optimization
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const terminalContainer = document.getElementById('terminal-container');
+            
+            const revealOptions = { 
+                threshold: 0.05,
+                rootMargin: "50px 0px 50px 0px"
+            };
+            
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add("active");
+                        });
+                        
+                        if(entry.target === terminalContainer) {
+                            setTimeout(runTerminalSequence, 400);
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+            
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
+        });
+        
+        // Semantic FAQ Accordion Logic
+        function toggleJobDetails(element) {
+            const isExpanded = element.getAttribute('aria-expanded') === 'true';
+            const contentId = element.getAttribute('aria-controls');
+            const details = document.getElementById(contentId);
+            const icon = element.querySelector('.transition-transform');
+            
+            element.setAttribute('aria-expanded', !isExpanded);
+            
+            if (!isExpanded && details) {
+                details.classList.add('expanded');
+                if(icon) {
+                    icon.classList.add('rotate-45');
+                }
+            } else if (details) {
+                details.classList.remove('expanded');
+                if(icon) {
+                    icon.classList.remove('rotate-45');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
