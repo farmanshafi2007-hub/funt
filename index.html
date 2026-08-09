@@ -16,8 +16,8 @@
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://unpkg.com/lucide@latest" as="script">
 
-    <!-- Mixed Typography System: Geist/Silkscreen for Hero, Inter/JetBrains for Rest -->
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Typography System: Geist/Silkscreen for Hero, Inter/JetBrains/Caveat for Rest -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Silkscreen:wght@400;700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- SEO & Search Engine Optimization Tags -->
     <title>Forge Softwares | Intelligent Web Architecture & AI Agents</title>
@@ -144,6 +144,7 @@
                         'marquee-ltr': 'marqueeLtr 35s linear infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float-gentle': 'float-gentle 4s ease-in-out infinite',
+                        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
                     },
                     keyframes: {
                         marqueeLtr: {
@@ -152,7 +153,11 @@
                         },
                         'float-gentle': {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-8px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { opacity: 0.6 },
+                            '50%': { opacity: 1 },
                         }
                     }
                 }
@@ -233,24 +238,37 @@
             background: rgba(0,0,0,0.4); 
         }
 
-        video {
+        /* --- CRYSTAL CLEAR VIDEO ENGINE (NO BLUR, NO DARK FILTER) --- */
+        .hero-video-clean {
             will-change: transform;
             transform: translateZ(0);
             backface-visibility: hidden;
+            filter: none !important;
+            -webkit-filter: none !important;
+            opacity: 1 !important;
+            object-fit: cover;
+        }
+
+        /* Crisp text shadows for uninhibited background video visibility */
+        .text-hero-ultra {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 4px 25px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0,0,0,0.9);
+        }
+        .text-hero-sub {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
         }
 
         .nexum-btn-gradient {
             background: linear-gradient(to bottom, #2B2B2B, #101010);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
             position: relative;
             overflow: hidden;
             min-height: 48px !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nexum-btn-gradient:hover {
             transform: translateY(-2px) translateZ(0);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.25);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.3);
         }
         .nexum-btn-gradient:active {
             transform: scale(0.97) translateY(0) translateZ(0);
@@ -260,7 +278,7 @@
             content: '';
             position: absolute;
             top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
             transform: skewX(-20deg);
             transition: left 0.5s ease;
         }
@@ -268,21 +286,22 @@
             left: 150%;
         }
 
+        /* Glassmorphism optimized for crystal clear video backdrop */
         .liquid-glass-panel {
-            background: rgba(15, 15, 15, 0.45); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: rgba(10, 10, 12, 0.55); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .liquid-glass-panel:hover {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
 
         .font-calligraphy {
@@ -342,22 +361,6 @@
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
-        
-        .ai-glow {
-            position: absolute;
-            width: 100%;
-            max-width: 900px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0,102,204,0.08) 0%, rgba(175,82,222,0.06) 40%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            pointer-events: none;
-            top: 50%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0); 
-            will-change: transform, opacity; 
-        }
 
         .animate-float {
             animation: float-gentle 4s ease-in-out infinite;
@@ -412,10 +415,10 @@
         }
 
         .physical-btn {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-radius: 980px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.1);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0,0,0,0.02);
             color: var(--space-grey);
             font-weight: 600; 
@@ -446,7 +449,7 @@
             background: #0071E3;
             border-radius: 980px;
             border: none;
-            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); 
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.35), inset 0 1px 0 rgba(255,255,255,0.25); 
             color: #ffffff;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -469,7 +472,7 @@
             content: '';
             position: absolute;
             top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
             transform: skewX(-20deg);
             transition: left 0.5s ease;
         }
@@ -479,7 +482,7 @@
         .physical-btn-primary:hover, .apple-blue-btn:hover {
             background: #0077ED;
             transform: translateY(-2px) translateZ(0);
-            box-shadow: 0 12px 25px rgba(0, 113, 227, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+            box-shadow: 0 12px 25px rgba(0, 113, 227, 0.45), inset 0 1px 0 rgba(255,255,255,0.35);
         }
         .physical-btn-primary:active, .apple-blue-btn:active {
             transform: scale(0.97) translateY(0) translateZ(0);
@@ -532,9 +535,9 @@
 
         .lcd-screen {
             background-color: #050505;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 14px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.45), inset 0 2px 4px rgba(255,255,255,0.08);
             color: #ffffff;
             font-family: 'JetBrains Mono', monospace; 
             text-shadow: none;
@@ -628,15 +631,15 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at top right, rgba(0, 102, 204, 0.2), transparent 60%);
+            background: radial-gradient(circle at top right, rgba(0, 102, 204, 0.25), transparent 60%);
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.6;
             transition: opacity 0.5s ease;
         }
         .pricing-card-pro:hover {
             transform: translateY(-10px) scale(1.03) translateZ(0);
-            box-shadow: 0 30px 60px rgba(0, 102, 204, 0.3);
-            border: 1px solid rgba(0, 102, 204, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 102, 204, 0.35);
+            border: 1px solid rgba(0, 102, 204, 0.5);
             z-index: 40;
         }
 
@@ -654,15 +657,6 @@
         .pricing-card-pro .pricing-feature-item:hover {
             background-color: rgba(255, 255, 255, 0.08);
         }
-
-        @media (max-width: 768px) {
-            .ai-glow {
-                filter: blur(35px);
-                width: 140vw;
-                height: 380px;
-                opacity: 0.5;
-            }
-        }
     </style>
 </head>
 <body class="selection:bg-[#0066CC] selection:text-white w-full max-w-full overflow-x-hidden">
@@ -671,60 +665,67 @@
         
         <!-- Hero Section (Liquid Glass Cinematic) -->
         <section id="home" class="relative min-h-[100dvh] lg:h-[100dvh] w-full overflow-hidden flex flex-col font-geist text-white">
-            <!-- Full-bleed background video -->
-            <video class="absolute inset-0 h-full w-full object-cover z-0" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260803_192301_9231ed6b-c55c-4a48-909c-4ebe11cf2e11.mp4"></video>
             
-            <!-- Video Overlay tint for perfect text contrast -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60 z-0 pointer-events-none"></div>
+            <!-- FULL-BLEED UNBLURRED UNMASKED VIDEO (100% Crisp Resolution) -->
+            <video class="absolute inset-0 h-full w-full hero-video-clean z-0" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260803_192301_9231ed6b-c55c-4a48-909c-4ebe11cf2e11.mp4"></video>
+            
+            <!-- Ultra Minimal Gradient Vignette at Extreme Edges Only (Keeps Video Center 100% Unaltered) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 z-0 pointer-events-none"></div>
 
             <!-- Top Nav Bar -->
             <nav class="relative z-20 w-full px-5 py-5 sm:px-8 sm:py-6 lg:px-12 flex items-center justify-between">
                 <!-- Logo Plate -->
-                <a href="#home" class="flex items-center gap-2 text-white transition-all duration-300 cursor-pointer hover:opacity-80 active:scale-95">
-                    <svg viewBox="0 0 256 256" class="w-6 h-6 fill-current drop-shadow-md">
-                        <path d="M 128 128 C 128 198.692 70.692 256 0 256 C 0 185.308 57.308 128 128 128 Z M 128 128 C 198.692 128 256 185.308 256 256 C 185.308 256 128 198.692 128 128 Z M 0 0 C 70.692 0 128 57.308 128 128 C 57.308 128 0 70.692 0 0 Z M 256 0 C 256 70.692 198.692 128 128 128 C 128 57.308 185.308 0 256 0 Z" />
-                    </svg>
-                    <span class="text-lg font-semibold tracking-tight drop-shadow-md">forge</span>
+                <a href="#home" class="flex items-center gap-2.5 text-white transition-all duration-300 cursor-pointer hover:opacity-90 active:scale-95 group">
+                    <div class="p-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg group-hover:border-white/40 transition-colors">
+                        <svg viewBox="0 0 256 256" class="w-5 h-5 fill-current text-white drop-shadow-md">
+                            <path d="M 128 128 C 128 198.692 70.692 256 0 256 C 0 185.308 57.308 128 128 128 Z M 128 128 C 198.692 128 256 185.308 256 256 C 185.308 256 128 198.692 128 128 Z M 0 0 C 70.692 0 128 57.308 128 128 C 57.308 128 0 70.692 0 0 Z M 256 0 C 256 70.692 198.692 128 128 128 C 128 57.308 185.308 0 256 0 Z" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white text-hero-ultra">forge</span>
                 </a>
 
                 <!-- Desktop Nav Menu (Glass Pill) -->
                 <div class="hidden md:flex items-center gap-3">
-                    <div class="flex items-center gap-1 rounded-full bg-white/10 px-2 py-1.5 backdrop-blur-lg border border-white/15 shadow-sm">
-                        <a href="#home" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Home</a>
-                        <a href="#what-we-do" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Architecture</a>
-                        <a href="#services" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Systems</a>
-                        <a href="#testimonials" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Testimonials</a>
-                        <a href="#pricing" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Pricing</a>
-                        <button onclick="openBlogModal()" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300 drop-shadow-sm">Blog</button>
+                    <div class="flex items-center gap-1 rounded-full bg-black/40 px-2 py-1.5 backdrop-blur-xl border border-white/20 shadow-xl">
+                        <a href="#home" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Home</a>
+                        <a href="#what-we-do" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Architecture</a>
+                        <a href="#services" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Systems</a>
+                        <a href="#testimonials" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Testimonials</a>
+                        <a href="#pricing" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Pricing</a>
+                        <button onclick="openBlogModal()" class="rounded-full px-4 py-1.5 text-sm font-medium text-white/90 hover:bg-white/20 hover:text-white transition-all duration-300">Blog</button>
                     </div>
-                    <button onclick="openEnquiryModal()" class="nexum-btn-gradient min-h-[44px] rounded-full px-6 py-1.5 text-sm font-medium text-white hover:scale-105 transition-all duration-300 flex items-center shadow-md">
+                    <button onclick="openEnquiryModal()" class="nexum-btn-gradient min-h-[44px] rounded-full px-6 py-1.5 text-sm font-semibold text-white hover:scale-105 transition-all duration-300 flex items-center shadow-2xl">
                         Get started
                     </button>
                 </div>
 
                 <!-- Mobile Hamburger -->
-                <button id="nexumMobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden flex items-center justify-center h-10 w-10 rounded-full bg-white/15 backdrop-blur-lg border border-white/20 text-white relative z-[60] transition-colors duration-300 hover:bg-white/25 active:scale-95">
+                <button id="nexumMobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden flex items-center justify-center h-11 w-11 rounded-full bg-black/50 backdrop-blur-xl border border-white/30 text-white relative z-[60] transition-colors duration-300 hover:bg-black/70 active:scale-95 shadow-xl">
                     <i data-lucide="menu" id="nexumMenuIcon" class="w-5 h-5 transition-all duration-300"></i>
                     <i data-lucide="x" id="nexumXIcon" class="w-5 h-5 transition-all duration-300 hidden"></i>
                 </button>
             </nav>
 
             <!-- Bottom Anchored Main Content -->
-            <div class="relative z-10 mt-auto flex-grow px-5 pt-8 pb-10 sm:px-8 sm:pb-16 lg:px-12 lg:pb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12 w-full max-w-full">
+            <div class="relative z-10 mt-auto flex-grow px-5 pt-10 pb-12 sm:px-8 sm:pb-16 lg:px-12 lg:pb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12 w-full max-w-full">
                 
                 <!-- Left: Headline & Email CTA -->
                 <div class="flex-1 max-w-2xl w-full">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.8rem] font-semibold leading-[1.08] tracking-tight text-white transition-colors duration-300 drop-shadow-xl text-shadow-md animate-field mb-4 sm:mb-6">
+                    <div class="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-xl border border-white/20 text-xs font-semibold text-white mb-4 animate-field">
+                        <span class="w-2 h-2 rounded-full bg-[#34C759] animate-pulse"></span> Next-Gen Web & AI Infrastructure
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.8rem] font-bold leading-[1.08] tracking-tight text-white text-hero-ultra transition-colors duration-300 animate-field mb-4 sm:mb-6">
                         Ship AI workers that grind while you rest
                     </h1>
                     
-                    <p class="text-sm sm:text-base md:text-lg text-white/85 max-w-xl text-shadow-sm font-medium leading-relaxed animate-field animate-delay-1 mb-6 sm:mb-8">
+                    <p class="text-sm sm:text-base md:text-lg text-white/95 max-w-xl text-hero-sub font-medium leading-relaxed animate-field animate-delay-1 mb-6 sm:mb-8">
                         Architecting scalable web platforms and autonomous AI agents to automate your acquisition, operations, and growth 24/7.
                     </p>
                     
-                    <div class="flex flex-col sm:inline-flex sm:flex-row sm:items-center sm:rounded-full sm:bg-white/10 sm:backdrop-blur-md sm:border sm:border-white/20 sm:p-1.5 gap-3 sm:gap-0 shadow-2xl w-full sm:w-auto animate-field animate-delay-2 transition-all">
-                        <input type="email" id="heroQuickEmail" placeholder="Enter your work email" class="w-full rounded-full bg-white sm:bg-transparent px-5 py-3.5 text-sm text-gray-900 sm:text-white placeholder-gray-500 sm:placeholder-white/70 outline-none sm:w-72 sm:rounded-none sm:px-5 sm:py-2.5 border sm:border-none border-gray-200 focus:ring-2 focus:ring-[#0066CC] sm:focus:ring-0" />
-                        <button onclick="openEnquiryModalWithEmail()" class="w-full sm:w-auto min-h-[44px] nexum-btn-gradient rounded-full px-8 py-3.5 sm:py-3 text-sm font-medium text-white transition-all hover:scale-[1.02] active:scale-95 shadow-md whitespace-nowrap">
+                    <div class="flex flex-col sm:inline-flex sm:flex-row sm:items-center sm:rounded-full sm:bg-black/50 sm:backdrop-blur-xl sm:border sm:border-white/25 sm:p-1.5 gap-3 sm:gap-0 shadow-2xl w-full sm:w-auto animate-field animate-delay-2 transition-all">
+                        <input type="email" id="heroQuickEmail" placeholder="Enter your work email" class="w-full rounded-full bg-white/95 sm:bg-transparent px-5 py-3.5 text-sm text-gray-900 sm:text-white placeholder-gray-500 sm:placeholder-white/70 outline-none sm:w-72 sm:rounded-none sm:px-5 sm:py-2.5 border sm:border-none border-gray-200 focus:ring-2 focus:ring-[#0066CC] sm:focus:ring-0" />
+                        <button onclick="openEnquiryModalWithEmail()" class="w-full sm:w-auto min-h-[44px] nexum-btn-gradient rounded-full px-8 py-3.5 sm:py-3 text-sm font-semibold text-white transition-all hover:scale-[1.02] active:scale-95 shadow-md whitespace-nowrap">
                             Get started
                         </button>
                     </div>
@@ -739,7 +740,7 @@
                         <div class="font-silkscreen text-3xl sm:text-4xl font-normal tracking-tight text-white drop-shadow-md transition-transform duration-300 group-hover:scale-105 origin-left">
                             42,500+
                         </div>
-                        <p class="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-white/90 drop-shadow-sm">
+                        <p class="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-white/95 drop-shadow-sm font-medium">
                             Teams run Forge Softwares to handle recurring operations daily.
                         </p>
                     </div>
@@ -752,13 +753,13 @@
                             </div>
                             <span class="text-xs sm:text-sm font-semibold text-white drop-shadow-sm">TechFlow</span>
                         </div>
-                        <p class="text-xs sm:text-sm leading-relaxed text-white/90 drop-shadow-sm font-medium italic">
+                        <p class="text-xs sm:text-sm leading-relaxed text-white/95 drop-shadow-sm font-medium italic">
                             "With Forge Softwares we went from managing tedious operational work to having AI agents that handle 80% of our pipeline automatically."
                         </p>
-                        <div class="mt-4 flex items-center gap-3 border-t border-white/15 pt-3">
+                        <div class="mt-4 flex items-center gap-3 border-t border-white/20 pt-3">
                             <div class="flex flex-col">
                                 <span class="text-xs sm:text-sm font-semibold text-white drop-shadow-sm">Farman</span>
-                                <span class="text-[10px] sm:text-xs text-white/70">CEO & Head of Developers Team</span>
+                                <span class="text-[10px] sm:text-xs text-white/80">CEO & Head of Developers Team</span>
                             </div>
                         </div>
                     </div>
@@ -768,8 +769,8 @@
         </section>
 
         <!-- Mobile Navigation Overlay & Drawer -->
-        <div id="nexumMobileOverlay" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 font-geist"></div>
-        <div id="nexumMobileDrawer" class="fixed right-3 top-3 z-50 h-[calc(100vh-24px)] w-[calc(100vw-24px)] sm:w-80 bg-white/95 backdrop-blur-2xl rounded-3xl translate-x-[120%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-16 px-6 pb-8 font-geist border border-white/30 shadow-2xl overflow-y-auto">
+        <div id="nexumMobileOverlay" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 font-geist"></div>
+        <div id="nexumMobileDrawer" class="fixed right-3 top-3 z-50 h-[calc(100vh-24px)] w-[calc(100vw-24px)] sm:w-80 bg-white/98 backdrop-blur-2xl rounded-3xl translate-x-[120%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-16 px-6 pb-8 font-geist border border-white/40 shadow-2xl overflow-y-auto">
             
             <button onclick="toggleNexumMenu()" class="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all active:scale-95 z-[60]" aria-label="Close Mobile Menu">
                 <i data-lucide="x" class="w-5 h-5"></i>
@@ -796,7 +797,7 @@
             <div class="w-full max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
                     <!-- Card 1 -->
-                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(175,82,222,0.1)] reveal">
+                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(175,82,222,0.15)] reveal">
                         <div class="bg-[#FAFAFA] w-10 h-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#AF52DE]/10 transition-colors">
                             <i data-lucide="cpu" class="w-5 h-5 text-[#AF52DE] group-hover:scale-110 transition-transform duration-300"></i>
                         </div>
@@ -804,7 +805,7 @@
                         <p class="text-xs text-[#555555] leading-relaxed">Streamlined workflows and business logic.</p>
                     </div>
                     <!-- Card 2 -->
-                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(255,149,0,0.1)] reveal" style="transition-delay: 100ms;">
+                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(255,149,0,0.15)] reveal" style="transition-delay: 100ms;">
                         <div class="bg-[#FAFAFA] w-10 h-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#FF9500]/10 transition-colors">
                             <i data-lucide="layout-template" class="w-5 h-5 text-[#FF9500] group-hover:scale-110 transition-transform duration-300"></i>
                         </div>
@@ -812,7 +813,7 @@
                         <p class="text-xs text-[#555555] leading-relaxed">High-converting digital architecture.</p>
                     </div>
                     <!-- Card 3 -->
-                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(52,199,89,0.1)] reveal" style="transition-delay: 200ms;">
+                    <div class="physical-panel bg-[#FFFFFF] p-5 sm:p-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-default group border border-transparent hover:border-[rgba(52,199,89,0.15)] reveal" style="transition-delay: 200ms;">
                         <div class="bg-[#FAFAFA] w-10 h-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#34C759]/10 transition-colors">
                             <i data-lucide="message-square-dashed" class="w-5 h-5 text-[#34C759] group-hover:scale-110 transition-transform duration-300"></i>
                         </div>
@@ -1549,55 +1550,171 @@
         </div>
     </div>
 
-    <!-- Terms Modal -->
-    <div id="termsModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/60 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
-        <div class="physical-panel bg-[#FFFFFF] max-w-4xl w-[92%] sm:w-full max-h-[90dvh] p-4 sm:p-6 md:p-8 flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto overflow-hidden" id="termsContent">
+    <!-- Comprehensive Terms & Conditions Modal -->
+    <div id="termsModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/70 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+        <div class="physical-panel bg-[#FFFFFF] max-w-4xl w-[94%] sm:w-full max-h-[92dvh] p-5 sm:p-8 md:p-10 flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto overflow-hidden rounded-[28px]" id="termsContent">
             
-            <button onclick="closeTerms()" class="absolute top-4 right-4 physical-btn bg-[#FAFAFA] border-transparent w-9 h-9 flex items-center justify-center rounded-full z-20 hover:rotate-90 active:scale-95 transition-all" aria-label="Close Terms">
-                <i data-lucide="x" class="w-4 h-4 text-[#000000]"></i>
+            <!-- Close Button -->
+            <button onclick="closeTerms()" class="absolute top-4 right-4 sm:top-6 sm:right-6 physical-btn bg-[#FAFAFA] border-gray-200 w-10 h-10 flex items-center justify-center rounded-full z-20 hover:rotate-90 active:scale-95 transition-all" aria-label="Close Terms">
+                <i data-lucide="x" class="w-5 h-5 text-[#000000]"></i>
             </button>
             
-            <div class="text-center mb-4 shrink-0 border-b border-[rgba(0,0,0,0.08)] pb-3">
-                <h3 id="termsTitle" class="text-xl md:text-2xl font-black text-[#000000] uppercase tracking-tight font-display">Terms & Conditions</h3>
-                <p class="text-[#555555] text-[10px] font-bold tracking-widest uppercase font-tech">Forge Softwares</p>
+            <!-- Modal Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-200 pb-5 mb-5 pr-10 sm:pr-12 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="bg-[#0066CC]/10 p-2.5 rounded-2xl shrink-0">
+                        <i data-lucide="file-text" class="w-6 h-6 text-[#0066CC]"></i>
+                    </div>
+                    <div>
+                        <h3 id="termsTitle" class="text-xl sm:text-2xl md:text-3xl font-black text-[#000000] uppercase tracking-tight font-display">Terms of Service</h3>
+                        <p class="text-[#555555] text-[10px] sm:text-xs font-bold tracking-widest uppercase font-tech">Forge Softwares & Framework Protocol</p>
+                    </div>
+                </div>
+                <div class="mt-3 sm:mt-0 inline-flex items-center gap-2 bg-[#FAFAFA] px-3 py-1.5 rounded-full border border-gray-200 w-max">
+                    <span class="w-2 h-2 rounded-full bg-[#34C759]"></span>
+                    <span class="text-[10px] font-bold text-[#555555] uppercase font-tech">Effective August 2026</span>
+                </div>
             </div>
             
-            <div class="physical-recessed bg-[#FAFAFA] flex-1 overflow-y-auto p-4 md:p-6 text-xs text-[#000000] font-medium custom-scrollbar w-full shadow-inner">
-                <p class="italic text-[#555555] font-bold mb-4">Last Updated: June 2026<br>These Terms govern service utilization. Engaging Forge Softwares implies agreement with these parameters.</p>
+            <!-- Scrollable Content -->
+            <div class="physical-recessed bg-[#FAFAFA] flex-1 overflow-y-auto p-5 sm:p-8 text-xs sm:text-sm text-[#1D1D1F] font-medium custom-scrollbar w-full shadow-inner space-y-6 rounded-2xl border border-gray-200/60">
                 
-                <h4 class="font-bold text-[#000000] text-sm mt-4 mb-1 uppercase tracking-wide border-l-4 border-[#0066CC] pl-2 font-display">1. Core Operations</h4>
-                <p class="mb-2 text-[#555555]">Forge Softwares executes custom web infrastructure, AI automation deployment, and SaaS development logic.</p>
+                <div class="bg-blue-50/80 border border-blue-200/80 rounded-2xl p-4 text-[#0066CC] font-semibold text-xs leading-relaxed">
+                    Notice: Engaging Forge Softwares, its sub-brands (Cobra, Runo), or utilizing our autonomous AI workers implies explicit agreement with these standardized engineering and service protocols.
+                </div>
 
-                <h4 class="font-bold text-[#000000] text-sm mt-4 mb-1 uppercase tracking-wide border-l-4 border-[#0066CC] pl-2 font-display">2. Financial Protocol</h4>
-                <p class="mb-2 text-[#555555]">Service retainers and deployment fees are specified per statement of work. Final balance is required prior to deployment.</p>
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#0066CC] pl-3 font-display">1. Operational Scope & Service Architecture</h4>
+                    <p class="text-[#555555] leading-relaxed mb-3">
+                        Forge Softwares acts as a core engineering group executing custom web architecture, autonomous AI sales agents, SaaS platforms, and enterprise CRM pipelines. All deliverables are built according to mutually agreed technical parameters defined during project initialization.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-[#555555] font-medium">
+                        <li>Core web platform builds are executed within 7 to 14 business days.</li>
+                        <li>Complex autonomous AI agents requiring bespoke LLM fine-tuning require 3 to 4 weeks for full deployment.</li>
+                        <li>All code undergoes pre-flight security, SEO, and performance optimization prior to live hosting migration.</li>
+                    </ul>
+                </section>
 
-                <h4 class="font-bold text-[#000000] text-sm mt-4 mb-1 uppercase tracking-wide border-l-4 border-[#0066CC] pl-2 font-display">3. Intellectual Property</h4>
-                <p class="mb-2 text-[#555555]">Clients retain domain and customized operational output upon full payment. Forge retains internal architecture framework logic.</p>
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#0066CC] pl-3 font-display">2. Financial Protocols & Payment Retainers</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        Services are billed in accordance with selected package tiers (Starter, Business Pro, Custom Build) or customized statement of work contracts. A mandatory initiation retainer is required to reserve engineering capacity. Remaining balances must be cleared prior to final domain point or repository transfer.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#0066CC] pl-3 font-display">3. Asset Ownership & Intellectual Property</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        Upon 100% financial settlement, clients retain complete ownership of custom design layouts, domain registration rights, and specific client-side codebases. Forge Softwares retains ownership over underlying reusable framework libraries, proprietary AI agent prompts, and operational backend logic.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#0066CC] pl-3 font-display">4. AI Agent Constraints & Human Escalation</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        Autonomous AI workers deployed by Forge Softwares operate strictly within the parameters of your business knowledge base. While agents maintain 99.9% operational fidelity, queries exceeding defined domain boundaries are engineered to automatically route to designated human operators.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#0066CC] pl-3 font-display">5. Lifetime Bug Support & System Guarantee</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        We back our infrastructure with a zero-cost resolution guarantee. If any deployed web system or agent fails to operate according to original project specifications, our engineering team will rectify the discrepancy at no additional expense.
+                    </p>
+                </section>
+
+                <div class="pt-4 border-t border-gray-200 text-center text-[10px] font-bold uppercase tracking-widest text-[#86868B] font-tech">
+                    Forge Softwares &bull; Headquartered in Srinagar, Jammu & Kashmir &bull; Global B2B Protocol
+                </div>
+            </div>
+
+            <!-- Footer Action inside Modal -->
+            <div class="mt-4 pt-3 flex items-center justify-between shrink-0">
+                <span class="text-[10px] text-[#86868B] font-bold font-tech">Document Ref: FORGE-TOS-2026-V2</span>
+                <button onclick="closeTerms()" class="apple-blue-btn px-6 py-2.5 text-xs font-bold uppercase tracking-widest">
+                    Acknowledge & Close
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/60 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
-        <div class="physical-panel bg-[#FFFFFF] max-w-4xl w-[92%] sm:w-full max-h-[90dvh] p-4 sm:p-6 md:p-8 flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto overflow-hidden" id="privacyContent">
+    <!-- Comprehensive Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/70 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+        <div class="physical-panel bg-[#FFFFFF] max-w-4xl w-[94%] sm:w-full max-h-[92dvh] p-5 sm:p-8 md:p-10 flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto overflow-hidden rounded-[28px]" id="privacyContent">
             
-            <button onclick="closePrivacy()" class="absolute top-4 right-4 physical-btn bg-[#FAFAFA] border-transparent w-9 h-9 flex items-center justify-center rounded-full z-20 hover:rotate-90 active:scale-95 transition-all" aria-label="Close Privacy Policy">
-                <i data-lucide="x" class="w-4 h-4 text-[#000000]"></i>
+            <!-- Close Button -->
+            <button onclick="closePrivacy()" class="absolute top-4 right-4 sm:top-6 sm:right-6 physical-btn bg-[#FAFAFA] border-gray-200 w-10 h-10 flex items-center justify-center rounded-full z-20 hover:rotate-90 active:scale-95 transition-all" aria-label="Close Privacy Policy">
+                <i data-lucide="x" class="w-5 h-5 text-[#000000]"></i>
             </button>
             
-            <div class="text-center mb-4 shrink-0 border-b border-[rgba(0,0,0,0.08)] pb-3">
-                <h3 id="privacyTitle" class="text-xl md:text-2xl font-black text-[#000000] uppercase tracking-tight font-display">Privacy Policy</h3>
-                <p class="text-[#555555] text-[10px] font-bold tracking-widest uppercase font-tech">Forge Softwares</p>
+            <!-- Modal Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-200 pb-5 mb-5 pr-10 sm:pr-12 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="bg-[#AF52DE]/10 p-2.5 rounded-2xl shrink-0">
+                        <i data-lucide="shield" class="w-6 h-6 text-[#AF52DE]"></i>
+                    </div>
+                    <div>
+                        <h3 id="privacyTitle" class="text-xl sm:text-2xl md:text-3xl font-black text-[#000000] uppercase tracking-tight font-display">Privacy Policy</h3>
+                        <p class="text-[#555555] text-[10px] sm:text-xs font-bold tracking-widest uppercase font-tech">Data Security & Telemetry Standard</p>
+                    </div>
+                </div>
+                <div class="mt-3 sm:mt-0 inline-flex items-center gap-2 bg-[#FAFAFA] px-3 py-1.5 rounded-full border border-gray-200 w-max">
+                    <span class="w-2 h-2 rounded-full bg-[#34C759]"></span>
+                    <span class="text-[10px] font-bold text-[#555555] uppercase font-tech">Updated August 2026</span>
+                </div>
             </div>
             
-            <div class="physical-recessed bg-[#FAFAFA] flex-1 overflow-y-auto p-4 md:p-6 text-xs text-[#000000] font-medium custom-scrollbar w-full shadow-inner">
-                <p class="italic text-[#555555] font-bold mb-4">Last Updated: June 2026<br>We enforce strict data protocols regarding information processing.</p>
+            <!-- Scrollable Content -->
+            <div class="physical-recessed bg-[#FAFAFA] flex-1 overflow-y-auto p-5 sm:p-8 text-xs sm:text-sm text-[#1D1D1F] font-medium custom-scrollbar w-full shadow-inner space-y-6 rounded-2xl border border-gray-200/60">
                 
-                <h4 class="font-bold text-[#000000] text-sm mt-4 mb-1 uppercase tracking-wide border-l-4 border-[#0066CC] pl-2 font-display">1. Data Acquisition</h4>
-                <p class="mb-2 text-[#555555]">We collect precise contact details and project parameters required for project execution.</p>
+                <div class="bg-purple-50/80 border border-purple-200/80 rounded-2xl p-4 text-[#AF52DE] font-semibold text-xs leading-relaxed">
+                    Forge Softwares enforces bank-grade data privacy standards. We strictly treat your commercial data, lead inputs, and AI worker parameters as strictly confidential assets.
+                </div>
 
-                <h4 class="font-bold text-[#000000] text-sm mt-4 mb-1 uppercase tracking-wide border-l-4 border-[#0066CC] pl-2 font-display">2. Security Infrastructure</h4>
-                <p class="mb-2 text-[#555555]">Data is utilized strictly for service execution. Unauthorized third-party distribution is explicitly prohibited.</p>
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#AF52DE] pl-3 font-display">1. Information We Collect</h4>
+                    <p class="text-[#555555] leading-relaxed mb-3">
+                        We collect minimal necessary business telemetries to architect custom platforms and deploy AI sales agents:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-[#555555] font-medium">
+                        <li>Contact details submitted via enquiry modals (Company Name, WhatsApp phone numbers, regional location).</li>
+                        <li>Operational data inputs required for training bespoke AI agent knowledge bases.</li>
+                        <li>Standard web analytics telemetry (browser type, session duration, device viewport) to optimize UX paint speeds.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#AF52DE] pl-3 font-display">2. AI Training & Isolation Protocols</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        Your proprietary client data and internal business communications are completely isolated. Data provided to train your custom AI agents is never used to train global open models or shared across other client infrastructure.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#AF52DE] pl-3 font-display">3. Strict Anti-Distribution Guarantee</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        We do not sell, lease, trade, or expose your personal or enterprise information to third-party ad networks or data brokers. Information transmitted through our Web endpoints (e.g., Google Apps Script pipelines) is strictly routed to our internal project engineering team.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-black text-[#000000] text-sm sm:text-base mb-2 uppercase tracking-wide border-l-4 border-[#AF52DE] pl-3 font-display">4. Data Erasure & Right to Control</h4>
+                    <p class="text-[#555555] leading-relaxed">
+                        Clients retain full authority over their operational records. You may request complete erasure of project telemetries or contact records from our active servers at any time by contacting our lead engineering team.
+                    </p>
+                </section>
+
+                <div class="pt-4 border-t border-gray-200 text-center text-[10px] font-bold uppercase tracking-widest text-[#86868B] font-tech">
+                    Forge Softwares Privacy Command &bull; Encrypted Storage Protocols Enabled
+                </div>
+            </div>
+
+            <!-- Footer Action inside Modal -->
+            <div class="mt-4 pt-3 flex items-center justify-between shrink-0">
+                <span class="text-[10px] text-[#86868B] font-bold font-tech">Document Ref: FORGE-PRIV-2026-V2</span>
+                <button onclick="closePrivacy()" class="apple-blue-btn px-6 py-2.5 text-xs font-bold uppercase tracking-widest">
+                    Accept & Close
+                </button>
             </div>
         </div>
     </div>
