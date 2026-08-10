@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden bg-[#050505] text-white" style="scroll-padding-top: 6rem;">
+<html lang="en" class="scroll-smooth overflow-x-hidden" style="scroll-padding-top: 6rem;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -11,18 +11,31 @@
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://db.onlinewebfonts.com">
     
-    <!-- Preloading Critical Resources -->
+    <!-- Preloading Critical Resources for Millisecond Paint -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://unpkg.com/lucide@latest" as="script">
 
-    <!-- Typography System: PODIUM Sharp 4.11 (Vanguard Aesthetic), Geist, Silkscreen, JetBrains Mono, Inter, Caveat, Playfair -->
-    <link href="https://db.onlinewebfonts.com/c/8b75d9dcff6a48c35a46656192adf019?family=FSP+DEMO+-+PODIUM+Sharp+4.11" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Mixed Typography System: VANGUARD Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Font PODIUM Sharp CDN -->
+    <style>
+        @font-face {
+            font-family: 'PodiumSharp';
+            src: url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.eot');
+            src: url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.eot?#iefix') format('embedded-opentype'),
+                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.woff2') format('woff2'),
+                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.woff') format('woff'),
+                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
 
     <!-- SEO & Search Engine Optimization Tags -->
-    <title>Forge Softwares | VANGUARD AI & Systems Architecture</title>
+    <title>Forge Softwares | VANGUARD AI Systems</title>
     <meta name="description" content="Forge Softwares provides custom web architecture, autonomous AI agents, and SaaS solutions designed to scale operations and automate acquisition.">
     <meta name="keywords" content="Web Architecture, Software Development, AI Automation, AI Agents, SaaS, Systems Engineering, Srinagar, Kashmir">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -116,7 +129,7 @@
     }
     </script>
     
-    <!-- Deferring Ad Scripts -->
+    <!-- Deferring Ad Scripts to not block critical rendering path -->
     <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6651904672008274" crossorigin="anonymous" defer></script>
 
     <!-- Tailwind Config & Scripts -->
@@ -128,50 +141,39 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        podium: ['"FSP DEMO - PODIUM Sharp 4.11"', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif'],
                         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        geist: ['Geist', 'sans-serif'],
+                        geist: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         silkscreen: ['Silkscreen', 'cursive'],
                         mono: ['JetBrains Mono', 'monospace'],
-                        display: ['"FSP DEMO - PODIUM Sharp 4.11"', 'Inter', 'sans-serif'], 
+                        podium: ['PodiumSharp', 'serif'], 
                         tech: ['JetBrains Mono', 'monospace']
                     },
                     colors: {
-                        vanguard: {
-                            bg: '#050505',
-                            card: '#0D0D0E',
-                            border: 'rgba(255, 255, 255, 0.12)',
-                            accent: '#FFFFFF',
-                            subtle: '#888888',
-                            blue: '#0066CC',
-                            purple: '#AF52DE',
-                            green: '#34C759',
-                            orange: '#FF9500'
+                        glass: {
+                            100: 'rgba(255, 255, 255, 0.03)',
+                            200: 'rgba(255, 255, 255, 0.05)',
+                            300: 'rgba(255, 255, 255, 0.08)',
+                            border: 'rgba(255, 255, 255, 0.12)'
                         }
                     },
                     animation: {
-                        'marquee-ltr': 'marqueeLtr 35s linear infinite',
+                        'marquee-ltr': 'marqueeLtr 40s linear infinite',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float-gentle': 'float-gentle 4s ease-in-out infinite',
-                        'fade-up': 'fade-up 0.8s ease-out forwards',
-                        'fade-up-1': 'fade-up 0.8s ease-out 0.2s forwards',
-                        'fade-up-2': 'fade-up 0.8s ease-out 0.4s forwards',
-                        'fade-up-3': 'fade-up 0.8s ease-out 0.6s forwards',
-                        'fade-up-4': 'fade-up 0.8s ease-out 0.8s forwards',
+                        'float-gentle': 'floatGentle 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
                         marqueeLtr: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-50%)' },
                         },
-                        'float-gentle': {
+                        floatGentle: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-8px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         },
-                        'fade-up': {
-                            'from': { opacity: '0', transform: 'translateY(30px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(25px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -180,242 +182,164 @@
     </script>
 
     <style>
-        @font-face {
-            font-family: 'FSP DEMO - PODIUM Sharp 4.11';
-            src: url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.eot');
-            src: url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.eot?#iefix') format('embedded-opentype'),
-                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.woff2') format('woff2'),
-                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.woff') format('woff'),
-                 url('https://db.onlinewebfonts.com/t/8b75d9dcff6a48c35a46656192adf019.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
         :root {
-            --vanguard-black: #050505;
-            --vanguard-card: #0e0e10;
-            --vanguard-light-card: #151518;
-            --vanguard-border: rgba(255, 255, 255, 0.1);
-            --store-blue: #0066CC;
-            --electric-green: #34C759;
-            --vivid-purple: #AF52DE;
-            --bright-guava: #FF9500;
+            --glass-bg: rgba(10, 10, 10, 0.35);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent-emerald: #10B981;
         }
 
         html, body { 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--vanguard-black); 
-            color: #FFFFFF;
+            background-color: #030303; 
+            color: var(--text-primary);
             overflow-x: hidden;
             width: 100%;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
+            -webkit-overflow-scrolling: touch; 
+            overflow-wrap: break-word; 
+            word-wrap: break-word;
             scroll-behavior: smooth;
         }
 
-        @layer utilities {
-            .font-podium {
-                font-family: 'FSP DEMO - PODIUM Sharp 4.11', 'Inter', sans-serif;
-            }
-            .animate-fade-up {
-                opacity: 0;
-                animation: fade-up 0.8s ease-out forwards;
-            }
-            .animate-fade-up-delay-1 {
-                opacity: 0;
-                animation: fade-up 0.8s ease-out 0.2s forwards;
-            }
-            .animate-fade-up-delay-2 {
-                opacity: 0;
-                animation: fade-up 0.8s ease-out 0.4s forwards;
-            }
-            .animate-fade-up-delay-3 {
-                opacity: 0;
-                animation: fade-up 0.8s ease-out 0.6s forwards;
-            }
-            .animate-fade-up-delay-4 {
-                opacity: 0;
-                animation: fade-up 0.8s ease-out 0.8s forwards;
-            }
+        /* Fixed Global Background with Subtle Ambient Glow for "Araa Paar" Transparency */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.05), transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03), transparent 40%);
+            z-index: -1;
+            pointer-events: none;
         }
 
-        @keyframes fade-up {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes scale-in {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        ::selection { background-color: #FFFFFF; color: #000000; }
 
-        ::selection {
-            background-color: #FFFFFF;
-            color: #000000;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px; 
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track { 
-            background: #050505; 
-        }
+        /* Sleek Minimal Scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { 
             background: rgba(255,255,255,0.2); 
-            border-radius: 999px; 
+            border-radius: 10px; 
         }
-        ::-webkit-scrollbar-thumb:hover { 
-            background: rgba(255,255,255,0.4); 
-        }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
+        /* Video Framing and Hardware Acceleration */
         video {
             will-change: transform;
             transform: translateZ(0);
             backface-visibility: hidden;
         }
 
+        /* Responsive Framing for Hero Background Video */
+        .hero-video-frame {
+            object-fit: cover;
+            object-position: 75% center;
+        }
+        @media (min-width: 768px) {
+            .hero-video-frame {
+                object-position: center center;
+            }
+        }
+
+        /* Crystal Clear Glassmorphic Panels ("Araa Paar") */
         .liquid-glass-panel {
-            background: rgba(18, 18, 20, 0.65); 
+            background: rgba(15, 15, 15, 0.4); 
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12); 
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .liquid-glass-panel:hover {
-            background: rgba(25, 25, 30, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+             background: rgba(25, 25, 25, 0.55);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+             transform: translateY(-4px);
+             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         .font-calligraphy {
             font-family: 'Caveat', cursive;
             font-size: 1.8rem;
             line-height: 1.4;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 0.5px;
+            color: #E5E5E5;
         }
-
-        .calligraphy-gradient-1 {
-            background: linear-gradient(to right, #AF52DE, #FF9500);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .calligraphy-gradient-2 {
-            background: linear-gradient(to right, #0066CC, #34C759);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .calligraphy-gradient-3 {
-            background: linear-gradient(to right, #FF3B30, #AF52DE);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
+        
         .physical-panel {
-            background-color: var(--vanguard-card); 
-            border-radius: 20px;
-            border: 1px solid var(--vanguard-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background-color: rgba(15, 15, 15, 0.45); 
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            max-width: 100%;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
         }
-
-        .physical-recessed {
-            background-color: #141417;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
-            color: #FFFFFF;
+        .physical-panel:hover {
+            border-color: rgba(255,255,255,0.2);
+            background-color: rgba(25, 25, 25, 0.6);
         }
 
         .physical-btn {
-            background: #FFFFFF;
-            border-radius: 999px;
-            color: #000000;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 980px;
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #FFFFFF;
             font-weight: 600; 
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-            min-height: 48px;
-            padding: 0 24px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-height: 48px !important;
+            padding: 0 24px;
         }
         .physical-btn:hover {
-            background: #E5E5E5;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.2);
-        }
-
-        .apple-blue-btn, .vanguard-btn-white {
             background: #FFFFFF;
             color: #000000;
-            border-radius: 999px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            min-height: 48px;
-            padding: 0 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-        .apple-blue-btn:hover, .vanguard-btn-white:hover {
-            background: #E0E0E0;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
         }
 
-        .vanguard-btn-bordered {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: transparent;
-            color: #FFFFFF;
-            border-radius: 999px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .apple-blue-btn {
+            background: #FFFFFF; 
+            border-radius: 980px;
+            border: none;
+            color: #000000;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-            min-height: 48px;
-            padding: 0 28px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            min-height: 48px !important;
+            padding: 0 24px;
+            letter-spacing: 0.05em;
         }
-        .vanguard-btn-bordered:hover {
-            border-color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.1);
+        .apple-blue-btn:hover {
+            background: #E5E5E5;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
         }
 
         .social-btn {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: #141417;
+            background: rgba(255,255,255,0.05);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            cursor: pointer;
             color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.12);
         }
         .social-btn:hover {
             background: #FFFFFF;
@@ -423,21 +347,28 @@
             transform: scale(1.08) translateY(-2px);
         }
 
+        .physical-recessed {
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+            color: #FFFFFF;
+        }
+
+        /* LED Indicators */
         .led-indicator {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             box-shadow: 0 0 8px currentColor;
         }
-        .led-green { background-color: var(--electric-green); color: var(--electric-green); }
-        .led-guava { background-color: var(--bright-guava); color: var(--bright-guava); }
-        .led-purple { background-color: var(--vivid-purple); color: var(--vivid-purple); }
+        .led-green { background-color: #10B981; color: #10B981; }
+        .led-white { background-color: #FFFFFF; color: #FFFFFF; }
 
         .lcd-screen {
-            background-color: #050505;
-            border: 1px solid rgba(255,255,255,0.1);
+            background-color: #000000;
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 14px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.05);
             color: #ffffff;
             font-family: 'JetBrains Mono', monospace; 
         }
@@ -459,8 +390,9 @@
 
         .reveal {
             opacity: 0;
-            transform: translate3d(0, 30px, 0); 
+            transform: translate3d(0, 24px, 0); 
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
         }
         .reveal.active {
             opacity: 1;
@@ -479,391 +411,383 @@
             margin-top: 0.5rem;
         }
 
-        .pricing-card-standard {
-            background-color: var(--vanguard-card);
-            border-radius: 24px;
-            border: 1px solid var(--vanguard-border);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .pricing-card-standard:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255,255,255,0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-        }
+        /* Glass Pricing Cards */
         .pricing-card-pro {
-            background: linear-gradient(145deg, #18181C 0%, #08080A 100%);
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.25);
+            background: linear-gradient(145deg, rgba(35,35,35,0.75) 0%, rgba(12,12,12,0.85) 100%);
+            backdrop-filter: blur(24px);
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.18);
             color: #FFFFFF;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .pricing-card-pro:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255,255,255,0.12);
             border-color: #FFFFFF;
-            box-shadow: 0 30px 60px rgba(255,255,255,0.15);
+        }
+
+        .input-focus-effect:focus-within {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2), 0 0 0 2px rgba(255, 255, 255, 0.3);
+            border-color: #FFFFFF;
         }
     </style>
 </head>
-<body class="selection:bg-white selection:text-black w-full max-w-full overflow-x-hidden bg-[#050505]">
+<body class="selection:bg-[#FFFFFF] selection:text-black w-full max-w-full overflow-x-hidden">
+
+    <!-- Minimalist, Premium Top Banner -->
+    <div id="topBanner" class="sticky top-0 z-50 bg-[#060606]/90 backdrop-blur-md border-b border-white/10 text-white py-2.5 px-4 flex items-center justify-center shadow-lg font-mono text-[10px] sm:text-xs tracking-widest uppercase transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10B981]"></span>
+            <span class="font-bold">80th Independence Sale</span>
+            <span class="opacity-30">|</span>
+            <span class="text-white/80">Flat 80% Off On All Deployments</span>
+            <button onclick="openEnquiryModal()" class="hidden sm:inline-flex ml-2 underline underline-offset-4 hover:text-emerald-400 transition-colors cursor-pointer">Claim Offer</button>
+        </div>
+    </div>
 
     <main class="w-full overflow-x-hidden flex flex-col">
         
-        <!-- Hero Section with VANGUARD Fullscreen Video Background -->
-        <section id="home" class="relative min-h-[100dvh] w-full overflow-hidden flex flex-col font-inter text-white bg-black">
+        <section id="home" class="relative h-[100dvh] w-full overflow-hidden flex flex-col font-geist text-white">
             
-            <!-- VANGUARD CloudFront Fullscreen Background Video -->
-            <video class="absolute inset-0 h-full w-full object-cover z-0" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260606_154941_df1a96e1-a06f-450c-bd02-d863414cc1a0.mp4"></video>
+            <!-- Full-bleed Background Video - High Clarity & Framed for Mobile -->
+            <video class="absolute inset-0 h-full w-full hero-video-frame z-0 opacity-100" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260606_154941_df1a96e1-a06f-450c-bd02-d863414cc1a0.mp4"></video>
             
-            <!-- Video Overlay for Text Legibility -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-0 pointer-events-none"></div>
+            <!-- Translucent Tint Overlay for Crystal Clear Visibility ("Araa Paar") -->
+            <div class="absolute inset-0 bg-black/35 z-0 pointer-events-none transition-colors duration-500"></div>
 
-            <!-- Top Nav Bar (VANGUARD Style) -->
-            <nav class="relative z-30 w-full px-6 sm:px-10 lg:px-16 py-5 lg:py-7 flex items-center justify-between">
-                <!-- Left: Brand Name -->
-                <a href="#home" class="flex items-center gap-2 text-white cursor-pointer hover:opacity-80 transition-opacity">
-                    <span class="font-podium text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white">FORGE</span>
-                </a>
-
-                <!-- Center: Desktop Nav Menu -->
-                <div class="hidden md:flex items-center gap-8 font-inter text-sm tracking-widest uppercase text-white/80">
-                    <a href="#home" class="hover:text-white transition-colors">Home</a>
-                    <a href="#what-we-do" class="hover:text-white transition-colors">Architecture</a>
-                    <a href="#services" class="hover:text-white transition-colors">Systems</a>
-                    <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
-                    <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-                    <a href="#" onclick="openBlogModal(); return false;" class="hover:text-white transition-colors">Blog</a>
+            <!-- Top Navigation Bar -->
+            <nav class="relative z-20 w-full px-5 py-5 sm:px-8 sm:py-6 lg:px-12 flex items-center justify-between">
+                <!-- Logo Plate -->
+                <div class="flex items-center gap-2 text-white transition-colors duration-300 cursor-pointer hover:opacity-80 active:scale-95">
+                    <div class="w-8 h-8 rounded-full border border-white/30 bg-white/5 flex items-center justify-center font-mono text-xs font-bold text-white backdrop-blur-md">
+                        (F)
+                    </div>
+                    <span class="text-xl sm:text-2xl font-podium tracking-widest uppercase">Forge<span class="text-white/50">.Softwares</span></span>
                 </div>
 
-                <!-- Right: Desktop CTA Button -->
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex items-center gap-6 font-mono text-[10px] tracking-widest uppercase text-white/80">
+                    <a href="#home" class="hover:text-white transition-all duration-300">Home</a>
+                    <a href="#what-we-do" class="hover:text-white transition-all duration-300">Architecture</a>
+                    <a href="#services" class="hover:text-white transition-all duration-300">Systems</a>
+                    <a href="#testimonials" class="hover:text-white transition-all duration-300">Testimonials</a>
+                    <a href="#pricing" class="hover:text-white transition-all duration-300">Pricing</a>
+                    <a href="#" onclick="openBlogModal(); return false;" class="hover:text-white transition-all duration-300">Blog</a>
+                </div>
+                
                 <div class="hidden md:flex items-center">
-                    <button onclick="openEnquiryModal()" class="vanguard-btn-bordered text-xs px-6 py-3 tracking-widest uppercase hover:bg-white/10 flex items-center gap-2">
-                        Get In Touch <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    <button onclick="openEnquiryModal()" class="physical-btn min-h-[40px] px-6 text-[10px] uppercase tracking-widest">
+                        Get Started <i data-lucide="arrow-up-right" class="w-3 h-3 ml-2"></i>
                     </button>
                 </div>
 
-                <!-- Right: Mobile Hamburger Button -->
-                <button id="nexumMobileMenuBtn" class="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8 focus:outline-none z-50" aria-label="Toggle Menu">
-                    <div class="w-6 h-0.5 bg-white transition-all"></div>
-                    <div class="w-6 h-0.5 bg-white transition-all"></div>
-                    <div class="w-4 h-0.5 bg-white transition-all"></div>
+                <!-- Mobile Navigation Hamburger -->
+                <button id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 text-white relative z-[60] focus:outline-none active:scale-95" aria-label="Open Menu">
+                    <i data-lucide="menu" id="nexumMenuIcon" class="absolute w-5 h-5 transition-all duration-300 transform scale-100 opacity-100 rotate-0"></i>
+                    <i data-lucide="x" id="nexumXIcon" class="absolute w-5 h-5 transition-all duration-300 transform scale-0 opacity-0 -rotate-90"></i>
                 </button>
             </nav>
 
-            <!-- Hero Content (Vertically Centered, Left-Aligned) -->
-            <div class="relative z-10 my-auto px-6 sm:px-10 lg:px-16 py-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 w-full max-w-7xl mx-auto">
+            <!-- Bottom Anchored Main Content - Unobstructed Video Subject on Mobile -->
+            <div class="relative z-10 mt-auto flex-grow px-5 pt-8 pb-10 sm:px-8 sm:pb-16 lg:px-16 lg:pb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12 w-full max-w-full">
                 
-                <div class="flex-1 max-w-3xl">
-                    <!-- 1. Tagline -->
-                    <div class="flex items-center gap-2 text-white/70 text-xs sm:text-sm font-inter tracking-[0.3em] uppercase mb-6 animate-fade-up">
-                        <i data-lucide="crown" class="w-4 h-4 text-white/70"></i>
-                        <span>World-Class Digital Collective</span>
+                <!-- Left Column: Headline & Email CTA (Constrained Width on Mobile to Reveal Video Characters) -->
+                <div class="flex-1 w-full max-w-[85%] sm:max-w-2xl pb-4 sm:pb-0">
+                    
+                    <!-- Tagline Badge -->
+                    <div class="inline-flex items-center gap-2 border border-white/20 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full text-white/90 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase mb-6 animate-fade-up">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                        <span>Systems_Engineering_Collective</span>
                     </div>
 
-                    <!-- 2. Main Heading (Podium Sharp Font) -->
-                    <h1 class="font-podium text-[clamp(2.8rem,7.5vw,6.5rem)] font-bold text-white uppercase leading-[0.95] tracking-tight mb-6 animate-fade-up-delay-1">
-                        DESIGN.<br/>
-                        DISRUPT.<br/>
-                        CONQUER.
+                    <!-- Main Heading -->
+                    <h1 class="font-podium text-4xl sm:text-5xl lg:text-[5.5rem] text-white uppercase leading-[0.95] tracking-tight mb-6 animate-fade-up" style="animation-delay: 0.1s;">
+                        SHIP AI WORKERS<br/>
+                        THAT GRIND<br/>
+                        WHILE YOU REST.
                     </h1>
                     
-                    <!-- 3. Subtext -->
-                    <p class="text-white/80 text-sm sm:text-base lg:text-lg font-inter leading-relaxed max-w-xl animate-fade-up-delay-2 mb-8">
-                        We build fierce brand identities and ship AI workers that grind while you rest. Architecting scalable web platforms and autonomous AI agents that automate acquisition 24/7.
+                    <p class="mt-4 sm:mt-6 text-xs sm:text-base text-white/85 max-w-md font-inter leading-relaxed animate-fade-up mb-8" style="animation-delay: 0.2s;">
+                        Architecting scalable web platforms and autonomous AI agents to automate your acquisition, operations, and growth 24/7.
                     </p>
+                    
+                    <!-- Email CTA Row -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto animate-fade-up" style="animation-delay: 0.3s;">
+                        <input type="email" placeholder="Enter work email..." class="w-full sm:w-72 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-5 py-3.5 text-xs sm:text-sm text-white placeholder-white/50 outline-none focus:border-white transition-colors font-mono" />
+                        <button onclick="openEnquiryModal()" class="apple-blue-btn rounded-full px-8 py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-xl">
+                            Get Started
+                        </button>
+                    </div>
 
-                    <!-- 4. CTA Row -->
-                    <div class="animate-fade-up-delay-3 flex flex-wrap items-center gap-4 sm:gap-6 mb-10">
-                        <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-                            <input type="email" placeholder="Enter your work email" class="w-full sm:w-64 px-5 py-3.5 bg-black/60 border border-white/20 rounded-full text-sm text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors" />
-                            <button onclick="openEnquiryModal()" class="w-full sm:w-auto vanguard-btn-white text-xs px-8 py-4 font-bold tracking-widest uppercase flex items-center justify-center gap-2 group">
-                                SEE OUR WORK <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                            </button>
+                    <!-- Key Stats Row -->
+                    <div class="hidden sm:flex flex-wrap gap-8 pt-8 mt-8 border-t border-white/20 font-mono animate-fade-up" style="animation-delay: 0.4s;">
+                        <div>
+                            <div class="text-2xl font-bold text-white tracking-tight">42,500+</div>
+                            <div class="text-white/60 text-[9px] tracking-wider uppercase mt-1">Deployments</div>
                         </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white tracking-tight">99.9%</div>
+                            <div class="text-white/60 text-[9px] tracking-wider uppercase mt-1">Reliability</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white tracking-tight">24/7</div>
+                            <div class="text-white/60 text-[9px] tracking-wider uppercase mt-1">Autonomous</div>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="hidden sm:flex items-center gap-3 border-l border-white/20 pl-6">
-                            <i data-lucide="award" class="w-8 h-8 text-white/50"></i>
-                            <div class="text-white/60 text-xs tracking-wider uppercase font-inter leading-tight">
-                                Top-Rated<br/><span class="text-white font-semibold">Brand Studio</span>
+                <!-- Right Column: Translucent Glass Card (Visible lg+ so mobile screen remains uncluttered) -->
+                <div class="hidden lg:flex flex-col gap-5 w-80 animate-fade-up" style="animation-delay: 0.5s;">
+                    <div class="flex flex-col justify-between rounded-2xl liquid-glass-panel p-6 cursor-default">
+                        <div class="mb-4 flex items-center gap-3">
+                            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black text-xs font-bold font-mono">
+                                FS
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-white block">Farman Shafi</span>
+                                <span class="text-[9px] text-white/60 font-mono uppercase tracking-widest">Lead Architect</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- 5. Stats Row -->
-                    <div class="animate-fade-up-delay-4 flex flex-wrap gap-8 sm:gap-12 lg:gap-16 pt-6 border-t border-white/10">
-                        <div>
-                            <div class="font-inter text-2xl sm:text-4xl font-bold text-white tracking-tight">42,500+</div>
-                            <div class="text-white/50 text-[10px] sm:text-xs tracking-widest uppercase mt-1">Active Deployments</div>
-                        </div>
-                        <div>
-                            <div class="font-inter text-2xl sm:text-4xl font-bold text-white tracking-tight">99.9%</div>
-                            <div class="text-white/50 text-[10px] sm:text-xs tracking-widest uppercase mt-1">Client Retention</div>
-                        </div>
-                        <div>
-                            <div class="font-inter text-2xl sm:text-4xl font-bold text-white tracking-tight">24/7</div>
-                            <div class="text-white/50 text-[10px] sm:text-xs tracking-widest uppercase mt-1">Autonomous Ops</div>
-                        </div>
+                        <p class="text-xs leading-relaxed text-white/85 italic">
+                            "With Forge Softwares we shifted from manual repetitive tasks to intelligent AI workers that process 80% of client pipelines continuously."
+                        </p>
                     </div>
                 </div>
-
-                <!-- Right Side Glass Card (Testimonial Spotlight) -->
-                <div class="w-full lg:w-80 liquid-glass-panel p-6 rounded-2xl animate-fade-up-delay-3 mt-6 lg:mt-0">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-white text-black font-bold flex items-center justify-center text-sm font-podium">
-                            FS
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">Farman Shafi</h4>
-                            <p class="text-xs text-white/60">CEO & Head of Developers Team</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-white/80 leading-relaxed italic font-inter">
-                        "With Forge Softwares we went from managing tedious operational work to having AI agents that handle 80% of our pipeline automatically."
-                    </p>
-                </div>
-
             </div>
         </section>
 
-        <!-- Mobile Navigation Drawer Overlay -->
-        <div id="nexumMobileOverlay" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500 flex flex-col justify-between p-8 font-inter">
-            <div class="flex items-center justify-between">
-                <span class="font-podium text-2xl font-bold uppercase tracking-wider text-white">FORGE</span>
-                <button onclick="toggleNexumMenu()" class="text-white p-2 focus:outline-none" aria-label="Close Menu">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-            </div>
+        <!-- Mobile Navigation Drawer & Backdrop Overlay -->
+        <div id="nexumMobileOverlay" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-400 font-geist"></div>
+        <div id="nexumMobileDrawer" class="fixed right-4 top-4 z-50 h-[calc(100vh-32px)] w-[calc(100vw-32px)] sm:w-80 bg-[#111111]/95 backdrop-blur-2xl rounded-3xl translate-x-[120%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-20 px-6 pb-8 border border-white/10 shadow-2xl">
+            
+            <button onclick="toggleNexumMenu()" class="absolute top-5 right-5 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all active:scale-95 z-[60]" aria-label="Close Menu">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
 
-            <div class="flex flex-col items-center gap-6 my-auto">
-                <a href="#home" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Home</a>
-                <a href="#what-we-do" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Architecture</a>
-                <a href="#services" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Systems</a>
-                <a href="#testimonials" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Testimonials</a>
-                <a href="#pricing" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Pricing</a>
-                <a href="#" onclick="toggleNexumMenu(); setTimeout(openBlogModal, 300); return false;" class="nexum-mob-link font-podium text-3xl sm:text-4xl text-white uppercase tracking-wider hover:opacity-80 transition-opacity">Blog</a>
+            <div class="flex flex-col gap-2 mt-2">
+                <a href="#home" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Home</a>
+                <a href="#what-we-do" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Architecture</a>
+                <a href="#services" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Systems</a>
+                <a href="#testimonials" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Testimonials</a>
+                <a href="#pricing" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Pricing</a>
+                <a href="#" onclick="toggleNexumMenu(); setTimeout(openBlogModal, 300); return false;" class="nexum-mob-link rounded-2xl px-5 py-4 text-sm font-mono tracking-widest uppercase text-white hover:bg-white/5 transition-colors opacity-0 translate-x-[24px]">Blog</a>
             </div>
-
-            <div class="w-full pt-6 border-t border-white/20 text-center">
-                <button onclick="toggleNexumMenu(); openEnquiryModal();" class="vanguard-btn-white w-full py-4 text-xs font-bold uppercase tracking-widest">
-                    GET IN TOUCH
+            
+            <div class="mt-auto opacity-0 translate-y-[16px] transition-all duration-500 flex flex-col gap-4" id="nexumMobFooter">
+                <div class="w-full h-px bg-white/10"></div>
+                <button onclick="document.getElementById('nexumMobileMenuBtn').click(); openEnquiryModal();" class="apple-blue-btn rounded-full w-full py-4 text-xs font-bold uppercase tracking-widest text-black">
+                    Get started
                 </button>
             </div>
         </div>
 
-        <!-- Services Preview Section -->
-        <section id="services-preview" class="py-16 md:py-20 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#09090b] w-full relative z-20">
+        <section id="services-preview" class="py-16 md:py-20 px-5 sm:px-10 lg:px-16 border-b border-white/10 bg-transparent w-full relative z-20">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
-                    <!-- Card 1 -->
-                    <div class="physical-panel p-6 hover:-translate-y-2 transition-all duration-300 cursor-default group border border-white/10 hover:border-white/30 reveal">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white text-white group-hover:text-black transition-colors">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                    <div class="liquid-glass-panel rounded-2xl p-6 sm:p-8 cursor-default group reveal">
+                        <div class="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors border border-white/10">
+                            <i data-lucide="cpu" class="w-5 h-5 transition-transform duration-300"></i>
                         </div>
-                        <h4 class="font-podium text-lg text-white uppercase tracking-tight mb-2">Automation</h4>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">Streamlined workflows and autonomous business logic.</p>
+                        <h4 class="font-bold text-base sm:text-lg text-white uppercase tracking-tight mb-2">Automation</h4>
+                        <p class="text-xs text-white/60 leading-relaxed font-inter">Streamlined workflows and business logic.</p>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="physical-panel p-6 hover:-translate-y-2 transition-all duration-300 cursor-default group border border-white/10 hover:border-white/30 reveal" style="transition-delay: 100ms;">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white text-white group-hover:text-black transition-colors">
-                            <i data-lucide="layout-template" class="w-6 h-6"></i>
+
+                    <div class="liquid-glass-panel rounded-2xl p-6 sm:p-8 cursor-default group reveal" style="transition-delay: 100ms;">
+                        <div class="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors border border-white/10">
+                            <i data-lucide="layout-template" class="w-5 h-5 transition-transform duration-300"></i>
                         </div>
-                        <h4 class="font-podium text-lg text-white uppercase tracking-tight mb-2">Web Platforms</h4>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">High-converting digital web architecture.</p>
+                        <h4 class="font-bold text-base sm:text-lg text-white uppercase tracking-tight mb-2">Web Platforms</h4>
+                        <p class="text-xs text-white/60 leading-relaxed font-inter">High-converting digital architecture.</p>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="physical-panel p-6 hover:-translate-y-2 transition-all duration-300 cursor-default group border border-white/10 hover:border-white/30 reveal" style="transition-delay: 200ms;">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-white text-white group-hover:text-black transition-colors">
-                            <i data-lucide="message-square-dashed" class="w-6 h-6"></i>
+
+                    <div class="liquid-glass-panel rounded-2xl p-6 sm:p-8 cursor-default group reveal sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
+                        <div class="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors border border-white/10">
+                            <i data-lucide="message-square-dashed" class="w-5 h-5 transition-transform duration-300"></i>
                         </div>
-                        <h4 class="font-podium text-lg text-white uppercase tracking-tight mb-2">AI Chatbots</h4>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">24/7 intelligent customer support & booking systems.</p>
+                        <h4 class="font-bold text-base sm:text-lg text-white uppercase tracking-tight mb-2">AI Chatbots</h4>
+                        <p class="text-xs text-white/60 leading-relaxed font-inter">24/7 intelligent customer support systems.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Client Trust Logos Section -->
-        <section id="trust-logos" class="py-16 border-b border-white/10 bg-[#050505] w-full relative overflow-hidden">
-            <div class="w-full mx-auto text-center reveal relative z-10">
-                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 mb-3 font-mono">Deployed by forward-thinking organizations</p>
-                <h3 class="font-podium text-2xl sm:text-4xl font-bold uppercase text-white mb-10 tracking-tight">Trusted By Industry Leaders</h3>
+        <section id="trust-logos" class="py-20 border-b border-white/10 bg-transparent w-full relative overflow-hidden">
+            <div class="w-full mx-auto text-center reveal relative z-10 overflow-hidden">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 mb-4 font-mono">Deployed by forward-thinking organizations</p>
+                
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-podium uppercase text-white mb-16 tracking-tight">Trusted By Industry Leaders</h3>
 
-                <div class="relative w-full overflow-hidden flex items-center py-4">
-                    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
-                    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
+                <div class="relative w-full overflow-hidden flex items-center py-4 group">
+                    <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#030303] to-transparent z-20 pointer-events-none"></div>
+                    <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#030303] to-transparent z-20 pointer-events-none"></div>
                     
-                    <div class="animate-marquee-ltr flex items-center gap-16 min-w-max">
-                        <div class="flex items-center gap-16 uppercase text-xl font-podium tracking-wider text-white/70 hover:text-white transition-colors cursor-default">
-                            <span class="flex items-center gap-2"><i data-lucide="layers" class="w-6 h-6 text-white"></i> NexaCore</span>
-                            <span class="flex items-center gap-2"><i data-lucide="activity" class="w-6 h-6 text-white"></i> Lumina</span>
-                            <span class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-6 h-6 text-white"></i> Horizon</span>
-                            <span class="flex items-center gap-2"><i data-lucide="briefcase" class="w-6 h-6 text-white"></i> Elevate</span>
-                            <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-6 h-6 text-white"></i> Quantum</span>
-                            <span class="flex items-center gap-2"><i data-lucide="pie-chart" class="w-6 h-6 text-white"></i> Vertex</span>
-                            <span class="flex items-center gap-2"><i data-lucide="zap" class="w-6 h-6 text-white"></i> Apex</span>
-                            <span class="flex items-center gap-2"><i data-lucide="globe" class="w-6 h-6 text-white"></i> GlobalNet</span>
+                    <div class="animate-marquee-ltr opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex-nowrap">
+                        <div class="flex items-center gap-16 md:gap-24 justify-around min-w-max pr-16 md:pr-24">
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="layers" class="w-6 h-6 text-white/50"></i> NexaCore</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="activity" class="w-6 h-6 text-white/50"></i> Lumina</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="shopping-bag" class="w-6 h-6 text-white/50"></i> Horizon</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="briefcase" class="w-6 h-6 text-white/50"></i> Elevate</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="cpu" class="w-6 h-6 text-white/50"></i> Quantum</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="pie-chart" class="w-6 h-6 text-white/50"></i> Vertex</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="zap" class="w-6 h-6 text-white/50"></i> Apex</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="globe" class="w-6 h-6 text-white/50"></i> GlobalNet</div>
                         </div>
-                        <div class="flex items-center gap-16 uppercase text-xl font-podium tracking-wider text-white/70 hover:text-white transition-colors cursor-default">
-                            <span class="flex items-center gap-2"><i data-lucide="layers" class="w-6 h-6 text-white"></i> NexaCore</span>
-                            <span class="flex items-center gap-2"><i data-lucide="activity" class="w-6 h-6 text-white"></i> Lumina</span>
-                            <span class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-6 h-6 text-white"></i> Horizon</span>
-                            <span class="flex items-center gap-2"><i data-lucide="briefcase" class="w-6 h-6 text-white"></i> Elevate</span>
-                            <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-6 h-6 text-white"></i> Quantum</span>
-                            <span class="flex items-center gap-2"><i data-lucide="pie-chart" class="w-6 h-6 text-white"></i> Vertex</span>
-                            <span class="flex items-center gap-2"><i data-lucide="zap" class="w-6 h-6 text-white"></i> Apex</span>
-                            <span class="flex items-center gap-2"><i data-lucide="globe" class="w-6 h-6 text-white"></i> GlobalNet</span>
+                        <div class="flex items-center gap-16 md:gap-24 justify-around min-w-max pr-16 md:pr-24">
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="layers" class="w-6 h-6 text-white/50"></i> NexaCore</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="activity" class="w-6 h-6 text-white/50"></i> Lumina</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="shopping-bag" class="w-6 h-6 text-white/50"></i> Horizon</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="briefcase" class="w-6 h-6 text-white/50"></i> Elevate</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="cpu" class="w-6 h-6 text-white/50"></i> Quantum</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="pie-chart" class="w-6 h-6 text-white/50"></i> Vertex</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="zap" class="w-6 h-6 text-white/50"></i> Apex</div>
+                            <div class="whitespace-nowrap shrink-0 text-xl sm:text-2xl font-bold tracking-widest text-white uppercase flex items-center gap-3 font-mono cursor-default"><i data-lucide="globe" class="w-6 h-6 text-white/50"></i> GlobalNet</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Success Metrics Section -->
-        <section id="metrics" class="py-20 px-6 sm:px-10 lg:px-16 bg-[#0a0a0c] border-b border-white/10 w-full">
+        <section id="metrics" class="py-20 md:py-28 px-5 sm:px-10 lg:px-16 relative bg-transparent w-full">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0e0e12] border-white/10">
-                        <h4 class="text-4xl sm:text-5xl font-podium font-bold text-white mb-2">350%</h4>
-                        <p class="text-xs font-bold uppercase tracking-widest text-white/50 font-mono mt-2">Lead Velocity Increase</p>
-                        <p class="text-xs text-white/60 mt-2 font-inter max-w-xs">Average growth in qualified prospects post-deployment.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                    <div class="liquid-glass-panel rounded-2xl reveal p-10 text-center flex flex-col items-center group">
+                        <h4 class="text-5xl sm:text-6xl font-podium text-white mb-4 group-hover:scale-110 transition-transform">350%</h4>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60 font-mono mt-2">Lead Velocity Increase</p>
+                        <p class="text-xs text-white/40 mt-4 font-inter max-w-xs leading-relaxed">Average growth in qualified prospects post-deployment.</p>
                     </div>
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0e0e12] border-white/10" style="transition-delay: 100ms;">
-                        <h4 class="text-4xl sm:text-5xl font-podium font-bold text-white mb-2">24/7</h4>
-                        <p class="text-xs font-bold uppercase tracking-widest text-white/50 font-mono mt-2">Autonomous Operations</p>
-                        <p class="text-xs text-white/60 mt-2 font-inter max-w-xs">AI agents capturing and routing intent around the clock.</p>
+                    <div class="liquid-glass-panel rounded-2xl reveal p-10 text-center flex flex-col items-center group" style="transition-delay: 100ms;">
+                        <h4 class="text-5xl sm:text-6xl font-podium text-white mb-4 group-hover:scale-110 transition-transform">24/7</h4>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60 font-mono mt-2">Autonomous Operations</p>
+                        <p class="text-xs text-white/40 mt-4 font-inter max-w-xs leading-relaxed">AI agents capturing and routing intent around the clock.</p>
                     </div>
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0e0e12] border-white/10" style="transition-delay: 200ms;">
-                        <h4 class="text-4xl sm:text-5xl font-podium font-bold text-white mb-2">99.9%</h4>
-                        <p class="text-xs font-bold uppercase tracking-widest text-white/50 font-mono mt-2">System Reliability</p>
-                        <p class="text-xs text-white/60 mt-2 font-inter max-w-xs">Zero downtime. Infrastructure built for enterprise scale.</p>
+                    <div class="liquid-glass-panel rounded-2xl reveal p-10 text-center flex flex-col items-center group" style="transition-delay: 200ms;">
+                        <h4 class="text-5xl sm:text-6xl font-podium text-white mb-4 group-hover:scale-110 transition-transform">99.9%</h4>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60 font-mono mt-2">System Reliability</p>
+                        <p class="text-xs text-white/40 mt-4 font-inter max-w-xs leading-relaxed">Zero downtime. Infrastructure built for enterprise scale.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Playground / Interactive Terminal Section -->
-        <section id="ai-playground" class="py-20 md:py-28 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#050505] w-full">
-            <div class="w-full max-w-4xl mx-auto text-center mb-12 reveal">
-                <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white mb-4">
-                    INTERACT.<br/>TEST OUR AUTONOMOUS AGENT.
+        <section id="ai-playground" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 relative border-y border-white/10 bg-transparent w-full">
+            <div class="w-full max-w-4xl mx-auto text-center mb-16 reveal">
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-podium uppercase tracking-tight leading-tight mb-6 text-white">
+                    Interact.<br />Test our autonomous agent.
                 </h2>
-                <p class="text-white/50 font-bold uppercase tracking-widest text-xs font-mono">Live Terminal Simulation</p>
+                <p class="text-white/50 font-bold uppercase tracking-widest text-[10px] font-mono">Live Terminal Simulation</p>
             </div>
             
-            <div class="w-full max-w-3xl mx-auto physical-panel bg-[#0d0d10] p-4 reveal border-white/20" id="terminal-container">
-                <div class="bg-[#050505] p-2 rounded-xl border border-white/10">
-                    <div class="lcd-screen rounded-lg p-5 h-[350px] flex flex-col relative z-10 w-full overflow-hidden">
+            <div class="w-full max-w-3xl mx-auto liquid-glass-panel rounded-3xl p-3 sm:p-5 reveal" id="terminal-container">
+                <div class="bg-black/80 rounded-2xl relative overflow-hidden w-full border border-white/10">
+                    <div class="lcd-screen rounded-xl p-5 sm:p-8 h-[350px] sm:h-[450px] flex flex-col relative z-10 w-full overflow-hidden bg-transparent shadow-none border-none">
                         
-                        <div class="border-b border-white/10 pb-3 mb-4 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i data-lucide="terminal" class="w-5 h-5 text-white/60"></i>
+                        <div class="border-b border-white/10 pb-4 mb-6 flex items-center justify-between opacity-80">
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="terminal" class="w-5 h-5 text-white/50"></i>
                                 <div>
-                                    <h4 class="font-mono text-sm text-white font-bold">FORGE_AI_NODE_01</h4>
-                                    <p class="text-[9px] uppercase font-mono text-emerald-400 flex items-center gap-1 mt-0.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Status: Active
+                                    <h4 class="font-bold tracking-widest uppercase text-xs sm:text-sm text-white font-mono">Forge AI Node</h4>
+                                    <p class="text-[9px] uppercase tracking-widest font-bold text-emerald-400 flex items-center gap-2 mt-1 font-mono">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block"></span> Status: Active_
                                     </p>
                                 </div>
                             </div>
-                            <div class="text-xs font-mono text-white/40">SYS_TIME: <span id="sys-time" class="text-white">--:--:--</span></div>
+                            <div class="text-[10px] font-mono hidden sm:block text-white/50 uppercase tracking-widest">SYS_TIME: <span id="sys-time" class="text-white">--:--:--</span></div>
                         </div>
                         
-                        <div class="flex-1 overflow-y-auto pr-2 space-y-4 text-xs sm:text-sm font-mono text-white/90" id="terminal-output">
-                            <!-- Injected by Terminal JS -->
+                        <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-5 text-sm sm:text-base font-mono text-white" id="terminal-output">
+                            <!-- Injected dynamically via JS typing simulator -->
                         </div>
                         
-                        <div class="mt-4 pt-3 border-t border-white/10 flex gap-2 items-center">
-                            <div class="font-mono text-white font-bold">&gt;</div>
-                            <input type="text" placeholder="SYSTEM LOCKED. AWAITING OVERRIDE..." class="w-full bg-transparent border-none text-white font-mono focus:outline-none placeholder-white/30 text-xs uppercase" disabled="disabled">
+                        <div class="mt-6 pt-4 border-t border-white/10 flex gap-3 items-center">
+                            <div class="font-bold text-white/50 font-mono">></div>
+                            <input type="text" placeholder="SYSTEM LOCKED. AWAITING OVERRIDE..." class="w-full bg-transparent border-none text-white font-mono focus:outline-none placeholder-white/30 text-xs tracking-widest" disabled="disabled">
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-4 flex flex-col sm:flex-row items-center justify-between px-2 gap-4 font-mono">
-                    <div class="flex gap-6">
+                <div class="mt-5 flex flex-col sm:flex-row items-center justify-between px-2 sm:px-4 gap-6 font-mono">
+                    <div class="flex gap-8">
                         <div class="flex items-center gap-2">
-                            <div class="led-indicator led-purple"></div>
-                            <span class="text-[10px] uppercase text-white/60">PWR</span>
+                            <div class="led-indicator led-white opacity-50"></div>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-white/50">PWR</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <div class="led-indicator led-green animate-pulse"></div>
-                            <span class="text-[10px] uppercase text-white/60">NET</span>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-white/50">NET</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <div class="led-indicator led-guava" id="data-led"></div>
-                            <span class="text-[10px] uppercase text-white/60">DAT</span>
+                            <div class="led-indicator led-white" id="data-led"></div>
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-white/50">DAT</span>
                         </div>
                     </div>
                     
-                    <button class="vanguard-btn-white text-xs px-6 py-2.5 uppercase font-mono flex items-center gap-2" onclick="openEnquiryModal()">
-                        <i data-lucide="power" class="w-3.5 h-3.5"></i> System Override
+                    <button class="physical-btn w-full sm:w-auto px-8 py-3 text-[10px] tracking-widest" onclick="openEnquiryModal()">
+                        <i data-lucide="power" class="w-3 h-3 mr-2"></i> System Override
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Case Study / Architecture Shift Section -->
-        <section class="py-20 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#09090c] w-full">
+        <section class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 border-b border-white/10 bg-transparent w-full">
             <div class="w-full max-w-6xl mx-auto">
-                <div class="mb-12 text-center reveal">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-white/50">System Infrastructure</span>
-                    <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase mt-2 text-white">Architecture Shift</h2>
+                <div class="mb-16 text-center reveal">
+                    <span class="text-[10px] font-bold text-white/50 tracking-widest uppercase font-mono">System Infrastructure</span>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-podium uppercase mt-4 text-white tracking-tight">Architecture Shift</h2>
                 </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
-                    <div class="physical-panel p-8 bg-[#0d0d10] border-white/10">
-                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
-                            <i data-lucide="x-circle" class="w-6 h-6 text-amber-500"></i>
-                            <h3 class="font-podium text-xl text-white uppercase">Legacy Systems</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal w-full">
+                    <div class="liquid-glass-panel rounded-3xl p-8 sm:p-10 flex flex-col border-t-2 border-t-transparent hover:border-t-white/30">
+                        <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-5">
+                            <div class="bg-white/5 p-3 rounded-xl border border-white/10"><i data-lucide="x-circle" class="w-6 h-6 text-white/50"></i></div>
+                            <h3 class="text-xl sm:text-2xl font-bold uppercase text-white font-mono tracking-widest">Legacy Systems</h3>
                         </div>
-                        <ul class="space-y-4 text-sm text-white/60 font-inter">
-                            <li class="flex items-start gap-3"><i data-lucide="clock" class="w-5 h-5 text-amber-500 shrink-0"></i> <span>Delayed responses lead to high prospect attrition.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="smartphone" class="w-5 h-5 text-amber-500 shrink-0"></i> <span>Suboptimal mobile UI increases bounce rates.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="search" class="w-5 h-5 text-amber-500 shrink-0"></i> <span>Zero search visibility limits organic discovery.</span></li>
+                        <ul class="space-y-6 font-medium text-sm text-white/70 font-inter">
+                            <li class="flex items-start gap-4"><i data-lucide="clock" class="w-5 h-5 text-white/40 shrink-0 mt-0.5"></i> <span class="leading-relaxed">Delayed responses lead to high prospect attrition.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="smartphone" class="w-5 h-5 text-white/40 shrink-0 mt-0.5"></i> <span class="leading-relaxed">Suboptimal mobile UI increases bounce rates.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="search" class="w-5 h-5 text-white/40 shrink-0 mt-0.5"></i> <span class="leading-relaxed">Zero search visibility limits organic discovery.</span></li>
                         </ul>
                     </div>
 
-                    <div class="physical-panel p-8 bg-[#121216] border-emerald-500/30">
-                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
-                            <i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-400"></i>
-                            <h3 class="font-podium text-xl text-white uppercase">Forge Protocol</h3>
+                    <div class="liquid-glass-panel rounded-3xl p-8 sm:p-10 flex flex-col border-t-2 border-t-emerald-500 bg-white/5 lg:scale-105 z-10">
+                        <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-5">
+                            <div class="bg-emerald-500/20 p-3 rounded-xl border border-emerald-500/30"><i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-400"></i></div>
+                            <h3 class="text-xl sm:text-2xl font-bold uppercase text-white font-mono tracking-widest">Forge Protocol</h3>
                         </div>
-                        <ul class="space-y-4 text-sm text-white font-inter">
-                            <li class="flex items-start gap-3"><i data-lucide="zap" class="w-5 h-5 text-emerald-400 shrink-0"></i> <span>AI agents process inquiries and book meetings instantly.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="layout" class="w-5 h-5 text-emerald-400 shrink-0"></i> <span>Fluid, mobile-native interfaces built for conversion.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="trending-up" class="w-5 h-5 text-emerald-400 shrink-0"></i> <span>Technical SEO infrastructure captures high-intent traffic.</span></li>
+                        <ul class="space-y-6 font-bold text-sm text-white font-inter">
+                            <li class="flex items-start gap-4"><i data-lucide="zap" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i> <span class="leading-relaxed">AI agents process inquiries and book meetings instantly.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="layout" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i> <span class="leading-relaxed">Fluid, mobile-native interfaces built for conversion.</span></li>
+                            <li class="flex items-start gap-4"><i data-lucide="trending-up" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i> <span class="leading-relaxed">Technical SEO infrastructure captures high-intent traffic.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- What We Do / Corporate Structure Section -->
-        <section id="what-we-do" class="py-20 md:py-28 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#050505] w-full">
+        <section id="what-we-do" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 relative bg-transparent w-full">
             <div class="w-full max-w-5xl mx-auto">
-                <div class="mb-10 reveal text-center">
-                    <span class="text-xs font-mono uppercase tracking-widest text-white/50">Infrastructure</span>
-                    <h2 class="font-podium text-4xl sm:text-6xl font-bold uppercase mt-2 mb-6 text-white">Architecture</h2>
+                <div class="mb-16 reveal text-center">
+                    <span class="text-[10px] font-bold text-white/50 tracking-widest uppercase font-mono">Infrastructure</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-podium uppercase mt-4 text-white">Architecture</h2>
                 </div>
-                <div class="physical-panel bg-[#0e0e12] p-8 sm:p-12 reveal border-white/10">
-                    <div class="physical-recessed bg-[#050505] p-6 sm:p-8">
-                        <p class="text-white/80 text-sm md:text-base font-inter leading-relaxed mb-6">
-                            Forge Softwares operates as the central infrastructure for our specialized subsidiaries, <strong class="text-white font-bold">Cobra</strong> and <strong class="text-white font-bold">Runo</strong>. We architect custom web platforms, SaaS products, and autonomous business tools designed for scale. Our focus is on speed, security, and measurable conversion.
+                <div class="liquid-glass-panel rounded-[2rem] p-8 sm:p-12 md:p-16 reveal w-full">
+                    <div class="bg-black/40 rounded-2xl p-6 sm:p-10 border border-white/10">
+                        <p class="text-white/80 text-sm md:text-base font-inter leading-relaxed tracking-wide mb-8">
+                            Forge Softwares operates as the central infrastructure for our specialized subsidiaries, <strong class="text-white font-bold tracking-widest">COBRA</strong> and <strong class="text-white font-bold tracking-widest">RUNO</strong>. We architect custom web platforms, SaaS products, and autonomous business tools designed for scale. Our focus is on speed, security, and measurable conversion.
                         </p>
-                        <p class="text-white/80 text-sm md:text-base font-inter leading-relaxed">
+                        <p class="text-white/80 text-sm md:text-base font-inter leading-relaxed tracking-wide">
                             We deliver comprehensive digital ecosystems—from interface design to CRM integration. By bridging advanced technology with practical utility, we enable businesses to streamline operations and accelerate growth in complex markets.
                         </p>
 
-                        <!-- Sub-Brand Badges -->
-                        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <span class="text-xs font-mono uppercase tracking-widest text-white/50">Official Subsidiaries</span>
-                            <div class="flex flex-wrap justify-center gap-4">
-                                <div class="physical-panel bg-[#121216] px-6 py-2.5 flex items-center gap-3 border-white/10">
-                                    <div class="led-indicator led-purple animate-pulse"></div>
-                                    <span class="font-podium text-lg uppercase tracking-wider text-white">Cobra</span>
+                        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-8 w-full">
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-white/50 font-mono">Official Subsidiaries</span>
+                            <div class="flex flex-wrap justify-center gap-4 w-full sm:w-auto">
+                                <div class="bg-white/5 border border-white/10 rounded-full px-6 py-3 flex items-center justify-center gap-3 w-full sm:w-auto cursor-default">
+                                    <div class="led-indicator led-white animate-pulse shrink-0 opacity-50"></div>
+                                    <span class="font-bold text-sm uppercase tracking-widest text-white font-mono">Cobra</span>
                                 </div>
-                                <div class="physical-panel bg-[#121216] px-6 py-2.5 flex items-center gap-3 border-white/10">
-                                    <div class="led-indicator led-guava animate-pulse"></div>
-                                    <span class="font-podium text-lg uppercase tracking-wider text-white">Runo</span>
+                                <div class="bg-white/5 border border-white/10 rounded-full px-6 py-3 flex items-center justify-center gap-3 w-full sm:w-auto cursor-default">
+                                    <div class="led-indicator led-white animate-pulse shrink-0 opacity-50"></div>
+                                    <span class="font-bold text-sm uppercase tracking-widest text-white font-mono">Runo</span>
                                 </div>
                             </div>
                         </div>
@@ -872,569 +796,727 @@
             </div>
         </section>
 
-        <!-- Process / Deployment Protocol Section -->
-        <section id="process" class="py-20 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#09090c] w-full">
+        <section id="process" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 border-y border-white/10 bg-transparent w-full">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white">Deployment Protocol</h2>
-                    <p class="text-white/50 font-mono mt-3 uppercase text-xs tracking-widest">Standardized execution pipeline.</p>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-podium uppercase text-white">Deployment Protocol</h2>
+                    <p class="text-white/50 font-bold mt-4 uppercase tracking-widest text-[10px] font-mono">Standardized execution pipeline.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0d0d10] border-white/10">
-                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mb-6 font-mono font-bold text-xl text-white">1</div>
-                        <h3 class="font-podium text-lg uppercase text-white mb-2">Audit & Architect</h3>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">Map business logic, identify constraints, and architect a custom technical blueprint.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
+                    <div class="liquid-glass-panel rounded-3xl reveal p-10 text-center flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 group-hover:bg-white transition-colors duration-300">
+                            <span class="text-xl font-bold text-white group-hover:text-black font-mono">1</span>
+                        </div>
+                        <h3 class="text-lg font-bold uppercase tracking-widest mb-4 text-white font-mono">Audit & Architect</h3>
+                        <p class="text-xs text-white/60 font-inter leading-relaxed">Map business logic, identify constraints, and architect a custom technical blueprint.</p>
                     </div>
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0d0d10] border-white/10" style="transition-delay: 100ms;">
-                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mb-6 font-mono font-bold text-xl text-white">2</div>
-                        <h3 class="font-podium text-lg uppercase text-white mb-2">Build & Automate</h3>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">Engineer the frontend and integrate autonomous AI agents to automate acquisition.</p>
+                    <div class="liquid-glass-panel rounded-3xl reveal p-10 text-center flex flex-col items-center group" style="transition-delay: 100ms;">
+                        <div class="w-16 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 group-hover:bg-white transition-colors duration-300">
+                            <span class="text-xl font-bold text-white group-hover:text-black font-mono">2</span>
+                        </div>
+                        <h3 class="text-lg font-bold uppercase tracking-widest mb-4 text-white font-mono">Build & Automate</h3>
+                        <p class="text-xs text-white/60 font-inter leading-relaxed">Engineer the frontend and integrate autonomous AI agents to automate acquisition.</p>
                     </div>
-                    <div class="physical-panel reveal p-8 text-center flex flex-col items-center bg-[#0d0d10] border-white/10" style="transition-delay: 200ms;">
-                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mb-6 font-mono font-bold text-xl text-white">3</div>
-                        <h3 class="font-podium text-lg uppercase text-white mb-2">Launch & Scale</h3>
-                        <p class="text-xs text-white/60 leading-relaxed font-inter">Live deployment. Systems operate continuously, converting traffic into booked meetings.</p>
+                    <div class="liquid-glass-panel rounded-3xl reveal p-10 text-center flex flex-col items-center group" style="transition-delay: 200ms;">
+                        <div class="w-16 h-16 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 group-hover:bg-white transition-colors duration-300">
+                            <span class="text-xl font-bold text-white group-hover:text-black font-mono">3</span>
+                        </div>
+                        <h3 class="text-lg font-bold uppercase tracking-widest mb-4 text-white font-mono">Launch & Scale</h3>
+                        <p class="text-xs text-white/60 font-inter leading-relaxed">Live deployment. Systems operate continuously, converting traffic into booked meetings.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services / Systems Section -->
-        <section id="services" class="py-20 md:py-28 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#050505] w-full">
+        <section id="services" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 border-b border-white/10 bg-transparent w-full">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="mb-16 reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-                    <div>
-                        <h2 class="font-podium text-4xl sm:text-6xl font-bold uppercase text-white">Systems</h2>
+                <div class="mb-16 reveal flex flex-col lg:flex-row lg:items-end justify-between gap-8 w-full">
+                    <div class="w-full lg:w-auto text-left shrink-0">
+                        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-podium uppercase text-white">Systems</h2>
                     </div>
-                    <p class="text-white/60 text-sm md:text-base max-w-md font-inter leading-relaxed">
+                    <p class="text-white/60 text-sm md:text-base w-full max-w-md lg:text-right border-l-2 lg:border-l-0 lg:border-r border-white/20 pl-4 lg:pl-0 lg:pr-6 font-inter leading-relaxed">
                         Engineered for conversion. Replace manual workflows with intelligent automation.
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <article class="physical-panel bg-[#0d0d10] p-8 reveal flex flex-col border-white/10 hover:border-white/30 group">
-                        <div class="flex justify-between items-start mb-8">
-                            <i data-lucide="layout" class="w-8 h-8 text-white"></i>
-                            <span class="font-mono text-2xl font-bold text-white/30 group-hover:text-white transition-colors">01</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
+                    <article class="liquid-glass-panel rounded-3xl p-10 reveal flex flex-col group">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="bg-white/10 p-4 rounded-full border border-white/10 group-hover:bg-white transition-colors">
+                                <i data-lucide="layout" class="w-6 h-6 text-white group-hover:text-black"></i>
+                            </div>
+                            <span class="text-xl font-bold text-white/30 font-mono group-hover:text-white transition-colors">01</span>
                         </div>
-                        <h3 class="font-podium text-xl font-bold text-white uppercase mb-3">Premium Websites</h3>
-                        <p class="text-white/60 text-xs leading-relaxed font-inter mt-auto">High-fidelity web applications designed to capture intent and establish authority.</p>
+                        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-widest font-mono">Premium Websites</h3>
+                        <p class="text-white/50 text-xs leading-relaxed font-inter mt-auto">High-fidelity web applications designed to capture intent and establish authority.</p>
                     </article>
 
-                    <article class="physical-panel bg-[#0d0d10] p-8 reveal flex flex-col border-white/10 hover:border-white/30 group" style="transition-delay: 100ms;">
-                        <div class="flex justify-between items-start mb-8">
-                            <i data-lucide="bot" class="w-8 h-8 text-white"></i>
-                            <span class="font-mono text-2xl font-bold text-white/30 group-hover:text-white transition-colors">02</span>
+                    <article class="liquid-glass-panel rounded-3xl p-10 reveal flex flex-col group" style="transition-delay: 100ms;">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="bg-white/10 p-4 rounded-full border border-white/10 group-hover:bg-white transition-colors">
+                                <i data-lucide="bot" class="w-6 h-6 text-white group-hover:text-black"></i>
+                            </div>
+                            <span class="text-xl font-bold text-white/30 font-mono group-hover:text-white transition-colors">02</span>
                         </div>
-                        <h3 class="font-podium text-xl font-bold text-white uppercase mb-3">AI Sales Agents</h3>
-                        <p class="text-white/60 text-xs leading-relaxed font-inter mt-auto">Custom LLMs that qualify leads, resolve queries, and secure meetings autonomously.</p>
+                        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-widest font-mono">AI Sales Agents</h3>
+                        <p class="text-white/50 text-xs leading-relaxed font-inter mt-auto">Custom LLMs that qualify leads, resolve queries, and secure meetings autonomously.</p>
                     </article>
 
-                    <article class="physical-panel bg-[#0d0d10] p-8 reveal flex flex-col border-white/10 hover:border-white/30 group" style="transition-delay: 200ms;">
-                        <div class="flex justify-between items-start mb-8">
-                            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
-                            <span class="font-mono text-2xl font-bold text-white/30 group-hover:text-white transition-colors">03</span>
+                    <article class="liquid-glass-panel rounded-3xl p-10 reveal flex flex-col group sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
+                        <div class="flex justify-between items-start mb-10">
+                            <div class="bg-white/10 p-4 rounded-full border border-white/10 group-hover:bg-white transition-colors">
+                                <i data-lucide="cpu" class="w-6 h-6 text-white group-hover:text-black"></i>
+                            </div>
+                            <span class="text-xl font-bold text-white/30 font-mono group-hover:text-white transition-colors">03</span>
                         </div>
-                        <h3 class="font-podium text-xl font-bold text-white uppercase mb-3">Automated Pipelines</h3>
-                        <p class="text-white/60 text-xs leading-relaxed font-inter mt-auto">End-to-end CRM integration. Scale operations without scaling human headcount.</p>
+                        <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-widest font-mono">Automated Pipelines</h3>
+                        <p class="text-white/50 text-xs leading-relaxed font-inter mt-auto">End-to-end CRM integration. Scale operations without scaling human headcount.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio / Deployed Systems Section -->
-        <section id="portfolio" class="py-20 md:py-28 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#09090c] w-full">
+        <section id="portfolio" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 relative bg-transparent w-full">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="mb-12 reveal text-center">
-                    <span class="text-xs font-mono uppercase tracking-widest text-white/50">Client Deployment</span>
-                    <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white mt-2">Live Environments</h2>
-                    <p class="text-white/60 text-xs sm:text-sm max-w-xl mx-auto mt-2 font-inter">Inspect active infrastructure in production.</p>
+                <div class="mb-16 reveal flex flex-col items-center text-center w-full">
+                    <span class="text-[10px] font-bold text-white/50 tracking-widest mb-4 uppercase font-mono">Client Deployment</span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-podium uppercase text-white">Live Environments</h2>
+                    <p class="text-white/60 text-sm font-inter leading-relaxed mt-6">
+                        Inspect active infrastructure in production.
+                    </p>
                 </div>
 
-                <div class="w-full max-w-3xl mx-auto physical-panel bg-[#0e0e12] p-6 reveal border-white/20">
-                    <div class="lcd-screen rounded-xl p-8 sm:p-12 flex flex-col items-center justify-center text-center border border-white/10">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="led-indicator led-green animate-pulse"></div>
-                            <span class="text-xs font-mono uppercase text-white">Status: Live</span>
+                <div class="w-full max-w-4xl mx-auto liquid-glass-panel rounded-[2.5rem] p-5 sm:p-8 reveal">
+                    <div class="bg-black/60 rounded-3xl relative overflow-hidden w-full border border-white/10">
+                        <div class="p-8 sm:p-16 flex flex-col items-center justify-center text-center min-h-[300px]">
+                            <div class="absolute top-6 left-6 flex items-center gap-3">
+                                <div class="led-indicator led-green animate-pulse w-2.5 h-2.5"></div>
+                                <span class="text-[9px] font-bold uppercase tracking-widest text-white/70 font-mono">Status: Live</span>
+                            </div>
+                            <h3 class="text-4xl sm:text-5xl lg:text-7xl font-podium uppercase tracking-widest mb-6 mt-8 text-white">VIZORRA</h3>
+                            <p class="text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-12 text-white/50 font-mono">Premium Web Architecture</p>
+                            
+                            <a href="https://farmanshafi2007-hub.github.io/VIZORRA/" target="_blank" rel="noopener noreferrer" class="apple-blue-btn min-h-[48px] px-10 text-[10px] font-bold uppercase tracking-widest font-mono">
+                                <i data-lucide="external-link" class="w-4 h-4 mr-3"></i> Access System
+                            </a>
                         </div>
-                        <h3 class="font-podium text-4xl sm:text-6xl font-bold uppercase text-white mb-2">VIZORRA</h3>
-                        <p class="text-xs font-mono uppercase tracking-widest text-white/60 mb-8">Premium Web Architecture</p>
-                        
-                        <a href="https://farmanshafi2007-hub.github.io/VIZORRA/" target="_blank" rel="noopener noreferrer" class="vanguard-btn-white text-xs px-8 py-4 font-mono uppercase flex items-center gap-2">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Access System
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 px-6 sm:px-10 lg:px-16 border-b border-white/10 bg-[#050505] w-full">
+        <section id="testimonials" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 border-y border-white/10 bg-transparent w-full">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white">Testimonials</h2>
-                    <p class="text-white/50 font-mono mt-2 uppercase text-xs tracking-widest">Operator Feedback</p>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-podium uppercase text-white">Testimonials</h2>
+                    <p class="text-white/50 font-bold mt-4 uppercase tracking-widest text-[10px] font-mono">Operator Feedback</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="physical-panel reveal p-8 bg-[#0d0d10] border-white/10">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                                <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                    <div class="liquid-glass-panel rounded-3xl reveal p-8 sm:p-10 w-full">
+                        <div class="flex items-center gap-5 mb-8">
+                            <div class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center border border-white/20">
+                                <i data-lucide="user" class="w-5 h-5 text-white"></i>
                             </div>
                             <div>
-                                <h4 class="font-podium text-lg text-white uppercase">Sarah J.</h4>
-                                <p class="text-xs text-white/50 font-mono uppercase">Clinic Director @ Lumina Health</p>
+                                <h4 class="font-bold uppercase text-white tracking-widest text-sm font-mono">Sarah J.</h4>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-white/50 font-mono mt-1">Clinic Director @ Lumina Health</p>
                             </div>
                         </div>
-                        <p class="font-calligraphy calligraphy-gradient-1">
-                            "The AI agent handles 90% of our inquiries and books appointments autonomously. It fundamentally shifted our operational efficiency."
-                        </p>
+                        <div class="bg-black/30 p-6 rounded-2xl border border-white/5">
+                            <p class="font-calligraphy text-lg text-white/90">
+                                "The AI agent handles 90% of our inquiries and books appointments autonomously. It fundamentally shifted our operational efficiency."
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="physical-panel reveal p-8 bg-[#0d0d10] border-white/10" style="transition-delay: 100ms;">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                                <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                    <div class="liquid-glass-panel rounded-3xl reveal p-8 sm:p-10 w-full" style="transition-delay: 100ms;">
+                        <div class="flex items-center gap-5 mb-8">
+                            <div class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center border border-white/20">
+                                <i data-lucide="user" class="w-5 h-5 text-white"></i>
                             </div>
                             <div>
-                                <h4 class="font-podium text-lg text-white uppercase">Riyaz A.</h4>
-                                <p class="text-xs text-white/50 font-mono uppercase">E-com Founder @ Vertex Retail</p>
+                                <h4 class="font-bold uppercase text-white tracking-widest text-sm font-mono">Riyaz A.</h4>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-white/50 font-mono mt-1">E-com Founder @ Vertex Retail</p>
                             </div>
                         </div>
-                        <p class="font-calligraphy calligraphy-gradient-2">
-                            "The minimal aesthetic elevated our brand authority instantly. Combined with system optimizations, our conversion velocity accelerated."
-                        </p>
+                        <div class="bg-black/30 p-6 rounded-2xl border border-white/5">
+                            <p class="font-calligraphy text-lg text-white/90">
+                                "The minimal aesthetic elevated our brand authority instantly. Combined with system optimizations, our conversion velocity accelerated."
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- System Guarantee Banner -->
-        <section id="guarantee" class="py-12 px-6 bg-[#121216] border-b border-white/10 text-center relative overflow-hidden">
-            <div class="w-full max-w-4xl mx-auto">
-                <i data-lucide="shield-check" class="w-10 h-10 text-white mx-auto mb-4"></i>
-                <h2 class="font-podium text-2xl uppercase tracking-wider text-white mb-3">System Guarantee</h2>
-                <p class="text-xs sm:text-sm text-white/70 font-inter leading-relaxed max-w-2xl mx-auto">
+        <section id="guarantee" class="py-16 px-5 bg-black text-center relative overflow-hidden w-full border-b border-white/10">
+            <div class="w-full max-w-4xl mx-auto relative z-10 box-border">
+                <i data-lucide="shield-check" class="w-8 h-8 text-white/80 mx-auto mb-6"></i>
+                <h2 class="text-xl sm:text-2xl font-bold uppercase tracking-widest mb-4 text-white font-mono">System Guarantee</h2>
+                <p class="text-sm font-inter text-white/60 leading-relaxed px-4">
                     If our systems fail to operate as scoped, we resolve it at no cost. Lifetime bug support. Zero hidden retainers. Complete code transparency.
                 </p>
             </div>
         </section>
 
-        <!-- Pricing Section -->
-        <section id="pricing" class="py-20 md:py-28 px-6 sm:px-10 lg:px-16 bg-[#050505] border-b border-white/10 w-full">
+        <section id="pricing" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 bg-transparent w-full border-b border-white/10">
             <div class="w-full max-w-7xl mx-auto">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-xs font-mono uppercase tracking-widest text-white/50 border border-white/20 px-4 py-1.5 rounded-full inline-block mb-4">Clear Investment</span>
-                    <h2 class="font-podium text-4xl sm:text-6xl font-bold uppercase text-white">Pricing</h2>
+                <div class="text-center mb-16 md:mb-24 reveal px-2">
+                    <div class="inline-flex items-center gap-3 text-[9px] font-bold text-white/80 tracking-widest uppercase bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full font-mono border border-white/20 mb-8">
+                        <i data-lucide="zap" class="w-3 h-3 text-emerald-400"></i> Clear Investment
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-podium uppercase text-white">Pricing</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch w-full relative z-10">
                     
                     <!-- Starter Tier -->
-                    <article class="pricing-card-standard reveal p-8 flex flex-col">
-                        <div class="mb-6">
-                            <h3 class="font-podium text-2xl uppercase text-white mb-1">Starter</h3>
+                    <article class="liquid-glass-panel reveal p-8 md:p-10 flex flex-col h-full w-full rounded-[2rem]">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold uppercase tracking-widest mb-2 font-mono text-white">Starter</h3>
                             <p class="text-white/50 text-xs font-inter">Foundational digital presence.</p>
                         </div>
-                        <div class="mb-8 font-mono text-4xl font-bold text-white">₹3,000</div>
-                        <button onclick="openEnquiryModal()" class="vanguard-btn-bordered w-full py-3.5 text-xs font-bold uppercase mb-8">
+                        <div class="mb-10 text-4xl sm:text-5xl font-bold text-white tracking-tight font-mono">₹3,000</div>
+                        <button onclick="openEnquiryModal()" class="physical-btn w-full py-4 text-[10px] tracking-widest uppercase mb-10">
                             Book Your Website
                         </button>
-                        <div class="mt-auto pt-6 border-t border-white/10">
-                            <p class="text-[10px] font-mono text-white/40 uppercase mb-4">CORE FUNCTIONALITY</p>
-                            <ul class="space-y-3 text-xs text-white/80 font-inter">
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Single-Page Architecture</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Basic Lead Capture Form</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Mobile-Native Design</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Foundational SEO Setup</li>
+                        
+                        <div class="flex-1 mt-auto border-t border-white/10 pt-8">
+                            <p class="text-[9px] font-bold tracking-widest uppercase mb-6 text-white/40 font-mono">CORE FUNCTIONALITY</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Single-Page Architecture</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Basic Lead Capture Form</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Mobile-Native Design</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Foundational SEO Setup</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
 
-                    <!-- Pro Tier -->
-                    <article class="pricing-card-pro reveal p-8 flex flex-col relative" style="transition-delay: 100ms;">
-                        <div class="absolute -top-3 right-6 bg-white text-black text-[9px] font-mono font-bold uppercase px-3 py-1 rounded-full">
-                            High Demand
+                    <!-- Business Pro Tier -->
+                    <article class="pricing-card-pro reveal p-8 md:p-10 flex flex-col h-full transform lg:scale-105 w-full z-20" style="transition-delay: 100ms;">
+                        <div class="mx-auto lg:absolute lg:-top-4 lg:right-6 lg:mx-0 flex w-max items-center gap-2 bg-black px-4 py-2 rounded-full mb-8 lg:mb-0 border border-white/20">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></div>
+                            <span class="text-[9px] font-bold text-white uppercase tracking-widest font-mono">High Demand - Act Fast</span>
                         </div>
-                        <div class="mb-6">
-                            <h3 class="font-podium text-3xl uppercase text-white mb-1">Business Pro</h3>
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold uppercase tracking-widest mb-2 font-mono text-white">Business Pro</h3>
                             <p class="text-white/60 text-xs font-inter">Autonomous sales architecture.</p>
                         </div>
-                        <div class="mb-8 font-mono text-5xl font-bold text-white">₹7,000</div>
-                        <button onclick="openEnquiryModal()" class="vanguard-btn-white w-full py-4 text-xs font-bold uppercase mb-8">
+                        <div class="mb-10 text-5xl sm:text-6xl font-bold text-white tracking-tight font-mono">₹7,000</div>
+                        <button onclick="openEnquiryModal()" class="apple-blue-btn w-full py-4 text-[10px] tracking-widest uppercase mb-10 text-black">
                             Book Your Website
                         </button>
-                        <div class="mt-auto pt-6 border-t border-white/20">
-                            <p class="text-[10px] font-mono text-white/60 uppercase mb-4">FULL AUTOMATION</p>
-                            <ul class="space-y-3 text-xs text-white font-inter">
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Multi-Page Architecture</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Autonomous AI Agent</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Continuous Deal Processing</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Ongoing System Iteration</li>
-                                <li class="flex items-center gap-3 font-bold"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Free Domain Included</li>
+                        
+                        <div class="flex-1 mt-auto border-t border-white/10 pt-8 relative z-10"> 
+                            <p class="text-[9px] font-bold tracking-widest uppercase mb-6 text-white/60 font-mono">FULL AUTOMATION</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-4 text-sm text-white font-inter">
+                                    <div class="bg-white text-black p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span>Multi-Page Architecture</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white font-inter">
+                                    <div class="bg-white text-black p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span>Autonomous AI Agent</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white font-inter">
+                                    <div class="bg-white text-black p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span>Continuous Deal Processing</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white font-inter">
+                                    <div class="bg-white text-black p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span>Ongoing System Iteration</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm font-bold text-white font-inter">
+                                    <div class="bg-white text-black p-1 rounded-full"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                    <span>Free Domain Included</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
 
-                    <!-- Enterprise Tier -->
-                    <article class="pricing-card-standard reveal p-8 flex flex-col" style="transition-delay: 200ms;">
-                        <div class="mb-6">
-                            <h3 class="font-podium text-2xl uppercase text-white mb-1">Custom Build</h3>
+                    <!-- Custom Enterprise Tier -->
+                    <article class="liquid-glass-panel reveal p-8 md:p-10 flex flex-col h-full w-full sm:col-span-2 lg:col-span-1 rounded-[2rem]" style="transition-delay: 200ms;">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold uppercase tracking-widest mb-2 font-mono text-white">Custom Build</h3>
                             <p class="text-white/50 text-xs font-inter">Customized enterprise logic.</p>
                         </div>
-                        <div class="mb-8 font-mono text-4xl font-bold text-white">₹15,000</div>
-                        <button onclick="openEnquiryModal()" class="vanguard-btn-bordered w-full py-3.5 text-xs font-bold uppercase mb-8">
+                        <div class="mb-10 text-4xl sm:text-5xl font-bold text-white tracking-tight font-mono">₹15,000</div>
+                        <button onclick="openEnquiryModal()" class="physical-btn w-full py-4 text-[10px] tracking-widest uppercase mb-10">
                             Book Your Website
                         </button>
-                        <div class="mt-auto pt-6 border-t border-white/10">
-                            <p class="text-[10px] font-mono text-white/40 uppercase mb-4">EVERYTHING IN PRO, PLUS</p>
-                            <ul class="space-y-3 text-xs text-white/80 font-inter">
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Expanded Architecture</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Voice & Text AI Sales Agents</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Advanced Workflow Logic</li>
-                                <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-white"></i> Custom API Integrations</li>
+                        
+                        <div class="flex-1 mt-auto border-t border-white/10 pt-8">
+                            <p class="text-[9px] font-bold tracking-widest uppercase mb-6 text-white/40 font-mono">EVERYTHING IN PRO, PLUS:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Expanded Architecture</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Voice & Text AI Agents</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Advanced Workflow Logic</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-sm text-white/80 font-inter">
+                                    <i data-lucide="check" class="w-4 h-4 text-white/50 shrink-0"></i> <span>Custom API Integrations</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 px-6 sm:px-10 lg:px-16 bg-[#09090c] border-b border-white/10 w-full">
-            <div class="w-full max-w-3xl mx-auto">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="font-podium text-3xl sm:text-4xl font-bold uppercase text-white">Knowledge Base</h2>
-                    <p class="text-white/50 font-mono mt-2 uppercase text-xs tracking-widest">System Protocols</p>
+        <section id="faq" class="py-20 md:py-32 px-5 sm:px-10 lg:px-16 bg-transparent border-b border-white/10 w-full">
+            <div class="w-full max-w-3xl mx-auto box-border">
+                <div class="text-center mb-16 reveal px-2">
+                    <h2 class="text-3xl sm:text-5xl font-podium uppercase tracking-tight text-white">Knowledge Base</h2>
+                    <p class="text-white/50 font-bold mt-4 uppercase tracking-widest text-[10px] font-mono">System Protocols</p>
                 </div>
                 
-                <div class="space-y-4 reveal" role="tablist">
-                    <div class="physical-panel p-5 cursor-pointer hover:border-white/30" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-1" tabindex="0">
-                        <div class="flex justify-between items-center">
-                            <h4 class="font-podium text-base text-white uppercase">What is the standard deployment timeline?</h4>
-                            <i data-lucide="plus" class="w-5 h-5 text-white transition-transform duration-300"></i>
+                <div class="space-y-4 reveal w-full" role="tablist">
+                    <div class="liquid-glass-panel rounded-2xl p-5 cursor-pointer w-full" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-1" tabindex="0">
+                        <div class="flex justify-between items-center w-full">
+                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">What is the standard deployment timeline?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-white/50"></i>
                         </div>
                     </div>
-                    <div id="faq-1" class="accordion-content bg-[#121216] p-6 rounded-xl text-xs sm:text-sm text-white/70 font-inter leading-relaxed">
-                        Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
+                    <div id="faq-content-1" class="accordion-content bg-black/40 border border-white/10 rounded-2xl mx-2 relative -z-10" role="region">
+                        <div class="p-6 text-xs md:text-sm font-inter text-white/70 leading-relaxed">
+                            Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
+                        </div>
                     </div>
 
-                    <div class="physical-panel p-5 cursor-pointer hover:border-white/30" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-2" tabindex="0">
-                        <div class="flex justify-between items-center">
-                            <h4 class="font-podium text-base text-white uppercase">Who retains asset ownership?</h4>
-                            <i data-lucide="plus" class="w-5 h-5 text-white transition-transform duration-300"></i>
+                    <div class="liquid-glass-panel rounded-2xl p-5 cursor-pointer w-full" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-2" tabindex="0">
+                        <div class="flex justify-between items-center w-full">
+                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">Who retains asset ownership?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-white/50"></i>
                         </div>
                     </div>
-                    <div id="faq-2" class="accordion-content bg-[#121216] p-6 rounded-xl text-xs sm:text-sm text-white/70 font-inter leading-relaxed">
-                        You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
+                    <div id="faq-content-2" class="accordion-content bg-black/40 border border-white/10 rounded-2xl mx-2 relative -z-10" role="region">
+                        <div class="p-6 text-xs md:text-sm font-inter text-white/70 leading-relaxed">
+                            You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
+                        </div>
                     </div>
 
-                    <div class="physical-panel p-5 cursor-pointer hover:border-white/30" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-3" tabindex="0">
-                        <div class="flex justify-between items-center">
-                            <h4 class="font-podium text-base text-white uppercase">How is AI accuracy maintained?</h4>
-                            <i data-lucide="plus" class="w-5 h-5 text-white transition-transform duration-300"></i>
+                    <div class="liquid-glass-panel rounded-2xl p-5 cursor-pointer w-full" onclick="toggleJobDetails(this)" role="button" aria-expanded="false" aria-controls="faq-content-3" tabindex="0">
+                        <div class="flex justify-between items-center w-full">
+                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">How is AI accuracy maintained?</h4>
+                            <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300 text-white/50"></i>
                         </div>
                     </div>
-                    <div id="faq-3" class="accordion-content bg-[#121216] p-6 rounded-xl text-xs sm:text-sm text-white/70 font-inter leading-relaxed">
-                        Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
+                    <div id="faq-content-3" class="accordion-content bg-black/40 border border-white/10 rounded-2xl mx-2 relative -z-10" role="region">
+                        <div class="p-6 text-xs md:text-sm font-inter text-white/70 leading-relaxed">
+                            Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Team / Trust Section -->
-        <section id="team" class="py-20 px-6 sm:px-10 lg:px-16 bg-[#050505] border-b border-white/10 w-full">
+        <section id="team" class="py-20 md:py-32 px-5 sm:px-10 bg-transparent border-b border-white/10 w-full">
             <div class="w-full max-w-5xl mx-auto text-center reveal">
-                <div class="mb-12">
-                    <span class="text-xs font-mono uppercase tracking-widest text-white/50">System Architects</span>
-                    <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white mt-2">Engineered in Kashmir</h2>
-                    <p class="text-white/60 text-sm max-w-lg mx-auto mt-3 font-inter">A specialized team of systems engineers treating your infrastructure as our own.</p>
+                <div class="mb-16 text-center px-2">
+                    <span class="text-[10px] font-bold text-white/50 tracking-widest uppercase font-mono">System Architects</span>
+                    <h2 class="text-3xl sm:text-5xl font-podium uppercase tracking-tight mt-4 text-white">Engineered in Kashmir</h2>
+                    <p class="text-white/60 font-inter mt-6 text-sm max-w-xl mx-auto leading-relaxed">A specialized team of systems engineers treating your infrastructure as our own.</p>
                 </div>
                 
-                <div class="flex justify-center">
-                    <div class="physical-panel p-8 max-w-sm w-full bg-[#0d0d10] border-white/20">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-4">
-                            <i data-lucide="terminal-square" class="w-10 h-10 text-white"></i>
+                <div class="flex justify-center w-full px-2">
+                    <div class="liquid-glass-panel p-10 max-w-sm w-full rounded-[2.5rem] group">
+                        <div class="bg-black/60 w-24 h-24 mx-auto rounded-full mb-6 flex items-center justify-center border border-white/10 group-hover:bg-white/10 transition-colors duration-300">
+                             <i data-lucide="terminal-square" class="w-10 h-10 text-white/80"></i>
                         </div>
-                        <h3 class="font-podium text-2xl uppercase text-white">Farman Shafi</h3>
-                        <p class="text-xs font-mono uppercase text-white/50 mb-4">Lead Systems Engineer</p>
-                        <p class="font-calligraphy calligraphy-gradient-3">"We replace outdated marketing with autonomous systems engineered for revenue."</p>
+                        <h3 class="text-xl font-bold uppercase tracking-widest text-white font-mono">Farman Shafi</h3>
+                        <p class="text-[9px] font-bold text-white/50 uppercase tracking-widest mb-6 mt-2 font-mono">Lead Systems Engineer</p>
+                        <div class="px-2">
+                            <p class="font-calligraphy italic text-white/80 text-xl leading-relaxed">"We replace outdated marketing with autonomous systems engineered for revenue."</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bottom CTA Section -->
-        <section id="about" class="py-24 px-6 relative bg-[#09090c] w-full text-center">
-            <div class="w-full max-w-3xl mx-auto physical-panel p-10 sm:p-16 bg-[#0e0e12] border-white/20 reveal">
-                <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+        <section id="about" class="py-24 md:py-40 px-5 relative bg-transparent w-full">
+            <div class="w-full max-w-3xl mx-auto liquid-glass-panel rounded-[3rem] p-10 sm:p-16 text-center reveal">
+                <div class="bg-white/10 w-20 h-20 flex items-center justify-center mx-auto mb-10 rounded-full border border-white/20">
                     <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
                 </div>
-                <h2 class="font-podium text-3xl sm:text-5xl font-bold uppercase text-white mb-4">Initialize Protocol.</h2>
-                <p class="text-white/60 mb-8 text-sm sm:text-base font-inter max-w-md mx-auto">
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-podium uppercase tracking-tight text-white mb-6">Initialize Protocol.</h2>
+                <p class="text-white/70 mb-12 text-sm sm:text-base max-w-xl mx-auto font-inter leading-relaxed">
                     We build scalable infrastructure that actively acquires and converts.
                 </p>
-                <button onclick="openEnquiryModal()" class="vanguard-btn-white text-xs px-10 py-4 font-mono uppercase">
-                    Book Your Website
+                <button onclick="openEnquiryModal()" class="apple-blue-btn min-h-[48px] px-12 py-5 font-bold text-[10px] uppercase tracking-[0.2em] font-mono text-black w-full sm:w-auto">
+                    Book Your Website <i data-lucide="arrow-right" class="w-4 h-4 ml-3 inline-block"></i>
                 </button>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-[#050505] text-center border-t border-white/10 w-full font-inter">
+    <footer class="py-16 md:py-24 px-5 bg-black text-center border-t border-white/10 w-full">
         <div class="w-full max-w-7xl mx-auto">
-            <div class="font-podium text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider mb-6 flex items-center justify-center gap-3">
-                <i data-lucide="hexagon" class="w-6 h-6 text-white"></i> FORGE SOFTWARE
+            <div class="text-2xl md:text-3xl font-podium uppercase tracking-widest text-white flex items-center justify-center gap-4 mb-10">
+                <div class="bg-white/10 p-3 rounded-2xl border border-white/20">
+                    <i data-lucide="hexagon" class="text-white w-6 h-6"></i>
+                </div>
+                <span>Forge<span class="text-white/40">Software</span></span>
             </div>
             
-            <div class="flex justify-center items-center gap-4 mb-8">
-                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            <div class="flex justify-center items-center gap-6 mb-12 w-full">
+                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Visit Facebook Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                 </a>
-                <a href="https://x.com/pellixperfumes?s=21" target="_blank" rel="noopener noreferrer" class="social-btn" title="X (Twitter)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z"/></svg>
+                <a href="https://x.com/pellixperfumes?s=21" target="_blank" rel="noopener noreferrer" class="social-btn" title="X (Twitter)" aria-label="Visit Twitter Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z"/></svg>
                 </a>
             </div>
 
-            <div class="h-px w-20 bg-white/10 mx-auto mb-6"></div>
-            <p class="text-white/40 text-[10px] uppercase font-mono tracking-widest leading-relaxed">
-                Premium B2B Agency &copy; 2026. All rights reserved. | Parent Group of Cobra & Runo | 
-                <button onclick="openTerms()" class="hover:text-white underline ml-1">Terms & Conditions</button> | 
-                <button onclick="openPrivacy()" class="hover:text-white underline ml-1">Privacy Policy</button>
+            <div class="h-[1px] w-32 bg-white/20 mx-auto mb-10 rounded-full"></div>
+            
+            <p class="text-white/40 text-[9px] md:text-[10px] uppercase tracking-widest font-mono leading-loose">
+                Premium B2B Agency &copy; 2026. All rights reserved. <br class="sm:hidden block mt-2" /> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> 
+                Parent Group of Cobra & Runo
+                <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+                <span class="sm:hidden inline-block px-2">|</span>
+                <button onclick="openTerms()" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm cursor-pointer">Terms & Conditions</button>
+                <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+                <span class="sm:hidden inline-block px-2">|</span>
+                <button onclick="openPrivacy()" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm cursor-pointer">Privacy Policy</button>
             </p>
         </div>
     </footer>
 
-    <!-- PRO ENQUIRY MODAL -->
-    <div id="enquiryModal" class="fixed inset-0 bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true">
-        <div class="physical-panel bg-[#0d0d10] max-w-md w-full border-white/20 p-6 sm:p-8 relative shadow-2xl rounded-2xl" id="enquiryContent">
-            <button onclick="closeEnquiryModal()" class="absolute top-4 right-4 text-white/60 hover:text-white" aria-label="Close Modal">
-                <i data-lucide="x" class="w-6 h-6"></i>
+    <!-- ENQUIRY MODAL - Preserving ALL 70+ countries -->
+    <div id="enquiryModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+        <div class="physical-panel bg-[#0A0A0A] max-w-md w-[95%] sm:w-full max-h-[90dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto" id="enquiryContent">
+            
+            <button onclick="closeEnquiryModal()" class="absolute top-4 right-4 physical-btn bg-white/5 border-white/10 min-w-[32px] min-h-[32px] w-8 h-8 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300">
+                <i data-lucide="x" class="w-4 h-4 text-white"></i>
             </button>
             
-            <div class="mb-6">
-                <h3 class="font-podium text-2xl uppercase text-white">System Init</h3>
-                <p class="text-white/50 text-xs font-mono uppercase mt-1">Input project parameters. Fast response active.</p>
+            <div class="pt-8 px-6 sm:px-8 pb-5 shrink-0 border-b border-white/10 relative overflow-hidden rounded-t-[24px]">
+                <div class="relative z-10 text-left pr-8 w-full">
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 id="enquiryTitle" class="text-xl sm:text-2xl font-bold text-white uppercase tracking-widest font-mono">System Init</h3>
+                        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    </div>
+                    <p class="text-white/50 text-[9px] sm:text-[10px] font-bold tracking-widest uppercase font-mono">Input project parameters. Fast response active.</p>
+                </div>
             </div>
+            
+            <div class="overflow-y-auto custom-scrollbar p-6 sm:p-8 flex-1">
+                <form onsubmit="handleEnquirySubmit(event)" class="space-y-6 text-left relative z-10 w-full pb-2">
+                    
+                    <div class="w-full">
+                        <label for="name" class="text-[9px] font-bold text-white/50 uppercase tracking-widest ml-1 mb-2 block font-mono">Company / Person Name</label>
+                        <div class="relative input-focus-effect rounded-2xl overflow-hidden bg-white/5 border border-white/10 transition-all">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                            </div>
+                            <input type="text" id="name" name="name" required autocomplete="name" class="w-full bg-transparent pl-11 pr-4 py-4 text-sm font-mono text-white focus:outline-none placeholder-white/20" placeholder="Enter full name" />
+                        </div>
+                    </div>
+                    
+                    <div class="w-full">
+                        <label for="phone" class="text-[9px] font-bold text-white/50 uppercase tracking-widest ml-1 mb-2 block font-mono">Phone Number (WhatsApp)</label>
+                        <div class="relative input-focus-effect rounded-2xl overflow-hidden bg-white/5 border border-white/10 transition-all">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <input type="tel" id="phone" name="phone" required autocomplete="tel" class="w-full bg-transparent pl-11 pr-4 py-4 text-sm font-mono text-white focus:outline-none placeholder-white/20" placeholder="Enter contact number" />
+                        </div>
+                    </div>
 
-            <form onsubmit="handleEnquirySubmit(event)" class="space-y-4 text-left font-inter">
-                <div>
-                    <label class="text-[10px] font-mono uppercase text-white/60 mb-1 block">Company / Person Name</label>
-                    <input type="text" id="name" name="name" required autocomplete="name" class="w-full bg-[#141418] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white" placeholder="Enter full name" />
-                </div>
-                <div>
-                    <label class="text-[10px] font-mono uppercase text-white/60 mb-1 block">Phone Number (WhatsApp)</label>
-                    <input type="tel" id="phone" name="phone" required autocomplete="tel" class="w-full bg-[#141418] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white" placeholder="Enter contact number" />
-                </div>
-                <div>
-                    <label class="text-[10px] font-mono uppercase text-white/60 mb-1 block">Country / State Location</label>
-                    <select id="country" name="country" required autocomplete="country" class="w-full bg-[#141418] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white">
-                        <option value="" disabled selected>Select country or state...</option>
-                        <option value="United States">United States</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Australia">Australia</option>
-                        <option value="India">India</option>
-                        <option value="Germany">Germany</option>
-                        <option value="France">France</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Japan">Japan</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="Mexico">Mexico</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Peru">Peru</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="Venezuela">Venezuela</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="China">China</option>
-                        <option value="South Korea">South Korea</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Malaysia">Malaysia</option>
-                        <option value="Singapore">Singapore</option>
-                        <option value="Thailand">Thailand</option>
-                        <option value="Philippines">Philippines</option>
-                        <option value="Vietnam">Vietnam</option>
-                        <option value="New Zealand">New Zealand</option>
-                        <option value="Russia">Russia</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="Egypt">Egypt</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Ghana">Ghana</option>
-                        <option value="Morocco">Morocco</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Norway">Norway</option>
-                        <option value="Denmark">Denmark</option>
-                        <option value="Finland">Finland</option>
-                        <option value="Ireland">Ireland</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Czech Republic">Czech Republic</option>
-                        <option value="Hungary">Hungary</option>
-                        <option value="Romania">Romania</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Bulgaria">Bulgaria</option>
-                        <option value="Croatia">Croatia</option>
-                        <option value="Serbia">Serbia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Lithuania">Lithuania</option>
-                        <option value="Latvia">Latvia</option>
-                        <option value="Estonia">Estonia</option>
-                        <option value="Iceland">Iceland</option>
-                        <option value="Luxembourg">Luxembourg</option>
-                        <option value="Cyprus">Cyprus</option>
-                        <option value="Malta">Malta</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full vanguard-btn-white py-4 text-xs font-mono uppercase tracking-widest mt-4">
-                    Book Your Website
-                </button>
-            </form>
+                    <div class="w-full">
+                        <label for="country" class="text-[9px] font-bold text-white/50 uppercase tracking-widest ml-1 mb-2 block font-mono">Country / State Location</label>
+                        <div class="relative input-focus-effect rounded-2xl overflow-hidden bg-white/5 border border-white/10 transition-all">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none">
+                                <i data-lucide="globe-2" class="w-4 h-4"></i>
+                            </div>
+                            <select id="country" name="country" required autocomplete="country" class="w-full bg-transparent pl-11 pr-10 py-4 text-sm font-mono focus:outline-none text-white appearance-none cursor-pointer relative z-10 rounded-none bg-black">
+                                <option value="" disabled selected class="text-white/30">Select country or state...</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="India">India</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Peru">Peru</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="China">China</option>
+                                <option value="South Korea">South Korea</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Finland">Finland</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Greece">Greece</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Hungary">Hungary</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Bulgaria">Bulgaria</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Serbia">Serbia</option>
+                                <option value="Slovenia">Slovenia</option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Estonia">Estonia</option>
+                                <option value="Iceland">Iceland</option>
+                                <option value="Luxembourg">Luxembourg</option>
+                                <option value="Cyprus">Cyprus</option>
+                                <option value="Malta">Malta</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none z-0">
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full apple-blue-btn py-4 min-h-[50px] font-bold text-[10px] sm:text-xs uppercase tracking-widest mt-8 text-black disabled:bg-white/30 font-mono shadow-xl hover:scale-[1.02] active:scale-95 transition-all">
+                        Book Your Website
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true">
-        <div class="physical-panel bg-[#0d0d10] max-w-md w-full border-white/20 p-8 text-center relative shadow-2xl rounded-2xl" id="successContent">
-            <i data-lucide="check-circle" class="w-16 h-16 text-emerald-400 mx-auto mb-4"></i>
-            <h3 class="font-podium text-2xl uppercase text-white mb-2">Priority Access Confirmed</h3>
-            <p class="text-white/70 text-xs sm:text-sm font-inter leading-relaxed mb-6">
+    <!-- Priority Confirmation Modal -->
+    <div id="successModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+        <div class="physical-panel bg-[#0A0A0A] max-w-md w-[95%] sm:w-full p-8 sm:p-12 text-center transform scale-95 transition-transform duration-300 mx-auto" id="successContent">
+            
+            <div class="bg-emerald-500/10 border border-emerald-500/30 w-20 h-20 flex items-center justify-center mx-auto mb-8 rounded-full">
+                <i data-lucide="check-circle" class="w-10 h-10 text-emerald-400"></i>
+            </div>
+            
+            <h3 id="successTitle" class="text-xl sm:text-2xl font-bold text-white uppercase tracking-widest mb-4 font-mono">Priority Access Confirmed</h3>
+            
+            <p class="text-white/60 text-sm font-inter leading-relaxed mb-10">
                 Your response is securely recorded. Our senior team will call you shortly to outline the next steps. Welcome to the new standard.
             </p>
-            <button onclick="closeSuccessModal()" class="vanguard-btn-white w-full py-3.5 text-xs font-mono uppercase">
+            
+            <button onclick="closeSuccessModal()" class="physical-btn w-full py-4 font-bold text-[10px] sm:text-xs uppercase tracking-widest font-mono">
                 Return to Main Page
             </button>
         </div>
     </div>
 
-    <!-- Terms Modal -->
-    <div id="termsModal" class="fixed inset-0 bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300" role="dialog">
-        <div class="physical-panel bg-[#0d0d10] max-w-3xl w-full border-white/20 p-6 sm:p-8 relative max-h-[85vh] flex flex-col" id="termsContent">
-            <button onclick="closeTerms()" class="absolute top-4 right-4 text-white/60 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
-            <h3 class="font-podium text-2xl uppercase text-white mb-4">Terms & Conditions</h3>
-            <div class="overflow-y-auto pr-2 space-y-4 text-xs text-white/70 font-inter leading-relaxed flex-1">
-                <p class="font-mono text-white/40">Last Updated: 2 June 2026</p>
-                <h4 class="font-bold text-white">1. Core Operations</h4>
-                <p>Forge Softwares executes custom digital architecture including web infrastructure and AI automation.</p>
-                <h4 class="font-bold text-white">2. Eligibility</h4>
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
+        <div class="physical-panel bg-[#0A0A0A] max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-6 sm:p-10 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto" id="termsContent">
+            <button onclick="closeTerms()" class="absolute top-4 right-4 physical-btn bg-white/5 border-white/10 w-10 h-10 flex items-center justify-center rounded-full z-20"><i data-lucide="x" class="w-5 h-5 text-white"></i></button>
+            <div class="text-center mb-8 border-b border-white/10 pb-6">
+                <h3 class="text-2xl font-podium text-white uppercase tracking-widest">Terms & Conditions</h3>
+                <p class="text-white/50 text-[10px] font-mono tracking-widest uppercase mt-2">Forge Softwares</p>
+            </div>
+            <div class="overflow-y-auto custom-scrollbar pr-4 text-xs md:text-sm text-white/70 font-inter leading-relaxed space-y-6">
+                <p class="italic text-white/50">Last Updated: 8:00 pm, 2 June 2026<br><br>These Terms govern service utilization. Engaging Forge Softwares or our subsidiaries implies strict agreement with these parameters.</p>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">1. Core Operations</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Web infrastructure development</li>
+                    <li>AI automation deployment</li>
+                    <li>SaaS and custom software logic</li>
+                </ul>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">2. Eligibility</h4>
                 <p>Services are accessible to verified organizations and individuals. We reserve operational discretion for project acceptance.</p>
-                <h4 class="font-bold text-white">3. Financial Protocol</h4>
-                <p>A 10% initiation retainer is mandatory. Retainers and progress payments follow agreed milestones prior to server deployment.</p>
-                <h4 class="font-bold text-white">4. Refund Parameters</h4>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">3. Financial Protocol</h4>
+                <p>A 10% initiation retainer is mandatory. Final balance is required prior to deployment.</p>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">4. Refund Parameters</h4>
                 <p>Custom engineering negates refunds post-initiation. Advance retainers remain non-refundable.</p>
-                <h4 class="font-bold text-white">5. Delivery Specifications</h4>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">5. Delivery Specifications</h4>
                 <p>Deployment constitutes functional implementation on client architecture.</p>
-                <h4 class="font-bold text-white">6. Intellectual Property</h4>
-                <p>You retain 100% ownership of the domain and frontend assets post-payment. Forge retains proprietary internal frameworks.</p>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">6. Intellectual Property</h4>
+                <p>Clients retain domain and operational output. Forge retains proprietary internal architecture.</p>
             </div>
         </div>
     </div>
 
-    <!-- Privacy Modal -->
-    <div id="privacyModal" class="fixed inset-0 bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300" role="dialog">
-        <div class="physical-panel bg-[#0d0d10] max-w-3xl w-full border-white/20 p-6 sm:p-8 relative max-h-[85vh] flex flex-col" id="privacyContent">
-            <button onclick="closePrivacy()" class="absolute top-4 right-4 text-white/60 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
-            <h3 class="font-podium text-2xl uppercase text-white mb-4">Privacy Policy</h3>
-            <div class="overflow-y-auto pr-2 space-y-4 text-xs text-white/70 font-inter leading-relaxed flex-1">
-                <p class="font-mono text-white/40">Last Updated: 3 June 2026</p>
-                <h4 class="font-bold text-white">1. Data Acquisition</h4>
-                <p>We collect operational data required for project execution and customer communication.</p>
-                <h4 class="font-bold text-white">2. Processing Protocol</h4>
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
+        <div class="physical-panel bg-[#0A0A0A] max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-6 sm:p-10 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto" id="privacyContent">
+            <button onclick="closePrivacy()" class="absolute top-4 right-4 physical-btn bg-white/5 border-white/10 w-10 h-10 flex items-center justify-center rounded-full z-20"><i data-lucide="x" class="w-5 h-5 text-white"></i></button>
+            <div class="text-center mb-8 border-b border-white/10 pb-6">
+                <h3 class="text-2xl font-podium text-white uppercase tracking-widest">Privacy Policy</h3>
+                <p class="text-white/50 text-[10px] font-mono tracking-widest uppercase mt-2">Forge Softwares</p>
+            </div>
+            <div class="overflow-y-auto custom-scrollbar pr-4 text-xs md:text-sm text-white/70 font-inter leading-relaxed space-y-6">
+                <p class="italic text-white/50">Last Updated: 12:35 pm, 3 June 2026<br><br>We enforce strict data protocol. This document outlines information processing parameters.</p>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">1. Data Acquisition</h4>
+                <p>We collect precise operational data required for deployment: identification, contact channels, and system specifications.</p>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">2. Processing Protocol</h4>
                 <p>Data is utilized strictly for service execution, system architecture, and operational communication.</p>
-                <h4 class="font-bold text-white">3. Security Infrastructure</h4>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">3. Security Infrastructure</h4>
                 <p>We implement robust storage security. Data distribution to third parties is explicitly denied unless legally mandated.</p>
-                <h4 class="font-bold text-white">4. Telemetry & Tracking</h4>
+                <h4 class="font-bold text-white uppercase tracking-widest border-l-2 border-emerald-500 pl-3 font-mono">4. Telemetry & Tracking</h4>
                 <p>Standard analytic cookies are utilized to optimize system performance and traffic flow.</p>
             </div>
         </div>
     </div>
 
-    <!-- Blog Full Modal -->
-    <div id="blogModal" class="fixed inset-0 bg-[#050505] z-[9999] hidden flex-col overflow-y-auto opacity-0 transition-opacity duration-300" role="dialog">
-        <div class="w-full bg-[#0d0d10] border-b border-white/10 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+    <!-- Knowledge Hub Blog Modal -->
+    <div id="blogModal" class="fixed top-0 left-0 w-full max-w-full h-[100dvh] bg-[#030303] z-[9999] hidden flex-col overflow-y-auto overflow-x-hidden custom-scrollbar transition-opacity duration-300 opacity-0" role="dialog" aria-modal="true">
+        <div class="w-full bg-[#030303]/90 backdrop-blur-xl border-b border-white/10 px-5 py-4 flex items-center justify-between sticky top-0 z-50">
             <div class="flex items-center gap-3">
-                <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
-                <h2 class="font-podium text-xl uppercase text-white">Knowledge Hub</h2>
+                <div class="bg-white/10 p-2 rounded-xl">
+                    <i data-lucide="book-open" class="w-4 h-4 text-white"></i>
+                </div>
+                <h2 class="text-xl font-podium uppercase tracking-widest text-white">Knowledge Hub</h2>
             </div>
-            <button onclick="closeBlogModal()" class="vanguard-btn-bordered text-xs px-4 py-2 uppercase flex items-center gap-2">
-                Close <i data-lucide="x" class="w-4 h-4"></i>
+            <button onclick="closeBlogModal()" class="physical-btn text-[10px] uppercase tracking-widest flex items-center gap-2 h-10">
+                Close <i data-lucide="x" class="w-3.5 h-3.5"></i>
             </button>
         </div>
 
-        <div class="p-6 sm:p-12 max-w-6xl mx-auto w-full">
-            <h3 class="font-podium text-3xl sm:text-5xl uppercase text-white text-center mb-12">Latest Insights</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="physical-panel bg-[#0d0d10] p-6 border-white/10 flex flex-col">
-                    <span class="text-[9px] font-mono uppercase text-white/50 mb-2">Aug 2026</span>
-                    <h3 class="font-podium text-xl text-white mb-3">Why Every Business Needs a Website in 2026</h3>
-                    <p class="text-xs text-white/60 leading-relaxed font-inter flex-1">In 2026, a website is no longer optional—it's the foundation of a business's online presence. Customers expect to find information, verify credibility, and contact a business within seconds. A professional website builds trust, works 24/7 to generate leads, showcases products or services, improves visibility on search engines, and gives businesses full control over their brand. Whether you're a local shop or a growing company, a modern website helps turn visitors into customers and keeps you competitive in a digital-first world.</p>
+        <div class="p-6 sm:p-10 md:p-16 max-w-7xl mx-auto w-full flex-1">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h3 class="text-3xl sm:text-5xl font-podium uppercase tracking-tight text-white mb-4">Latest Insights</h3>
+                <p class="text-white/50 font-inter text-sm md:text-base">Explore strategic architecture, automation workflows, and insights engineered to scale operations.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                <article class="liquid-glass-panel flex flex-col p-8 rounded-[2rem] group cursor-pointer">
+                    <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                        <span class="text-white/40 text-[9px] font-bold uppercase tracking-widest font-mono">Digital Strategy</span>
+                        <span class="text-[9px] text-white/30 font-mono tracking-widest uppercase">Aug 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white leading-snug font-mono uppercase tracking-widest">Why Every Business Needs a Website in 2026</h3>
+                    <p class="text-white/60 text-xs leading-relaxed font-inter flex-1">In 2026, a website is no longer optional—it's the foundation of a business's online presence. Customers expect to find information, verify credibility, and contact a business within seconds. A professional website builds trust, works 24/7 to generate leads, showcases products or services, improves visibility on search engines, and gives businesses full control over their brand.</p>
                 </article>
-                <article class="physical-panel bg-[#0d0d10] p-6 border-white/10 flex flex-col">
-                    <span class="text-[9px] font-mono uppercase text-white/50 mb-2">Aug 2026</span>
-                    <h3 class="font-podium text-xl text-white mb-3">7 Signs Your Business Needs a New Website</h3>
-                    <p class="text-xs text-white/60 leading-relaxed font-inter flex-1">If your website looks outdated, loads slowly, isn't mobile-friendly, gets few inquiries, ranks poorly on Google, is difficult to update, or no longer reflects your brand, it's holding your business back. At Forge Softwares, we build fast, modern, SEO-friendly websites that improve your online presence, build customer trust, and help turn more visitors into paying customers.</p>
+
+                <article class="liquid-glass-panel flex flex-col p-8 rounded-[2rem] group cursor-pointer" style="transition-delay: 100ms;">
+                    <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                        <span class="text-white/40 text-[9px] font-bold uppercase tracking-widest font-mono">Web Architecture</span>
+                        <span class="text-[9px] text-white/30 font-mono tracking-widest uppercase">Aug 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white leading-snug font-mono uppercase tracking-widest">7 Signs Your Business Needs a New Website</h3>
+                    <p class="text-white/60 text-xs leading-relaxed font-inter flex-1">If your website looks outdated, loads slowly, isn't mobile-friendly, gets few inquiries, ranks poorly on Google, is difficult to update, or no longer reflects your brand, it's holding your business back. At Forge Softwares, we build fast, modern, SEO-friendly websites that improve your online presence, build customer trust, and help turn more visitors into paying customers.</p>
                 </article>
-                <article class="physical-panel bg-[#0d0d10] p-6 border-white/10 flex flex-col">
-                    <span class="text-[9px] font-mono uppercase text-white/50 mb-2">Jul 2026</span>
-                    <h3 class="font-podium text-xl text-white mb-3">Automating Lead Capture with AI</h3>
-                    <p class="text-xs text-white/60 leading-relaxed font-inter flex-1">Learn how intelligent chatbots process inquiries and book meetings instantly, giving your human operators time to focus on complex deal closures instead of top-of-funnel filtering. By automating the initial touchpoints, you ensure a 24/7 response system that never sleeps, never misses a lead, and perfectly qualifies prospects before they even reach your calendar.</p>
+                
+                <article class="liquid-glass-panel flex flex-col p-8 rounded-[2rem] group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                        <span class="text-white/40 text-[9px] font-bold uppercase tracking-widest font-mono">AI Agents</span>
+                        <span class="text-[9px] text-white/30 font-mono tracking-widest uppercase">Jul 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white leading-snug font-mono uppercase tracking-widest">Automating Lead Capture with AI</h3>
+                    <p class="text-white/60 text-xs leading-relaxed font-inter flex-1">Learn how intelligent chatbots process inquiries and book meetings instantly, giving your human operators time to focus on complex deal closures instead of top-of-funnel filtering. By automating the initial touchpoints, you ensure a 24/7 response system that never sleeps, never misses a lead, and perfectly qualifies prospects before they even reach your calendar.</p>
                 </article>
             </div>
         </div>
     </div>
 
     <script>
+        // Init Lucide Icons safely
         document.addEventListener('DOMContentLoaded', () => {
             const initIcons = () => lucide.createIcons();
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(initIcons);
-            } else {
-                setTimeout(() => requestAnimationFrame(initIcons), 150);
-            }
+            if ('requestIdleCallback' in window) { requestIdleCallback(initIcons); } 
+            else { setTimeout(() => requestAnimationFrame(initIcons), 150); }
         });
 
-        let isNexumMenuOpen = false;
+        // Mobile Menu Logic
+        const nexumMobileMenuBtn = document.getElementById('nexumMobileMenuBtn');
+        const nexumMenuIcon = document.getElementById('nexumMenuIcon');
+        const nexumXIcon = document.getElementById('nexumXIcon');
         const nexumMobileOverlay = document.getElementById('nexumMobileOverlay');
+        const nexumMobileDrawer = document.getElementById('nexumMobileDrawer');
+        const nexumMobLinks = document.querySelectorAll('.nexum-mob-link');
+        const nexumMobFooter = document.getElementById('nexumMobFooter');
+        let isNexumMenuOpen = false;
 
         function toggleNexumMenu() {
             isNexumMenuOpen = !isNexumMenuOpen;
             if (isNexumMenuOpen) {
                 document.body.style.overflow = 'hidden';
+                nexumMenuIcon.style.opacity = '0';
+                nexumMenuIcon.style.transform = 'scale(0.5) rotate(90deg)';
+                setTimeout(() => { nexumXIcon.style.opacity = '1'; nexumXIcon.style.transform = 'scale(1) rotate(0deg)'; }, 150);
+                
                 nexumMobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
                 nexumMobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
+                nexumMobileDrawer.style.transform = 'translateX(0)';
+                
+                nexumMobLinks.forEach((link, idx) => {
+                    setTimeout(() => {
+                        link.style.transition = 'all 500ms cubic-bezier(0.16, 1, 0.3, 1)';
+                        link.classList.remove('opacity-0', 'translate-x-[24px]');
+                    }, 100 + (idx * 80)); 
+                });
+                setTimeout(() => { nexumMobFooter.classList.remove('opacity-0', 'translate-y-[16px]'); }, 400);
             } else {
                 document.body.style.overflow = '';
-                nexumMobileOverlay.classList.remove('opacity-100', 'pointer-events-auto');
-                nexumMobileOverlay.classList.add('opacity-0', 'pointer-events-none');
+                nexumXIcon.style.opacity = '0';
+                nexumXIcon.style.transform = 'scale(0.5) rotate(-90deg)';
+                setTimeout(() => { nexumMenuIcon.style.opacity = '1'; nexumMenuIcon.style.transform = 'scale(1) rotate(0deg)'; }, 150);
+                
+                nexumMobileOverlay.classList.replace('opacity-100', 'opacity-0');
+                nexumMobileOverlay.classList.replace('pointer-events-auto', 'pointer-events-none');
+                nexumMobileDrawer.style.transform = 'translateX(120%)';
+                
+                nexumMobLinks.forEach((link) => {
+                    link.style.transition = 'none';
+                    link.classList.add('opacity-0', 'translate-x-[24px]');
+                });
+                nexumMobFooter.classList.add('opacity-0', 'translate-y-[16px]');
             }
         }
 
-        const mobBtn = document.getElementById('nexumMobileMenuBtn');
-        if(mobBtn) mobBtn.addEventListener('click', toggleNexumMenu);
-
+        if(nexumMobileMenuBtn) nexumMobileMenuBtn.addEventListener('click', toggleNexumMenu);
+        nexumMobLinks.forEach(link => { link.addEventListener('click', () => { if(isNexumMenuOpen) toggleNexumMenu(); }); });
+        if (nexumMobileOverlay) nexumMobileOverlay.addEventListener('click', () => { if(isNexumMenuOpen) toggleNexumMenu(); });
+        
+        // Time Sync
         setInterval(() => {
-            const timeEl = document.getElementById('sys-time');
-            if(timeEl) {
-                const now = new Date();
-                timeEl.textContent = now.toLocaleTimeString('en-US', { hour12: false });
-            }
+            requestAnimationFrame(() => {
+                const timeEls = document.querySelectorAll('#sys-time');
+                timeEls.forEach(timeEl => {
+                    if(timeEl) timeEl.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+                });
+            });
         }, 1000);
 
+        // Terminal Simulation Logic
         const terminalOutput = document.getElementById('terminal-output');
         const dataLed = document.getElementById('data-led');
         const terminalSequence = [
@@ -1443,12 +1525,11 @@
             { type: 'agent', text: "We embed autonomous agents into your infrastructure. They process logic, resolve queries, and execute meeting schedules continuously." },
             { type: 'agent', text: "Shall we initiate a diagnostic protocol?" }
         ];
-
         let terminalTriggered = false;
 
         function typeText(element, text, speed, callback) {
             let i = 0;
-            if(dataLed) dataLed.classList.add('animate-pulse'); 
+            if(dataLed) dataLed.classList.add('animate-pulse', 'bg-emerald-500'); 
             element.innerHTML = ''; 
             const textNode = document.createTextNode('');
             const cursor = document.createElement('span');
@@ -1460,10 +1541,10 @@
                 if (i < text.length) {
                     textNode.nodeValue += text.charAt(i); 
                     i++;
-                    if(terminalOutput) terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                    requestAnimationFrame(() => { terminalOutput.scrollTop = terminalOutput.scrollHeight; });
                     setTimeout(type, speed);
                 } else {
-                    if(dataLed) dataLed.classList.remove('animate-pulse');
+                    if(dataLed) dataLed.classList.remove('animate-pulse', 'bg-emerald-500');
                     if(callback) callback();
                 }
             }
@@ -1471,7 +1552,7 @@
         }
 
         function runTerminalSequence() {
-            if(terminalTriggered || !terminalOutput) return;
+            if(terminalTriggered) return;
             terminalTriggered = true;
             terminalOutput.innerHTML = ''; 
             let delay = 0;
@@ -1479,20 +1560,20 @@
             terminalSequence.forEach((msg, index) => {
                 setTimeout(() => {
                     const block = document.createElement('div');
-                    block.className = 'flex gap-2 mb-3';
-                    
+                    block.className = 'flex gap-3 mb-5 w-full opacity-0 transform translate-y-2 transition-all duration-300';
                     const sender = document.createElement('div');
-                    sender.className = 'font-bold font-mono text-white';
+                    sender.className = 'font-bold shrink-0 text-xs sm:text-sm font-mono text-white/50';
                     sender.textContent = msg.type === 'user' ? '> USER:' : '> AGENT:';
-                    
                     const content = document.createElement('div');
-                    content.className = 'font-mono text-white/90 leading-relaxed';
+                    content.className = 'leading-relaxed font-bold break-words text-xs sm:text-sm w-full font-mono text-white';
                     
                     block.appendChild(sender);
                     block.appendChild(content);
                     terminalOutput.appendChild(block);
 
-                    typeText(content, msg.text, 20, () => {
+                    setTimeout(() => { block.classList.remove('opacity-0', 'translate-y-2'); }, 50);
+
+                    typeText(content, msg.text, 25, () => {
                         const cursors = terminalOutput.querySelectorAll('.cursor-blink');
                         cursors.forEach(c => c.remove());
                         if (index === terminalSequence.length - 1) {
@@ -1501,27 +1582,56 @@
                             content.appendChild(finalCursor);
                         }
                     });
-
                 }, delay);
-                delay += (msg.text.length * 20) + 1000; 
+                delay += (msg.text.length * 25) + 1200; 
             });
         }
 
-        function openGenericModal(modal, content) {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+        // Modals Logic
+        function openGenericModal(modalElement, contentElement) {
+            modalElement.classList.remove('hidden');
+            modalElement.classList.add('flex');
+            document.body.style.overflow = 'hidden'; 
+            document.documentElement.style.overflow = 'hidden'; 
+            requestAnimationFrame(() => {
+                modalElement.classList.remove('opacity-0');
+                if (contentElement) {
+                    contentElement.classList.remove('scale-95');
+                    contentElement.classList.add('scale-100');
+                }
+            });
+        }
+
+        function closeGenericModal(modalElement, contentElement) {
+            modalElement.classList.add('opacity-0');
+            if (contentElement) {
+                contentElement.classList.remove('scale-100');
+                contentElement.classList.add('scale-95');
+            }
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            setTimeout(() => {
+                modalElement.classList.add('hidden');
+                modalElement.classList.remove('flex');
+            }, 300);
+        }
+
+        const blogModal = document.getElementById('blogModal');
+        function openBlogModal() {
+            blogModal.classList.remove('hidden');
+            blogModal.classList.add('flex');
             document.body.style.overflow = 'hidden';
             requestAnimationFrame(() => {
-                modal.classList.remove('opacity-0');
+                blogModal.classList.remove('opacity-0');
+                lucide.createIcons(); 
             });
         }
-
-        function closeGenericModal(modal, content) {
-            modal.classList.add('opacity-0');
+        function closeBlogModal() {
+            blogModal.classList.add('opacity-0');
             document.body.style.overflow = '';
             setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
+                blogModal.classList.add('hidden');
+                blogModal.classList.remove('flex');
             }, 300);
         }
 
@@ -1534,6 +1644,9 @@
         function closeEnquiryModal() { closeGenericModal(enquiryModal, enquiryContent); }
         function openSuccessModal() { openGenericModal(successModal, successContent); }
         function closeSuccessModal() { closeGenericModal(successModal, successContent); }
+        
+        if (enquiryModal) enquiryModal.addEventListener('click', function(e) { if (e.target === enquiryModal) closeEnquiryModal(); });
+        if (successModal) successModal.addEventListener('click', function(e) { if (e.target === successModal) closeSuccessModal(); });
 
         async function handleEnquirySubmit(e) {
             e.preventDefault();
@@ -1541,28 +1654,25 @@
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             
-            btn.innerHTML = 'PROCESSING...';
+            btn.innerHTML = 'PROCESSING DATA...';
             btn.disabled = true;
 
             const formData = new FormData(form);
             const url = "https://script.google.com/macros/s/AKfycbzK0V8AbooKYaBoVOqOe1iDgHXB5XOo8pGV0xPRuGmEMfzueVA3fBCTeEGFBZ8dlpHqzg/exec";
 
             try {
-                await fetch(url, {
-                    method: "POST",
-                    mode: "no-cors",
-                    body: formData 
-                });
-
-                closeEnquiryModal();
-                form.reset();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                
-                setTimeout(() => openSuccessModal(), 300);
+                await fetch(url, { method: "POST", mode: "no-cors", body: formData });
+                btn.innerHTML = 'DATA TRANSMITTED';
+                setTimeout(() => {
+                    closeEnquiryModal();
+                    form.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    setTimeout(() => { openSuccessModal(); }, 300); 
+                }, 500);
             } catch (error) {
                 console.error("Failed to Send", error);
-                btn.innerHTML = 'FAILED - RETRY';
+                btn.innerHTML = 'TRANSMISSION FAILED';
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
@@ -1571,35 +1681,45 @@
         }
 
         const termsModal = document.getElementById('termsModal');
+        const termsContent = document.getElementById('termsContent');
+        function openTerms() { openGenericModal(termsModal, termsContent); }
+        function closeTerms() { closeGenericModal(termsModal, termsContent); }
+        if (termsModal) termsModal.addEventListener('click', function(e) { if (e.target === termsModal) closeTerms(); });
+
         const privacyModal = document.getElementById('privacyModal');
-        const blogModal = document.getElementById('blogModal');
+        const privacyContent = document.getElementById('privacyContent');
+        function openPrivacy() { openGenericModal(privacyModal, privacyContent); }
+        function closePrivacy() { closeGenericModal(privacyModal, privacyContent); }
+        if (privacyModal) privacyModal.addEventListener('click', function(e) { if (e.target === privacyModal) closePrivacy(); });
 
-        function openTerms() { openGenericModal(termsModal); }
-        function closeTerms() { closeGenericModal(termsModal); }
-        function openPrivacy() { openGenericModal(privacyModal); }
-        function closePrivacy() { closeGenericModal(privacyModal); }
-        function openBlogModal() { openGenericModal(blogModal); }
-        function closeBlogModal() { closeGenericModal(blogModal); }
-
+        // Scroll Animation Observers
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             const terminalContainer = document.getElementById('terminal-container');
             
+            const revealOptions = { threshold: 0.05, rootMargin: "50px 0px 50px 0px" };
+            
             const revealOnScroll = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                        if(entry.target === terminalContainer) {
-                            setTimeout(runTerminalSequence, 300);
-                        }
+                        const triggerReveal = () => {
+                            entry.target.classList.add("active");
+                            if(entry.target === terminalContainer) {
+                                setTimeout(runTerminalSequence, 400);
+                            }
+                        };
+                        
+                        if ('requestIdleCallback' in window) { requestIdleCallback(triggerReveal); } 
+                        else { requestAnimationFrame(triggerReveal); }
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, revealOptions);
             
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
-
+        
+        // Semantic FAQ Accordion Logic
         function toggleJobDetails(element) {
             const isExpanded = element.getAttribute('aria-expanded') === 'true';
             const contentId = element.getAttribute('aria-controls');
