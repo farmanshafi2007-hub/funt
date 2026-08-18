@@ -76,15 +76,17 @@
             position: relative;
         }
 
+        /* Glassmorphic Effects */
         .liquid-glass {
             background: rgba(255, 255, 255, 0.05);
             background-blend-mode: luminosity;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: none;
             box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.35);
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
         }
 
         .liquid-glass::before {
@@ -94,9 +96,9 @@
             border-radius: inherit;
             padding: 1.4px;
             background: linear-gradient(180deg,
-                rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 20%,
+                rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%,
                 rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%,
-                rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0.5) 100%);
+                rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -104,15 +106,16 @@
         }
 
         .liquid-glass-panel {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
             border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateZ(0);
         }
 
-        /* Overlay Continuous Train Bobbing Motion */
+        /* Hero Continuous Bobbing Animation */
         @keyframes trainBob {
             0%, 100% {
                 transform: scale(1.03) translateY(0px);
@@ -127,35 +130,36 @@
             will-change: transform;
         }
 
-        /* Deep Woods Mode Contrast Shift */
+        /* Deep Woods Ambient Theme Switcher */
         .deep-woods-mode .hero-adaptive-text {
             color: #182C41 !important;
             transition: color 700ms ease-in-out;
         }
 
         .deep-woods-mode .hero-adaptive-subtext {
-            color: rgba(24, 44, 65, 0.85) !important;
+            color: rgba(24, 44, 65, 0.9) !important;
             transition: color 700ms ease-in-out;
         }
 
         .deep-woods-mode .hero-adaptive-badge {
-            background: rgba(24, 44, 65, 0.12) !important;
+            background: rgba(24, 44, 65, 0.15) !important;
             color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.3) !important;
+            border-color: rgba(24, 44, 65, 0.35) !important;
             transition: all 700ms ease-in-out;
         }
 
         .deep-woods-mode .hero-adaptive-input {
-            background: rgba(24, 44, 65, 0.15) !important;
+            background: rgba(24, 44, 65, 0.18) !important;
             color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.3) !important;
+            border-color: rgba(24, 44, 65, 0.35) !important;
             transition: all 700ms ease-in-out;
         }
 
         .deep-woods-mode .hero-adaptive-input::placeholder {
-            color: rgba(24, 44, 65, 0.6) !important;
+            color: rgba(24, 44, 65, 0.65) !important;
         }
 
+        /* Typography Classes */
         .font-serif-custom {
             font-family: 'Instrument Serif', serif;
         }
@@ -215,7 +219,7 @@
             background-color: #10B981;
             display: inline-block;
             animation: pulseEmeraldBlink 1.5s infinite ease-in-out;
-            shrink: 0;
+            flex-shrink: 0;
         }
 
         ::selection {
@@ -223,6 +227,7 @@
             color: #000000;
         }
 
+        /* Custom Scrollbar Engine */
         .custom-scrollbar {
             -webkit-overflow-scrolling: touch;
         }
@@ -274,7 +279,7 @@
         }
 
         .physical-panel {
-            background-color: rgba(11, 17, 31, 0.94);
+            background-color: rgba(11, 17, 31, 0.95);
             border-radius: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
@@ -283,6 +288,7 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
+            transform: translateZ(0);
         }
 
         .physical-btn {
@@ -297,13 +303,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px !important;
+            min-height: 44px;
             padding: 0 20px;
         }
 
         @media (min-width: 640px) {
             .physical-btn {
-                min-height: 46px !important;
+                min-height: 46px;
                 padding: 0 24px;
             }
         }
@@ -326,14 +332,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px !important;
+            min-height: 44px;
             padding: 0 20px;
             letter-spacing: 0.05em;
         }
 
         @media (min-width: 640px) {
             .apple-white-btn {
-                min-height: 48px !important;
+                min-height: 48px;
                 padding: 0 26px;
             }
         }
@@ -345,8 +351,8 @@
         }
 
         .social-btn {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.06);
             display: inline-flex;
@@ -355,13 +361,7 @@
             transition: all 0.3s ease;
             color: #FFFFFF;
             border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        @media (min-width: 640px) {
-            .social-btn {
-                width: 44px;
-                height: 44px;
-            }
+            flex-shrink: 0;
         }
 
         .social-btn:hover {
@@ -379,6 +379,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(12px);
+            transform: translateZ(0);
         }
 
         .retro-card::before {
@@ -408,7 +409,7 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.35s ease;
-            shrink: 0;
+            flex-shrink: 0;
         }
 
         .trust-avatar-ring .inner-circle {
@@ -474,6 +475,7 @@
             color: #FFFFFF;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.1);
+            transform: translateZ(0);
         }
 
         .pricing-card-pro:hover {
@@ -517,17 +519,18 @@
             transform: translate3d(0, 0, 0);
         }
 
-        .accordion-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-in-out;
+        .accordion-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .accordion-content.expanded {
-            max-height: 1000px;
-            opacity: 1;
-            margin-top: 0.5rem;
+        .accordion-wrapper.expanded {
+            grid-template-rows: 1fr;
+        }
+
+        .accordion-inner {
+            overflow: hidden;
         }
 
         .input-focus-effect:focus-within {
@@ -543,17 +546,20 @@
             transform: scale(1.12) rotate(4deg);
         }
 
+        /* Help Center Dark Card Design System */
         .help-item-card {
-            background: #ffffff;
-            color: #0f172a;
-            border: 1px solid #e2e8f0;
+            background: rgba(18, 24, 38, 0.85);
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             transition: all 0.25s ease;
+            backdrop-filter: blur(8px);
         }
 
         .help-item-card:hover {
             border-color: #10b981;
-            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.25);
+            background: rgba(22, 30, 48, 0.95);
         }
     </style>
 
@@ -642,19 +648,17 @@
 
 <body class="selection:bg-white selection:text-black w-full max-w-full bg-[#030509] text-white overflow-x-hidden">
 
-    <!-- Primary Navigation Header -->
     <header id="topHeader"
-        class="sticky top-0 z-50 w-full bg-[#030509]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+        class="sticky top-0 z-50 w-full bg-[#030509]/85 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
         <nav
             class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 flex items-center justify-between">
             <a href="#home"
                 class="flex items-center gap-2 sm:gap-2.5 text-white transition-colors duration-300 hover:opacity-90 active:scale-95 shrink-0">
                 <div
-                    class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/30 bg-white/10 flex items-center justify-center font-mono text-xs font-bold text-white backdrop-blur-md shadow-inner">
+                    class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/30 bg-emerald-500/10 flex items-center justify-center font-mono text-xs font-bold text-emerald-400 backdrop-blur-md shadow-[0_0_12px_rgba(16,185,129,0.3)]">
                     (F)
                 </div>
-                <span class="text-lg sm:text-2xl font-podium tracking-widest uppercase">Forge<span
-                        class="text-white/50">.Softwares</span></span>
+                <span class="text-lg sm:text-2xl font-podium tracking-widest uppercase text-white">Forge Softwares</span>
             </a>
 
             <div class="hidden md:flex items-center gap-2 font-sans text-xs tracking-wider uppercase text-white/90">
@@ -694,102 +698,84 @@
         <section id="home"
             class="relative min-h-[100dvh] h-auto lg:h-[100dvh] lg:min-h-[100dvh] w-full overflow-hidden flex flex-col justify-between font-geist text-white bg-black">
 
-            <!-- 4 Layered Cinematic Looping Videos -->
+            <!-- 4 Layered Cinematic Looping Videos (Controlled by JS to avoid memory leak) -->
             <div id="heroVideoContainer" class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
                 <video class="hero-video-layer absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out opacity-100"
-                    autoplay loop muted playsinline
+                    loop muted playsinline preload="metadata"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"></video>
                 <video class="hero-video-layer absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out opacity-0"
-                    autoplay loop muted playsinline
+                    loop muted playsinline preload="none"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_092026_dd05b805-ea0f-40b2-8c52-332b88502592.mp4"></video>
                 <video class="hero-video-layer absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out opacity-0"
-                    autoplay loop muted playsinline
+                    loop muted playsinline preload="none"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4"></video>
                 <video class="hero-video-layer absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out opacity-0"
-                    autoplay loop muted playsinline
+                    loop muted playsinline preload="none"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4"></video>
             </div>
 
-            <!-- Transparent Ambient PNG Overlay (z-index 1) with Train-Bob Animation -->
+            <!-- Transparent Ambient Overlay with Train-Bob Animation -->
             <div class="absolute inset-0 w-full h-full z-[1] pointer-events-none overflow-hidden">
                 <img src="https://soft-zoom-63098134.figma.site/_assets/v11/0b4a435b2df2747593c43d7a1c9b4578f7d8d90c.png"
                     alt="Ambient Bokeh Filter" class="w-full h-full object-cover train-bob opacity-90" />
             </div>
 
-            <!-- Interactive 3D Canvas Layer (z-index 2) -->
+            <!-- Interactive HiDPI 3D Canvas Layer -->
             <canvas id="hero-canvas"></canvas>
 
             <!-- Contrast Tint Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 z-[2] pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/85 z-[2] pointer-events-none"></div>
 
-            <!-- Hero Section Content Container (z-index 3) -->
+            <!-- Hero Section Content Container -->
             <div id="heroContentLayer"
-                class="relative z-[10] my-auto flex-grow px-4 sm:px-8 py-8 sm:py-12 lg:px-16 flex flex-col justify-center items-center text-center w-full max-w-5xl mx-auto">
+                class="relative z-[10] my-auto flex-grow px-4 sm:px-8 py-10 sm:py-14 lg:px-16 flex flex-col justify-center items-center text-center w-full max-w-5xl mx-auto">
 
                 <!-- Badge -->
                 <div
-                    class="hero-adaptive-badge liquid-glass inline-flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-white/90 text-[11px] sm:text-xs md:text-sm font-sans tracking-wide mb-4 sm:mb-6 animate-fade-up shadow-xl border border-white/20 max-w-full">
+                    class="hero-adaptive-badge liquid-glass inline-flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-white/90 text-[11px] sm:text-xs md:text-sm font-sans tracking-wide mb-4 sm:mb-5 animate-fade-up shadow-xl border border-white/20 max-w-full">
                     <span class="led-emerald-blink"></span>
-                    <span class="truncate sm:whitespace-normal">Over 10,000 minds finding clarity with Forge AI</span>
+                    <span class="truncate sm:whitespace-normal">Over 10,000 minds finding clarity with Forge Softwares</span>
                 </div>
 
                 <!-- Main Heading -->
-                <h1 class="hero-adaptive-text font-serif-custom text-3xl sm:text-5xl md:text-6xl lg:text-[5.25rem] italic text-white leading-[1.1] tracking-tight mb-4 sm:mb-6 animate-fade-up max-w-4xl break-words"
+                <h1 class="hero-adaptive-text font-serif-custom text-3xl sm:text-5xl md:text-6xl lg:text-[5.25rem] italic text-white leading-[1.08] tracking-tight mb-3.5 sm:mb-5 animate-fade-up max-w-4xl break-words"
                     style="animation-delay: 0.1s;">
                     Clarity in an Endlessly<br class="hidden sm:inline" /> Noisy Universe
                 </h1>
 
                 <!-- Subtext -->
-                <p class="hero-adaptive-subtext mt-1 text-xs sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed animate-fade-up mb-6 sm:mb-8 font-sans"
+                <p class="hero-adaptive-subtext mt-1 text-xs sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed animate-fade-up mb-5 sm:mb-7 font-sans"
                     style="animation-delay: 0.2s;">
                     Rise above the chaos of pings, infinite scrolling, and relentless demands. Architecting autonomous AI workers to acquire leads and scale continuous growth 24/7.
                 </p>
 
-                <!-- Email Input Form with Liquid Glass Design -->
+                <!-- Email Form -->
                 <form id="heroEmailForm"
-                    class="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 w-full max-w-xs sm:max-w-md animate-fade-up mb-6 sm:mb-8"
+                    class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full max-w-xs sm:max-w-md animate-fade-up mb-5 sm:mb-7"
                     style="animation-delay: 0.3s;">
                     <div class="relative flex-1 w-full">
                         <input type="email" id="heroEmailInput" required placeholder="Your Best Email..."
-                            class="hero-adaptive-input w-full rounded-full bg-black/40 backdrop-blur-md border border-white/30 px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm text-white placeholder-white/70 outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition-all font-sans shadow-inner" />
+                            class="hero-adaptive-input w-full rounded-full bg-black/40 backdrop-blur-md border border-white/30 px-4 py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-sm text-white placeholder-white/70 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/30 transition-all font-sans shadow-inner" />
                     </div>
                     <button type="submit"
-                        class="apple-white-btn rounded-full w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3.5 text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-2xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer font-sans">
+                        class="apple-white-btn rounded-full w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-2xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer font-sans">
                         Get Early Access
                     </button>
                 </form>
 
                 <!-- Interactive Video Switcher Controls -->
-                <div class="liquid-glass inline-flex flex-wrap sm:flex-nowrap justify-center items-center gap-1.5 sm:gap-3 p-1.5 sm:p-2 rounded-2xl sm:rounded-full border border-white/20 animate-fade-up mb-6 max-w-full overflow-x-auto custom-scrollbar"
+                <div class="liquid-glass inline-flex flex-wrap sm:flex-nowrap justify-center items-center gap-1.5 sm:gap-2.5 p-1.5 sm:p-2 rounded-2xl sm:rounded-full border border-white/20 animate-fade-up max-w-full overflow-x-auto custom-scrollbar"
                     style="animation-delay: 0.4s;">
-                    <button type="button" class="videoSwitcherBtn active px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-sans text-white font-bold bg-white/20 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap" data-video-index="0">Golden Hour</button>
-                    <button type="button" class="videoSwitcherBtn px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-sans text-white/60 hover:text-white transition-all cursor-pointer whitespace-nowrap" data-video-index="1">Still Water</button>
-                    <button type="button" class="videoSwitcherBtn px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-sans text-white/60 hover:text-white transition-all cursor-pointer whitespace-nowrap" data-video-index="2">Deep Woods</button>
-                    <button type="button" class="videoSwitcherBtn px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-sans text-white/60 hover:text-white transition-all cursor-pointer whitespace-nowrap" data-video-index="3">Quiet Dawn</button>
-                </div>
-
-                <!-- Founder Quote Panel -->
-                <div class="w-full max-w-full sm:max-w-lg animate-fade-up" style="animation-delay: 0.5s;">
-                    <div class="flex flex-col justify-between rounded-2xl liquid-glass-panel p-4 sm:p-5 cursor-default group w-full border border-white/20 text-left">
-                        <div class="mb-2.5 sm:mb-3 flex items-center gap-2.5 sm:gap-3">
-                            <div class="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-black text-xs font-bold font-mono shrink-0 shadow-md">
-                                FS
-                            </div>
-                            <div>
-                                <span class="text-xs font-bold text-white block">Farman Shafi</span>
-                                <span class="text-[10px] text-white/70 font-mono uppercase tracking-widest block">Lead Systems Architect & Founder</span>
-                            </div>
-                        </div>
-                        <p class="text-xs leading-relaxed text-white/90 italic font-sans">
-                            "With Forge Softwares we shifted from manual repetitive tasks to intelligent AI workers that process 80% of client pipelines continuously."
-                        </p>
-                    </div>
+                    <button type="button" class="videoSwitcherBtn active px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-sans text-white font-bold bg-white/20 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap min-h-[36px]" data-video-index="0">Golden Hour</button>
+                    <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap min-h-[36px]" data-video-index="1">Still Water</button>
+                    <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap min-h-[36px]" data-video-index="2">Deep Woods</button>
+                    <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap min-h-[36px]" data-video-index="3">Quiet Dawn</button>
                 </div>
             </div>
 
             <!-- Bottom Stats Row -->
-            <div class="relative z-[10] w-full border-t border-white/10 bg-black/50 backdrop-blur-md py-3.5 px-4 sm:px-10">
-                <div class="w-full max-w-6xl mx-auto flex flex-wrap items-center justify-center sm:justify-around gap-2.5 sm:gap-4 text-[11px] sm:text-xs md:text-sm font-sans text-white/80">
+            <div class="relative z-[10] w-full border-t border-white/10 bg-black/60 backdrop-blur-md py-3.5 px-4 sm:px-10">
+                <div class="w-full max-w-6xl mx-auto flex flex-wrap items-center justify-center sm:justify-around gap-2.5 sm:gap-4 text-[11px] sm:text-xs md:text-sm font-sans text-white/90">
                     <div class="flex items-center gap-1.5 sm:gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0"></i> 60+ Deep Sessions</div>
                     <span class="hidden sm:inline text-white/30">|</span>
                     <div class="flex items-center gap-1.5 sm:gap-2"><i data-lucide="users" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0"></i> 12,000+ Creators</div>
@@ -1095,7 +1081,7 @@
                         <table class="w-full text-left font-mono text-[11px] sm:text-xs text-white min-w-[650px]">
                             <thead>
                                 <tr class="border-b border-white/20 text-white/80">
-                                    <th class="py-3 sm:py-4 px-3 sm:px-4 font-bold text-xs sm:text-sm w-1/3">Feature</th>
+                                    <th class="py-3 sm:py-4 px-3 sm:px-4 font-bold text-xs sm:text-sm w-1/3 sticky left-0 bg-[#0a0f1a] z-10">Feature</th>
                                     <th class="py-3 sm:py-4 px-2 sm:px-3 text-center">STARTER<br><span class="text-emerald-400 font-normal">₹1,500</span></th>
                                     <th class="py-3 sm:py-4 px-2 sm:px-3 text-center bg-white/10 rounded-t-xl text-emerald-300 font-bold">PROFESSIONAL<br><span class="text-white font-normal">₹7,499</span></th>
                                     <th class="py-3 sm:py-4 px-2 sm:px-3 text-center">PRO PLUS<br><span class="text-emerald-400 font-normal">₹9,999</span></th>
@@ -1104,112 +1090,112 @@
                             </thead>
                             <tbody class="divide-y divide-white/10 text-white/80">
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Best for</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Best for</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-white/70">Small / Starter biz</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 font-semibold text-white">Growing biz</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-white/70">Established biz</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-white/70">Large enterprise</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Website Type</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Website Type</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Basic Site</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 font-semibold text-emerald-400">Professional</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Premium Enterprise</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Pages Included</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Pages Included</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">1–3</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 font-semibold text-white">5–7</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">8–12</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">12–20</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Custom Design</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Custom Design</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400 font-bold">✓ Premium</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Mobile Responsive</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Mobile Responsive</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">SEO Capabilities</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">SEO Capabilities</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Basic</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400 font-semibold">Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Tech + Adv</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Website Animations</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Website Animations</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400">Premium</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-emerald-300">Advanced+Custom</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Integrations (WhatsApp/Maps)</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Integrations (WhatsApp/Maps)</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Google Analytics</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Google Analytics</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Lead Capture System</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Lead Capture System</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Basic Form</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-emerald-400 font-semibold">✓ Standard</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">✓ Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">✓ Advanced</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Speed & Security</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Speed & Security</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Basic</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-white">Advanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">Enhanced</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-emerald-400">Premium</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Revisions Allowed</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Revisions Allowed</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">1</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-white font-semibold">3</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">5</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-emerald-400">Unlimited*</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Blog / News Section</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Blog / News Section</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">AI Agents / Automation</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">AI Agents / Automation</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 text-white/60">Add-on</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400">✓ Basic</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-emerald-300">✓ Included</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">CRM & Custom APIs</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">CRM & Custom APIs</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 opacity-40">—</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-white/60">Add-on</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-emerald-400 font-bold">✓ Included</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white">Support & Duration</td>
+                                    <td class="py-2.5 sm:py-3 px-3 sm:px-4 font-bold text-white sticky left-0 bg-[#0a0f1a] z-10">Support & Duration</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">7 Days</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-white/5 font-semibold text-emerald-400">30 Days</td>
                                     <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center">60 Days</td>
@@ -1355,7 +1341,7 @@
             </div>
         </section>
 
-        <!-- Knowledge Base FAQ Section -->
+        <!-- Knowledge Base FAQ Section with Hardware Grid Accordions -->
         <section id="faq" class="py-16 md:py-32 px-4 sm:px-10 lg:px-16 bg-[#030509] border-b border-white/10 w-full">
             <div class="w-full max-w-3xl mx-auto box-border">
                 <div class="text-center mb-12 sm:mb-16 reveal px-2">
@@ -1364,39 +1350,54 @@
                 </div>
 
                 <div class="space-y-3.5 sm:space-y-4 reveal w-full" role="tablist">
-                    <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-1" tabindex="0">
-                        <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">What is the standard deployment timeline?</h4>
-                            <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
+                    <!-- FAQ 1 -->
+                    <div>
+                        <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-1" tabindex="0">
+                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
+                                <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">What is the standard deployment timeline?</h4>
+                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div id="faq-content-1" class="accordion-content bg-black/60 border border-white/10 rounded-2xl mx-1 sm:mx-2 relative z-0" role="region">
-                        <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
-                            Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
-                        </div>
-                    </div>
-
-                    <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-2" tabindex="0">
-                        <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">Who retains asset ownership?</h4>
-                            <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
-                        </div>
-                    </div>
-                    <div id="faq-content-2" class="accordion-content bg-black/60 border border-white/10 rounded-2xl mx-1 sm:mx-2 relative z-0" role="region">
-                        <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
-                            You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
+                        <div id="faq-content-1" class="accordion-wrapper mx-1 sm:mx-2" role="region">
+                            <div class="accordion-inner bg-black/60 border border-white/10 rounded-2xl mt-1.5">
+                                <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
+                                    Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-3" tabindex="0">
-                        <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                            <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">How is AI accuracy maintained?</h4>
-                            <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
+                    <!-- FAQ 2 -->
+                    <div>
+                        <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-2" tabindex="0">
+                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
+                                <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">Who retains asset ownership?</h4>
+                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
+                            </div>
+                        </div>
+                        <div id="faq-content-2" class="accordion-wrapper mx-1 sm:mx-2" role="region">
+                            <div class="accordion-inner bg-black/60 border border-white/10 rounded-2xl mt-1.5">
+                                <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
+                                    You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="faq-content-3" class="accordion-content bg-black/60 border border-white/10 rounded-2xl mx-1 sm:mx-2 relative z-0" role="region">
-                        <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
-                            Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
+
+                    <!-- FAQ 3 -->
+                    <div>
+                        <div class="faq-toggle-btn retro-card p-4 sm:p-5 cursor-pointer w-full" role="button" aria-expanded="false" aria-controls="faq-content-3" tabindex="0">
+                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
+                                <h4 class="font-bold text-white uppercase tracking-widest text-xs sm:text-sm font-mono">How is AI accuracy maintained?</h4>
+                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-white/70 shrink-0"></i>
+                            </div>
+                        </div>
+                        <div id="faq-content-3" class="accordion-wrapper mx-1 sm:mx-2" role="region">
+                            <div class="accordion-inner bg-black/60 border border-white/10 rounded-2xl mt-1.5">
+                                <div class="p-4 sm:p-6 text-xs md:text-sm text-white/80 leading-relaxed font-sans">
+                                    Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1428,7 +1429,7 @@
                 <div class="bg-white/10 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border border-white/20">
                     <i data-lucide="hexagon" class="text-white w-5 h-5 sm:w-6 sm:h-6 interactive-icon"></i>
                 </div>
-                <span>Forge<span class="text-white/50">Software</span></span>
+                <span>Forge Softwares</span>
             </div>
 
             <div class="flex justify-center items-center gap-5 sm:gap-6 mb-6 sm:mb-8 w-full">
@@ -1464,7 +1465,7 @@
             id="enquiryContent">
 
             <button id="closeEnquiryModalBtn"
-                class="absolute top-3 right-3 sm:top-4 sm:right-4 physical-btn bg-white/5 border-white/10 min-w-[32px] min-h-[32px] w-8 h-8 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer"
+                class="absolute top-3 right-3 sm:top-4 sm:right-4 physical-btn bg-white/5 border-white/10 min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer"
                 aria-label="Close modal">
                 <i data-lucide="x" class="w-4 h-4 text-white"></i>
             </button>
@@ -1490,7 +1491,7 @@
                                 <i data-lucide="user" class="w-4 h-4"></i>
                             </div>
                             <input type="text" id="name" name="name" required autocomplete="name"
-                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40" placeholder="Enter full name" />
+                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40 min-h-[44px]" placeholder="Enter full name" />
                         </div>
                     </div>
 
@@ -1501,7 +1502,7 @@
                                 <i data-lucide="mail" class="w-4 h-4"></i>
                             </div>
                             <input type="email" id="email" name="email" required autocomplete="email"
-                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40" placeholder="Enter email address" />
+                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40 min-h-[44px]" placeholder="Enter email address" />
                         </div>
                     </div>
 
@@ -1512,7 +1513,7 @@
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                             </div>
                             <input type="tel" id="phone" name="phone" required autocomplete="tel"
-                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40" placeholder="e.g. +91 9697430658" />
+                                class="w-full bg-transparent pl-10 sm:pl-11 pr-4 py-3 sm:py-3.5 text-xs sm:text-sm font-mono text-white focus:outline-none placeholder-white/40 min-h-[44px]" placeholder="e.g. +91 9697430658" />
                         </div>
                         <p id="phoneErrorMsg" class="text-red-400 text-xs font-mono mt-1 hidden"></p>
                     </div>
@@ -1524,7 +1525,7 @@
                                 <i data-lucide="globe-2" class="w-4 h-4"></i>
                             </div>
                             <select id="country" name="country" required autocomplete="country"
-                                class="w-full bg-[#0d1322] pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 text-xs sm:text-sm font-mono focus:outline-none text-white appearance-none cursor-pointer relative z-10 rounded-2xl border-none">
+                                class="w-full bg-[#0d1322] pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 text-xs sm:text-sm font-mono focus:outline-none text-white appearance-none cursor-pointer relative z-10 rounded-2xl border-none min-h-[44px]">
                                 <option value="" disabled selected class="text-white/40">Select country or location...</option>
                                 <option value="United States">United States</option>
                                 <option value="United Kingdom">United Kingdom</option>
@@ -1548,12 +1549,12 @@
                                 <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
                                 <span id="captchaQuestion">Security Check: 5 + 3 = ?</span>
                             </label>
-                            <button type="button" id="refreshCaptchaBtn" class="text-white/60 hover:text-white transition-colors cursor-pointer shrink-0" title="Refresh Challenge">
+                            <button type="button" id="refreshCaptchaBtn" class="text-white/60 hover:text-white transition-colors cursor-pointer shrink-0 min-w-[36px] min-h-[36px] flex items-center justify-center" title="Refresh Challenge">
                                 <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
                             </button>
                         </div>
                         <input type="number" id="captchaInput" required
-                            class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs text-white font-mono placeholder-white/40 outline-none focus:border-emerald-400" placeholder="Enter answer..." />
+                            class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs text-white font-mono placeholder-white/40 outline-none focus:border-emerald-400 min-h-[40px]" placeholder="Enter answer..." />
                         <p id="captchaErrorMsg" class="text-red-400 text-xs font-mono mt-1 hidden">Incorrect solution.</p>
                     </div>
 
@@ -1606,20 +1607,20 @@
         </div>
     </div>
 
-    <!-- HELP CENTER MODAL WITH ALL 73 Q&AS -->
+    <!-- HELP CENTER MODAL WITH ALL 73 Q&AS (Dark Harmonized Glass Theme) -->
     <div id="helpCenterModal"
         class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-2 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden"
         role="dialog" aria-modal="true">
-        <div class="physical-panel bg-[#f8fafc] text-slate-900 max-w-6xl w-full max-h-[92dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-slate-300 overflow-hidden rounded-2xl sm:rounded-3xl"
+        <div class="physical-panel bg-[#080b14] text-slate-100 max-w-6xl w-full max-h-[92dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-white/20 overflow-hidden rounded-2xl sm:rounded-3xl"
             id="helpCenterContent">
 
             <button id="closeHelpModalBtn"
-                class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-slate-900 text-white hover:bg-emerald-600 min-w-[34px] min-h-[34px] w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all shadow-md cursor-pointer"
+                class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/10 hover:bg-emerald-500 hover:text-black text-white min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all shadow-md cursor-pointer border border-white/20"
                 aria-label="Close Help Center">
                 <i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
 
-            <div class="pt-6 sm:pt-8 px-4 sm:px-10 pb-5 sm:pb-6 shrink-0 bg-slate-900 text-white relative border-b border-slate-800">
+            <div class="pt-6 sm:pt-8 px-4 sm:px-10 pb-5 sm:pb-6 shrink-0 bg-[#0d1322] text-white relative border-b border-white/10">
                 <div class="flex items-center gap-2 mb-1.5 sm:mb-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">Official Knowledge Portal</span>
@@ -1631,32 +1632,32 @@
                     <div class="relative flex-1 max-w-xl">
                         <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
                         <input type="text" id="helpSearchInput" placeholder="Search questions (e.g., payment, chatbot, domain, changes)..."
-                            class="w-full bg-slate-800 border border-slate-700 rounded-full pl-10 sm:pl-11 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm font-mono text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 transition-all shadow-inner" />
+                            class="w-full bg-black/50 border border-white/20 rounded-full pl-10 sm:pl-11 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm font-mono text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 transition-all shadow-inner" />
                     </div>
                     <div class="flex items-center gap-2">
-                        <button id="expandAllFaqBtn" class="w-full sm:w-auto px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-xs font-mono text-emerald-300 border border-slate-700 transition-colors whitespace-nowrap cursor-pointer">
+                        <button id="expandAllFaqBtn" class="w-full sm:w-auto px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-xs font-mono text-emerald-300 border border-white/15 transition-colors whitespace-nowrap cursor-pointer min-h-[38px]">
                             <i data-lucide="chevrons-down" class="w-3.5 h-3.5 inline-block mr-1"></i> Expand All
                         </button>
                     </div>
                 </div>
 
                 <div class="mt-4 sm:mt-5 flex items-center gap-1.5 sm:gap-2 overflow-x-auto custom-scrollbar pb-2 font-mono text-xs max-w-full" id="helpCategoryPills">
-                    <button class="helpCatFilterBtn active px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-emerald-500 text-slate-950 font-bold whitespace-nowrap shrink-0 shadow-sm cursor-pointer" data-cat="all">All Topics (73)</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="1">1. Price & Payment</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="2">2. After You Pay</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="3">3. Ownership & Tech</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="4">4. Support & Help</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="5">5. AI Chatbot</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="6">6. Design & Changes</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="7">7. Refund Policy</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="8">8. Safety & Data</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="9">9. Contact Forge</button>
-                    <button class="helpCatFilterBtn px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 whitespace-nowrap shrink-0 cursor-pointer" data-cat="10">10. About Us</button>
+                    <button class="helpCatFilterBtn active px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-emerald-500 text-slate-950 font-bold whitespace-nowrap shrink-0 shadow-sm cursor-pointer min-h-[36px]" data-cat="all">All Topics (73)</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="1">1. Price & Payment</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="2">2. After You Pay</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="3">3. Ownership & Tech</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="4">4. Support & Help</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="5">5. AI Chatbot</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="6">6. Design & Changes</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="7">7. Refund Policy</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="8">8. Safety & Data</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="9">9. Contact Forge</button>
+                    <button class="helpCatFilterBtn px-3.5 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[36px]" data-cat="10">10. About Us</button>
                 </div>
             </div>
 
-            <div class="overflow-y-auto custom-scrollbar p-4 sm:p-10 flex-1 space-y-6 sm:space-y-8 bg-slate-50" id="helpContentList">
-                <!-- Dynamically populated via JS -->
+            <div class="overflow-y-auto custom-scrollbar p-4 sm:p-10 flex-1 space-y-6 sm:space-y-8 bg-[#080b14]" id="helpContentList">
+                <!-- Dynamically populated via JS with complete 73 Q&As -->
             </div>
         </div>
     </div>
@@ -1669,7 +1670,7 @@
             id="blogContent">
 
             <button id="closeBlogModalBtn"
-                class="absolute top-3 right-3 sm:top-4 sm:right-4 physical-btn bg-white/10 border-white/20 min-w-[34px] min-h-[34px] w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer"
+                class="absolute top-3 right-3 sm:top-4 sm:right-4 physical-btn bg-white/10 border-white/20 min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer"
                 aria-label="Close blog modal">
                 <i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-white"></i>
             </button>
@@ -1686,13 +1687,13 @@
                     <div class="relative flex-1 max-w-md">
                         <i data-lucide="search" class="w-4 h-4 text-white/50 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
                         <input type="text" id="blogSearchInput" placeholder="Search architecture articles..."
-                            class="w-full bg-black/40 border border-white/15 rounded-full pl-10 pr-4 py-2 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-white transition-all" />
+                            class="w-full bg-black/40 border border-white/15 rounded-full pl-10 pr-4 py-2 text-xs font-mono text-white placeholder-white/50 focus:outline-none focus:border-white transition-all min-h-[38px]" />
                     </div>
                     <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto custom-scrollbar pb-1 sm:pb-0 font-mono text-[10px] sm:text-[11px] max-w-full">
-                        <button class="blogFilterBtn active px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white text-black font-bold whitespace-nowrap shrink-0 cursor-pointer" data-filter="all">All</button>
-                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer" data-filter="ai">AI Agents</button>
-                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer" data-filter="web">Web Architecture</button>
-                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer" data-filter="growth">Growth Logic</button>
+                        <button class="blogFilterBtn active px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white text-black font-bold whitespace-nowrap shrink-0 cursor-pointer min-h-[32px]" data-filter="all">All</button>
+                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[32px]" data-filter="ai">AI Agents</button>
+                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[32px]" data-filter="web">Web Architecture</button>
+                        <button class="blogFilterBtn px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 whitespace-nowrap shrink-0 cursor-pointer min-h-[32px]" data-filter="growth">Growth Logic</button>
                     </div>
                 </div>
             </div>
@@ -1808,7 +1809,7 @@
 
     <!-- Master Application Script -->
     <script>
-        // Database for Help Center - 73 Q&As across 10 Categories
+        // Full Complete Database for Help Center - 73 Q&As across 10 Categories
         const helpDatabase = [
             {
                 catId: "1",
@@ -1955,35 +1956,72 @@
             if ('requestIdleCallback' in window) { requestIdleCallback(initIcons); }
             else { setTimeout(() => requestAnimationFrame(initIcons), 150); }
 
-            // --- 2. Lumora Hero Video Switcher & Cooldown Engine ---
+            // --- 2. GPU-Efficient Lumora Video Engine & Viewport Observer ---
             const videoLayers = document.querySelectorAll('.hero-video-layer');
             const switcherBtns = document.querySelectorAll('.videoSwitcherBtn');
             let isTransitioning = false;
+            let currentVideoIdx = 0;
+            let isHeroInView = true;
+
+            // Pause all non-active videos immediately to free GPU memory
+            videoLayers.forEach((v, idx) => {
+                if (idx === 0) {
+                    v.play().catch(() => {});
+                } else {
+                    v.pause();
+                }
+            });
+
+            // IntersectionObserver to pause video & canvas when scrolled away
+            const heroSection = document.getElementById('home');
+            if (heroSection && 'IntersectionObserver' in window) {
+                const heroObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        isHeroInView = entry.isIntersecting;
+                        const activeVideo = videoLayers[currentVideoIdx];
+                        if (activeVideo) {
+                            if (isHeroInView) {
+                                activeVideo.play().catch(() => {});
+                            } else {
+                                activeVideo.pause();
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
+                heroObserver.observe(heroSection);
+            }
 
             switcherBtns.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     const targetIdx = parseInt(btn.getAttribute('data-video-index'), 10);
                     
-                    if (isTransitioning || btn.classList.contains('active')) return;
+                    if (isTransitioning || targetIdx === currentVideoIdx) return;
                     isTransitioning = true;
 
                     switcherBtns.forEach((b) => {
                         b.classList.remove('active', 'bg-white/20', 'border-b-2', 'border-white', 'font-bold');
-                        b.classList.add('text-white/60');
+                        b.classList.add('text-white/70');
                     });
 
                     btn.classList.add('active', 'bg-white/20', 'border-b-2', 'border-white', 'font-bold');
-                    btn.classList.remove('text-white/60');
+                    btn.classList.remove('text-white/70');
 
-                    videoLayers.forEach((layer, idx) => {
-                        if (idx === targetIdx) {
-                            layer.style.opacity = '1';
-                        } else {
-                            layer.style.opacity = '0';
-                        }
-                    });
+                    const prevVideo = videoLayers[currentVideoIdx];
+                    const nextVideo = videoLayers[targetIdx];
 
-                    // Deep Woods dark mode contrast adaptation (Video Index 2)
+                    if (nextVideo) {
+                        nextVideo.currentTime = 0;
+                        if (isHeroInView) nextVideo.play().catch(() => {});
+                        nextVideo.style.opacity = '1';
+                    }
+
+                    if (prevVideo) {
+                        prevVideo.style.opacity = '0';
+                    }
+
+                    currentVideoIdx = targetIdx;
+
+                    // Deep Woods contrast adaptation (Video Index 2)
                     if (targetIdx === 2) {
                         document.body.classList.add('deep-woods-mode');
                     } else {
@@ -1991,12 +2029,15 @@
                     }
 
                     setTimeout(() => {
+                        if (prevVideo && prevVideo !== nextVideo) {
+                            prevVideo.pause();
+                        }
                         isTransitioning = false;
                     }, 1000);
                 });
             });
 
-            // --- 3. Help Center Portal Renderer ---
+            // --- 3. Help Center Search Engine & Debounce ---
             const helpContentList = document.getElementById('helpContentList');
             const helpSearchInput = document.getElementById('helpSearchInput');
             const helpCatFilterBtns = document.querySelectorAll('.helpCatFilterBtn');
@@ -2004,6 +2045,14 @@
             let currentCategory = 'all';
             let currentSearch = '';
             let allExpanded = false;
+
+            function debounce(fn, delay) {
+                let timer;
+                return function (...args) {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => fn.apply(this, args), delay);
+                };
+            }
 
             function renderHelpCenter() {
                 if (!helpContentList) return;
@@ -2025,11 +2074,11 @@
                     catSection.className = 'space-y-3 sm:space-y-4';
 
                     const catHeader = document.createElement('div');
-                    catHeader.className = 'flex items-center gap-2.5 sm:gap-3 border-b border-slate-200 pb-2 mb-3 sm:mb-4';
+                    catHeader.className = 'flex items-center gap-2.5 sm:gap-3 border-b border-white/10 pb-2 mb-3 sm:mb-4';
                     catHeader.innerHTML = `
-                        <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 shrink-0"></div>
-                        <h3 class="text-sm sm:text-lg font-bold font-mono text-slate-900 uppercase tracking-wide">${cat.catName}</h3>
-                        <span class="text-[10px] sm:text-xs font-mono text-slate-500 bg-slate-200 px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full font-semibold ml-auto shrink-0">${filteredItems.length} Q&A</span>
+                        <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400 shrink-0"></div>
+                        <h3 class="text-sm sm:text-lg font-bold font-mono text-white uppercase tracking-wide">${cat.catName}</h3>
+                        <span class="text-[10px] sm:text-xs font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full font-semibold ml-auto shrink-0">${filteredItems.length} Q&A</span>
                     `;
                     catSection.appendChild(catHeader);
 
@@ -2040,16 +2089,16 @@
 
                         itemCard.innerHTML = `
                             <div class="flex items-start justify-between gap-3 sm:gap-4 pointer-events-none">
-                                <h4 class="font-bold text-slate-900 text-xs sm:text-sm font-sans flex items-start gap-2">
-                                    <span class="text-emerald-600 font-mono font-bold shrink-0">Q:</span>
+                                <h4 class="font-bold text-white text-xs sm:text-sm font-sans flex items-start gap-2">
+                                    <span class="text-emerald-400 font-mono font-bold shrink-0">Q:</span>
                                     <span>${item.q}</span>
                                 </h4>
-                                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 text-slate-600 help-toggle-icon transition-transform duration-300">
+                                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 text-white help-toggle-icon transition-transform duration-300">
                                     <i data-lucide="${allExpanded ? 'chevron-up' : 'chevron-down'}" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                                 </div>
                             </div>
-                            <div class="help-answer-box text-xs sm:text-sm text-slate-700 font-sans leading-relaxed mt-2.5 sm:mt-3 pt-2.5 sm:pt-3 border-t border-slate-100 ${allExpanded ? '' : 'hidden'}">
-                                <strong class="text-slate-900 font-semibold block mb-1">Answer:</strong>
+                            <div class="help-answer-box text-xs sm:text-sm text-slate-300 font-sans leading-relaxed mt-2.5 sm:mt-3 pt-2.5 sm:pt-3 border-t border-white/10 ${allExpanded ? '' : 'hidden'}">
+                                <strong class="text-white font-semibold block mb-1">Answer:</strong>
                                 ${formattedAnswer}
                             </div>
                         `;
@@ -2078,11 +2127,11 @@
                 if (totalMatches === 0) {
                     helpContentList.innerHTML = `
                         <div class="text-center py-12 sm:py-16 px-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center mx-auto mb-4">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/5 border border-white/10 text-slate-400 flex items-center justify-center mx-auto mb-4">
                                 <i data-lucide="help-circle" class="w-6 h-6 sm:w-8 sm:h-8"></i>
                             </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-800 font-mono">No matching questions found</h3>
-                            <p class="text-xs text-slate-500 mt-2 max-w-sm mx-auto">Try typing another search term or click 'All Topics' to see all questions.</p>
+                            <h3 class="text-base sm:text-lg font-bold text-white font-mono">No matching questions found</h3>
+                            <p class="text-xs text-slate-400 mt-2 max-w-sm mx-auto">Try typing another search term or click 'All Topics' to see all questions.</p>
                         </div>
                     `;
                 }
@@ -2093,20 +2142,20 @@
             renderHelpCenter();
 
             if (helpSearchInput) {
-                helpSearchInput.addEventListener('input', (e) => {
+                helpSearchInput.addEventListener('input', debounce((e) => {
                     currentSearch = e.target.value.toLowerCase().trim();
                     renderHelpCenter();
-                });
+                }, 180));
             }
 
             helpCatFilterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     helpCatFilterBtns.forEach(b => {
                         b.classList.remove('bg-emerald-500', 'text-slate-950', 'font-bold', 'active');
-                        b.classList.add('bg-slate-800', 'text-slate-200');
+                        b.classList.add('bg-white/10', 'text-slate-200');
                     });
                     btn.classList.add('bg-emerald-500', 'text-slate-950', 'font-bold', 'active');
-                    btn.classList.remove('bg-slate-800', 'text-slate-200');
+                    btn.classList.remove('bg-white/10', 'text-slate-200');
 
                     currentCategory = btn.getAttribute('data-cat');
                     renderHelpCenter();
@@ -2123,18 +2172,27 @@
                 });
             }
 
-            // --- 4. Hero Interactive Canvas ---
+            // --- 4. HiDPI Canvas Particle Simulation Engine ---
             const canvas = document.getElementById('hero-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
                 let particles = [];
-                let mouse = { x: null, y: null, radius: 150 };
+                let mouse = { x: null, y: null, radius: 140 };
+                let animFrameId = null;
 
                 function resizeCanvas() {
                     if (!canvas.parentElement) return;
-                    canvas.width = canvas.parentElement.clientWidth || window.innerWidth;
-                    canvas.height = canvas.parentElement.clientHeight || window.innerHeight;
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    
+                    canvas.width = rect.width * dpr;
+                    canvas.height = rect.height * dpr;
+                    ctx.scale(dpr, dpr);
+                    
+                    canvas.style.width = `${rect.width}px`;
+                    canvas.style.height = `${rect.height}px`;
                 }
+
                 resizeCanvas();
                 window.addEventListener('resize', resizeCanvas);
 
@@ -2145,18 +2203,20 @@
                 });
 
                 class Particle {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.vx = (Math.random() - 0.5) * 0.8;
-                        this.vy = (Math.random() - 0.5) * 0.8;
+                    constructor(width, height) {
+                        this.w = width;
+                        this.h = height;
+                        this.x = Math.random() * width;
+                        this.y = Math.random() * height;
+                        this.vx = (Math.random() - 0.5) * 0.7;
+                        this.vy = (Math.random() - 0.5) * 0.7;
                         this.size = Math.random() * 2 + 1;
                     }
-                    update() {
+                    update(width, height) {
                         this.x += this.vx;
                         this.y += this.vy;
-                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                        if (this.x < 0 || this.x > width) this.vx *= -1;
+                        if (this.y < 0 || this.y > height) this.vy *= -1;
 
                         if (mouse.x !== null && mouse.y !== null) {
                             let dx = mouse.x - this.x;
@@ -2164,8 +2224,8 @@
                             let dist = Math.sqrt(dx * dx + dy * dy);
                             if (dist < mouse.radius) {
                                 let angle = Math.atan2(dy, dx);
-                                this.x -= Math.cos(angle) * 1.5;
-                                this.y -= Math.sin(angle) * 1.5;
+                                this.x -= Math.cos(angle) * 1.2;
+                                this.y -= Math.sin(angle) * 1.2;
                             }
                         }
                     }
@@ -2179,24 +2239,34 @@
 
                 function initParticles() {
                     particles = [];
-                    const count = Math.floor((canvas.width * canvas.height) / 18000);
+                    const width = canvas.parentElement ? canvas.parentElement.clientWidth : window.innerWidth;
+                    const height = canvas.parentElement ? canvas.parentElement.clientHeight : window.innerHeight;
+                    const count = Math.floor((width * height) / 20000);
                     for (let i = 0; i < count; i++) {
-                        particles.push(new Particle());
+                        particles.push(new Particle(width, height));
                     }
                 }
                 initParticles();
 
                 function animateCanvas() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    if (!isHeroInView) {
+                        animFrameId = requestAnimationFrame(animateCanvas);
+                        return;
+                    }
+                    const width = canvas.parentElement ? canvas.parentElement.clientWidth : window.innerWidth;
+                    const height = canvas.parentElement ? canvas.parentElement.clientHeight : window.innerHeight;
+
+                    ctx.clearRect(0, 0, width, height);
+
                     for (let i = 0; i < particles.length; i++) {
-                        particles[i].update();
+                        particles[i].update(width, height);
                         particles[i].draw();
                         for (let j = i + 1; j < particles.length; j++) {
                             let dx = particles[i].x - particles[j].x;
                             let dy = particles[i].y - particles[j].y;
                             let dist = Math.sqrt(dx * dx + dy * dy);
-                            if (dist < 110) {
-                                ctx.strokeStyle = `rgba(16, 185, 129, ${0.25 - dist / 110})`;
+                            if (dist < 100) {
+                                ctx.strokeStyle = `rgba(16, 185, 129, ${0.22 - dist / 100})`;
                                 ctx.lineWidth = 0.8;
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
@@ -2205,12 +2275,12 @@
                             }
                         }
                     }
-                    requestAnimationFrame(animateCanvas);
+                    animFrameId = requestAnimationFrame(animateCanvas);
                 }
                 animateCanvas();
             }
 
-            // --- 5. Dynamic URL Hash & Route Management ---
+            // --- 5. Modal Route Management & Sync ---
             let lastActiveElement = null;
 
             const modalMap = {
@@ -2224,6 +2294,12 @@
 
             function openGenericModal(modalElement, contentElement, newHash) {
                 if (!modalElement) return;
+                
+                // Immediately close mobile menu if open
+                if (typeof isNexumMenuOpen !== 'undefined' && isNexumMenuOpen) {
+                    toggleNexumMenu();
+                }
+
                 lastActiveElement = document.activeElement;
                 modalElement.classList.remove('hidden');
                 modalElement.classList.add('flex');
@@ -2335,17 +2411,11 @@
             document.querySelectorAll('.pricingBookBtn').forEach(btn => btn.addEventListener('click', openEnquiryModal));
 
             document.getElementById('navBlogBtn')?.addEventListener('click', openBlogModal);
-            document.getElementById('mobBlogBtn')?.addEventListener('click', () => {
-                if (isNexumMenuOpen) toggleNexumMenu();
-                openBlogModal();
-            });
+            document.getElementById('mobBlogBtn')?.addEventListener('click', openBlogModal);
 
             document.getElementById('navHelpBtn')?.addEventListener('click', openHelpModal);
             document.getElementById('footerHelpBtn')?.addEventListener('click', openHelpModal);
-            document.getElementById('mobHelpBtn')?.addEventListener('click', () => {
-                if (isNexumMenuOpen) toggleNexumMenu();
-                openHelpModal();
-            });
+            document.getElementById('mobHelpBtn')?.addEventListener('click', openHelpModal);
 
             document.getElementById('footerTermsBtn')?.addEventListener('click', openTerms);
             document.getElementById('footerPrivacyBtn')?.addEventListener('click', openPrivacy);
@@ -2357,7 +2427,7 @@
             document.getElementById('closeBlogModalBtn')?.addEventListener('click', closeBlogModal);
             document.getElementById('closeHelpModalBtn')?.addEventListener('click', closeHelpModal);
 
-            // --- 6. Blog Filtering Logic ---
+            // --- 6. Blog Filter Logic ---
             const blogFilterBtns = document.querySelectorAll('.blogFilterBtn');
             const blogCards = document.querySelectorAll('.blog-card');
 
@@ -2383,7 +2453,7 @@
 
             const blogSearchInput = document.getElementById('blogSearchInput');
             if (blogSearchInput) {
-                blogSearchInput.addEventListener('input', (e) => {
+                blogSearchInput.addEventListener('input', debounce((e) => {
                     const query = e.target.value.toLowerCase();
                     blogCards.forEach(card => {
                         const text = card.textContent.toLowerCase();
@@ -2393,10 +2463,10 @@
                             card.style.display = 'none';
                         }
                     });
-                });
+                }, 180));
             }
 
-            // --- 7. Mobile Drawer Toggle Logic ---
+            // --- 7. Mobile Navigation Drawer ---
             const nexumMobileMenuBtn = document.getElementById('nexumMobileMenuBtn');
             const nexumMenuIcon = document.getElementById('nexumMenuIcon');
             const nexumXIcon = document.getElementById('nexumXIcon');
@@ -2404,11 +2474,11 @@
             const nexumMobileDrawer = document.getElementById('nexumMobileDrawer');
             const nexumMobLinks = document.querySelectorAll('.nexum-mob-link');
             const nexumMobFooter = document.getElementById('nexumMobFooter');
-            let isNexumMenuOpen = false;
+            window.isNexumMenuOpen = false;
 
             function toggleNexumMenu() {
-                isNexumMenuOpen = !isNexumMenuOpen;
-                if (isNexumMenuOpen) {
+                window.isNexumMenuOpen = !window.isNexumMenuOpen;
+                if (window.isNexumMenuOpen) {
                     document.body.style.overflow = 'hidden';
                     if (nexumMenuIcon) {
                         nexumMenuIcon.style.opacity = '0';
@@ -2465,17 +2535,17 @@
             document.getElementById('closeDrawerBtn')?.addEventListener('click', toggleNexumMenu);
             nexumMobLinks.forEach(link => {
                 if (link.id !== 'mobBlogBtn' && link.id !== 'mobHelpBtn') {
-                    link.addEventListener('click', () => { if (isNexumMenuOpen) toggleNexumMenu(); });
+                    link.addEventListener('click', () => { if (window.isNexumMenuOpen) toggleNexumMenu(); });
                 }
             });
-            if (nexumMobileOverlay) nexumMobileOverlay.addEventListener('click', () => { if (isNexumMenuOpen) toggleNexumMenu(); });
+            if (nexumMobileOverlay) nexumMobileOverlay.addEventListener('click', () => { if (window.isNexumMenuOpen) toggleNexumMenu(); });
 
             document.getElementById('mobGetStartedBtn')?.addEventListener('click', () => {
-                if (isNexumMenuOpen) toggleNexumMenu();
+                if (window.isNexumMenuOpen) toggleNexumMenu();
                 openEnquiryModal();
             });
 
-            // --- 8. Hero Email Transfer ---
+            // --- 8. Hero Email Input Transfer ---
             const heroEmailForm = document.getElementById('heroEmailForm');
             if (heroEmailForm) {
                 heroEmailForm.addEventListener('submit', (e) => {
@@ -2489,7 +2559,7 @@
                 });
             }
 
-            // --- 9. Form Validation & Data Transmission ---
+            // --- 9. Form Submission via URL-Encoded Parameters (CORS Safe) ---
             const enquiryForm = document.getElementById('enquiryForm');
             if (enquiryForm) {
                 enquiryForm.addEventListener('submit', async (e) => {
@@ -2508,9 +2578,12 @@
                         return;
                     }
 
+                    // Honeypot Trap Handler
                     const hpValue = document.getElementById('website_hp_check')?.value;
                     if (hpValue && hpValue.trim() !== '') {
-                        console.warn('Bot submission blocked via honeypot.');
+                        console.warn('Spam detected via honeypot.');
+                        closeEnquiryModal();
+                        enquiryForm.reset();
                         return;
                     }
 
@@ -2544,11 +2617,21 @@
                         btn.disabled = true;
                     }
 
+                    // Convert to URL-encoded parameters for Google Apps Script compatibility
                     const formData = new FormData(enquiryForm);
+                    const params = new URLSearchParams();
+                    for (const [key, value] of formData.entries()) {
+                        params.append(key, value);
+                    }
+
                     const url = "https://script.google.com/macros/s/AKfycbzK0V8AbooKYaBoVOqOe1iDgHXB5XOo8pGV0xPRuGmEMfzueVA3fBCTeEGFBZ8dlpHqzg/exec";
 
                     try {
-                        const response = await fetch(url, { method: "POST", body: formData });
+                        const response = await fetch(url, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: params.toString()
+                        });
 
                         if (response.ok || response.status === 200) {
                             localStorage.setItem('forge_last_form_submit', Date.now().toString());
@@ -2582,7 +2665,7 @@
                 });
             }
 
-            // --- 10. Scroll Reveals & Count-Up Animations ---
+            // --- 10. Scroll Reveals & Count-Up Animation Observer ---
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = { threshold: 0.05, rootMargin: "40px 0px 40px 0px" };
 
@@ -2630,7 +2713,7 @@
 
             counters.forEach(counter => counterObserver.observe(counter));
 
-            // --- 11. Accordion Toggle Logic ---
+            // --- 11. FAQ Accordion Grid Toggle Logic ---
             function toggleFaqAccordion(element) {
                 const isExpanded = element.getAttribute('aria-expanded') === 'true';
                 const contentId = element.getAttribute('aria-controls');
