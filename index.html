@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- BubbledotICG-FinePos Font -->
-    <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet" type="text/css" />
+    <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet" type="type/css" />
 
     <style>
         @font-face {
@@ -124,7 +124,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Hero Video & Overlay Layer (Main First Page Only) */
+        /* Hero Video & Overlay Layer */
         #hero-canvas {
             position: absolute;
             top: 0;
@@ -150,41 +150,46 @@
         .hero-readability-mask {
             background: linear-gradient(
                 180deg,
-                rgba(3, 5, 9, 0.30) 0%,
-                rgba(3, 5, 9, 0.08) 30%,
-                rgba(3, 5, 9, 0.12) 70%,
-                rgba(3, 5, 9, 0.70) 100%
+                rgba(3, 5, 9, 0.40) 0%,
+                rgba(3, 5, 9, 0.15) 30%,
+                rgba(3, 5, 9, 0.25) 70%,
+                rgba(3, 5, 9, 0.85) 100%
             );
         }
 
         .hero-localized-text-glow {
             background: radial-gradient(
                 circle at 20% 40%,
-                rgba(3, 5, 9, 0.40) 0%,
+                rgba(3, 5, 9, 0.55) 0%,
                 transparent 70%
             );
         }
 
-        /* Deep Woods Contrast Mode */
+        /* Deep Woods Contrast Mode - Fixed for WCAG AA Contrast Compliance */
         .deep-woods-mode .hero-adaptive-text {
-            color: #182C41 !important;
+            color: #FFFFFF !important;
             transition: color 0.7s ease;
-            text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8);
         }
-        .deep-woods-mode .hero-adaptive-subtext { color: rgba(24, 44, 65, 0.95) !important; transition: color 0.7s ease; }
+        .deep-woods-mode .hero-adaptive-subtext { 
+            color: #F1F5F9 !important; 
+            transition: color 0.7s ease; 
+            text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+        }
         .deep-woods-mode .hero-adaptive-badge {
-            background: rgba(24, 44, 65, 0.3) !important;
-            color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.4) !important;
+            background: rgba(15, 23, 42, 0.85) !important;
+            color: #38BDF8 !important;
+            border-color: rgba(56, 189, 248, 0.5) !important;
             transition: all 0.7s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
         .deep-woods-mode .hero-adaptive-input {
-            background: rgba(24, 44, 65, 0.35) !important;
-            color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.5) !important;
+            background: rgba(15, 23, 42, 0.8) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
             transition: all 0.7s ease;
         }
-        .deep-woods-mode .hero-adaptive-input::placeholder { color: rgba(24, 44, 65, 0.8) !important; }
+        .deep-woods-mode .hero-adaptive-input::placeholder { color: rgba(255, 255, 255, 0.8) !important; }
 
         /* Apple Glass Panel & Light Cards */
         .apple-glass-nav {
@@ -227,71 +232,59 @@
 
         /* Apple Buttons */
         .apple-btn-primary {
-            background-color: var(--apple-accent);
+            background: linear-gradient(135deg, #0066CC 0%, #004b9e 100%);
             color: #FFFFFF;
             border-radius: 999px;
             font-weight: 600;
             padding: 12px 24px;
             font-size: 13px;
-            transition: all 0.25s var(--ease-apple);
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 44px;
             cursor: pointer;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .apple-btn-primary:hover {
-            background-color: #0077ED;
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+            background: linear-gradient(135deg, #0077ED 0%, #005bb5 100%);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .apple-btn-primary:active { transform: scale(0.97); }
+        .apple-btn-primary:active { transform: translateY(1px) scale(0.98); box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3); }
 
         .apple-btn-secondary {
-            background-color: #F5F5F7;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F7 100%);
             color: #1D1D1F;
             border-radius: 999px;
             font-weight: 600;
             padding: 12px 24px;
             font-size: 13px;
-            transition: all 0.25s var(--ease-apple);
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 44px;
             cursor: pointer;
-            border: 1px solid var(--apple-border);
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), inset 0 -2px 5px rgba(0,0,0,0.02);
         }
 
         .apple-btn-secondary:hover {
-            background-color: #1D1D1F;
-            color: #FFFFFF;
-            border-color: #1D1D1F;
-            transform: scale(1.02);
+            background: #FFFFFF;
+            color: #0066CC;
+            border-color: rgba(0, 102, 204, 0.4);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15), inset 0 0 0 1px rgba(0, 102, 204, 0.1);
         }
-
-        .apple-btn-secondary:active { transform: scale(0.97); }
 
         .apple-link {
-            color: var(--apple-accent);
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.2s ease;
-        }
-
-        .apple-link i { transition: transform 0.3s var(--ease-apple); }
-        .apple-link:hover i { transform: translateX(4px); }
-
-        .trust-avatar-ring {
-            width: 42px;
-            height: 42px;
-            background: #FFFFFF;
-            border: 1px solid var(--apple-border);
             border-radius: 50%;
             padding: 3px;
             display: inline-flex;
@@ -373,13 +366,32 @@
             background: #F5F5F7;
         }
 
-        /* Pricing Table Movable Touch Container */
+        /* Pricing Table Movable Touch Container & Border Separate Fix */
         .table-scroll-container {
             position: relative;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior-x: contain;
             touch-action: pan-x;
+        }
+
+        /* Fix sticky border shearing in iOS Safari & Chrome */
+        .pricing-matrix-table {
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+        }
+
+        /* Tactical Black Texture for Empty Spacing & Contact Cards */
+        .tactical-dark-card {
+            background: radial-gradient(circle at 50% 0%, #151d2a 0%, #080d16 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .bg-grid-texture {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 102, 204, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 102, 204, 0.05) 1px, transparent 1px);
         }
     </style>
 
@@ -434,10 +446,12 @@
           "description": "Systems engineering and AI automation collective in Srinagar, Kashmir.",
           "url": "https://forgesoftwares.in/",
           "telephone": "+91-9697430658",
-          "email": "forgesoftwares@gmail.com",
+          "email": "farmanshafi2007@gmail.com",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Pandith Pore Rainawari / Jogilanker",
             "addressLocality": "Srinagar",
+            "postalCode": "190003",
             "addressRegion": "Jammu & Kashmir",
             "addressCountry": "IN"
           },
@@ -460,40 +474,39 @@
     </script>
 </head>
 
-<body class="selection:bg-[#0066CC] selection:text-white w-full max-w-full bg-white text-[#1D1D1F] overflow-x-hidden">
+<body class="selection:bg-[#0066CC] selection:text-white w-full max-w-full bg-white text-[#1D1D1F] overflow-x-hidden bg-grid-texture">
 
     <!-- Primary Navigation Header (Apple Style 44px Bar) -->
     <header id="topHeader" class="sticky top-0 z-50 w-full apple-glass-nav h-[44px] flex items-center transition-all duration-300">
         <nav class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-full">
-            <a href="#home" class="flex items-center gap-2 text-[#1D1D1F] transition-opacity duration-300 hover:opacity-80 active:scale-95 shrink-0 focus:outline-none">
+            <a href="#home" class="flex items-center gap-2 text-[#1D1D1F] transition-opacity duration-300 hover:opacity-80 active:scale-95 shrink-0 focus:outline-none" aria-label="Forge Softwares Home">
                 <div class="w-6 h-6 rounded-full border border-black/20 bg-black/5 flex items-center justify-center font-mono text-[10px] font-bold text-[#1D1D1F] backdrop-blur-md shadow-inner shrink-0">
                     (F)
                 </div>
                 <span class="text-base sm:text-lg font-podium tracking-widest uppercase">Forge Softwares</span>
             </a>
 
-            <!-- Desktop Links (SF Pro Text 12px) -->
+            <!-- Desktop Links -->
             <div class="hidden md:flex items-center gap-8 text-[12px] tracking-normal text-[#1D1D1F]/80 font-sans">
                 <a href="#home" class="nav-link-item hover:text-[#0066CC] transition-opacity duration-200 py-1 focus:outline-none">Home</a>
-                <a href="#what-we-do" class="nav-link-item hover:text-[#0066CC] transition-opacity duration-200 py-1 focus:outline-none">Architecture</a>
-                <a href="#services" class="nav-link-item hover:text-[#0066CC] transition-opacity duration-200 py-1 focus:outline-none">Systems</a>
                 <a href="#pricing" class="nav-link-item hover:text-[#0066CC] transition-opacity duration-200 py-1 focus:outline-none">Pricing</a>
                 <a href="#testimonials" class="nav-link-item hover:text-[#0066CC] transition-opacity duration-200 py-1 focus:outline-none">Testimonials</a>
-                <button id="navHelpBtn" class="hover:text-[#0066CC] text-[#0066CC] font-semibold transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
+                <a href="#contact" class="nav-link-item hover:text-[#0066CC] font-semibold transition-opacity duration-200 py-1 focus:outline-none">Contact & HQ</a>
+                <button type="button" id="navHelpBtn" class="hover:text-[#0066CC] text-[#0066CC] font-semibold transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
                     <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Help & Support
                 </button>
-                <button id="navBlogBtn" class="hover:text-[#0066CC] transition-colors focus:outline-none cursor-pointer">Blog</button>
+                <button type="button" id="navBlogBtn" class="hover:text-[#0066CC] transition-colors focus:outline-none cursor-pointer">Blog</button>
             </div>
 
             <!-- Get Started CTA (Desktop) -->
             <div class="hidden md:flex items-center shrink-0">
-                <button id="navGetStartedBtn" class="apple-btn-primary !min-h-[30px] !py-1 !px-4 !text-[11px] group cursor-pointer focus:outline-none">
+                <button type="button" id="navGetStartedBtn" class="apple-btn-primary !min-h-[30px] !py-1 !px-4 !text-[11px] group cursor-pointer focus:outline-none">
                     Get Started <i data-lucide="chevron-right" class="w-3 h-3 ml-1"></i>
                 </button>
             </div>
 
             <!-- Mobile Hamburger Menu Button -->
-            <button id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-black/5 backdrop-blur-lg border border-black/15 text-[#1D1D1F] relative z-[60] focus:outline-none active:scale-95 cursor-pointer shrink-0" aria-label="Open Navigation Menu">
+            <button type="button" id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-black/5 backdrop-blur-lg border border-black/15 text-[#1D1D1F] relative z-[60] focus:outline-none active:scale-95 cursor-pointer shrink-0" aria-label="Open Navigation Menu">
                 <i data-lucide="menu" id="nexumMenuIcon" class="absolute w-4 h-4 transition-all duration-300 transform scale-100 opacity-100 rotate-0"></i>
                 <i data-lucide="x" id="nexumXIcon" class="absolute w-4 h-4 transition-all duration-300 transform scale-0 opacity-0 -rotate-90"></i>
             </button>
@@ -504,10 +517,9 @@
 
         <!-- Cinematic Hero Engine (Main First Section - Retains Dark Theme) -->
         <section id="home" class="relative min-h-[100svh] min-h-[100dvh] w-full overflow-hidden flex flex-col font-geist text-white hero-video-container pt-12 sm:pt-16 pb-8 sm:pb-12">
-
             <!-- Background Media Layer -->
             <div id="heroVideoContainer" class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-                <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-100" 
+                <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-0" 
                     loop muted playsinline preload="auto" 
                     poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"></video>
@@ -520,7 +532,7 @@
                     loop muted playsinline preload="auto" 
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4"></video>
 
-                <video id="vid-layer-3" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-0" 
+                <video id="vid-layer-3" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-100" 
                     loop muted playsinline preload="auto" 
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4"></video>
             </div>
@@ -562,10 +574,10 @@
                 <!-- Single-Row Mobile Video Selector Panel -->
                 <div class="w-full max-w-full overflow-hidden mb-6 sm:mb-8 animate-fade-up" style="animation-delay: 0.35s;">
                     <div class="bg-black/60 backdrop-blur-md rounded-full inline-flex flex-nowrap items-center p-1 sm:p-1.5 border border-white/20 shadow-xl overflow-x-auto no-scrollbar w-full sm:w-auto max-w-full min-h-[42px] sm:min-h-[48px] touch-pan-x">
-                        <button type="button" class="videoSwitcherBtn active px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white font-bold bg-white/25 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap shrink-0" data-video-index="0">Golden Hour</button>
+                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="0">Golden Hour</button>
                         <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="1">Still Water</button>
                         <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="2">Deep Woods</button>
-                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="3">Quiet Dawn</button>
+                        <button type="button" class="videoSwitcherBtn active px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white font-bold bg-white/25 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap shrink-0" data-video-index="3">Quiet Dawn</button>
                     </div>
                 </div>
 
@@ -597,31 +609,30 @@
         
         <div id="nexumMobileDrawer" class="fixed right-3 top-3 z-50 h-[calc(100vh-24px)] w-[calc(100vw-24px)] sm:w-80 bg-white/95 backdrop-blur-2xl rounded-3xl translate-x-[120%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-16 px-6 pb-6 border border-[#D2D2D7] shadow-2xl overflow-y-auto custom-scrollbar" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
 
-            <button id="closeDrawerBtn" class="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-black/5 text-[#1D1D1F] hover:bg-black/10 transition-all active:scale-95 z-[60] cursor-pointer focus:outline-none" aria-label="Close Menu">
+            <button type="button" id="closeDrawerBtn" class="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-black/5 text-[#1D1D1F] hover:bg-black/10 transition-all active:scale-95 z-[60] cursor-pointer focus:outline-none" aria-label="Close Menu">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
             <div class="flex flex-col gap-2 mt-4">
                 <a href="#home" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Home</a>
-                <a href="#what-we-do" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Architecture</a>
-                <a href="#services" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Systems</a>
                 <a href="#pricing" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Pricing</a>
                 <a href="#testimonials" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Testimonials</a>
-                <button id="mobHelpBtn" class="nexum-mob-link text-left rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#0066CC] font-bold hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] flex items-center gap-2 cursor-pointer focus:outline-none">
+                <a href="#contact" class="nexum-mob-link rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#0066CC] font-bold hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] focus:outline-none">Contact & HQ</a>
+                <button type="button" id="mobHelpBtn" class="nexum-mob-link text-left rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#0066CC] font-bold hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] flex items-center gap-2 cursor-pointer focus:outline-none">
                     <i data-lucide="help-circle" class="w-4 h-4"></i> Help & Support
                 </button>
-                <button id="mobBlogBtn" class="nexum-mob-link text-left rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] cursor-pointer focus:outline-none">Blog</button>
+                <button type="button" id="mobBlogBtn" class="nexum-mob-link text-left rounded-2xl px-5 py-3 text-xs sm:text-sm font-mono tracking-widest uppercase text-[#1D1D1F] hover:bg-black/5 transition-colors opacity-0 translate-x-[24px] cursor-pointer focus:outline-none">Blog</button>
             </div>
 
             <div class="mt-auto opacity-0 translate-y-[16px] transition-all duration-500 flex flex-col gap-4 pt-6" id="nexumMobFooter">
                 <div class="w-full h-px bg-[#D2D2D7]"></div>
-                <button id="mobGetStartedBtn" class="apple-btn-primary rounded-full w-full py-3.5 text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none">
+                <button type="button" id="mobGetStartedBtn" class="apple-btn-primary rounded-full w-full py-3.5 text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none">
                     Get started
                 </button>
             </div>
         </div>
 
-        <!-- Services Quick Feature Row (Apple Pure Bright White Aesthetics) -->
+        <!-- Services Quick Feature Row -->
         <section id="services-preview" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 border-b border-[#D2D2D7] bg-[#FFFFFF] w-full relative z-20">
             <div class="w-full max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
@@ -652,7 +663,7 @@
             </div>
         </section>
 
-        <!-- Stats Counter Section (Athens Gray) -->
+        <!-- Stats Counter Section -->
         <section id="stats-counter-bar" class="py-16 sm:py-20 px-4 sm:px-8 lg:px-16 border-b border-[#D2D2D7] bg-[#F5F5F7] w-full">
             <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center reveal">
                 <div class="flex flex-col items-center group">
@@ -690,11 +701,11 @@
             </div>
         </section>
 
-        <!-- Trust Logos & Restored Microsoft/Amazon/Google Enterprise Badges -->
+        <!-- Trust Logos & Partner Badges (Includes Golden INEXTERIOR Partner) -->
         <section id="trust-logos" class="py-20 sm:py-28 border-b border-[#D2D2D7] bg-[#FFFFFF] w-full relative overflow-hidden">
             <div class="w-full mx-auto text-center reveal relative z-10 overflow-hidden">
 
-                <!-- Restored Enterprise Avatar Rings & Badge -->
+                <!-- Enterprise Avatar Rings & Badge -->
                 <div class="flex items-center justify-center mb-8">
                     <div class="inline-flex items-center">
                         <div class="trust-avatar-ring -mr-3 z-10 hover:-translate-y-1">
@@ -719,8 +730,11 @@
                     <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
                     <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
 
-                    <div class="animate-marquee-ltr opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex-nowrap">
-                        <div class="flex items-center gap-10 sm:gap-16 md:gap-24 justify-around min-w-max pr-10 sm:pr-16 md:pr-24">
+                    <div class="animate-marquee-ltr opacity-90 group-hover:opacity-100 transition-opacity duration-500 flex-nowrap">
+                        <div class="flex items-center gap-8 sm:gap-12 md:gap-16 justify-around min-w-max pr-8 sm:pr-12 md:pr-16">
+                            <a href="https://farmanshafi2007-hub.github.io/INEXTERIOR/" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-black tracking-widest text-[#D4AF37] hover:text-[#F3E5AB] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-pointer px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#D4AF37]/15 via-[#FFD700]/20 to-[#D4AF37]/15 border border-[#D4AF37]/50 shadow-[0_0_20px_rgba(212,175,55,0.35)] transition-all hover:scale-105">
+                                <i data-lucide="home" class="w-5 h-5 sm:w-6 h-6 text-[#FFD700]"></i> INEXTERIOR
+                            </a>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="layers" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> NexaCore</div>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="activity" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Lumina</div>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Horizon</div>
@@ -728,7 +742,10 @@
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="cpu" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Quantum</div>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="pie-chart" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Vertex</div>
                         </div>
-                        <div class="flex items-center gap-10 sm:gap-16 md:gap-24 justify-around min-w-max pr-10 sm:pr-16 md:pr-24">
+                        <div class="flex items-center gap-8 sm:gap-12 md:gap-16 justify-around min-w-max pr-8 sm:pr-12 md:pr-16">
+                            <a href="https://farmanshafi2007-hub.github.io/INEXTERIOR/" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-black tracking-widest text-[#D4AF37] hover:text-[#F3E5AB] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-pointer px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#D4AF37]/15 via-[#FFD700]/20 to-[#D4AF37]/15 border border-[#D4AF37]/50 shadow-[0_0_20px_rgba(212,175,55,0.35)] transition-all hover:scale-105">
+                                <i data-lucide="home" class="w-5 h-5 sm:w-6 h-6 text-[#FFD700]"></i> INEXTERIOR
+                            </a>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="layers" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> NexaCore</div>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="activity" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Lumina</div>
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Horizon</div>
@@ -737,90 +754,6 @@
                             <div class="whitespace-nowrap shrink-0 text-base sm:text-xl md:text-2xl font-bold tracking-widest text-[#1D1D1F] uppercase flex items-center gap-2.5 sm:gap-3 font-mono cursor-default"><i data-lucide="pie-chart" class="w-5 h-5 sm:w-6 h-6 text-[#0066CC]"></i> Vertex</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Infrastructure Section -->
-        <section id="what-we-do" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 relative bg-[#F5F5F7] w-full border-b border-[#D2D2D7]">
-            <div class="w-full max-w-5xl mx-auto">
-                <div class="mb-12 sm:mb-16 reveal text-center">
-                    <span class="text-[10px] sm:text-xs font-bold text-[#86868B] tracking-widest uppercase font-mono">Infrastructure</span>
-                    <h2 class="text-3xl sm:text-5xl lg:text-7xl font-bubbledot uppercase mt-3 sm:mt-4 text-[#1D1D1F]">Architecture</h2>
-                </div>
-                <div class="apple-card-light p-6 sm:p-10 md:p-16 reveal w-full">
-                    <div class="bg-[#F5F5F7] rounded-2xl p-5 sm:p-8 md:p-10 border border-[#D2D2D7]">
-                        <p class="text-[#1D1D1F] text-xs sm:text-sm md:text-base leading-relaxed tracking-wide mb-6 sm:mb-8 font-sans">
-                            Forge Softwares operates as the central infrastructure for our specialized subsidiaries,
-                            <strong class="text-[#0066CC] font-semibold">COBRA</strong> and <strong class="text-[#0066CC] font-semibold">RUNO</strong>. We architect custom web platforms, SaaS products, and autonomous business tools designed for scale.
-                        </p>
-                        <p class="text-[#1D1D1F] text-xs sm:text-sm md:text-base leading-relaxed tracking-wide font-sans">
-                            We deliver comprehensive digital ecosystems—from interface design to CRM integration, enabling businesses to streamline operations continuously.
-                        </p>
-
-                        <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#D2D2D7] flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 w-full">
-                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#86868B] font-mono">Official Subsidiaries</span>
-                            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-                                <div class="bg-white border border-[#D2D2D7] rounded-full px-5 py-2.5 sm:px-6 sm:py-3 flex items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto cursor-default hover:border-[#0066CC] transition-colors shadow-sm">
-                                    <div class="led-emerald-blink shrink-0"></div>
-                                    <span class="font-bold text-xs sm:text-sm uppercase tracking-widest text-[#1D1D1F] font-mono">Cobra</span>
-                                </div>
-                                <div class="bg-white border border-[#D2D2D7] rounded-full px-5 py-2.5 sm:px-6 sm:py-3 flex items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto cursor-default hover:border-[#0066CC] transition-colors shadow-sm">
-                                    <div class="led-emerald-blink shrink-0"></div>
-                                    <span class="font-bold text-xs sm:text-sm uppercase tracking-widest text-[#1D1D1F] font-mono">Runo</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Systems & Services Section -->
-        <section id="services" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 border-b border-[#D2D2D7] bg-[#FFFFFF] w-full">
-            <div class="w-full max-w-7xl mx-auto">
-                <div class="mb-12 sm:mb-16 reveal flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-8 w-full">
-                    <div class="w-full lg:w-auto text-left shrink-0">
-                        <h2 class="text-3xl sm:text-6xl lg:text-7xl font-bubbledot uppercase text-[#1D1D1F]">Systems</h2>
-                    </div>
-                    <p class="text-[#86868B] text-xs sm:text-sm md:text-base w-full max-w-md lg:text-right border-l-2 lg:border-l-0 lg:border-r border-[#D2D2D7] pl-3 sm:pl-4 lg:pl-0 lg:pr-6 leading-relaxed font-sans">
-                        Engineered for conversion. Replace manual workflows with intelligent automation.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 w-full">
-                    <article class="apple-card-light p-6 sm:p-8 md:p-10 reveal flex flex-col group">
-                        <div class="flex justify-between items-start mb-6 sm:mb-10">
-                            <div class="bg-[#F5F5F7] p-3 sm:p-4 rounded-full border border-[#D2D2D7] group-hover:bg-[#0066CC] group-hover:text-white transition-colors">
-                                <i data-lucide="layout" class="w-5 h-5 sm:w-6 sm:h-6 text-[#1D1D1F] group-hover:text-white"></i>
-                            </div>
-                            <span class="text-lg sm:text-xl font-bold text-[#86868B] font-mono group-hover:text-[#0066CC] transition-colors">01</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-[#1D1D1F] uppercase tracking-widest font-bubbledot">Premium Websites</h3>
-                        <p class="text-[#86868B] text-xs leading-relaxed mt-auto font-sans">High-fidelity web applications designed to capture intent and establish authority.</p>
-                    </article>
-
-                    <article class="apple-card-light p-6 sm:p-8 md:p-10 reveal flex flex-col group" style="transition-delay: 100ms;">
-                        <div class="flex justify-between items-start mb-6 sm:mb-10">
-                            <div class="bg-[#F5F5F7] p-3 sm:p-4 rounded-full border border-[#D2D2D7] group-hover:bg-[#0066CC] group-hover:text-white transition-colors">
-                                <i data-lucide="bot" class="w-5 h-5 sm:w-6 sm:h-6 text-[#1D1D1F] group-hover:text-white"></i>
-                            </div>
-                            <span class="text-lg sm:text-xl font-bold text-[#86868B] font-mono group-hover:text-[#0066CC] transition-colors">02</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-[#1D1D1F] uppercase tracking-widest font-bubbledot">AI Sales Agents</h3>
-                        <p class="text-[#86868B] text-xs leading-relaxed mt-auto font-sans">Custom LLMs that qualify leads, resolve queries, and secure meetings autonomously.</p>
-                    </article>
-
-                    <article class="apple-card-light p-6 sm:p-8 md:p-10 reveal flex flex-col group sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
-                        <div class="flex justify-between items-start mb-6 sm:mb-10">
-                            <div class="bg-[#F5F5F7] p-3 sm:p-4 rounded-full border border-[#D2D2D7] group-hover:bg-[#0066CC] group-hover:text-white transition-colors">
-                                <i data-lucide="cpu" class="w-5 h-5 sm:w-6 sm:h-6 text-[#1D1D1F] group-hover:text-white"></i>
-                            </div>
-                            <span class="text-lg sm:text-xl font-bold text-[#86868B] font-mono group-hover:text-[#0066CC] transition-colors">03</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-[#1D1D1F] uppercase tracking-widest font-bubbledot">Automated Pipelines</h3>
-                        <p class="text-[#86868B] text-xs leading-relaxed mt-auto font-sans">End-to-end CRM integration. Scale operations without scaling human headcount.</p>
-                    </article>
                 </div>
             </div>
         </section>
@@ -851,7 +784,7 @@
                         <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹1,500</span>
                         </div>
-                        <button class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
+                        <button type="button" class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
                             Select Starter
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-[#D2D2D7] pt-5 sm:pt-6 text-[11px] sm:text-xs text-[#1D1D1F]">
@@ -875,7 +808,7 @@
                         <div class="mb-6 sm:mb-8 text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1F] tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹7,499</span>
                         </div>
-                        <button class="pricingBookBtn apple-btn-primary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
+                        <button type="button" class="pricingBookBtn apple-btn-primary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
                             Select Professional
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-[#D2D2D7] pt-5 sm:pt-6 text-[11px] sm:text-xs text-[#1D1D1F]">
@@ -886,7 +819,7 @@
                         </ul>
                     </article>
 
-                    <!-- PROFESSIONAL PLUS Tier -->
+                    <!-- PRO PLUS Tier -->
                     <article class="apple-card-light reveal p-5 sm:p-6 md:p-8 flex flex-col h-full w-full" style="transition-delay: 200ms;">
                         <div class="mb-4 sm:mb-6">
                             <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#86868B] block mb-1">Established</span>
@@ -896,7 +829,7 @@
                         <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹9,999</span>
                         </div>
-                        <button class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
+                        <button type="button" class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
                             Select Pro Plus
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-[#D2D2D7] pt-5 sm:pt-6 text-[11px] sm:text-xs text-[#1D1D1F]">
@@ -908,221 +841,221 @@
                     </article>
 
                     <!-- PREMIUM Tier -->
-                <article class="apple-card-light reveal p-5 sm:p-6 md:p-8 flex flex-col h-full w-full" style="transition-delay: 300ms;">
-                    <div class="mb-4 sm:mb-6">
-                        <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#0066CC] block mb-1">Enterprise</span>
-                        <h3 class="text-lg sm:text-xl font-bold uppercase tracking-widest font-bubbledot text-[#1D1D1F]">PREMIUM</h3>
-                        <p class="text-[#86868B] text-xs mt-1.5 sm:mt-2">Large businesses requiring AI</p>
-                    </div>
-                    <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-tight font-mono flex items-baseline flex-wrap gap-2">
-                        <span class="font-bold">₹14,999</span>
-                    </div>
-                    <button class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
-                        Select Premium
-                    </button>
-                    <ul class="space-y-2.5 sm:space-y-3 border-t border-[#D2D2D7] pt-5 sm:pt-6 text-[11px] sm:text-xs text-[#1D1D1F]">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>12–20 Premium Pages</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>AI Chatbot & Automation Included</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>CRM & Custom Integrations</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>90 Days Dedicated Support</span></li>
-                    </ul>
-                </article>
-            </div>
-
-            <!-- Complete Feature Comparison Table (STICKY MOVABLE MATRIX WITH SWIPE CUE) -->
-            <div class="w-full bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 reveal border border-[#D2D2D7] shadow-sm relative mb-16 sm:mb-8">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 sm:mb-6 px-1">
-                    <div>
-                        <h3 class="text-base sm:text-xl font-bold font-bubbledot uppercase tracking-widest text-[#1D1D1F] text-center sm:text-left">
-                            Complete Feature Comparison Matrix</h3>
-                        <p class="text-[11px] sm:text-xs font-mono text-[#86868B] mt-0.5 text-center sm:text-left">
-                            Fixed Feature Column &bull; Swipe Plan Columns Horizontally
-                        </p>
-                    </div>
-                    <div class="text-[10px] sm:text-xs font-mono text-[#0066CC] flex items-center gap-1.5 bg-[#0066CC]/10 border border-[#0066CC]/20 px-3 py-1.5 rounded-full shrink-0 font-semibold">
-                        <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-[#0066CC]"></i> Swipe / Scroll Horizontally
-                    </div>
+                    <article class="apple-card-light reveal p-5 sm:p-6 md:p-8 flex flex-col h-full w-full" style="transition-delay: 300ms;">
+                        <div class="mb-4 sm:mb-6">
+                            <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#0066CC] block mb-1">Enterprise</span>
+                            <h3 class="text-lg sm:text-xl font-bold uppercase tracking-widest font-bubbledot text-[#1D1D1F]">PREMIUM</h3>
+                            <p class="text-[#86868B] text-xs mt-1.5 sm:mt-2">Large businesses requiring AI</p>
+                        </div>
+                        <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-tight font-mono flex items-baseline flex-wrap gap-2">
+                            <span class="font-bold">₹14,999</span>
+                        </div>
+                        <button type="button" class="pricingBookBtn apple-btn-secondary w-full uppercase tracking-wider mb-6 sm:mb-8 cursor-pointer">
+                            Select Premium
+                        </button>
+                        <ul class="space-y-2.5 sm:space-y-3 border-t border-[#D2D2D7] pt-5 sm:pt-6 text-[11px] sm:text-xs text-[#1D1D1F]">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>12–20 Premium Pages</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>AI Chatbot & Automation Included</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>CRM & Custom Integrations</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 text-[#0066CC] shrink-0"></i> <span>90 Days Dedicated Support</span></li>
+                        </ul>
+                    </article>
                 </div>
 
-                <!-- Scroll Wrapper for Matrix -->
-                <div class="w-full overflow-x-auto overscroll-x-contain touch-pan-x custom-scrollbar pb-6 rounded-xl border border-[#D2D2D7]/80 bg-[#FFFFFF]">
-                    <table class="w-full text-left font-mono text-[11px] sm:text-xs text-[#1D1D1F] border-collapse min-w-[680px]">
-                        <thead>
-                            <tr class="border-b border-[#D2D2D7] bg-[#F5F5F7]">
-                                <th class="py-3.5 sm:py-4 px-3 sm:px-4 font-bold text-xs sm:text-sm text-[#1D1D1F] sticky left-0 z-30 bg-[#F5F5F7] border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.08)] min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Feature
-                                </th>
-                                <th class="py-3.5 sm:py-4 px-3 text-center min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">
-                                    <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">STARTER</span><br>
-                                    <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹1,500</span>
-                                </th>
-                                <th class="py-3.5 sm:py-4 px-3 text-center bg-[#0066CC]/5 text-[#0066CC] min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px] border-x border-[#0066CC]/20">
-                                    <span class="font-bold text-xs sm:text-sm text-[#0066CC]">PROFESSIONAL</span><br>
-                                    <span class="text-[#1D1D1F] font-bold text-xs sm:text-sm">₹7,499</span>
-                                </th>
-                                <th class="py-3.5 sm:py-4 px-3 text-center min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">
-                                    <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">PRO PLUS</span><br>
-                                    <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹9,999</span>
-                                </th>
-                                <th class="py-3.5 sm:py-4 px-3 text-center min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">
-                                    <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">PREMIUM</span><br>
-                                    <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹14,999</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-[#D2D2D7] bg-white text-[#1D1D1F]">
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Best for
-                                </td>
-                                <td class="py-3 px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Small / Starter biz</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#1D1D1F] whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Growing biz</td>
-                                <td class="py-3 px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Established biz</td>
-                                <td class="py-3 px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Large enterprise</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Website Type
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Basic Site</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Professional</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Advanced</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Premium Enterprise</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Pages Included
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">1–3</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#1D1D1F] whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">5–7</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">8–12</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">12–20</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Custom Design
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Premium</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Mobile Responsive
-                                </td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    SEO Capabilities
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Basic</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Advanced</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Advanced</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Tech + Adv</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Website Animations
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Premium</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Advanced</td>
-                                <td class="py-3 px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Advanced+Custom</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Integrations (WhatsApp/Maps)
-                                </td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Google Analytics
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Lead Capture System
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Basic Form</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">✓ Standard</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Advanced</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Advanced</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Speed & Security
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Basic</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#1D1D1F] font-semibold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Advanced</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Enhanced</td>
-                                <td class="py-3 px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Premium</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Revisions Allowed
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">1</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#1D1D1F] font-semibold whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">3</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">5</td>
-                                <td class="py-3 px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Unlimited*</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Blog / News Section
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 opacity-40 whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">—</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    AI Agents / Automation
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#86868B] whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">Add-on</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Basic</td>
-                                <td class="py-3 px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Included</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    CRM & Custom APIs
-                                </td>
-                                <td class="py-3 px-3 text-center opacity-40 whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">—</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 opacity-40 whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">—</td>
-                                <td class="py-3 px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">Add-on</td>
-                                <td class="py-3 px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">✓ Included</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-3 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[140px] sm:min-w-[170px] w-[140px] sm:w-[170px]">
-                                    Support & Duration
-                                </td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">7 Days</td>
-                                <td class="py-3 px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[140px] sm:min-w-[160px] w-[140px] sm:w-[160px]">30 Days</td>
-                                <td class="py-3 px-3 text-center whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">60 Days</td>
-                                <td class="py-3 px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug min-w-[130px] sm:min-w-[150px] w-[130px] sm:w-[150px]">90 Days Dedicated</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Complete Feature Comparison Table -->
+                <div class="w-full bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 reveal border border-[#D2D2D7] shadow-sm relative mb-16 sm:mb-8">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 sm:mb-6 px-1">
+                        <div>
+                            <h3 class="text-base sm:text-xl font-bold font-bubbledot uppercase tracking-widest text-[#1D1D1F] text-center sm:text-left">
+                                Complete Feature Comparison Matrix</h3>
+                            <p class="text-[11px] sm:text-xs font-mono text-[#86868B] mt-0.5 text-center sm:text-left">
+                                Fixed Feature Column &bull; Swipe Plan Columns Horizontally
+                            </p>
+                        </div>
+                        <div class="text-[10px] sm:text-xs font-mono text-[#0066CC] flex items-center gap-1.5 bg-[#0066CC]/10 border border-[#0066CC]/20 px-3 py-1.5 rounded-full shrink-0 font-semibold">
+                            <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-[#0066CC]"></i> Swipe / Scroll Horizontally
+                        </div>
+                    </div>
+
+                    <!-- Scroll Wrapper for Matrix -->
+                    <div class="table-scroll-container w-full overflow-x-auto overscroll-x-contain touch-pan-x custom-scrollbar pb-6 rounded-xl border border-[#D2D2D7]/80 bg-[#FFFFFF]">
+                        <table class="pricing-matrix-table w-full text-left font-mono text-[11px] sm:text-xs text-[#1D1D1F] min-w-[580px] sm:min-w-[680px]">
+                            <thead>
+                                <tr class="border-b border-[#D2D2D7] bg-[#F5F5F7]">
+                                    <th scope="col" class="py-3 sm:py-4 px-2 sm:px-4 font-bold text-xs sm:text-sm text-[#1D1D1F] sticky left-0 z-30 bg-[#F5F5F7] border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.08)] min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px]">
+                                        Feature
+                                    </th>
+                                    <th scope="col" class="py-3 sm:py-4 px-2 sm:px-3 text-center min-w-[115px] sm:min-w-[150px]">
+                                        <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">STARTER</span><br>
+                                        <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹1,500</span>
+                                    </th>
+                                    <th scope="col" class="py-3 sm:py-4 px-2 sm:px-3 text-center bg-[#0066CC]/5 text-[#0066CC] min-w-[125px] sm:min-w-[160px] border-x border-[#0066CC]/20">
+                                        <span class="font-bold text-xs sm:text-sm text-[#0066CC]">PROFESSIONAL</span><br>
+                                        <span class="text-[#1D1D1F] font-bold text-xs sm:text-sm">₹7,499</span>
+                                    </th>
+                                    <th scope="col" class="py-3 sm:py-4 px-2 sm:px-3 text-center min-w-[115px] sm:min-w-[150px]">
+                                        <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">PRO PLUS</span><br>
+                                        <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹9,999</span>
+                                    </th>
+                                    <th scope="col" class="py-3 sm:py-4 px-2 sm:px-3 text-center min-w-[115px] sm:min-w-[150px]">
+                                        <span class="font-bold text-xs sm:text-sm text-[#1D1D1F]">PREMIUM</span><br>
+                                        <span class="text-[#0066CC] font-bold text-xs sm:text-sm">₹14,999</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-[#D2D2D7] bg-white text-[#1D1D1F]">
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Best for
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug">Small / Starter biz</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#1D1D1F] whitespace-normal break-words leading-snug">Growing biz</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug">Established biz</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug">Large enterprise</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Website Type
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Basic Site</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#0066CC] whitespace-normal break-words leading-snug">Professional</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Premium Enterprise</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Pages Included
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">1–3</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#1D1D1F] whitespace-normal break-words leading-snug">5–7</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">8–12</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">12–20</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Custom Design
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓ Premium</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Mobile Responsive
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        SEO Capabilities
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Basic</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug">Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Tech + Adv</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Website Animations
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug">Premium</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug">Advanced+Custom</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Integrations (WhatsApp/Maps)
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Google Analytics
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Lead Capture System
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Basic Form</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#0066CC] font-semibold whitespace-normal break-words leading-snug">✓ Standard</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">✓ Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">✓ Advanced</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Speed & Security
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Basic</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#1D1D1F] font-semibold whitespace-normal break-words leading-snug">Advanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">Enhanced</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug">Premium</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Revisions Allowed
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">1</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#1D1D1F] font-semibold whitespace-normal break-words leading-snug">3</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">5</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug">Unlimited*</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Blog / News Section
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        AI Agents / Automation
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 text-[#86868B] whitespace-normal break-words leading-snug">Add-on</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] whitespace-normal break-words leading-snug">✓ Basic</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug">✓ Included</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        CRM & Custom APIs
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 opacity-40 whitespace-normal break-words leading-snug">—</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#86868B] whitespace-normal break-words leading-snug">Add-on</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center text-[#0066CC] font-bold whitespace-normal break-words leading-snug">✓ Included</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="py-2.5 sm:py-3 px-2 sm:px-4 font-bold text-[#1D1D1F] sticky left-0 z-20 bg-white border-r-2 border-[#D2D2D7] shadow-[3px_0_8px_-2px_rgba(0,0,0,0.06)] leading-snug whitespace-normal break-words min-w-[115px] w-[115px] sm:min-w-[170px] sm:w-[170px] text-left">
+                                        Support & Duration
+                                    </th>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">7 Days</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center bg-[#0066CC]/5 border-x border-[#0066CC]/20 font-semibold text-[#0066CC] whitespace-normal break-words leading-snug">30 Days</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center whitespace-normal break-words leading-snug">60 Days</td>
+                                    <td class="py-2.5 sm:py-3 px-2 sm:px-3 text-center font-bold text-[#0066CC] whitespace-normal break-words leading-snug">90 Days Dedicated</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
+        <!-- Testimonials Section -->
         <section id="testimonials" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 border-y border-[#D2D2D7] bg-[#FFFFFF] w-full">
             <div class="w-full max-w-7xl mx-auto">
                 <div class="text-center mb-12 sm:mb-16 reveal">
@@ -1168,63 +1101,77 @@
             </div>
         </section>
 
-        <!-- Knowledge Base FAQ Section -->
-        <section id="faq" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 bg-[#F5F5F7] border-b border-[#D2D2D7] w-full">
-            <div class="w-full max-w-3xl mx-auto box-border">
-                <div class="text-center mb-12 sm:mb-16 reveal px-2">
-                    <h2 class="text-3xl sm:text-5xl font-bubbledot uppercase tracking-tight text-[#1D1D1F]">Knowledge Base</h2>
-                    <p class="text-[#86868B] font-bold mt-3 sm:mt-4 uppercase tracking-widest text-[10px] sm:text-xs font-mono">System Protocols</p>
+        <!-- Dedicated Contact & HQ Section -->
+        <section id="contact" class="py-24 md:py-32 px-4 sm:px-8 lg:px-16 bg-[#030712] text-white w-full border-y border-white/10 relative overflow-hidden">
+            <div class="w-full max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-12 sm:mb-16 reveal">
+                    <div class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#38BDF8] bg-[#38BDF8]/10 border border-[#38BDF8]/20 px-4 py-1.5 rounded-full mb-4">
+                        <span class="led-emerald-blink"></span> Direct Communication Channels
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bubbledot uppercase text-white tracking-tight">Contact & Headquarters</h2>
+                    <p class="text-gray-400 text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 sm:mt-4 max-w-xl mx-auto">
+                        Connect with senior systems engineering operators directly.
+                    </p>
                 </div>
 
-                <div class="space-y-3 sm:space-y-4 reveal w-full" role="tablist">
-                    <!-- FAQ 1 -->
-                    <div>
-                        <div class="faq-toggle-btn apple-card-light p-4 sm:p-5 cursor-pointer w-full focus:outline-none" role="button" aria-expanded="false" aria-controls="faq-content-1" tabindex="0">
-                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                                <h4 class="font-bold text-[#1D1D1F] uppercase tracking-widest text-[11px] sm:text-xs md:text-sm font-mono leading-snug">What is the standard deployment timeline?</h4>
-                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-[#0066CC] shrink-0"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
+                    <!-- HQ Address Card -->
+                    <div class="tactical-dark-card p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group hover:border-[#0066CC] transition-all">
+                        <div>
+                            <div class="bg-[#0066CC]/20 border border-[#0066CC]/40 w-12 h-12 rounded-2xl flex items-center justify-center text-[#38BDF8] mb-6">
+                                <i data-lucide="building-2" class="w-6 h-6"></i>
                             </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-[#38BDF8] font-bold">Central Operations</span>
+                            <h3 class="text-xl font-bold uppercase font-bubbledot text-white mt-1 mb-3">Headquarters (HQ)</h3>
+                            <p class="text-sm text-gray-300 font-sans leading-relaxed">
+                                Pandith Pore Rainawari<br>
+                                Srinagar, Jammu & Kashmir &bull; 190003
+                            </p>
                         </div>
-                        <div id="faq-content-1" class="accordion-wrapper mx-1 sm:mx-2" role="region">
-                            <div class="accordion-inner bg-white border border-[#D2D2D7] rounded-2xl mt-1.5 shadow-sm">
-                                <div class="p-4 sm:p-6 text-xs md:text-sm text-[#1D1D1F] leading-relaxed font-sans">
-                                    Core infrastructure is deployed within 7-14 days. Complex AI integrations require 3-4 weeks.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 2 -->
-                    <div>
-                        <div class="faq-toggle-btn apple-card-light p-4 sm:p-5 cursor-pointer w-full focus:outline-none" role="button" aria-expanded="false" aria-controls="faq-content-2" tabindex="0">
-                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                                <h4 class="font-bold text-[#1D1D1F] uppercase tracking-widest text-[11px] sm:text-xs md:text-sm font-mono leading-snug">Who retains asset ownership?</h4>
-                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-[#0066CC] shrink-0"></i>
-                            </div>
-                        </div>
-                        <div id="faq-content-2" class="accordion-wrapper mx-1 sm:mx-2" role="region">
-                            <div class="accordion-inner bg-white border border-[#D2D2D7] rounded-2xl mt-1.5 shadow-sm">
-                                <div class="p-4 sm:p-6 text-xs md:text-sm text-[#1D1D1F] leading-relaxed font-sans">
-                                    You retain 100% ownership of the domain and frontend assets post-payment. Zero restrictive contracts.
-                                </div>
-                            </div>
+                        <div class="pt-6 border-t border-white/10 mt-6 text-xs font-mono text-gray-400">
+                            Central Hub Registry
                         </div>
                     </div>
 
-                    <!-- FAQ 3 -->
-                    <div>
-                        <div class="faq-toggle-btn apple-card-light p-4 sm:p-5 cursor-pointer w-full focus:outline-none" role="button" aria-expanded="false" aria-controls="faq-content-3" tabindex="0">
-                            <div class="flex justify-between items-center w-full pointer-events-none gap-3">
-                                <h4 class="font-bold text-[#1D1D1F] uppercase tracking-widest text-[11px] sm:text-xs md:text-sm font-mono leading-snug">How is AI accuracy maintained?</h4>
-                                <i data-lucide="plus" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 text-[#0066CC] shrink-0"></i>
+                    <!-- Office Location Card -->
+                    <div class="tactical-dark-card p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group hover:border-[#0066CC] transition-all" style="transition-delay: 100ms;">
+                        <div>
+                            <div class="bg-[#0066CC]/20 border border-[#0066CC]/40 w-12 h-12 rounded-2xl flex items-center justify-center text-[#38BDF8] mb-6">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-[#38BDF8] font-bold">Local Branch</span>
+                            <h3 class="text-xl font-bold uppercase font-bubbledot text-white mt-1 mb-3">Srinagar Office</h3>
+                            <p class="text-sm text-gray-300 font-sans leading-relaxed">
+                                Rainawari Jogilanker<br>
+                                Srinagar, Jammu & Kashmir
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/10 mt-6 text-xs font-mono text-gray-400">
+                            Development & Support Office
+                        </div>
+                    </div>
+
+                    <!-- Direct Connect Card -->
+                    <div class="tactical-dark-card p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group hover:border-[#0066CC] transition-all sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
+                        <div>
+                            <div class="bg-[#0066CC]/20 border border-[#0066CC]/40 w-12 h-12 rounded-2xl flex items-center justify-center text-[#38BDF8] mb-6">
+                                <i data-lucide="phone-call" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-[#38BDF8] font-bold">24/7 Priority Support</span>
+                            <h3 class="text-xl font-bold uppercase font-bubbledot text-white mt-1 mb-3">Phone & Email</h3>
+                            <div class="space-y-3 font-mono text-xs sm:text-sm text-gray-200">
+                                <a href="tel:+919697430658" class="flex items-center gap-2 hover:text-[#38BDF8] transition-colors">
+                                    <i data-lucide="phone" class="w-4 h-4 text-[#38BDF8]"></i> +91-9697430658
+                                </a>
+                                <a href="mailto:farmanshafi2007@gmail.com" class="flex items-center gap-2 hover:text-[#38BDF8] transition-colors break-all">
+                                    <i data-lucide="mail" class="w-4 h-4 text-[#38BDF8]"></i> farmanshafi2007@gmail.com
+                                </a>
                             </div>
                         </div>
-                        <div id="faq-content-3" class="accordion-wrapper mx-1 sm:mx-2" role="region">
-                            <div class="accordion-inner bg-white border border-[#D2D2D7] rounded-2xl mt-1.5 shadow-sm">
-                                <div class="p-4 sm:p-6 text-xs md:text-sm text-[#1D1D1F] leading-relaxed font-sans">
-                                    Agents are strictly constrained to your knowledge base. Queries exceeding operational parameters are routed to human operators.
-                                </div>
-                            </div>
+                        <div class="pt-6 border-t border-white/10 mt-6">
+                            <button type="button" onclick="openEnquiryModal()" class="apple-btn-primary w-full !py-2.5 font-mono text-xs font-bold uppercase tracking-widest">
+                                Contact Team Now
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1241,7 +1188,7 @@
                 <p class="text-[#86868B] mb-10 sm:mb-12 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed font-sans">
                     We build scalable infrastructure that actively acquires and converts.
                 </p>
-                <button id="ctaBookBtn" class="apple-btn-primary min-h-[48px] px-8 sm:px-12 py-4 sm:py-5 font-bold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono w-full sm:w-auto cursor-pointer focus:outline-none">
+                <button type="button" id="ctaBookBtn" class="apple-btn-primary min-h-[48px] px-8 sm:px-12 py-4 sm:py-5 font-bold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono w-full sm:w-auto cursor-pointer focus:outline-none">
                     Book Your Website <i data-lucide="chevron-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2 inline-block"></i>
                 </button>
             </div>
@@ -1272,7 +1219,8 @@
                 </a>
             </div>
 
-            <p class="text-[#86868B] text-xs font-mono mb-8">Support & Inquiries: +91-9697430658 | Srinagar, Kashmir</p>
+            <p class="text-[#86868B] text-xs font-mono mb-2">Support & Inquiries: +91-9697430658 | farmanshafi2007@gmail.com</p>
+            <p class="text-[#86868B] text-xs font-mono mb-8">HQ: Pandith Pore Rainawari &bull; Office: Rainawari Jogilanker, Srinagar 190003</p>
 
             <div class="h-[1px] w-32 bg-[#D2D2D7] mx-auto mb-10 rounded-full"></div>
 
@@ -1294,7 +1242,7 @@
     </footer>
 
     <!-- Floating AI Chatbot Button -->
-    <button id="aiChatToggleBtn" class="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-[#0066CC] text-white flex items-center justify-center shadow-[0_4px_25px_rgba(0,102,204,0.4)] hover:scale-110 active:scale-95 transition-all cursor-pointer focus:outline-none" aria-label="Toggle AI Chat">
+    <button id="aiChatToggleBtn" class="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-gradient-to-br from-[#0077ED] to-[#004b9e] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(0,102,204,0.5)] hover:shadow-[0_12px_40px_rgba(0,102,204,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none border border-white/20" aria-label="Toggle AI Chat">
         <i data-lucide="bot" class="w-6 h-6"></i>
     </button>
 
@@ -1309,20 +1257,20 @@
                     <span class="text-[9px] text-[#86868B] font-sans mt-1">Online & Ready</span>
                 </div>
             </div>
-            <button id="closeAiChatBtn" class="text-[#86868B] hover:text-[#1D1D1F] transition-colors cursor-pointer focus:outline-none p-1 rounded-full hover:bg-black/5" aria-label="Close chat">
+            <button type="button" id="closeAiChatBtn" class="text-[#86868B] hover:text-[#1D1D1F] transition-colors cursor-pointer focus:outline-none p-1 rounded-full hover:bg-black/5" aria-label="Close chat">
                 <i data-lucide="chevron-down" class="w-5 h-5"></i>
             </button>
         </div>
         <!-- Messages Area -->
         <div id="aiChatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar text-sm font-sans flex flex-col bg-white">
             <div class="bg-[#F5F5F7] text-[#1D1D1F] p-3.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-[#D2D2D7] shadow-sm">
-                System initialized. I am the Forge Softwares autonomous agent. Ask me about pricing, domain inclusion, support periods, or custom AI builds!
+                System initialized. I am the Forge Softwares autonomous agent. Ask me about pricing, domain inclusion, HQ address, office location, or INEXTERIOR partner site!
             </div>
         </div>
         <!-- Input Area -->
         <div class="p-4 border-t border-[#D2D2D7] bg-[#F5F5F7] rounded-b-[22px]">
             <form id="aiChatForm" class="flex items-center gap-2.5">
-                <input type="text" id="aiChatInput" placeholder="Ask about pricing, features..." class="flex-1 bg-white border border-[#D2D2D7] rounded-full px-4 py-2.5 text-xs sm:text-sm text-[#1D1D1F] focus:outline-none focus:border-[#0066CC] transition-colors font-mono min-h-[44px]" autocomplete="off" required />
+                <input type="text" id="aiChatInput" placeholder="Ask about pricing, HQ, partners..." class="flex-1 bg-white border border-[#D2D2D7] rounded-full px-4 py-2.5 text-xs sm:text-sm text-[#1D1D1F] focus:outline-none focus:border-[#0066CC] transition-colors font-mono min-h-[44px]" autocomplete="off" required />
                 <button type="submit" class="w-[44px] h-[44px] rounded-full bg-[#0066CC] text-white flex items-center justify-center shrink-0 hover:bg-[#0077ED] transition-colors cursor-pointer shadow-md focus:outline-none" aria-label="Send message">
                     <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
                 </button>
@@ -1334,7 +1282,7 @@
     <div id="enquiryModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/50 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
         <div class="apple-card-light bg-white max-w-md w-[95%] sm:w-full max-h-[92dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-[#D2D2D7]" id="enquiryContent">
 
-            <button id="closeEnquiryModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none" aria-label="Close modal">
+            <button type="button" id="closeEnquiryModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none" aria-label="Close modal">
                 <i data-lucide="x" class="w-4 h-4 text-[#1D1D1F]"></i>
             </button>
 
@@ -1442,7 +1390,7 @@
             <p class="text-[#86868B] text-xs sm:text-sm leading-relaxed mb-8 sm:mb-10 font-sans">
                 Your response is securely recorded. Our senior team will call you shortly at +91-9697430658 to outline the next steps.
             </p>
-            <button id="closeSuccessModalBtn" class="apple-btn-secondary w-full py-3.5 sm:py-4 font-bold text-[11px] sm:text-xs uppercase tracking-widest font-mono cursor-pointer focus:outline-none">
+            <button type="button" id="closeSuccessModalBtn" class="apple-btn-secondary w-full py-3.5 sm:py-4 font-bold text-[11px] sm:text-xs uppercase tracking-widest font-mono cursor-pointer focus:outline-none">
                 Return to Main Page
             </button>
         </div>
@@ -1451,7 +1399,7 @@
     <!-- TERMS & PRIVACY MODALS -->
     <div id="termsModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/50 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
         <div class="apple-card-light bg-white max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-5 sm:p-8 md:p-10 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto border border-[#D2D2D7]" id="termsContent">
-            <button id="closeTermsBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none" aria-label="Close modal"><i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-[#1D1D1F]"></i></button>
+            <button type="button" id="closeTermsBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none" aria-label="Close modal"><i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-[#1D1D1F]"></i></button>
             <div class="text-center mb-6 sm:mb-8 border-b border-[#D2D2D7] pb-4 sm:pb-6">
                 <h3 class="text-xl sm:text-2xl font-bubbledot text-[#1D1D1F] uppercase tracking-widest">Terms & Conditions</h3>
             </div>
@@ -1463,7 +1411,7 @@
 
     <div id="privacyModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/50 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
         <div class="apple-card-light bg-white max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-5 sm:p-8 md:p-10 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto border border-[#D2D2D7]" id="privacyContent">
-            <button id="closePrivacyBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none" aria-label="Close modal"><i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-[#1D1D1F]"></i></button>
+            <button type="button" id="closePrivacyBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none" aria-label="Close modal"><i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-[#1D1D1F]"></i></button>
             <div class="text-center mb-6 sm:mb-8 border-b border-[#D2D2D7] pb-4 sm:pb-6">
                 <h3 class="text-xl sm:text-2xl font-bubbledot text-[#1D1D1F] uppercase tracking-widest">Privacy Policy</h3>
             </div>
@@ -1477,7 +1425,7 @@
     <div id="helpCenterModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/50 z-[9999] hidden flex-col items-center justify-center p-2.5 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
         <div class="apple-card-light bg-white max-w-6xl w-full max-h-[94dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-[#D2D2D7] overflow-hidden rounded-2xl sm:rounded-3xl" id="helpCenterContent">
 
-            <button id="closeHelpModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 text-[#1D1D1F] hover:bg-[#0066CC] hover:text-white min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all border border-[#D2D2D7] cursor-pointer focus:outline-none" aria-label="Close Help Center">
+            <button type="button" id="closeHelpModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 text-[#1D1D1F] hover:bg-[#0066CC] hover:text-white min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all border border-[#D2D2D7] cursor-pointer focus:outline-none" aria-label="Close Help Center">
                 <i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
 
@@ -1495,24 +1443,24 @@
                         <input type="text" id="helpSearchInput" placeholder="Search questions (e.g., payment, chatbot, domain)..." class="w-full bg-white border border-[#D2D2D7] rounded-full pl-10 sm:pl-11 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm font-mono text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0066CC] transition-all shadow-inner min-h-[40px]" />
                     </div>
                     <div class="flex items-center gap-2">
-                        <button id="expandAllFaqBtn" class="w-full sm:w-auto px-4 py-2 sm:py-2.5 rounded-full bg-white hover:bg-black/5 text-xs font-mono text-[#0066CC] border border-[#D2D2D7] transition-colors whitespace-nowrap cursor-pointer min-h-[40px] focus:outline-none shadow-sm">
+                        <button type="button" id="expandAllFaqBtn" class="w-full sm:w-auto px-4 py-2 sm:py-2.5 rounded-full bg-white hover:bg-black/5 text-xs font-mono text-[#0066CC] border border-[#D2D2D7] transition-colors whitespace-nowrap cursor-pointer min-h-[40px] focus:outline-none shadow-sm">
                             <i data-lucide="chevrons-down" class="w-3.5 h-3.5 inline-block mr-1"></i> Expand All
                         </button>
                     </div>
                 </div>
 
                 <div class="mt-4 sm:mt-5 flex items-center gap-1.5 sm:gap-2 overflow-x-auto custom-scrollbar pb-2 font-mono text-[10px] sm:text-xs max-w-full" id="helpCategoryPills">
-                    <button class="helpCatFilterBtn active px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0066CC] text-white font-bold whitespace-nowrap shadow-sm cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="all">All Topics (73)</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="1">1. Price & Payment</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="2">2. After You Pay</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="3">3. Ownership & Tech</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="4">4. Support & Help</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="5">5. AI Chatbot</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="6">6. Design & Changes</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="7">7. Refund Policy</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="8">8. Safety & Data</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="9">9. Contact Forge</button>
-                    <button class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="10">10. About Us</button>
+                    <button type="button" class="helpCatFilterBtn active px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0066CC] text-white font-bold whitespace-nowrap shadow-sm cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="all">All Topics (73)</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="1">1. Price & Payment</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="2">2. After You Pay</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="3">3. Ownership & Tech</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="4">4. Support & Help</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="5">5. AI Chatbot</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="6">6. Design & Changes</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="7">7. Refund Policy</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="8">8. Safety & Data</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="9">9. Contact Forge</button>
+                    <button type="button" class="helpCatFilterBtn px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] hover:bg-[#0066CC]/10 border border-[#D2D2D7] whitespace-nowrap cursor-pointer min-h-[36px] focus:outline-none shrink-0" data-cat="10">10. About Us</button>
                 </div>
             </div>
 
@@ -1526,7 +1474,7 @@
     <div id="blogModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/50 z-[9999] hidden flex-col items-center justify-center p-2.5 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
         <div class="apple-card-light bg-white max-w-5xl w-full max-h-[94dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-[#D2D2D7] rounded-2xl sm:rounded-3xl" id="blogContent">
 
-            <button id="closeBlogModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none" aria-label="Close blog modal">
+            <button type="button" id="closeBlogModalBtn" class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/5 hover:bg-black/10 min-w-[36px] min-h-[36px] w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none" aria-label="Close blog modal">
                 <i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 text-[#1D1D1F]"></i>
             </button>
 
@@ -1544,10 +1492,10 @@
                         <input type="text" id="blogSearchInput" placeholder="Search architecture articles..." class="w-full bg-white border border-[#D2D2D7] rounded-full pl-10 sm:pl-11 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm font-mono text-[#1D1D1F] placeholder-[#86868B] focus:outline-none focus:border-[#0066CC] transition-all min-h-[40px]" />
                     </div>
                     <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto custom-scrollbar pb-1 sm:pb-0 font-mono text-[10px] sm:text-[11px] max-w-full" id="blogFilterContainer">
-                        <button class="blogFilterBtn active px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0066CC] text-white font-bold whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="all">All</button>
-                        <button class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="ai">AI Agents</button>
-                        <button class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="web">Web Architecture</button>
-                        <button class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="growth">Growth Logic</button>
+                        <button type="button" class="blogFilterBtn active px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0066CC] text-white font-bold whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="all">All</button>
+                        <button type="button" class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="ai">AI Agents</button>
+                        <button type="button" class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="web">Web Architecture</button>
+                        <button type="button" class="blogFilterBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[#1D1D1F] border border-[#D2D2D7] hover:bg-black/5 whitespace-nowrap cursor-pointer min-h-[36px] shrink-0 focus:outline-none" data-filter="growth">Growth Logic</button>
                     </div>
                 </div>
             </div>
@@ -1573,7 +1521,7 @@
                                 <span>Updated August 2026</span>
                             </div>
                         </div>
-                        <button class="apple-btn-primary shrink-0 py-3 sm:py-3.5 px-5 sm:px-6 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white shadow-lg cursor-pointer focus:outline-none w-full sm:w-auto">
+                        <button type="button" class="apple-btn-primary shrink-0 py-3 sm:py-3.5 px-5 sm:px-6 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white shadow-lg cursor-pointer focus:outline-none w-full sm:w-auto">
                             Read Article <i data-lucide="chevron-right" class="w-3.5 h-3.5 ml-1 inline-block"></i>
                         </button>
                     </div>
@@ -1666,7 +1614,7 @@
                     { q: "Can I move my website to another company later?", a: "Yes. We can provide you with the complete website code and files." },
                     { q: "What happens after Forge gives me the code?", a: "After the code is handed over, Forge removes your information from our end." },
                     { q: "Can I edit my website myself?", a: "No. Website changes are handled by Forge." },
-                    { q: "How many changes do I get?", a: "It depends on your plan.\n• Starter: 3 changes per month.\n• Professional: 15 changes per month.\n• Plan 3: Unlimited changes.\n• Plan 4: Unlimited changes." },
+                    { q: "How many changes do I get?", a: "It depends on your plan.\n• STARTER: 3 changes per month.\n• PROFESSIONAL: 15 changes per month.\n• PRO PLUS: Unlimited changes.\n• PREMIUM: Unlimited changes." },
                     { q: "Can I request a new page or feature later?", a: "Yes. It follows your plan's available changes. Higher plans include unlimited changes." },
                     { q: "What happens when I use all my changes?", a: "You can wait for your monthly changes to reset or request additional work from Forge. Extra work may have an additional cost." },
                     { q: "Will I get the full website code?", a: "Yes. Forge can provide the complete website code and files if you need them." }
@@ -1711,7 +1659,7 @@
                     { q: "Will my website work on mobile?", a: "Yes. Your website works on mobile, tablet, and computer." },
                     { q: "Can I choose my colors and fonts?", a: "Yes. You can choose your preferred colors, fonts, and style." },
                     { q: "Can I change my website after delivery?", a: "Yes. Forge handles the changes according to your plan." },
-                    { q: "How many changes are included?", a: "Starter has 3 changes per month, Professional has 15 changes per month, and the higher plans have unlimited changes." },
+                    { q: "How many changes are included?", a: "STARTER has 3 changes per month, PROFESSIONAL has 15 changes per month, and the higher plans have unlimited changes." },
                     { q: "What if I want a completely different design?", a: "You can choose from 10+ design options before we start, so you can select the style you want from the beginning." }
                 ]
             },
@@ -1773,9 +1721,14 @@
             // High-Performance Video Engine Architecture
             const videoLayers = document.querySelectorAll('.hero-video-layer');
             const switcherBtns = document.querySelectorAll('.videoSwitcherBtn');
-            let currentVideoIdx = 0;
-            let pendingTargetIdx = 0;
+            let currentVideoIdx = 3;
+            let pendingTargetIdx = 3;
             let isHeroInView = true;
+
+            // Declaration of token and listener tracking variables for bug-free theme switching
+            let activeSwitchToken = 0;
+            let activeVideoElement = null;
+            let activeVideoListener = null;
 
             function safelyPlayVideo(videoElement) {
                 if (!videoElement) return Promise.resolve(false);
@@ -1826,7 +1779,15 @@
 
             function performVideoSwitch(targetIdx) {
                 if (targetIdx === currentVideoIdx) return;
-                pendingTargetIdx = targetIdx;
+
+                // Clean up previous listeners to prevent race conditions
+                if (activeVideoElement && activeVideoListener) {
+                    activeVideoElement.removeEventListener('playing', activeVideoListener);
+                    activeVideoElement = null;
+                    activeVideoListener = null;
+                }
+
+                const switchToken = ++activeSwitchToken;
                 const prevVideo = videoLayers[currentVideoIdx];
                 const nextVideo = videoLayers[targetIdx];
                 if (!nextVideo || !prevVideo) return;
@@ -1841,6 +1802,7 @@
                     }
                 });
 
+                // Update WCAG AA contrast mode when Deep Woods video (Index 2) is active
                 if (targetIdx === 2) {
                     document.body.classList.add('deep-woods-mode');
                 } else {
@@ -1848,13 +1810,13 @@
                 }
 
                 nextVideo.currentTime = 0;
-                
+
                 const executeCrossfade = () => {
-                    if (pendingTargetIdx !== targetIdx) return;
+                    if (activeSwitchToken !== switchToken) return; // Stale request, ignore
                     nextVideo.style.opacity = '1';
-                    
+
                     setTimeout(() => {
-                        if (pendingTargetIdx === targetIdx && prevVideo !== nextVideo) {
+                        if (activeSwitchToken === switchToken && prevVideo !== nextVideo) {
                             prevVideo.style.opacity = '0';
                             prevVideo.pause();
                             currentVideoIdx = targetIdx;
@@ -1863,20 +1825,30 @@
                 };
 
                 if (nextVideo.readyState >= 3) {
-                    safelyPlayVideo(nextVideo).then(() => executeCrossfade());
+                    safelyPlayVideo(nextVideo).then(() => {
+                        if (activeSwitchToken === switchToken) executeCrossfade();
+                    });
                 } else {
                     let hasExecuted = false;
-                    const onCanPlay = () => {
-                        if (hasExecuted) return;
+                    const onPlaying = () => {
+                        if (hasExecuted || activeSwitchToken !== switchToken) return;
                         hasExecuted = true;
-                        nextVideo.removeEventListener('playing', onCanPlay);
+                        if (activeVideoElement && activeVideoListener) {
+                            activeVideoElement.removeEventListener('playing', activeVideoListener);
+                        }
                         executeCrossfade();
                     };
-                    nextVideo.addEventListener('playing', onCanPlay);
+
+                    activeVideoElement = nextVideo;
+                    activeVideoListener = onPlaying;
+                    nextVideo.addEventListener('playing', onPlaying);
+
                     safelyPlayVideo(nextVideo).then((success) => {
-                        if (!success && !hasExecuted) {
+                        if (!success && !hasExecuted && activeSwitchToken === switchToken) {
                             hasExecuted = true;
-                            nextVideo.removeEventListener('playing', onCanPlay);
+                            if (activeVideoElement && activeVideoListener) {
+                                activeVideoElement.removeEventListener('playing', activeVideoListener);
+                            }
                             executeCrossfade();
                         }
                     });
@@ -1901,16 +1873,16 @@
                     if (!canvas.parentElement) return;
                     const rect = canvas.parentElement.getBoundingClientRect();
                     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-                    
+
                     canvas.width = rect.width * dpr;
                     canvas.height = rect.height * dpr;
-                    
+
                     ctx.setTransform(1, 0, 0, 1, 0, 0);
                     ctx.scale(dpr, dpr);
-                    
+
                     canvas.style.width = `${rect.width}px`;
                     canvas.style.height = `${rect.height}px`;
-                    
+
                     initParticles(rect.width, rect.height);
                 }
 
@@ -1970,7 +1942,7 @@
                     const h = canvas.parentElement ? canvas.parentElement.clientHeight : window.innerHeight;
 
                     ctx.clearRect(0, 0, w, h);
-                    
+
                     for (let i = 0; i < particles.length; i++) {
                         particles[i].update(w, h);
                         particles[i].draw(ctx);
@@ -2014,7 +1986,7 @@
 
             function openGenericModal(modalElement, contentElement, newHash) {
                 if (!modalElement) return;
-                
+
                 if (typeof isNexumMenuOpen !== 'undefined' && isNexumMenuOpen) {
                     toggleNexumMenu();
                 }
@@ -2048,7 +2020,7 @@
                     contentElement.classList.add('scale-95');
                 }
                 document.body.style.overflow = '';
-                
+
                 setTimeout(() => {
                     modalElement.classList.add('hidden');
                     modalElement.classList.remove('flex');
@@ -2078,7 +2050,6 @@
 
             window.addEventListener('popstate', handleHashRoute);
 
-            // Captcha Engine
             let num1 = 0, num2 = 0, captchaAnswer = 0;
             function generateCaptcha() {
                 num1 = Math.floor(Math.random() * 8) + 2;
@@ -2187,6 +2158,7 @@
                 }, 180));
             }
 
+            // Help Center Dynamic Generator with Valid DOM Hierarchy
             const helpContentList = document.getElementById('helpContentList');
             const helpSearchInput = document.getElementById('helpSearchInput');
             const helpCatFilterBtns = document.querySelectorAll('.helpCatFilterBtn');
@@ -2223,28 +2195,31 @@
                     `;
                     catSection.appendChild(catHeader);
 
-                    filteredItems.forEach((item) => {
+                    filteredItems.forEach((item, itemIdx) => {
+                        // Container is a <div> (not a button) to prevent invalid HTML nested buttons
                         const itemCard = document.createElement('div');
-                        itemCard.className = 'help-item-card p-4 sm:p-5 shadow-sm hover:shadow-md transition-all cursor-pointer focus:outline-none';
-                        itemCard.tabIndex = 0;
+                        itemCard.className = 'help-item-card p-4 sm:p-5 shadow-sm hover:shadow-md transition-all';
+                        
+                        const contentId = `help-ans-${cat.catId}-${itemIdx}`;
                         const formattedAnswer = item.a.replace(/\n/g, '<br>');
 
                         itemCard.innerHTML = `
-                            <div class="flex items-start justify-between gap-4 pointer-events-none">
-                                <h4 class="font-bold text-[#1D1D1F] text-xs sm:text-sm font-sans flex items-start gap-2.5">
+                            <button type="button" class="w-full text-left flex items-start justify-between gap-4 cursor-pointer focus:outline-none help-toggle-trigger" aria-expanded="${allExpanded}" aria-controls="${contentId}">
+                                <h4 class="font-bold text-[#1D1D1F] text-xs sm:text-sm font-sans flex items-start gap-2.5 pointer-events-none">
                                     <span class="text-[#0066CC] font-mono font-bold shrink-0">Q:</span>
                                     <span>${item.q}</span>
                                 </h4>
-                                <div class="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center shrink-0 border border-[#D2D2D7] text-[#1D1D1F] help-toggle-icon transition-transform duration-300">
-                                    <i data-lucide="${allExpanded ? 'chevron-up' : 'chevron-down'}" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                                <div class="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center shrink-0 border border-[#D2D2D7] text-[#1D1D1F] help-toggle-icon transition-transform duration-300 pointer-events-none" style="transform: rotate(${allExpanded ? '180deg' : '0deg'})">
+                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                                 </div>
-                            </div>
-                            <div class="help-answer-box text-xs sm:text-sm text-[#86868B] font-sans leading-relaxed mt-3 pt-3 border-t border-[#D2D2D7] ${allExpanded ? '' : 'hidden'}">
+                            </button>
+                            <div id="${contentId}" class="help-answer-box text-xs sm:text-sm text-[#86868B] font-sans leading-relaxed mt-3 pt-3 border-t border-[#D2D2D7] ${allExpanded ? '' : 'hidden'}">
                                 <strong class="text-[#1D1D1F] font-semibold block mb-1">Answer:</strong>
                                 ${formattedAnswer}
                             </div>
                         `;
 
+                        const toggleBtn = itemCard.querySelector('.help-toggle-trigger');
                         const toggleAction = () => {
                             const ansBox = itemCard.querySelector('.help-answer-box');
                             const iconWrap = itemCard.querySelector('.help-toggle-icon');
@@ -2252,16 +2227,17 @@
                                 const isHidden = ansBox.classList.contains('hidden');
                                 if (isHidden) {
                                     ansBox.classList.remove('hidden');
+                                    toggleBtn.setAttribute('aria-expanded', 'true');
                                     if (iconWrap) iconWrap.style.transform = 'rotate(180deg)';
                                 } else {
                                     ansBox.classList.add('hidden');
+                                    toggleBtn.setAttribute('aria-expanded', 'false');
                                     if (iconWrap) iconWrap.style.transform = 'rotate(0deg)';
                                 }
                             }
                         };
                         
-                        itemCard.addEventListener('click', toggleAction);
-                        itemCard.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAction(); } });
+                        toggleBtn.addEventListener('click', toggleAction);
 
                         catSection.appendChild(itemCard);
                     });
@@ -2582,12 +2558,6 @@
 
             document.querySelectorAll('.faq-toggle-btn').forEach(btn => {
                 btn.addEventListener('click', () => toggleFaqAccordion(btn));
-                btn.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggleFaqAccordion(btn);
-                    }
-                });
             });
 
             // AI Chatbot Logic
@@ -2605,19 +2575,47 @@
                 `## ${cat.catName}\n` + cat.items.map(item => `Q: ${item.q}\nA: ${item.a}`).join('\n')
             ).join('\n\n');
 
+            const fullWebsiteContext = `
+            COMPANY: Forge Softwares (Systems Engineering Collective)
+            LOCATION: Srinagar, Jammu & Kashmir
+            HEADQUARTERS (HQ): Pandith Pore Rainawari, Srinagar 190003
+            OFFICE LOCATION: Rainawari Jogilanker, Srinagar, Jammu & Kashmir
+            CONTACT: Phone / WhatsApp +91-9697430658 | Email: farmanshafi2007@gmail.com
+            TAGLINE: "Ship AI workers that grind while you rest."
+            STATS: 42,500+ Deployments, 99.9% Reliability, 24/7 Autonomous Runtime, 120ms Inference Time, 2.4M Context Windows.
+            PARTNERS / TRUSTED BY: INEXTERIOR (Golden Featured Partner: https://farmanshafi2007-hub.github.io/INEXTERIOR/), Microsoft, Amazon, Google, NexaCore, Lumina, Horizon, Elevate, Quantum, Vertex.
+            SUBSIDIARIES: Forge Softwares acts as the central infrastructure for official subsidiaries COBRA and RUNO.
+            SYSTEMS & SERVICES: 
+            1. Premium Websites: High-fidelity web apps designed to capture intent and establish authority.
+            2. AI Sales Agents: Custom LLMs that qualify leads, resolve queries, and secure meetings autonomously.
+            3. Automated Pipelines: End-to-end CRM integration replacing manual workflows.
+            TESTIMONIALS: 
+            - Sarah J. (Clinic Director @ Lumina Health): "The AI agent handles 90% of our inquiries and books appointments autonomously. It fundamentally shifted our operational efficiency."
+            - Riyaz A. (E-com Founder @ Vertex Retail): "The minimal aesthetic elevated our brand authority instantly. Combined with system optimizations, our conversion velocity accelerated."
+            BLOG/ARTICLES: 
+            - Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Logic.
+            - Why Static Speed Matters in High-Intent B2B Acquisition.
+            - Preventing Hallucinations in Constrained Enterprise Sales Bots.
+            `;
+
             const systemInstructionText = `You are an elite AI Sales and Support Agent for Forge Softwares. 
 You act as an autonomous worker on their platform. 
-Use the following official knowledge base to answer questions:
+Use the following official knowledge base and website context to answer ANY questions regarding the company, features, text, pricing, HQ/office locations, and general inquiries:
 
+--- WEBSITE CONTEXT ---
+${fullWebsiteContext}
+
+--- OFFICIAL KNOWLEDGE BASE ---
 ${knowledgeBaseContext}
 
 Guidelines:
-1. Be concise, direct, and professional.
+1. Be concise, direct, professional, and confident. You represent a highly capable engineering collective.
 2. Address pricing clearly: STARTER is ₹1,500, PROFESSIONAL is ₹7,499 (Most Popular), PRO PLUS is ₹9,999, and PREMIUM is ₹14,999.
 3. Payment terms are 40% advance and 60% upon completion.
-4. Domain is free for 1st year. Hosting is free on GitHub.
-5. If a query is unknown, guide the user to click 'Get Started' or call +91-9697430658.
-6. Use HTML formatting like <strong> where appropriate.`;
+4. Domain is free for 1st year. Hosting is free on GitHub forever.
+5. If asked about HQ or Office: HQ is at Pandith Pore Rainawari, Srinagar 190003; Office is at Rainawari Jogilanker, Srinagar. Contact Email is farmanshafi2007@gmail.com and phone is +91-9697430658.
+6. If asked about industry partners, mention INEXTERIOR (https://farmanshafi2007-hub.github.io/INEXTERIOR/), NexaCore, Lumina, Horizon, Elevate, Quantum, Vertex, Microsoft, Amazon, Google.
+7. Use HTML formatting like <strong> where appropriate.`;
 
             function toggleAiChat() {
                 isAiChatOpen = !isAiChatOpen;
@@ -2675,6 +2673,14 @@ Guidelines:
             function querySmartKnowledgeEngine(userQuery) {
                 const q = userQuery.toLowerCase();
                 
+                if (q.includes('hq') || q.includes('headquarter') || q.includes('address') || q.includes('office') || q.includes('location') || q.includes('where')) {
+                    return "Our <strong>Headquarters (HQ)</strong> is located at <strong>Pandith Pore Rainawari, Srinagar, Jammu & Kashmir 190003</strong>.<br/>Our <strong>Office Branch</strong> is at <strong>Rainawari Jogilanker, Srinagar</strong>.<br/>Phone: +91-9697430658 | Email: farmanshafi2007@gmail.com";
+                }
+
+                if (q.includes('inexterior') || q.includes('partner')) {
+                    return "Our featured golden industry partner is <strong>INEXTERIOR</strong>! You can visit their platform directly at <a href='https://farmanshafi2007-hub.github.io/INEXTERIOR/' target='_blank' class='text-[#0066CC] underline font-bold'>INEXTERIOR Official Website</a>.";
+                }
+
                 if (q.includes('price') || q.includes('cost') || q.includes('plan') || q.includes('rate') || q.includes('how much') || q.includes('package')) {
                     return "Here is the official <strong>Forge Softwares</strong> pricing breakdown:<br/><br/>" +
                            "• <strong>STARTER:</strong> ₹1,500 (1–3 Pages, Mobile Responsive, 7 Days Support)<br/>" +
@@ -2688,8 +2694,8 @@ Guidelines:
                     return "The domain is <strong>included free for the 1st year</strong> and belongs 100% to you. Hosting is hosted on GitHub infrastructure and is <strong>free for life</strong> with zero recurring monthly hosting fees!";
                 }
 
-                if (q.includes('contact') || q.includes('phone') || q.includes('call') || q.includes('number') || q.includes('location')) {
-                    return "You can reach our senior engineering team directly at <strong>+91-9697430658</strong> or email <strong>forgesoftwares@gmail.com</strong>. Our physical hub is located in Srinagar, Jammu & Kashmir.";
+                if (q.includes('contact') || q.includes('phone') || q.includes('call') || q.includes('number') || q.includes('email')) {
+                    return "You can reach our engineering team directly at <strong>+91-9697430658</strong> or email <strong>farmanshafi2007@gmail.com</strong>.<br/>HQ: Pandith Pore Rainawari, Srinagar 190003.<br/>Office: Rainawari Jogilanker, Srinagar.";
                 }
 
                 if (q.includes('refund') || q.includes('cancel')) {
@@ -2698,6 +2704,14 @@ Guidelines:
 
                 if (q.includes('time') || q.includes('how long') || q.includes('duration') || q.includes('timeline')) {
                     return "Standard core web builds take <strong>7–14 days</strong>. Custom enterprise systems and AI chatbot integrations typically require <strong>3–4 weeks</strong>.";
+                }
+
+                if (q.includes('stat') || q.includes('deploy') || q.includes('uptime') || q.includes('reliability')) {
+                    return "Our systems handle over <strong>42,500+ deployments</strong> with a <strong>99.9% reliability rate</strong>. Our autonomous platforms run 24/7 with lightning-fast 120ms inference times.";
+                }
+
+                if (q.includes('service') || q.includes('do you do') || q.includes('offer')) {
+                    return "We architect scalable web platforms and autonomous AI agents. Our core systems include:<br/>1. <strong>Premium Websites:</strong> High-converting digital architecture.<br/>2. <strong>AI Sales Agents:</strong> 24/7 intelligent customer support and lead qualification.<br/>3. <strong>Automated Pipelines:</strong> Streamlined workflows and CRM integrations.";
                 }
 
                 let bestMatch = null;
@@ -2722,7 +2736,7 @@ Guidelines:
                     return `<strong>${bestMatch.q}</strong><br/><br/>${bestMatch.a.replace(/\n/g, '<br/>')}`;
                 }
 
-                return "Welcome to Forge Softwares! We build high-performance web platforms and autonomous AI workers. For custom requests or to start your deployment, click the <strong>Get Started</strong> button or call our line at <strong>+91-9697430658</strong>.";
+                return "Welcome to Forge Softwares! We build high-performance web platforms and autonomous AI workers. Contact us at <strong>+91-9697430658</strong> or <strong>farmanshafi2007@gmail.com</strong>, or visit our HQ at Pandith Pore Rainawari, Srinagar 190003.";
             }
 
             aiChatForm?.addEventListener('submit', async (e) => {
