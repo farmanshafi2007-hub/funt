@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
 
     <!-- Core Web Vitals & Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,6 @@
     <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos"
         rel="stylesheet" type="text/css" />
 
-    <!-- Custom Font PODIUM Sharp CDN & Base Styles -->
     <style>
         @font-face {
             font-family: 'PodiumSharp';
@@ -54,9 +53,10 @@
             --accent-blue: #3B82F6;
             --accent-red: #EF4444;
             --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
         }
 
-        /* Essential Reset & Body Baseline */
         * {
             box-sizing: border-box;
         }
@@ -82,23 +82,20 @@
         .font-geist { font-family: 'Geist', 'Inter', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Background Grid */
         .ambient-grid {
             background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
             background-size: 32px 32px;
         }
 
-        /* Hardware Accelerated Fade Up Animation */
         @keyframes fadeUp {
-            0% { opacity: 0; transform: translate3d(0, 20px, 0); }
+            0% { opacity: 0; transform: translate3d(0, 16px, 0); }
             100% { opacity: 1; transform: translate3d(0, 0, 0); }
         }
-        .animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* Hardware Accelerated Blink Animation */
         @keyframes pulseEmeraldBlink {
             0%, 100% { opacity: 1; transform: scale(1) translateZ(0); box-shadow: 0 0 10px #10B981, 0 0 16px rgba(16, 185, 129, 0.6); }
-            50% { opacity: 0.3; transform: scale(0.85) translateZ(0); box-shadow: 0 0 2px #10B981; }
+            50% { opacity: 0.35; transform: scale(0.85) translateZ(0); box-shadow: 0 0 2px #10B981; }
         }
         .led-emerald-blink {
             width: 8px;
@@ -112,7 +109,6 @@
 
         ::selection { background-color: #FFFFFF; color: #000000; }
 
-        /* Optimized Custom Scrollbars */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #030509; }
         ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
@@ -121,7 +117,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Hero 3D Canvas & Video Layers */
         #hero-canvas {
             position: absolute;
             top: 0;
@@ -138,67 +133,62 @@
         }
 
         .hero-video-layer {
-            object-fit: cover;
-            object-position: center 30%;
             will-change: opacity;
-            /* Hardware acceleration trick */
             transform: translateZ(0);
             backface-visibility: hidden;
-            transition: opacity 1.2s ease-in-out;
+            transition: opacity 1.1s ease-in-out;
         }
 
-        @media (min-width: 768px) {
-            .hero-video-layer { object-position: center center; }
+        .bg-radial-vignette {
+            background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(3, 5, 9, 0.8) 100%);
         }
 
-        /* Deep Woods Dynamic Theme Rules */
+        /* Deep Woods Mode Adaptive Contrast Rules */
         .deep-woods-mode .hero-adaptive-text {
             color: #182C41 !important;
             transition: color 0.7s ease;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+            text-shadow: 0 1px 3px rgba(255,255,255,0.5);
         }
         .deep-woods-mode .hero-adaptive-subtext {
             color: rgba(24, 44, 65, 0.95) !important;
             transition: color 0.7s ease;
         }
         .deep-woods-mode .hero-adaptive-badge {
-            background: rgba(24, 44, 65, 0.15) !important;
+            background: rgba(24, 44, 65, 0.25) !important;
             color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.3) !important;
+            border-color: rgba(24, 44, 65, 0.4) !important;
             transition: all 0.7s ease;
         }
         .deep-woods-mode .hero-adaptive-input {
-            background: rgba(24, 44, 65, 0.2) !important;
+            background: rgba(24, 44, 65, 0.3) !important;
             color: #182C41 !important;
-            border-color: rgba(24, 44, 65, 0.3) !important;
+            border-color: rgba(24, 44, 65, 0.4) !important;
             transition: all 0.7s ease;
         }
-        .deep-woods-mode .hero-adaptive-input::placeholder { color: rgba(24, 44, 65, 0.7) !important; }
+        .deep-woods-mode .hero-adaptive-input::placeholder { color: rgba(24, 44, 65, 0.75) !important; }
 
-        /* Liquid Glass Implementation - Optimized for Mobile */
         .liquid-glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .physical-panel {
-            background-color: rgba(11, 17, 31, 0.94);
+            background-color: rgba(11, 17, 31, 0.95);
             border-radius: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
             position: relative;
             max-width: 100%;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
-            transform: translateZ(0); /* Fixed layout boundary logic */
+            transform: translateZ(0);
         }
 
-        /* Reusable Standardized Buttons */
         .physical-btn {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(16px);
@@ -233,7 +223,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px !important; /* Min touch target constraint enforced */
+            min-height: 44px !important;
             padding: 0 26px;
             letter-spacing: 0.05em;
         }
@@ -244,7 +234,6 @@
             box-shadow: 0 14px 35px rgba(255, 255, 255, 0.35);
         }
 
-        /* Circular Social/Action Buttons */
         .social-btn {
             width: 44px;
             height: 44px;
@@ -265,7 +254,6 @@
             transform: scale(1.08) translateY(-2px);
         }
 
-        /* Generic Glass Cards */
         .retro-card {
             background: rgba(10, 15, 26, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -275,7 +263,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(12px);
-            transform: translateZ(0); /* Hardware Accel Layer */
+            transform: translateZ(0);
         }
 
         .retro-card::before {
@@ -294,7 +282,6 @@
             box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(16, 185, 129, 0.08);
         }
 
-        /* Trust Logo Engine */
         .trust-avatar-ring {
             width: clamp(36px, 4.5vw, 42px);
             height: clamp(36px, 4.5vw, 42px);
@@ -306,7 +293,7 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.35s ease;
-            flex-shrink: 0; /* Ensures rings don't collapse */
+            flex-shrink: 0;
         }
 
         .trust-avatar-ring .inner-circle {
@@ -331,7 +318,6 @@
             font-weight: 500;
         }
 
-        /* Pricing Card Special State */
         .pricing-card-pro {
             background: linear-gradient(145deg, rgba(20, 30, 48, 0.95) 0%, rgba(10, 14, 24, 0.98) 100%);
             border-radius: 28px;
@@ -347,7 +333,6 @@
             border-color: #10B981;
         }
 
-        /* Calligraphy Text */
         .font-calligraphy {
             font-family: 'Caveat', cursive;
             font-size: 1.8rem;
@@ -356,7 +341,6 @@
             color: #F1F5F9;
         }
 
-        /* Marquee Logistics */
         @keyframes marqueeLtr {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -367,7 +351,6 @@
             animation: marqueeLtr 35s linear infinite;
         }
 
-        /* Scroll Reveals */
         .reveal {
             opacity: 0;
             transform: translate3d(0, 24px, 0);
@@ -379,7 +362,6 @@
             transform: translate3d(0, 0, 0);
         }
 
-        /* Grid Accordion - Jitter-Free Expand/Collapse Strategy */
         .accordion-wrapper {
             display: grid;
             grid-template-rows: 0fr;
@@ -392,7 +374,6 @@
             overflow: hidden;
         }
 
-        /* Interactive Behaviors */
         .input-focus-effect:focus-within {
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.4);
             border-color: #FFFFFF;
@@ -401,7 +382,6 @@
         .interactive-icon { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease; }
         .group:hover .interactive-icon { transform: scale(1.12) rotate(4deg); }
 
-        /* Dark Help Center Card Harmonization */
         .help-item-card {
             background: rgba(18, 24, 38, 0.85);
             color: #f1f5f9;
@@ -422,6 +402,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    screens: {
+                        'xs': '380px'
+                    },
                     fontFamily: {
                         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         geist: ['Geist', 'Inter', 'sans-serif'],
@@ -495,7 +478,7 @@
 
     <!-- Primary Navigation Header -->
     <header id="topHeader" class="sticky top-0 z-50 w-full bg-[#030509]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
-        <nav class="relative z-20 w-full max-w-7xl mx-auto px-5 py-4 sm:px-8 lg:px-12 flex items-center justify-between">
+        <nav class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-3.5 sm:py-4 flex items-center justify-between">
             <a href="#home" class="flex items-center gap-2.5 text-white transition-colors duration-300 hover:opacity-90 active:scale-95 shrink-0 focus:outline-none">
                 <div class="w-8 h-8 rounded-full border border-white/30 bg-white/10 flex items-center justify-center font-mono text-xs font-bold text-white backdrop-blur-md shadow-inner shrink-0">
                     (F)
@@ -534,89 +517,94 @@
     <main class="w-full flex flex-col overflow-x-hidden">
 
         <!-- Cinematic Hero Engine -->
-        <section id="home" class="relative min-h-[100svh] h-auto lg:h-[100svh] w-full overflow-hidden flex flex-col font-geist text-white hero-video-container">
+        <section id="home" class="relative min-h-[100svh] min-h-[100dvh] w-full overflow-hidden flex flex-col font-geist text-white hero-video-container pt-16 sm:pt-20 pb-8 sm:pb-12">
 
-            <!-- Video Layer Stack: Forced strictly behind contents with z-0 -->
-            <!-- Note: Preload is "auto" on index 0 to guarantee first render. Others "none" to save bandwidth until requested -->
+            <!-- Background Media Layer -->
             <div id="heroVideoContainer" class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-                <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer opacity-100" 
+                <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-100" 
                     loop muted playsinline preload="auto" 
                     poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop"
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"></video>
 
-                <video id="vid-layer-1" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" 
+                <video id="vid-layer-1" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-0" 
                     loop muted playsinline preload="none" 
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_092026_dd05b805-ea0f-40b2-8c52-332b88502592.mp4"></video>
 
-                <video id="vid-layer-2" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" 
+                <video id="vid-layer-2" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-0" 
                     loop muted playsinline preload="none" 
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4"></video>
 
-                <video id="vid-layer-3" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" 
+                <video id="vid-layer-3" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] md:object-center opacity-0" 
                     loop muted playsinline preload="none" 
                     src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4"></video>
             </div>
 
             <!-- Hardware Accelerated Canvas Particle Layer -->
-            <canvas id="hero-canvas"></canvas>
+            <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[1] pointer-events-none"></canvas>
 
-            <!-- Contrast Gradient Tints ensuring WCAG Compliance -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#030509] z-[2] pointer-events-none"></div>
+            <!-- Dual Contrast Gradient Tints (Guarantees Readability on All Video Scenes) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-[#030509] z-[2] pointer-events-none"></div>
+            <div class="absolute inset-0 bg-radial-vignette opacity-60 z-[2] pointer-events-none"></div>
 
             <!-- Foreground Hero Composition -->
-            <div id="heroContentLayer" class="relative z-[10] flex-grow flex flex-col justify-center items-start pt-12 pb-16 px-5 sm:px-8 lg:px-16 w-full max-w-7xl mx-auto">
+            <div id="heroContentLayer" class="relative z-[10] my-auto px-4 sm:px-8 lg:px-16 w-full max-w-7xl mx-auto flex flex-col items-center sm:items-start text-center sm:text-left justify-center py-4 sm:py-8">
 
-                <div class="hero-adaptive-badge inline-flex items-center gap-2.5 border border-white/20 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-white/90 text-xs font-mono tracking-widest uppercase mb-6 animate-fade-up shadow-lg">
+                <div class="hero-adaptive-badge inline-flex items-center gap-2 border border-white/20 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white/90 text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-4 sm:mb-6 shadow-lg max-w-full truncate">
                     <span class="led-emerald-blink"></span>
-                    <span>Systems_Engineering_Collective</span>
+                    <span class="truncate">Systems_Engineering_Collective</span>
                 </div>
 
-                <h1 class="hero-adaptive-text font-podium text-4xl sm:text-6xl lg:text-[5.5rem] text-white uppercase leading-[0.95] sm:leading-[1.0] lg:leading-[0.95] tracking-tight mb-6 animate-fade-up max-w-3xl" style="animation-delay: 0.1s;">
-                    SHIP AI WORKERS<br />
-                    THAT GRIND<br />
+                <h1 class="hero-adaptive-text font-podium text-[2.15rem] xs:text-4xl sm:text-6xl lg:text-[5.25rem] text-white uppercase leading-[0.98] tracking-tight mb-4 sm:mb-6 max-w-3xl animate-fade-up">
+                    SHIP AI WORKERS<br class="hidden xs:inline" />
+                    THAT GRIND<br class="hidden xs:inline" />
                     WHILE YOU REST.
                 </h1>
 
-                <p class="hero-adaptive-subtext mt-2 sm:mt-4 text-sm sm:text-base text-white/80 max-w-lg leading-relaxed animate-fade-up mb-8 font-sans" style="animation-delay: 0.2s;">
+                <p class="hero-adaptive-subtext text-xs sm:text-base text-white/85 max-w-md sm:max-w-xl leading-relaxed mb-6 sm:mb-8 font-sans animate-fade-up" style="animation-delay: 0.15s;">
                     Architecting scalable web platforms and autonomous AI agents to automate your lead acquisition, customer operations, and digital growth 24/7.
                 </p>
 
-                <form id="heroEmailForm" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-lg animate-fade-up" style="animation-delay: 0.3s;">
+                <form id="heroEmailForm" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full max-w-md sm:max-w-lg mb-6 sm:mb-8 animate-fade-up" style="animation-delay: 0.25s;">
                     <div class="relative flex-1 w-full shrink-0">
-                        <input type="email" id="heroEmailInput" required placeholder="Enter work email..." class="hero-adaptive-input w-full rounded-full bg-black/60 backdrop-blur-md border border-white/30 px-5 py-3.5 text-xs sm:text-sm text-white placeholder-white/50 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all font-mono shadow-inner min-h-[48px]" />
+                        <input type="email" id="heroEmailInput" required placeholder="Enter work email..." class="hero-adaptive-input w-full rounded-full bg-black/65 backdrop-blur-md border border-white/30 px-4 sm:px-5 py-3 text-xs sm:text-sm text-white placeholder-white/60 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/30 transition-all font-mono shadow-inner min-h-[44px] sm:min-h-[48px]" />
                     </div>
-                    <button type="submit" class="apple-white-btn shrink-0 rounded-full px-8 py-3.5 text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-xl focus:outline-none min-h-[48px] cursor-pointer">
+                    <button type="submit" class="apple-white-btn shrink-0 rounded-full px-6 sm:px-8 py-3 sm:py-3.5 text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-xl focus:outline-none min-h-[44px] sm:min-h-[48px] cursor-pointer hover:bg-neutral-100 transition-all">
                         Get Started
                     </button>
                 </form>
 
-                <!-- Single-Row Mobile Video Selector Panel -->
-                <div class="mt-8 animate-fade-up w-full max-w-full" style="animation-delay: 0.35s;">
-                    <!-- The container handles horizontal overflow internally while enforcing no line wrapping -->
-                    <div class="liquid-glass-panel rounded-full inline-flex flex-nowrap items-center p-1.5 border border-white/20 shadow-lg overflow-x-auto no-scrollbar w-full sm:w-auto min-h-[48px]">
-                        <button type="button" class="videoSwitcherBtn active px-4 py-2 rounded-full text-xs font-sans text-white font-bold bg-white/20 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap flex-shrink-0" data-video-index="0">Golden Hour</button>
-                        <button type="button" class="videoSwitcherBtn px-4 py-2 rounded-full text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap flex-shrink-0 border-b-2 border-transparent" data-video-index="1">Still Water</button>
-                        <button type="button" class="videoSwitcherBtn px-4 py-2 rounded-full text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap flex-shrink-0 border-b-2 border-transparent" data-video-index="2">Deep Woods</button>
-                        <button type="button" class="videoSwitcherBtn px-4 py-2 rounded-full text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap flex-shrink-0 border-b-2 border-transparent" data-video-index="3">Quiet Dawn</button>
+                <!-- Single-Row Mobile Video Selector Panel (STRICT FLEX-NOWRAP) -->
+                <div class="w-full max-w-full overflow-hidden mb-6 sm:mb-8 animate-fade-up" style="animation-delay: 0.35s;">
+                    <div class="liquid-glass-panel rounded-full inline-flex flex-nowrap items-center p-1 sm:p-1.5 border border-white/20 shadow-xl overflow-x-auto no-scrollbar w-full sm:w-auto max-w-full min-h-[42px] sm:min-h-[48px] touch-pan-x">
+                        <button type="button" class="videoSwitcherBtn active px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white font-bold bg-white/25 border-b-2 border-white transition-all cursor-pointer whitespace-nowrap shrink-0" data-video-index="0">Golden Hour</button>
+                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="1">Still Water</button>
+                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="2">Deep Woods</button>
+                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans text-white/70 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent" data-video-index="3">Quiet Dawn</button>
                     </div>
                 </div>
 
-                <!-- Descriptive Desktop KPI Group -->
-                <div class="hidden sm:flex flex-wrap gap-8 lg:gap-12 pt-8 mt-auto border-t border-white/15 font-mono animate-fade-up w-full" style="animation-delay: 0.4s;">
-                    <div>
-                        <div class="text-2xl lg:text-3xl font-bold text-white tracking-tight">42,500+</div>
-                        <div class="text-white/60 text-[10px] lg:text-xs tracking-wider uppercase mt-1">Deployments</div>
+                <!-- Descriptive Desktop/Mobile KPI Group -->
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-6 border-t border-white/15 font-mono w-full animate-fade-up" style="animation-delay: 0.4s;">
+                    <div class="text-center sm:text-left">
+                        <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">42,500+</div>
+                        <div class="text-white/60 text-[9px] sm:text-[10px] lg:text-xs tracking-wider uppercase mt-0.5">Deployments</div>
                     </div>
-                    <div>
-                        <div class="text-2xl lg:text-3xl font-bold text-white tracking-tight">99.9%</div>
-                        <div class="text-white/60 text-[10px] lg:text-xs tracking-wider uppercase mt-1">Reliability</div>
+                    <div class="w-px h-8 bg-white/15 hidden xs:block"></div>
+                    <div class="text-center sm:text-left">
+                        <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">99.9%</div>
+                        <div class="text-white/60 text-[9px] sm:text-[10px] lg:text-xs tracking-wider uppercase mt-0.5">Reliability</div>
                     </div>
-                    <div>
-                        <div class="text-2xl lg:text-3xl font-bold text-white tracking-tight">24/7</div>
-                        <div class="text-white/60 text-[10px] lg:text-xs tracking-wider uppercase mt-1">Autonomous</div>
+                    <div class="w-px h-8 bg-white/15 hidden xs:block"></div>
+                    <div class="text-center sm:text-left">
+                        <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">24/7</div>
+                        <div class="text-white/60 text-[9px] sm:text-[10px] lg:text-xs tracking-wider uppercase mt-0.5">Autonomous</div>
                     </div>
                 </div>
+
             </div>
+
+            <!-- Soft Bottom Gradient Fade into Services Section -->
+            <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-[#030509] to-transparent z-[5] pointer-events-none"></div>
         </section>
 
         <!-- Mobile Drawer Navigation -->
@@ -745,7 +733,6 @@
                 <p class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/50 mb-3 font-mono px-4">Deployed by forward-thinking organizations</p>
                 <h3 class="text-2xl sm:text-4xl md:text-5xl font-bubbledot uppercase text-white mb-10 sm:mb-16 tracking-tight px-4">Industry Partners</h3>
 
-                <!-- Hardware Accelerated Horizontal Tracking Bar -->
                 <div class="relative w-full overflow-hidden flex items-center py-4 group">
                     <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-r from-[#040711] to-transparent z-20 pointer-events-none"></div>
                     <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-32 bg-gradient-to-l from-[#040711] to-transparent z-20 pointer-events-none"></div>
@@ -882,7 +869,7 @@
                         <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹1,500</span>
                         </div>
-                        <button class="pricingBookBtn retro-pill-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
+                        <button class="pricingBookBtn physical-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
                             Select Starter
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-white/10 pt-5 sm:pt-6 text-[11px] sm:text-xs text-white/80">
@@ -906,7 +893,7 @@
                         <div class="mb-6 sm:mb-8 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹7,499</span>
                         </div>
-                        <button class="pricingBookBtn retro-white-glow-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 text-black cursor-pointer">
+                        <button class="pricingBookBtn apple-white-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 text-black cursor-pointer">
                             Select Professional
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-white/10 pt-5 sm:pt-6 text-[11px] sm:text-xs text-white">
@@ -927,7 +914,7 @@
                         <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹9,999</span>
                         </div>
-                        <button class="pricingBookBtn retro-pill-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
+                        <button class="pricingBookBtn physical-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
                             Select Pro Plus
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-white/10 pt-5 sm:pt-6 text-[11px] sm:text-xs text-white/80">
@@ -948,7 +935,7 @@
                         <div class="mb-6 sm:mb-8 text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight font-mono flex items-baseline flex-wrap gap-2">
                             <span class="font-bold">₹14,999</span>
                         </div>
-                        <button class="pricingBookBtn retro-pill-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
+                        <button class="pricingBookBtn physical-btn w-full py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 cursor-pointer">
                             Select Premium
                         </button>
                         <ul class="space-y-2.5 sm:space-y-3 border-t border-white/10 pt-5 sm:pt-6 text-[11px] sm:text-xs text-white/80">
@@ -1215,7 +1202,7 @@
                 <p class="text-white/80 mb-10 sm:mb-12 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed font-sans">
                     We build scalable infrastructure that actively acquires and converts.
                 </p>
-                <button id="ctaBookBtn" class="retro-white-glow-btn min-h-[48px] px-8 sm:px-12 py-4 sm:py-5 font-bold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono text-black w-full sm:w-auto cursor-pointer focus:outline-none">
+                <button id="ctaBookBtn" class="apple-white-btn min-h-[48px] px-8 sm:px-12 py-4 sm:py-5 font-bold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono text-black w-full sm:w-auto cursor-pointer focus:outline-none">
                     Book Your Website <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2.5 sm:ml-3 inline-block interactive-icon"></i>
                 </button>
             </div>
@@ -1226,14 +1213,14 @@
     <!-- Footer -->
     <footer class="py-16 md:py-24 px-5 bg-[#030509] text-center border-t border-white/10 w-full">
         <div class="w-full max-w-7xl mx-auto">
-            <div class="text-2xl md:text-3xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-                <div class="bg-white/10 p-2.5 sm:p-3 rounded-2xl border border-white/20">
-                    <i data-lucide="hexagon" class="text-white w-5 h-5 sm:w-6 sm:h-6 interactive-icon"></i>
+            <div class="text-2xl md:text-3xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-4 mb-10">
+                <div class="bg-white/10 p-3 rounded-2xl border border-white/20">
+                    <i data-lucide="hexagon" class="text-white w-6 h-6 interactive-icon"></i>
                 </div>
                 <span>Forge Softwares</span>
             </div>
 
-            <div class="flex justify-center items-center gap-5 sm:gap-6 mb-8 w-full">
+            <div class="flex justify-center items-center gap-6 mb-8 w-full">
                 <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Visit Facebook Page">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
@@ -1246,11 +1233,11 @@
                 </a>
             </div>
 
-            <p class="text-white/70 text-[11px] sm:text-xs font-mono mb-8">Support & Inquiries: +91-9697430658 | Srinagar, Kashmir</p>
+            <p class="text-white/70 text-xs font-mono mb-8">Support & Inquiries: +91-9697430658 | Srinagar, Kashmir</p>
 
-            <div class="h-[1px] w-24 sm:w-32 bg-white/20 mx-auto mb-8 sm:mb-10 rounded-full"></div>
+            <div class="h-[1px] w-32 bg-white/20 mx-auto mb-10 rounded-full"></div>
 
-            <p class="text-white/60 text-[10px] sm:text-[11px] uppercase tracking-widest font-mono leading-loose">
+            <p class="text-white/60 text-xs uppercase tracking-widest font-mono leading-loose">
                 Premium B2B Agency &copy; <span id="copyrightYear">2026</span>. All rights reserved. <br class="sm:hidden block mt-2" />
                 <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
                 Parent Group of Cobra & Runo
@@ -1259,13 +1246,50 @@
                 <button id="footerHelpBtn" class="hover:text-emerald-400 text-emerald-300 font-bold transition-colors underline underline-offset-4 mt-2 sm:mt-0 inline-block focus:outline-none cursor-pointer">Help & Support</button>
                 <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
                 <span class="sm:hidden inline-block px-2">|</span>
-                <button id="footerTermsBtn" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm cursor-pointer">Terms & Conditions</button>
+                <button id="footerTermsBtn" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none cursor-pointer">Terms & Conditions</button>
                 <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
                 <span class="sm:hidden inline-block px-2">|</span>
-                <button id="footerPrivacyBtn" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-sm cursor-pointer">Privacy Policy</button>
+                <button id="footerPrivacyBtn" class="hover:text-white transition-colors underline underline-offset-4 decoration-transparent hover:decoration-white mt-2 sm:mt-0 inline-block focus:outline-none cursor-pointer">Privacy Policy</button>
             </p>
         </div>
     </footer>
+
+    <!-- Floating AI Chatbot Button -->
+    <button id="aiChatToggleBtn" class="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-emerald-500 text-black flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 active:scale-95 transition-all cursor-pointer focus:outline-none" aria-label="Toggle AI Chat">
+        <i data-lucide="bot" class="w-6 h-6"></i>
+    </button>
+
+    <!-- AI Chatbot Window -->
+    <div id="aiChatWindow" class="fixed bottom-24 right-6 z-[100] w-[360px] max-w-[calc(100vw-48px)] h-[550px] max-h-[calc(100vh-140px)] physical-panel flex flex-col hidden opacity-0 transition-opacity duration-300 shadow-2xl border border-white/20">
+        <!-- Header -->
+        <div class="p-4 border-b border-white/10 flex justify-between items-center bg-[#090c15] rounded-t-[28px]">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                <div class="flex flex-col">
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-emerald-400 leading-none">Forge AI Agent</span>
+                    <span class="text-[9px] text-white/50 font-sans mt-1">Online & Ready</span>
+                </div>
+            </div>
+            <button id="closeAiChatBtn" class="text-white/50 hover:text-white transition-colors cursor-pointer focus:outline-none p-1 rounded-full hover:bg-white/10" aria-label="Close chat">
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <!-- Messages Area -->
+        <div id="aiChatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar text-sm font-sans flex flex-col bg-[#050810]/50 backdrop-blur-md">
+            <div class="bg-white/10 text-white/90 p-3.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border border-white/5 shadow-sm">
+                System initialized. I am the Forge Softwares autonomous agent. Ask me about pricing, domain inclusion, support periods, or custom AI builds!
+            </div>
+        </div>
+        <!-- Input Area -->
+        <div class="p-4 border-t border-white/10 bg-[#090c15] rounded-b-[28px]">
+            <form id="aiChatForm" class="flex items-center gap-2.5">
+                <input type="text" id="aiChatInput" placeholder="Ask about pricing, features..." class="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-400 transition-colors font-mono min-h-[44px]" autocomplete="off" required />
+                <button type="submit" class="w-[44px] h-[44px] rounded-full bg-emerald-500 text-black flex items-center justify-center shrink-0 hover:bg-emerald-400 transition-colors cursor-pointer shadow-md focus:outline-none" aria-label="Send message">
+                    <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- ENQUIRY MODAL -->
     <div id="enquiryModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/85 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
@@ -1288,7 +1312,6 @@
             <div class="overflow-y-auto custom-scrollbar p-5 sm:p-8 flex-1">
                 <form id="enquiryForm" class="space-y-4 sm:space-y-5 text-left relative z-10 w-full pb-2">
 
-                    <!-- Anti-Spam Honeypot Field -->
                     <input type="text" name="website_hp_check" id="website_hp_check" aria-hidden="true" tabindex="-1" style="display:none !important; position:absolute; left:-9999px;" autocomplete="off" />
 
                     <div class="w-full">
@@ -1346,7 +1369,6 @@
                         </div>
                     </div>
 
-                    <!-- Minimal Interactive Captcha -->
                     <div class="w-full bg-white/5 border border-white/10 p-3 sm:p-3.5 rounded-2xl">
                         <div class="flex items-center justify-between mb-2">
                             <label for="captchaInput" class="text-[10px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono flex items-center gap-1.5">
@@ -1412,7 +1434,7 @@
         </div>
     </div>
 
-    <!-- HELP CENTER MODAL WITH ALL 73 Q&AS (Dark Glassmorphic Theme) -->
+    <!-- HELP CENTER MODAL WITH ALL 73 Q&AS -->
     <div id="helpCenterModal" class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-2.5 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden" role="dialog" aria-modal="true">
         <div class="physical-panel bg-[#080b14] text-slate-100 max-w-6xl w-full max-h-[94dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border border-white/15 overflow-hidden rounded-2xl sm:rounded-3xl" id="helpCenterContent">
 
@@ -1513,7 +1535,7 @@
                                 <span>Updated August 2026</span>
                             </div>
                         </div>
-                        <button class="retro-white-glow-btn shrink-0 py-3 sm:py-3.5 px-5 sm:px-6 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black shadow-lg cursor-pointer focus:outline-none w-full sm:w-auto">
+                        <button class="apple-white-btn shrink-0 py-3 sm:py-3.5 px-5 sm:px-6 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-black shadow-lg cursor-pointer focus:outline-none w-full sm:w-auto">
                             Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5 sm:ml-2 inline-block"></i>
                         </button>
                     </div>
@@ -1605,7 +1627,7 @@
 
     <!-- Master Application Script -->
     <script>
-        // Knowledge Base Database
+        // Full 73 Q&A Knowledge Base Database (10 Categories)
         const helpDatabase = [
             {
                 catId: "1",
@@ -1744,34 +1766,29 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- 1. System Initialization ---
+            // Footer Copyright
             const yearEl = document.getElementById('copyrightYear');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+            // Lazy Lucide Icons Initialization
             const initIcons = () => { if (window.lucide) lucide.createIcons(); };
             if ('requestIdleCallback' in window) { requestIdleCallback(initIcons); }
             else { setTimeout(() => requestAnimationFrame(initIcons), 150); }
 
-            // --- 2. Advanced Media Playback Engine (Zero-Freeze Strategy) ---
+            // Video Engine Architecture
             const videoLayers = document.querySelectorAll('.hero-video-layer');
             const switcherBtns = document.querySelectorAll('.videoSwitcherBtn');
             let currentVideoIdx = 0;
             let pendingTargetIdx = 0;
-            let isTransitioning = false;
             let isHeroInView = true;
 
-            // Media Control Subroutines
             function safelyPlayVideo(videoElement) {
                 if (!videoElement) return Promise.resolve(false);
                 const playPromise = videoElement.play();
                 if (playPromise !== undefined) {
                     return playPromise.then(() => true).catch(error => {
-                        if (error.name === 'AbortError') {
-                            // Expected behavior when pause() interrupts play(). Safe to ignore.
-                            return false;
-                        }
-                        console.warn('Playback deferred/rejected by browser policy:', error);
-                        // Resolve as false instead of rejecting to prevent UnhandledPromiseRejection crashes
+                        if (error.name === 'AbortError') return false;
+                        console.warn('Playback policy deferral:', error);
                         return false;
                     });
                 }
@@ -1781,7 +1798,6 @@
             function syncVideosWithViewport() {
                 const activeVideo = videoLayers[currentVideoIdx];
                 if (!activeVideo) return;
-                
                 if (isHeroInView && !document.hidden) {
                     safelyPlayVideo(activeVideo);
                 } else {
@@ -1789,7 +1805,6 @@
                 }
             }
 
-            // IntersectionObserver for Hero Section
             const heroSection = document.getElementById('home');
             if (heroSection && 'IntersectionObserver' in window) {
                 const heroObserver = new IntersectionObserver((entries) => {
@@ -1801,11 +1816,10 @@
                 heroObserver.observe(heroSection);
             }
 
-            // Document Visibility Lifecycle
             document.addEventListener('visibilitychange', syncVideosWithViewport);
             window.addEventListener('pageshow', syncVideosWithViewport);
 
-            // User interaction unlock (iOS Safari / Android Chrome workaround)
+            // User interaction unlocker for restricted mobile policies
             const unlockPlayback = () => {
                 const activeVideo = videoLayers[currentVideoIdx];
                 if (activeVideo && activeVideo.paused && isHeroInView) safelyPlayVideo(activeVideo);
@@ -1815,63 +1829,49 @@
             document.addEventListener('touchstart', unlockPlayback, { passive: true });
             document.addEventListener('click', unlockPlayback, { passive: true });
 
-            // Robust Crossfade Logic
+            // Ready-State Verified Video Switcher
             function performVideoSwitch(targetIdx) {
                 if (targetIdx === currentVideoIdx) return;
-                
                 pendingTargetIdx = targetIdx;
                 const prevVideo = videoLayers[currentVideoIdx];
                 const nextVideo = videoLayers[targetIdx];
-
                 if (!nextVideo || !prevVideo) return;
 
-                // 1. Immediately update UI state for the selector (UX responsiveness)
+                // Sync button state
                 switcherBtns.forEach((b, idx) => {
                     if (idx === targetIdx) {
-                        b.classList.add('active', 'bg-white/20', 'border-b-2', 'border-white', 'font-bold');
+                        b.classList.add('active', 'bg-white/25', 'border-b-2', 'border-white', 'font-bold');
                         b.classList.remove('text-white/70', 'border-transparent');
                     } else {
-                        b.classList.remove('active', 'bg-white/20', 'border-b-2', 'border-white', 'font-bold');
+                        b.classList.remove('active', 'bg-white/25', 'border-b-2', 'border-white', 'font-bold');
                         b.classList.add('text-white/70', 'border-transparent');
                     }
                 });
 
-                // Deep Woods Theme contrast toggle
                 if (targetIdx === 2) {
                     document.body.classList.add('deep-woods-mode');
                 } else {
                     document.body.classList.remove('deep-woods-mode');
                 }
 
-                // 2. Ready target video playback
-                isTransitioning = true;
                 nextVideo.currentTime = 0;
                 
-                // Helper to perform the actual visual swap
                 const executeCrossfade = () => {
-                    // Abort if a newer request came in while waiting
                     if (pendingTargetIdx !== targetIdx) return;
-
                     nextVideo.style.opacity = '1';
                     
                     setTimeout(() => {
-                        // After fade completes, clean up the old video
                         if (pendingTargetIdx === targetIdx && prevVideo !== nextVideo) {
                             prevVideo.style.opacity = '0';
                             prevVideo.pause();
                             currentVideoIdx = targetIdx;
                         }
-                        isTransitioning = false;
-                    }, 1200); // Wait slightly longer than the 1.2s CSS transition
+                    }, 1100);
                 };
 
-                // 3. Ensure target is rendering before crossfading
-                if (nextVideo.readyState >= 3) { // HAVE_FUTURE_DATA
-                    safelyPlayVideo(nextVideo).then(() => {
-                        executeCrossfade();
-                    });
+                if (nextVideo.readyState >= 3) {
+                    safelyPlayVideo(nextVideo).then(() => executeCrossfade());
                 } else {
-                    // Wait for it to be playable
                     let hasExecuted = false;
                     const onCanPlay = () => {
                         if (hasExecuted) return;
@@ -1880,12 +1880,8 @@
                         executeCrossfade();
                     };
                     nextVideo.addEventListener('playing', onCanPlay);
-                    
                     safelyPlayVideo(nextVideo).then((success) => {
-                        // If playback fails entirely (e.g., NotAllowedError), 'playing' never fires.
-                        // Force the crossfade to avoid being stuck on the old theme.
-                        if (!success) {
-                            if (hasExecuted) return;
+                        if (!success && !hasExecuted) {
                             hasExecuted = true;
                             nextVideo.removeEventListener('playing', onCanPlay);
                             executeCrossfade();
@@ -1901,23 +1897,21 @@
                 });
             });
 
-            // --- 3. Optimized HiDPI Canvas Particle Engine ---
+            // HiDPI Particle Canvas Engine
             const canvas = document.getElementById('hero-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
                 let particles = [];
-                let mouse = { x: null, y: null, radius: 150 };
-                let animFrameId = null;
+                let mouse = { x: null, y: null, radius: 140 };
 
                 function resizeCanvas() {
                     if (!canvas.parentElement) return;
                     const rect = canvas.parentElement.getBoundingClientRect();
-                    const dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x to save GPU
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
                     
                     canvas.width = rect.width * dpr;
                     canvas.height = rect.height * dpr;
                     
-                    // Reset transform matrix to identity before applying scale to prevent cumulative zoom
                     ctx.setTransform(1, 0, 0, 1, 0, 0);
                     ctx.scale(dpr, dpr);
                     
@@ -1937,8 +1931,8 @@
                     constructor(w, h) {
                         this.x = Math.random() * w;
                         this.y = Math.random() * h;
-                        this.vx = (Math.random() - 0.5) * 0.8;
-                        this.vy = (Math.random() - 0.5) * 0.8;
+                        this.vx = (Math.random() - 0.5) * 0.7;
+                        this.vy = (Math.random() - 0.5) * 0.7;
                         this.size = Math.random() * 2 + 1;
                     }
                     update(w, h) {
@@ -1953,13 +1947,13 @@
                             let dist = Math.sqrt(dx * dx + dy * dy);
                             if (dist < mouse.radius) {
                                 let angle = Math.atan2(dy, dx);
-                                this.x -= Math.cos(angle) * 1.5;
-                                this.y -= Math.sin(angle) * 1.5;
+                                this.x -= Math.cos(angle) * 1.2;
+                                this.y -= Math.sin(angle) * 1.2;
                             }
                         }
                     }
                     draw(ctx) {
-                        ctx.fillStyle = 'rgba(16, 185, 129, 0.7)';
+                        ctx.fillStyle = 'rgba(16, 185, 129, 0.65)';
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                         ctx.fill();
@@ -1968,19 +1962,17 @@
 
                 function initParticles(w, h) {
                     particles = [];
-                    const count = Math.floor((w * h) / 18000);
+                    const count = Math.floor((w * h) / 19000);
                     for (let i = 0; i < count; i++) {
                         particles.push(new Particle(w, h));
                     }
                 }
 
                 function animateCanvas() {
-                    // Halt drawing loop if tab is hidden or hero is scrolled away
                     if (!isHeroInView || document.hidden) {
-                        animFrameId = requestAnimationFrame(animateCanvas);
+                        requestAnimationFrame(animateCanvas);
                         return;
                     }
-                    
                     const w = canvas.parentElement ? canvas.parentElement.clientWidth : window.innerWidth;
                     const h = canvas.parentElement ? canvas.parentElement.clientHeight : window.innerHeight;
 
@@ -1993,9 +1985,9 @@
                             let dx = particles[i].x - particles[j].x;
                             let dy = particles[i].y - particles[j].y;
                             let dist = Math.sqrt(dx * dx + dy * dy);
-                            if (dist < 110) {
-                                ctx.strokeStyle = `rgba(16, 185, 129, ${0.25 - dist / 110})`;
-                                ctx.lineWidth = 0.8;
+                            if (dist < 105) {
+                                ctx.strokeStyle = `rgba(16, 185, 129, ${0.22 - dist / 105})`;
+                                ctx.lineWidth = 0.75;
                                 ctx.beginPath();
                                 ctx.moveTo(particles[i].x, particles[i].y);
                                 ctx.lineTo(particles[j].x, particles[j].y);
@@ -2003,10 +1995,9 @@
                             }
                         }
                     }
-                    animFrameId = requestAnimationFrame(animateCanvas);
+                    requestAnimationFrame(animateCanvas);
                 }
 
-                // Debounce resize
                 let resizeTimer;
                 window.addEventListener('resize', () => {
                     clearTimeout(resizeTimer);
@@ -2017,7 +2008,7 @@
                 animateCanvas();
             }
 
-            // --- 4. Centralized Modal & Hash Route Engine ---
+            // Modal & Hash Routing Framework
             let lastActiveElement = null;
 
             const modalMap = {
@@ -2032,7 +2023,6 @@
             function openGenericModal(modalElement, contentElement, newHash) {
                 if (!modalElement) return;
                 
-                // Force close mobile menu if it is currently open
                 if (typeof isNexumMenuOpen !== 'undefined' && isNexumMenuOpen) {
                     toggleNexumMenu();
                 }
@@ -2082,8 +2072,6 @@
 
             function handleHashRoute() {
                 const hash = window.location.hash;
-
-                // Close all actively open modals first to prevent stacking bugs
                 Object.values(modalMap).forEach(item => {
                     if (item.modal && !item.modal.classList.contains('hidden')) {
                         closeGenericModal(item.modal, item.content, false);
@@ -2098,7 +2086,7 @@
 
             window.addEventListener('popstate', handleHashRoute);
 
-            // --- 5. Security & Validation Handlers ---
+            // Captcha Challenge Engine
             let num1 = 0, num2 = 0, captchaAnswer = 0;
             function generateCaptcha() {
                 num1 = Math.floor(Math.random() * 8) + 2;
@@ -2112,7 +2100,6 @@
 
             document.getElementById('refreshCaptchaBtn')?.addEventListener('click', generateCaptcha);
 
-            // Export modal hooks for global access
             window.openEnquiryModal = () => { generateCaptcha(); openGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content, '#enquiry'); };
             window.closeEnquiryModal = () => closeGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content);
             window.openSuccessModal = () => openGenericModal(modalMap['#success'].modal, modalMap['#success'].content, '#success');
@@ -2126,7 +2113,6 @@
             window.openHelpModal = () => openGenericModal(modalMap['#help-center'].modal, modalMap['#help-center'].content, '#help-center');
             window.closeHelpModal = () => closeGenericModal(modalMap['#help-center'].modal, modalMap['#help-center'].content);
 
-            // Backdrop click listeners
             Object.values(modalMap).forEach(item => {
                 if(item.modal) {
                     item.modal.addEventListener('click', e => {
@@ -2135,7 +2121,6 @@
                 }
             });
 
-            // Action Triggers binding
             document.getElementById('navGetStartedBtn')?.addEventListener('click', openEnquiryModal);
             document.getElementById('ctaBookBtn')?.addEventListener('click', openEnquiryModal);
             document.querySelectorAll('.pricingBookBtn').forEach(btn => btn.addEventListener('click', openEnquiryModal));
@@ -2156,7 +2141,6 @@
             document.getElementById('footerTermsBtn')?.addEventListener('click', openTerms);
             document.getElementById('footerPrivacyBtn')?.addEventListener('click', openPrivacy);
 
-            // Close button bindings
             document.getElementById('closeEnquiryModalBtn')?.addEventListener('click', closeEnquiryModal);
             document.getElementById('closeSuccessModalBtn')?.addEventListener('click', closeSuccessModal);
             document.getElementById('closeTermsBtn')?.addEventListener('click', closeTerms);
@@ -2164,7 +2148,6 @@
             document.getElementById('closeBlogModalBtn')?.addEventListener('click', closeBlogModal);
             document.getElementById('closeHelpModalBtn')?.addEventListener('click', closeHelpModal);
 
-            // Helper function for debouncing fast inputs
             function debounce(fn, delay) {
                 let timer;
                 return function (...args) {
@@ -2173,7 +2156,7 @@
                 };
             }
 
-            // --- 6. Knowledge Hub Blog Filter Logic ---
+            // Blog Search & Category Filters
             const blogFilterBtns = document.querySelectorAll('.blogFilterBtn');
             const blogCards = document.querySelectorAll('.blog-card');
 
@@ -2212,7 +2195,7 @@
                 }, 180));
             }
 
-            // --- 7. Help Center Dynamic Renderer ---
+            // Help Center Renderer (All 73 Q&As)
             const helpContentList = document.getElementById('helpContentList');
             const helpSearchInput = document.getElementById('helpSearchInput');
             const helpCatFilterBtns = document.querySelectorAll('.helpCatFilterBtn');
@@ -2343,7 +2326,7 @@
                 });
             }
 
-            // --- 8. Mobile Drawer Navigation ---
+            // Mobile Drawer Engine
             const nexumMobileMenuBtn = document.getElementById('nexumMobileMenuBtn');
             const nexumMenuIcon = document.getElementById('nexumMenuIcon');
             const nexumXIcon = document.getElementById('nexumXIcon');
@@ -2422,7 +2405,7 @@
                 openEnquiryModal();
             });
 
-            // --- 9. Hero Email Forwarding ---
+            // Hero Email Sync
             const heroEmailForm = document.getElementById('heroEmailForm');
             if (heroEmailForm) {
                 heroEmailForm.addEventListener('submit', (e) => {
@@ -2436,7 +2419,7 @@
                 });
             }
 
-            // --- 10. Robust CORS Form Submission (URL-Encoded) ---
+            // CORS-compliant Google Apps Script Form Handler
             const enquiryForm = document.getElementById('enquiryForm');
             if (enquiryForm) {
                 enquiryForm.addEventListener('submit', async (e) => {
@@ -2493,7 +2476,6 @@
                         btn.disabled = true;
                     }
 
-                    // Convert to URL-encoded to bypass CORS preflight errors common with raw FormData on GAS
                     const formData = new FormData(enquiryForm);
                     const params = new URLSearchParams();
                     for (const [key, value] of formData.entries()) {
@@ -2541,7 +2523,7 @@
                 });
             }
 
-            // --- 11. Intersection Observers (Reveals & Counters) ---
+            // Scroll Reveal Observer
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = { threshold: 0.05, rootMargin: "40px 0px 40px 0px" };
 
@@ -2556,6 +2538,7 @@
 
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
 
+            // Stat Counters Count-Up Observer
             const counters = document.querySelectorAll('.stat-counter');
             const counterObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -2589,7 +2572,7 @@
 
             counters.forEach(counter => counterObserver.observe(counter));
 
-            // --- 12. Grid Accordion System (Jitter-Free) ---
+            // CSS Grid FAQ Accordion Toggle
             function toggleFaqAccordion(element) {
                 const isExpanded = element.getAttribute('aria-expanded') === 'true';
                 const contentId = element.getAttribute('aria-controls');
@@ -2617,7 +2600,198 @@
                 });
             });
 
-            // Initial hash route check
+            // AI Chatbot Agent Integration
+            const aiChatToggleBtn = document.getElementById('aiChatToggleBtn');
+            const aiChatWindow = document.getElementById('aiChatWindow');
+            const closeAiChatBtn = document.getElementById('closeAiChatBtn');
+            const aiChatForm = document.getElementById('aiChatForm');
+            const aiChatInput = document.getElementById('aiChatInput');
+            const aiChatMessages = document.getElementById('aiChatMessages');
+
+            let isAiChatOpen = false;
+            let aiChatHistory = [];
+
+            const knowledgeBaseContext = helpDatabase.map(cat =>
+                `## ${cat.catName}\n` + cat.items.map(item => `Q: ${item.q}\nA: ${item.a}`).join('\n')
+            ).join('\n\n');
+
+            const systemInstructionText = `You are an elite AI Sales and Support Agent for Forge Softwares. 
+You act as an autonomous worker on their platform. 
+Use the following official knowledge base to answer questions:
+
+${knowledgeBaseContext}
+
+Guidelines:
+1. Be concise, direct, and professional.
+2. Address pricing clearly: STARTER is ₹1,500, PROFESSIONAL is ₹7,499 (Most Popular), PRO PLUS is ₹9,999, and PREMIUM is ₹14,999.
+3. Payment terms are 40% advance and 60% upon completion.
+4. Domain is free for 1st year. Hosting is free on GitHub.
+5. If a query is unknown, guide the user to click 'Get Started' or call +91-9697430658.
+6. Use HTML formatting like <strong> where appropriate.`;
+
+            function toggleAiChat() {
+                isAiChatOpen = !isAiChatOpen;
+                if (isAiChatOpen) {
+                    aiChatWindow.classList.remove('hidden');
+                    setTimeout(() => {
+                        aiChatWindow.classList.remove('opacity-0');
+                    }, 10);
+                    aiChatInput.focus();
+                    aiChatToggleBtn.classList.add('bg-white', 'text-emerald-500');
+                    aiChatToggleBtn.classList.remove('bg-emerald-500', 'text-black');
+                } else {
+                    aiChatWindow.classList.add('opacity-0');
+                    setTimeout(() => {
+                        aiChatWindow.classList.add('hidden');
+                    }, 300);
+                    aiChatToggleBtn.classList.remove('bg-white', 'text-emerald-500');
+                    aiChatToggleBtn.classList.add('bg-emerald-500', 'text-black');
+                }
+            }
+
+            aiChatToggleBtn?.addEventListener('click', toggleAiChat);
+            closeAiChatBtn?.addEventListener('click', toggleAiChat);
+
+            function appendChatMessage(text, isUser) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `p-3.5 rounded-2xl border text-sm shadow-sm leading-relaxed ${
+                    isUser 
+                    ? 'bg-emerald-500/20 text-emerald-50 border-emerald-500/30 rounded-tr-sm self-end max-w-[85%]' 
+                    : 'bg-white/10 text-white/90 border-white/5 rounded-tl-sm self-start max-w-[85%]'
+                }`;
+                
+                let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                formattedText = formattedText.replace(/\n/g, '<br/>');
+                
+                msgDiv.innerHTML = formattedText;
+                aiChatMessages.appendChild(msgDiv);
+                aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            }
+
+            function showTypingIndicator() {
+                const indicator = document.createElement('div');
+                indicator.id = 'aiTypingIndicator';
+                indicator.className = 'p-3.5 rounded-2xl bg-white/5 text-white/50 border border-white/5 rounded-tl-sm self-start flex items-center gap-1.5 h-[42px]';
+                indicator.innerHTML = `
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style="animation-delay: 150ms"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style="animation-delay: 300ms"></span>
+                `;
+                aiChatMessages.appendChild(indicator);
+                aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            }
+
+            function hideTypingIndicator() {
+                const indicator = document.getElementById('aiTypingIndicator');
+                if (indicator) indicator.remove();
+            }
+
+            // Local Knowledge Engine Fallback
+            function querySmartKnowledgeEngine(userQuery) {
+                const q = userQuery.toLowerCase();
+                
+                if (q.includes('price') || q.includes('cost') || q.includes('plan') || q.includes('rate') || q.includes('how much') || q.includes('package')) {
+                    return "Here is the official <strong>Forge Softwares</strong> pricing breakdown:<br/><br/>" +
+                           "• <strong>STARTER:</strong> ₹1,500 (1–3 Pages, Mobile Responsive, 7 Days Support)<br/>" +
+                           "• <strong>PROFESSIONAL:</strong> ₹7,499 [Most Popular] (5–7 Pages, Custom Design, Advanced SEO, 30 Days Support)<br/>" +
+                           "• <strong>PRO PLUS:</strong> ₹9,999 (8–12 Pages, Technical SEO, Blog, 60 Days Support)<br/>" +
+                           "• <strong>PREMIUM:</strong> ₹14,999 (12–20 Pages, AI Chatbot & Automation, CRM, 90 Days Support)<br/><br/>" +
+                           "Payment terms are <strong>40% advance</strong> and 60% upon project completion.";
+                }
+
+                if (q.includes('domain') || q.includes('hosting')) {
+                    return "The domain is <strong>included free for the 1st year</strong> and belongs 100% to you. Hosting is hosted on GitHub infrastructure and is <strong>free for life</strong> with zero recurring monthly hosting fees!";
+                }
+
+                if (q.includes('contact') || q.includes('phone') || q.includes('call') || q.includes('number') || q.includes('location')) {
+                    return "You can reach our senior engineering team directly at <strong>+91-9697430658</strong> or email <strong>forgesoftwares@gmail.com</strong>. Our physical hub is located in Srinagar, Jammu & Kashmir.";
+                }
+
+                if (q.includes('refund') || q.includes('cancel')) {
+                    return "A full refund is available within 7 days of initiation if technical work has not started. Once the 40% advance is paid and development begins, the advance is non-refundable.";
+                }
+
+                if (q.includes('time') || q.includes('how long') || q.includes('duration') || q.includes('timeline')) {
+                    return "Standard core web builds take <strong>7–14 days</strong>. Custom enterprise systems and AI chatbot integrations typically require <strong>3–4 weeks</strong>.";
+                }
+
+                let bestMatch = null;
+                let highestScore = 0;
+
+                helpDatabase.forEach(cat => {
+                    cat.items.forEach(item => {
+                        const qLower = item.q.toLowerCase();
+                        const words = q.split(' ').filter(w => w.length > 2);
+                        let score = 0;
+                        words.forEach(w => {
+                            if (qLower.includes(w)) score += 1;
+                        });
+                        if (score > highestScore) {
+                            highestScore = score;
+                            bestMatch = item;
+                        }
+                    });
+                });
+
+                if (bestMatch && highestScore > 0) {
+                    return `<strong>${bestMatch.q}</strong><br/><br/>${bestMatch.a.replace(/\n/g, '<br/>')}`;
+                }
+
+                return "Welcome to Forge Softwares! We build high-performance web platforms and autonomous AI workers. For custom requests or to start your deployment, click the <strong>Get Started</strong> button or call our line at <strong>+91-9697430658</strong>.";
+            }
+
+            aiChatForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const userText = aiChatInput.value.trim();
+                if (!userText) return;
+
+                appendChatMessage(userText, true);
+                aiChatInput.value = '';
+                
+                aiChatHistory.push({ role: 'user', parts: [{ text: userText }] });
+                showTypingIndicator();
+
+                const apiKey = "";
+                let responded = false;
+
+                if (apiKey && apiKey !== "") {
+                    try {
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                        const payload = {
+                            contents: aiChatHistory,
+                            systemInstruction: { parts: [{ text: systemInstructionText }] },
+                        };
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const result = await response.json();
+                        hideTypingIndicator();
+
+                        if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts) {
+                            const aiResponseText = result.candidates[0].content.parts[0].text;
+                            appendChatMessage(aiResponseText, false);
+                            aiChatHistory.push({ role: 'model', parts: [{ text: aiResponseText }] });
+                            responded = true;
+                        }
+                    } catch (error) {
+                        console.warn("API unavailable, switching to local knowledge engine:", error);
+                    }
+                }
+
+                if (!responded) {
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        const localAnswer = querySmartKnowledgeEngine(userText);
+                        appendChatMessage(localAnswer, false);
+                        aiChatHistory.push({ role: 'model', parts: [{ text: localAnswer }] });
+                    }, 350);
+                }
+            });
+
             if (window.location.hash) {
                 handleHashRoute();
             }
