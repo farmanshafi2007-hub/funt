@@ -1,1469 +1,1485 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Forge Softwares | Nothing OS Systems & AI Automation</title>
-    <meta name="description" content="Forge Softwares Nothing OS Edition: High-performance web architecture & autonomous AI workers starting at ₹1,999.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AURA | Pure Sound — Transparency Engine</title>
 
-    <!-- Fonts: Silkscreen (Dot Matrix), DM Serif Display (Editorial Serif), Inter (UI), JetBrains Mono (Tech) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Aura Pure Sound — Industrial design meets audio perfection. 50dB active noise cancellation, custom ceramic driver, and 40-hour battery.">
 
-    <!-- Tailwind CSS Engine -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts: Inter for Apple clarity + Space Mono & DotGothic16 for Nothing Tech Aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
 
-    <!-- Lucide Icons Library -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js" defer></script>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        :root {
-            --nothing-bg: #EBEBEB;
-            --nothing-card: #FFFFFF;
-            --nothing-text-main: #0F0F0F;
-            --nothing-text-muted: #666666;
-            --nothing-border: #D8D8D8;
-            --nothing-red: #D71921;
-            --nothing-accent-blue: #0066CC;
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--nothing-bg);
-            color: var(--nothing-text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
-            overflow-x: hidden;
-            /* Nothing OS continuous dot matrix background pattern */
-            background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.2px, transparent 1.2px);
-            background-size: 20px 24px;
-            background-attachment: fixed;
-        }
-
-        /* Typography utility classes */
-        .font-ndot {
-            font-family: 'Silkscreen', monospace;
-            letter-spacing: 0.05em;
-        }
-
-        .font-serif-editorial {
-            font-family: 'DM Serif Display', Georgia, serif;
-        }
-
-        .font-mono-tech {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Nothing OS Glass and Card System */
-        .nothing-card {
-            background: #FFFFFF;
-            border: 1px solid var(--nothing-border);
-            border-radius: 28px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nothing-card:hover {
-            border-color: #A0A0A0;
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.07);
-        }
-
-        .nothing-card-red {
-            background: #FFFFFF;
-            border: 2px solid var(--nothing-red);
-            border-radius: 28px;
-            box-shadow: 0 16px 40px rgba(215, 25, 33, 0.08);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nothing-card-red:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 24px 50px rgba(215, 25, 33, 0.15);
-        }
-
-        .nothing-card-dark {
-            background: #0F0F0F;
-            color: #FFFFFF;
-            border: 1px solid #282828;
-            border-radius: 28px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Nothing OS Button Styles */
-        .nothing-btn-primary {
-            background-color: #0F0F0F;
-            color: #FFFFFF;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            border-radius: 12px;
-            padding: 14px 28px;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #0F0F0F;
-        }
-
-        .nothing-btn-primary:hover {
-            background-color: #282828;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .nothing-btn-red {
-            background-color: var(--nothing-red);
-            color: #FFFFFF;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            border-radius: 12px;
-            padding: 14px 28px;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--nothing-red);
-        }
-
-        .nothing-btn-red:hover {
-            background-color: #B51218;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(215, 25, 33, 0.3);
-        }
-
-        .nothing-btn-secondary {
-            background-color: #F4F4F4;
-            color: #0F0F0F;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border-radius: 12px;
-            padding: 14px 28px;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--nothing-border);
-        }
-
-        .nothing-btn-secondary:hover {
-            background-color: #E2E2E2;
-            border-color: #A0A0A0;
-            color: #000000;
-        }
-
-        /* Red Status Dot Pulse */
-        .red-dot-pulse {
-            width: 8px;
-            height: 8px;
-            background-color: var(--nothing-red);
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 0 rgba(215, 25, 33, 0.4);
-            animation: redPulse 1.8s infinite;
-        }
-
-        @keyframes redPulse {
-            0% { box-shadow: 0 0 0 0 rgba(215, 25, 33, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(215, 25, 33, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(215, 25, 33, 0); }
-        }
-
-        /* Hero Canvas & Media Layer */
-        .hero-video-layer {
-            will-change: opacity;
-            transition: opacity 0.8s ease-in-out;
-            object-fit: cover;
-        }
-
-        /* Custom Scrollbars */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #EBEBEB; }
-        ::-webkit-scrollbar-thumb { background: #B0B0B0; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #808080; }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Table sticky column styling */
-        .pricing-matrix-table th.sticky-col {
-            position: sticky;
-            left: 0;
-            z-index: 20;
-            background-color: #FFFFFF;
-            border-right: 2px solid #E2E2E2;
-        }
-
-        .pricing-matrix-table thead th.sticky-col {
-            background-color: #F4F4F4;
-        }
-    </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        nothingBg: '#EBEBEB',
-                        nothingDark: '#0F0F0F',
-                        nothingRed: '#D71921',
-                        nothingGray: '#808080',
-                        nothingLightGray: '#F4F4F4',
-                        nothingBorder: '#D8D8D8'
-                    }
-                }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+            dot: ['DotGothic16', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              red: '#e30000',
+              redGlow: 'rgba(227, 0, 0, 0.4)',
+              darkBg: '#08080a',
+              darkCard: '#121215',
+              lightBg: '#f8f9fa',
+              lightCard: '#ffffff',
+              dotGray: '#26262a'
             }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'marquee': 'marquee 25s linear infinite',
+            'spin-slow': 'spin 12s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
         }
-    </script>
+      }
+    }
+  </script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #08080a;
+      --text-main: #f5f5f7;
+      --text-muted: #86868b;
+      --card-bg: rgba(18, 18, 21, 0.75);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --accent-red: #e30000;
+      --glyph-color: #ffffff;
+      --accent-glow: rgba(227, 0, 0, 0.25);
+    }
+
+    html.light {
+      --bg-main: #f5f5f7;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --accent-red: #d00000;
+      --glyph-color: #1d1d1f;
+      --accent-glow: rgba(208, 0, 0, 0.15);
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nothing Style Noise Texture */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Dot Grid Background Pattern */
+    .bg-dot-matrix {
+      background-image: radial-gradient(rgba(134, 134, 139, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Lenis Smooth Scroll Engine Custom Styles */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    /* Glassmorphism Panel */
+    .glass-panel {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Typography Utilities */
+    .text-huge {
+      font-size: clamp(3.5rem, 15vw, 17rem);
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      line-height: 0.78;
+    }
+
+    .tech-mono {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-red);
+    }
+
+    /* Buttons */
+    .btn-apple {
+      background: var(--text-main);
+      color: var(--bg-main);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-apple:hover {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+      box-shadow: 0 10px 25px rgba(227, 0, 0, 0.2);
+    }
+
+    .btn-glass {
+      background: rgba(125, 125, 125, 0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-glass:hover {
+      background: rgba(125, 125, 125, 0.18);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    /* Page View Navigation */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .page-view.active {
+      display: block;
+    }
+
+    .page-view.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll sticky container */
+    .sticky-container {
+      height: 360vh;
+      position: relative;
+    }
+
+    .sticky-content {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1200px;
+    }
+
+    /* Hardware Acceleration */
+    .will-change-transform {
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    /* Card Perspective Animations */
+    .feature-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .feature-card.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1) translateZ(0) rotateX(0deg);
+    }
+
+    .feature-card.prev {
+      opacity: 0;
+      filter: blur(12px);
+      transform: translate(-50%, -75%) scale(0.9) translateZ(-120px) rotateX(8deg);
+    }
+
+    .feature-card.next {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translate(-50%, -25%) scale(1.04) translateZ(120px) rotateX(-8deg);
+    }
+
+    /* Nav link indicator */
+    .nav-link {
+      position: relative;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 100%;
+      height: 2px;
+      background: var(--accent-red);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 2px;
+    }
+
+    .nav-link.active::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .payment-modal {
+      background: var(--bg-main);
+      color: var(--text-main);
+      width: 100%;
+      max-width: 480px;
+      padding: 2.5rem 2rem;
+      border-radius: 36px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      transform: translateY(30px) scale(0.95);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.open .payment-modal {
+      transform: translateY(0) scale(1);
+    }
+  </style>
 </head>
 
-<body class="selection:bg-black selection:text-white w-full max-w-full overflow-x-hidden antialiased">
+<body class="bg-dot-matrix selection:bg-red-600 selection:text-white">
 
-    <!-- Sticky Top Navigation Bar -->
-    <header id="topHeader" class="sticky top-0 z-50 w-full bg-[#EBEBEB]/80 backdrop-blur-md border-b border-neutral-300 transition-all duration-300 h-14 flex items-center">
-        <nav class="w-full max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-full">
-            
-            <!-- Left: Dashed Menu Trigger -->
-            <button type="button" id="mobileMenuTrigger" class="flex items-center gap-2 text-xs font-ndot uppercase tracking-widest text-neutral-800 hover:text-black focus:outline-none cursor-pointer">
-                <i data-lucide="menu" class="w-5 h-5"></i>
-                <span class="hidden sm:inline-block">[ MENU ]</span>
-            </button>
+  <!-- Noise Texture Overlay -->
+  <div class="noise-overlay"></div>
 
-            <!-- Center: Dot Matrix Brand Title -->
-            <a href="#home" class="flex items-center gap-2 group focus:outline-none">
-                <span class="red-dot-pulse"></span>
-                <span class="font-ndot text-sm sm:text-base uppercase tracking-widest text-black font-bold">
-                    FORGE (R)
-                </span>
-                <span class="text-[10px] font-mono-tech text-neutral-500 hidden md:inline-block">v3.0.4</span>
-            </a>
+  <!-- Page Transition Loader -->
+  <div id="page-loader"
+    class="fixed inset-0 bg-[var(--bg-main)] z-[1000] flex flex-col items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
+    <div class="w-12 h-12 border-2 border-red-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+    <span class="tech-mono text-xs tracking-widest text-[var(--text-muted)]">// INITIALIZING SOUND STAGE</span>
+  </div>
 
-            <!-- Right: Quick Navigation & CTAs -->
-            <div class="flex items-center gap-4 sm:gap-6 text-xs font-mono-tech uppercase">
-                <a href="#pricing" class="hidden md:inline-block hover:text-nothingRed transition-colors">[ PRICING ]</a>
-                <button type="button" id="navHelpTrigger" class="hidden sm:inline-block hover:text-nothingRed transition-colors cursor-pointer focus:outline-none">[ HELP ]</button>
-                <button type="button" id="navBookTrigger" class="nothing-btn-primary !py-1.5 !px-4 !text-[11px] !rounded-md">
-                    BOOK SITE
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Mobile Drawer Overlay & Panel -->
-    <div id="drawerOverlay" class="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300"></div>
-    <div id="drawerPanel" class="fixed top-0 left-0 z-50 h-full w-80 max-w-[85vw] bg-white border-r border-neutral-300 translate-x-[-100%] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] p-6 flex flex-col justify-between shadow-2xl">
-        <div>
-            <div class="flex items-center justify-between border-b border-neutral-200 pb-4 mb-6">
-                <div class="flex items-center gap-2">
-                    <span class="red-dot-pulse"></span>
-                    <span class="font-ndot text-xs font-bold uppercase tracking-widest">FORGE OS</span>
-                </div>
-                <button type="button" id="closeDrawerBtn" class="text-neutral-500 hover:text-black p-1 cursor-pointer focus:outline-none">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-            <div class="flex flex-col gap-3 font-ndot text-xs uppercase tracking-widest">
-                <a href="#home" class="drawerLink py-2 px-3 rounded-lg hover:bg-neutral-100">[ 01 ] HOME</a>
-                <a href="#pricing" class="drawerLink py-2 px-3 rounded-lg hover:bg-neutral-100 text-nothingRed">[ 02 ] PRICING MATRIX</a>
-                <a href="#testimonials" class="drawerLink py-2 px-3 rounded-lg hover:bg-neutral-100">[ 03 ] REVIEWS</a>
-                <a href="#contact" class="drawerLink py-2 px-3 rounded-lg hover:bg-neutral-100">[ 04 ] HEADQUARTERS</a>
-                <button type="button" id="drawerHelpBtn" class="drawerLink text-left py-2 px-3 rounded-lg hover:bg-neutral-100 cursor-pointer focus:outline-none">[ 05 ] HELP CENTER</button>
-                <button type="button" id="drawerBlogBtn" class="drawerLink text-left py-2 px-3 rounded-lg hover:bg-neutral-100 cursor-pointer focus:outline-none">[ 06 ] BLOG & ARTICLES</button>
-            </div>
-        </div>
-        <div class="border-t border-neutral-200 pt-4">
-            <button type="button" id="drawerBookBtn" class="nothing-btn-red w-full !text-xs">
-                INITIALIZE PROJECT
-            </button>
-            <p class="text-[10px] font-mono-tech text-neutral-400 text-center mt-3">FORGE SOFTWARES &copy; 2026</p>
-        </div>
+  <!-- GLOBAL NAVBAR -->
+  <nav
+    class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center pointer-events-none backdrop-blur-md border-b border-[var(--border-color)] bg-[var(--bg-main)]/60 transition-colors duration-300">
+    <div class="flex items-center gap-4 pointer-events-auto cursor-pointer group" onclick="navigate('home')">
+      <div
+        class="w-8 h-8 rounded-full border border-red-600/40 bg-red-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <span class="w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse"></span>
+      </div>
+      <div>
+        <span class="font-black text-xl tracking-tighter text-[var(--text-main)] block leading-none">AURA</span>
+        <span class="font-mono text-[9px] tracking-widest text-[var(--text-muted)] block">// PURE SOUND</span>
+      </div>
     </div>
 
-    <main class="w-full flex flex-col">
-
-        <!-- Hero Section: Nothing OS Style Floating Panel -->
-        <section id="home" class="relative min-h-[92vh] w-full flex flex-col justify-center items-center px-4 sm:px-8 py-12 overflow-hidden">
-            
-            <!-- Video Media Background Layers -->
-            <div id="heroVideoContainer" class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none opacity-30">
-                <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" loop muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"></video>
-                <video id="vid-layer-1" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" loop muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_092026_dd05b805-ea0f-40b2-8c52-332b88502592.mp4"></video>
-                <video id="vid-layer-2" class="absolute inset-0 h-full w-full hero-video-layer opacity-0" loop muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081042_df7202bf-bd80-4b2b-bbc6-1f09ba2870e9.mp4"></video>
-                <video id="vid-layer-3" class="absolute inset-0 h-full w-full hero-video-layer opacity-100" loop muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_080959_4cac5234-3573-464e-a5b7-76b94b8a7d61.mp4"></video>
-            </div>
-
-            <!-- Particle Animation Canvas -->
-            <canvas id="hero-canvas" class="absolute inset-0 w-full h-full z-[1] pointer-events-none"></canvas>
-
-            <!-- Nothing OS Centered Main White Card -->
-            <div class="relative z-[10] w-full max-w-3xl nothing-card p-6 sm:p-12 text-center my-auto border border-neutral-300">
-                
-                <!-- Dot Matrix Top Badge -->
-                <div class="inline-flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-3.5 py-1.5 rounded-full text-xs font-ndot uppercase tracking-widest text-neutral-800 mb-6">
-                    <span class="red-dot-pulse"></span>
-                    <span>FORGE OS ( 3.0 ) &bull; AUTONOMOUS AI</span>
-                </div>
-
-                <!-- Editorial Serif Main Headline -->
-                <h1 class="font-serif-editorial text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight text-black mb-6">
-                    Build high-speed websites & AI workers that grow your business 24/7.
-                </h1>
-
-                <!-- Body Text -->
-                <p class="text-sm sm:text-base text-neutral-600 max-w-xl mx-auto mb-8 font-sans leading-relaxed">
-                    Forge Softwares crafts ultra-fast digital platforms and autonomous AI agents. We automate support, capture qualified leads, and give your brand an instant competitive advantage.
-                </p>
-
-                <!-- Email Form -->
-                <form id="heroEmailForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
-                    <input type="email" id="heroEmailInput" placeholder="Enter your business email..." required class="flex-1 bg-neutral-100 border border-neutral-300 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono-tech focus:outline-none focus:border-black transition-colors" />
-                    <button type="submit" class="nothing-btn-primary shrink-0 !py-3 !px-6 !text-xs">
-                        DISCOVER <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
-                    </button>
-                </form>
-
-                <!-- Environment / Scene Switcher Buttons -->
-                <div class="flex items-center justify-center flex-wrap gap-2 pt-4 border-t border-neutral-200 text-[10px] font-ndot uppercase">
-                    <span class="text-neutral-400 mr-2">[ ENVIRONMENT :</span>
-                    <button type="button" class="sceneBtn px-3 py-1 rounded-md border border-neutral-300 hover:border-black transition-all cursor-pointer" data-video-index="0">GOLDEN</button>
-                    <button type="button" class="sceneBtn px-3 py-1 rounded-md border border-neutral-300 hover:border-black transition-all cursor-pointer" data-video-index="1">WATER</button>
-                    <button type="button" class="sceneBtn px-3 py-1 rounded-md border border-neutral-300 hover:border-black transition-all cursor-pointer" data-video-index="2">WOODS</button>
-                    <button type="button" class="sceneBtn active px-3 py-1 rounded-md bg-black text-white border border-black cursor-pointer" data-video-index="3">DAWN</button>
-                    <span class="text-neutral-400 ml-1">]</span>
-                </div>
-            </div>
-
-            <!-- KPI Row -->
-            <div class="relative z-[10] w-full max-w-3xl grid grid-cols-3 gap-4 mt-6 text-center font-mono-tech text-xs">
-                <div class="bg-white/80 backdrop-blur-xs border border-neutral-300 rounded-2xl p-3">
-                    <div class="font-bold text-base sm:text-lg text-black">42,500+</div>
-                    <div class="text-[10px] text-neutral-500 uppercase tracking-widest mt-0.5">DEPLOYMENTS</div>
-                </div>
-                <div class="bg-white/80 backdrop-blur-xs border border-neutral-300 rounded-2xl p-3">
-                    <div class="font-bold text-base sm:text-lg text-black">99.9%</div>
-                    <div class="text-[10px] text-neutral-500 uppercase tracking-widest mt-0.5">RELIABILITY</div>
-                </div>
-                <div class="bg-white/80 backdrop-blur-xs border border-neutral-300 rounded-2xl p-3">
-                    <div class="font-bold text-base sm:text-lg text-black">24/7</div>
-                    <div class="text-[10px] text-neutral-500 uppercase tracking-widest mt-0.5">AUTONOMOUS</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secondary Product & Services Grid -->
-        <section class="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-            <div class="text-center mb-12">
-                <div class="text-xs font-ndot text-nothingRed uppercase tracking-widest mb-2">[ CORE ARCHITECTURE ]</div>
-                <h2 class="font-serif-editorial text-3xl sm:text-4xl text-black">Precision Built Engineering</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="nothing-card p-6 sm:p-8 flex flex-col justify-between reveal">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-6 text-black">
-                            <i data-lucide="cpu" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-[10px] font-ndot uppercase text-neutral-400 tracking-widest">[ SYSTEM 01 ]</span>
-                        <h3 class="font-serif-editorial text-2xl text-black mt-1 mb-3">Workflow Automation</h3>
-                        <p class="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
-                            Streamlined operational logic and autonomous execution pipelines engineered for continuous 24/7 business task handling.
-                        </p>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-neutral-200 text-xs font-mono-tech text-neutral-400">
-                        LATENCY &lt; 120ms
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="nothing-card p-6 sm:p-8 flex flex-col justify-between reveal" style="transition-delay: 100ms;">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-6 text-black">
-                            <i data-lucide="layout-template" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-[10px] font-ndot uppercase text-nothingRed tracking-widest">[ SYSTEM 02 ]</span>
-                        <h3 class="font-serif-editorial text-2xl text-black mt-1 mb-3">Web Platforms</h3>
-                        <p class="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
-                            High-converting static web architecture with instant response times, responsive layout motion, and Core Web Vitals perfection.
-                        </p>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-neutral-200 text-xs font-mono-tech text-neutral-400">
-                        STATIC EDGE SPEED
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="nothing-card p-6 sm:p-8 flex flex-col justify-between reveal" style="transition-delay: 200ms;">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-6 text-black">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-[10px] font-ndot uppercase text-neutral-400 tracking-widest">[ SYSTEM 03 ]</span>
-                        <h3 class="font-serif-editorial text-2xl text-black mt-1 mb-3">Autonomous AI Chatbots</h3>
-                        <p class="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
-                            24/7 intelligent customer support agents trained on your business data to qualify leads and capture client interest with zero lag.
-                        </p>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-neutral-200 text-xs font-mono-tech text-neutral-400">
-                        2.4M CONTEXT WINDOWS
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Performance Counter Bar -->
-        <section class="py-12 border-y border-neutral-300 bg-white/60 backdrop-blur-xs w-full">
-            <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div>
-                    <div class="text-xs font-ndot text-neutral-400 uppercase">[ INFERENCE ]</div>
-                    <div class="font-mono-tech text-2xl sm:text-3xl font-bold text-black mt-1">
-                        &lt; <span class="stat-counter" data-target="120" data-decimals="0">0</span><span class="text-nothingRed text-sm">ms</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-xs font-ndot text-neutral-400 uppercase">[ UPTIME ]</div>
-                    <div class="font-mono-tech text-2xl sm:text-3xl font-bold text-black mt-1">
-                        <span class="stat-counter" data-target="99.99" data-decimals="2">0.00</span><span class="text-nothingRed text-sm">%</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="text-xs font-ndot text-neutral-400 uppercase">[ RUNTIME ]</div>
-                    <div class="font-mono-tech text-2xl sm:text-3xl font-bold text-black mt-1">
-                        <span class="stat-counter" data-target="24" data-decimals="0">0</span>/7
-                    </div>
-                </div>
-                <div>
-                    <div class="text-xs font-ndot text-neutral-400 uppercase">[ CONTEXT ]</div>
-                    <div class="font-mono-tech text-2xl sm:text-3xl font-bold text-black mt-1">
-                        <span class="stat-counter" data-target="2.4" data-decimals="1">0.0</span><span class="text-nothingRed text-sm">M</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partner Banner -->
-        <section class="py-16 px-4 max-w-7xl mx-auto w-full text-center">
-            <p class="text-[10px] font-ndot text-neutral-500 uppercase tracking-widest mb-6">[ FEATURED GOLDEN INDUSTRY PARTNER ]</p>
-            <div class="inline-flex items-center gap-3 bg-white border border-neutral-300 rounded-2xl px-6 py-3 shadow-sm hover:border-black transition-all">
-                <i data-lucide="home" class="w-5 h-5 text-amber-500"></i>
-                <a href="https://farmanshafi2007-hub.github.io/INEXTERIOR/" target="_blank" rel="noopener noreferrer" class="font-ndot text-sm sm:text-base font-bold text-black hover:text-nothingRed tracking-widest uppercase">
-                    INEXTERIOR OFFICIAL SITE &rarr;
-                </a>
-            </div>
-        </section>
-
-        <!-- Pricing Architecture Section -->
-        <section id="pricing" class="py-20 sm:py-28 px-4 sm:px-8 bg-neutral-100 border-t border-neutral-300 w-full">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12 sm:mb-16">
-                    <div class="inline-flex items-center gap-2 text-[10px] font-ndot text-black bg-white border border-neutral-300 px-4 py-1.5 rounded-full uppercase tracking-widest mb-3">
-                        <span class="red-dot-pulse"></span>
-                        <span>SCALABLE INVESTMENT TIERS</span>
-                    </div>
-                    <h2 class="font-serif-editorial text-3xl sm:text-5xl text-black">Pricing Architecture</h2>
-                    <p class="text-xs font-mono-tech text-neutral-500 uppercase mt-2">Transparent Engineering Tiers with Zero Hidden Charges</p>
-                </div>
-
-                <!-- 3 Pricing Cards Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
-                    
-                    <!-- BASIC (₹1,999) -->
-                    <div class="nothing-card p-6 sm:p-8 flex flex-col justify-between reveal">
-                        <div>
-                            <div class="flex items-center justify-between pb-3 border-b border-neutral-200 mb-4">
-                                <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ TIER 01 ]</span>
-                                <span class="text-xs font-mono-tech bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">ENTRY</span>
-                            </div>
-                            <h3 class="font-serif-editorial text-3xl text-black mb-1">Basic</h3>
-                            <p class="text-xs text-neutral-500 mb-6 font-sans">New businesses & low budget owners</p>
-                            <div class="font-mono-tech text-3xl font-bold text-black mb-6">
-                                ₹1,999 <span class="text-xs text-neutral-500 font-sans font-normal">(One-Time)</span>
-                            </div>
-                            <button type="button" class="nothingBookBtn nothing-btn-secondary w-full mb-8">
-                                SELECT BASIC
-                            </button>
-                            <ul class="space-y-3 text-xs font-sans text-neutral-700 border-t border-neutral-200 pt-6">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 1–3 Pages Simple Business Layout</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Simple Business Design</li>
-                                <li class="flex items-center gap-2 text-neutral-400"><i data-lucide="x" class="w-4 h-4 text-nothingRed shrink-0"></i> Mobile Responsive (❌)</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> WhatsApp Chat Button</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Simple Contact Form</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Social Media Links</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Basic Speed Optimization</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Free Deployment & SSL Security</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 1 Free Revision</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 3 Days Support & Maintenance</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- PRO ⭐ Best Selling (₹7,999) -->
-                    <div class="nothing-card-red p-6 sm:p-8 flex flex-col justify-between relative reveal" style="transition-delay: 100ms;">
-                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-nothingRed text-white font-ndot text-[9px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md whitespace-nowrap">
-                            BEST SELLING ⭐
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between pb-3 border-b border-red-100 mb-4 mt-2">
-                                <span class="text-[10px] font-ndot text-nothingRed uppercase">[ TIER 02 ]</span>
-                                <span class="text-xs font-mono-tech bg-red-50 text-nothingRed px-2 py-0.5 rounded border border-red-200">POPULAR</span>
-                            </div>
-                            <h3 class="font-serif-editorial text-3xl text-black mb-1">Pro ⭐</h3>
-                            <p class="text-xs text-neutral-500 mb-6 font-sans">Growing businesses & startups</p>
-                            <div class="font-mono-tech text-3xl font-bold text-nothingRed mb-6">
-                                ₹7,999 <span class="text-xs text-neutral-500 font-sans font-normal">(One-Time)</span>
-                            </div>
-                            <button type="button" class="nothingBookBtn nothing-btn-red w-full mb-8">
-                                SELECT PRO ⭐
-                            </button>
-                            <ul class="space-y-3 text-xs font-sans text-neutral-800 border-t border-red-100 pt-6">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Up to 8 Pages Modern Layout</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Modern Professional Design</li>
-                                <li class="flex items-center gap-2 font-semibold text-black"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i> Mobile & Tablet Responsive (✅)</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Google Maps & Analytics</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Professional Form + Email Alerts</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Portfolio & Gallery Included</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Blog Engine Included</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> Advanced On-Page SEO Setup</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> 3 Free Revisions</li>
-                                <li class="flex items-center gap-2 font-semibold text-nothingRed"><i data-lucide="check" class="w-4 h-4 text-nothingRed shrink-0"></i> 15 Days Maintenance Support</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- PREMIUM 👑 Value for Money (₹14,999) -->
-                    <div class="nothing-card p-6 sm:p-8 flex flex-col justify-between reveal" style="transition-delay: 200ms;">
-                        <div>
-                            <div class="flex items-center justify-between pb-3 border-b border-neutral-200 mb-4">
-                                <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ TIER 03 ]</span>
-                                <span class="text-xs font-mono-tech bg-amber-50 text-amber-800 px-2 py-0.5 rounded border border-amber-200">VALUE FOR MONEY 👑</span>
-                            </div>
-                            <h3 class="font-serif-editorial text-3xl text-black mb-1">Premium 👑</h3>
-                            <p class="text-xs text-neutral-500 mb-6 font-sans">Established businesses & premium brands</p>
-                            <div class="font-mono-tech text-3xl font-bold text-black mb-6">
-                                ₹14,999 <span class="text-xs text-neutral-500 font-sans font-normal">(One-Time)</span>
-                            </div>
-                            <button type="button" class="nothingBookBtn nothing-btn-primary w-full mb-8">
-                                SELECT PREMIUM 👑
-                            </button>
-                            <ul class="space-y-3 text-xs font-sans text-neutral-800 border-t border-neutral-200 pt-6">
-                                <li class="flex items-center gap-2 font-semibold text-black"><i data-lucide="star" class="w-4 h-4 text-amber-500 shrink-0"></i> Unlimited Pages Custom Architecture</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> 100% Custom Tailored Design</li>
-                                <li class="flex items-center gap-2 font-bold text-nothingRed"><i data-lucide="bot" class="w-4 h-4 text-nothingRed shrink-0"></i> Autonomous AI Chatbot Integrated</li>
-                                <li class="flex items-center gap-2 font-bold text-emerald-700"><i data-lucide="globe" class="w-4 h-4 text-emerald-600 shrink-0"></i> Free Custom Domain (1st Year)</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Enterprise SSL & Hosting Setup</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Advanced Technical SEO & Schema.org</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Advanced Lead Capture System</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Complete Content Upload Assistance</li>
-                                <li class="flex items-center gap-2 font-semibold text-black"><i data-lucide="check" class="w-4 h-4 text-black shrink-0"></i> Unlimited Revisions</li>
-                                <li class="flex items-center gap-2 font-bold text-black"><i data-lucide="headphones" class="w-4 h-4 text-black shrink-0"></i> 30 Days Priority Support</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- 27 Parameter Feature Matrix Table -->
-                <div class="nothing-card p-4 sm:p-8 overflow-hidden">
-                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-neutral-200">
-                        <div>
-                            <h3 class="font-ndot text-sm sm:text-base text-black uppercase">[ FEATURE MATRIX ]</h3>
-                            <p class="text-xs font-mono-tech text-neutral-500 mt-0.5">Swipe horizontally to compare all 27 technical parameters</p>
-                        </div>
-                        <span class="text-[10px] font-ndot bg-neutral-100 border border-neutral-300 px-3 py-1 rounded-full text-neutral-600 hidden sm:inline-block">
-                            SWIPE &rarr;
-                        </span>
-                    </div>
-
-                    <div class="overflow-x-auto no-scrollbar">
-                        <table class="pricing-matrix-table w-full text-left font-mono-tech text-xs min-w-[640px]">
-                            <thead>
-                                <tr class="bg-neutral-100 text-black border-b border-neutral-300">
-                                    <th class="py-3 px-4 sticky-col font-bold w-48">Feature</th>
-                                    <th class="py-3 px-4 text-center w-36">Basic<br><span class="text-neutral-500 text-[10px]">₹1,999</span></th>
-                                    <th class="py-3 px-4 text-center text-nothingRed font-bold w-40 bg-red-50/50">Pro ⭐<br><span class="text-[10px]">₹7,999</span></th>
-                                    <th class="py-3 px-4 text-center font-bold w-44">Premium 👑<br><span class="text-neutral-500 text-[10px]">₹14,999</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-neutral-200 text-neutral-800">
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Best For</td>
-                                    <td class="py-2.5 px-4 text-center text-neutral-500">New / Low Budget</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 font-semibold text-black">Growing Startups</td>
-                                    <td class="py-2.5 px-4 text-center font-bold text-black">Established Brands</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Price</td>
-                                    <td class="py-2.5 px-4 text-center">₹1,999</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 font-bold text-nothingRed">₹7,999</td>
-                                    <td class="py-2.5 px-4 text-center font-bold">₹14,999</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Pages</td>
-                                    <td class="py-2.5 px-4 text-center">1–3 Pages</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30">Up to 8 Pages</td>
-                                    <td class="py-2.5 px-4 text-center font-bold text-black">Unlimited Pages</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Mobile Responsive</td>
-                                    <td class="py-2.5 px-4 text-center text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 text-emerald-600 font-bold">✅ Included</td>
-                                    <td class="py-2.5 px-4 text-center text-emerald-600 font-bold">✅ Fully Responsive</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">AI Chatbot Agent</td>
-                                    <td class="py-2.5 px-4 text-center text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center text-emerald-600 font-bold">✅ Included</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Free 1st Year Domain</td>
-                                    <td class="py-2.5 px-4 text-center text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center text-emerald-600 font-bold">✅ Free Domain</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Free Revisions</td>
-                                    <td class="py-2.5 px-4 text-center">1 Revision</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30">3 Revisions</td>
-                                    <td class="py-2.5 px-4 text-center font-bold text-black">Unlimited</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Support Window</td>
-                                    <td class="py-2.5 px-4 text-center">3 Days</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 font-bold text-nothingRed">15 Days</td>
-                                    <td class="py-2.5 px-4 text-center font-bold text-black">30 Days Priority</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Hosting Setup</td>
-                                    <td class="py-2.5 px-4 text-center">Free Deployment</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30">Free Hosting</td>
-                                    <td class="py-2.5 px-4 text-center font-bold">Premium Hosting</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2.5 px-4 sticky-col font-semibold">Google Maps & Analytics</td>
-                                    <td class="py-2.5 px-4 text-center text-nothingRed font-bold">❌</td>
-                                    <td class="py-2.5 px-4 text-center bg-red-50/30 text-emerald-600 font-bold">✅ Included</td>
-                                    <td class="py-2.5 px-4 text-center text-emerald-600 font-bold">✅ Advanced Setup</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section id="testimonials" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto w-full">
-            <div class="text-center mb-12">
-                <div class="text-xs font-ndot text-neutral-400 uppercase mb-2">[ CLIENT VERIFICATION ]</div>
-                <h2 class="font-serif-editorial text-3xl sm:text-4xl text-black">Operator Testimonials</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="nothing-card p-6 sm:p-8 reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-neutral-100 border border-neutral-300 flex items-center justify-center font-bold font-ndot text-xs">
-                            S.J
-                        </div>
-                        <div>
-                            <div class="font-bold text-sm text-black">Sarah J.</div>
-                            <div class="text-[10px] font-mono-tech text-neutral-500 uppercase">Director @ Lumina Health</div>
-                        </div>
-                    </div>
-                    <p class="font-serif-editorial text-lg text-neutral-800 leading-relaxed italic">
-                        "The autonomous AI agent handles 90% of our patient inquiries and books appointments with zero human delay. Game changer for our operations."
-                    </p>
-                </div>
-
-                <div class="nothing-card p-6 sm:p-8 reveal" style="transition-delay: 100ms;">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-neutral-100 border border-neutral-300 flex items-center justify-center font-bold font-ndot text-xs">
-                            R.A
-                        </div>
-                        <div>
-                            <div class="font-bold text-sm text-black">Riyaz A.</div>
-                            <div class="text-[10px] font-mono-tech text-neutral-500 uppercase">Founder @ Vertex Retail</div>
-                        </div>
-                    </div>
-                    <p class="font-serif-editorial text-lg text-neutral-800 leading-relaxed italic">
-                        "The minimalist Nothing aesthetic gave our brand instant prestige. Combined with static edge speed, our lead conversions doubled."
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Direct Contact & Headquarters Section -->
-        <section id="contact" class="py-20 sm:py-28 px-4 sm:px-8 bg-nothingDark text-white w-full">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <div class="inline-flex items-center gap-2 text-[10px] font-ndot text-white bg-neutral-800 px-3 py-1 rounded-full uppercase tracking-widest mb-3">
-                        <span class="red-dot-pulse"></span>
-                        <span>CENTRAL OPERATIONS</span>
-                    </div>
-                    <h2 class="font-serif-editorial text-3xl sm:text-5xl text-white">Headquarters & Direct Line</h2>
-                    <p class="text-xs font-mono-tech text-neutral-400 mt-2 uppercase">Connect directly with senior systems engineering operators</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- HQ Card -->
-                    <div class="nothing-card-dark p-6 sm:p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white mb-6">
-                                <i data-lucide="building-2" class="w-5 h-5"></i>
-                            </div>
-                            <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ CENTRAL HQ ]</span>
-                            <h3 class="font-serif-editorial text-2xl text-white mt-1 mb-3">Srinagar Headquarters</h3>
-                            <p class="text-xs text-neutral-300 font-sans leading-relaxed">
-                                Pandith Pore Rainawari<br>
-                                Srinagar, Jammu & Kashmir &bull; 190003
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-neutral-800 text-[10px] font-mono-tech text-neutral-500 mt-6">
-                            REGISTRY ID: 190003-HQ
-                        </div>
-                    </div>
-
-                    <!-- Local Branch Card -->
-                    <div class="nothing-card-dark p-6 sm:p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white mb-6">
-                                <i data-lucide="map-pin" class="w-5 h-5"></i>
-                            </div>
-                            <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ BRANCH ]</span>
-                            <h3 class="font-serif-editorial text-2xl text-white mt-1 mb-3">Srinagar Development Office</h3>
-                            <p class="text-xs text-neutral-300 font-sans leading-relaxed">
-                                Rainawari Jogilanker<br>
-                                Srinagar, Jammu & Kashmir
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-neutral-800 text-[10px] font-mono-tech text-neutral-500 mt-6">
-                            DEV & SUPPORT HUB
-                        </div>
-                    </div>
-
-                    <!-- Direct Connect Card -->
-                    <div class="nothing-card-dark p-6 sm:p-8 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-xl bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white mb-6">
-                                <i data-lucide="phone-call" class="w-5 h-5"></i>
-                            </div>
-                            <span class="text-[10px] font-ndot text-nothingRed uppercase">[ DIRECT LINE ]</span>
-                            <h3 class="font-serif-editorial text-2xl text-white mt-1 mb-3">Phone & Email</h3>
-                            <div class="space-y-2 text-xs font-mono-tech text-neutral-300">
-                                <a href="tel:+919697430658" class="block hover:text-white transition-colors">+91-9697430658</a>
-                                <a href="mailto:farmanshafi2007@gmail.com" class="block hover:text-white transition-colors break-all">farmanshafi2007@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="pt-6 border-t border-neutral-800 mt-6">
-                            <button type="button" id="contactModalTrigger" class="nothing-btn-red w-full !text-xs">
-                                CONTACT TEAM NOW
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Nothing Tech Bracketed Footer -->
-    <footer class="py-16 px-4 sm:px-8 bg-neutral-200 border-t border-neutral-300 text-center font-mono-tech text-xs">
-        <div class="max-w-6xl mx-auto">
-            <div class="font-ndot text-lg text-black uppercase mb-8 flex items-center justify-center gap-2">
-                <span class="red-dot-pulse"></span>
-                <span>FORGE SOFTWARES (R)</span>
-            </div>
-
-            <!-- Responsive Grid of Bracketed Nothing OS Links -->
-            <div class="flex flex-wrap justify-center gap-4 text-neutral-700 mb-8 uppercase text-[11px]">
-                <a href="#home" class="hover:text-black hover:underline">[ ABOUT ]</a>
-                <a href="#pricing" class="hover:text-black hover:underline">[ PRICING ]</a>
-                <button type="button" id="footerHelpTrigger" class="hover:text-black hover:underline cursor-pointer focus:outline-none">[ SUPPORT ]</button>
-                <a href="#contact" class="hover:text-black hover:underline">[ STORE : SRINAGAR ]</a>
-                <button type="button" id="footerTermsTrigger" class="hover:text-black hover:underline cursor-pointer focus:outline-none">[ LEGAL ]</button>
-                <a href="https://x.com/pellixperfumes?s=21" target="_blank" class="hover:text-black hover:underline">[ X ]</a>
-                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" class="hover:text-black hover:underline">[ FACEBOOK ]</a>
-            </div>
-
-            <div class="h-px w-24 bg-neutral-400 mx-auto mb-6"></div>
-
-            <p class="text-neutral-500 text-[10px] leading-relaxed">
-                FORGE SOFTWARES &copy; <span id="copyrightYear">2026</span>. ALL RIGHTS RESERVED. <br>
-                PARENT GROUP OF COBRA & RUNO &bull; HQ: PANDITH PORE RAINAWARI, SRINAGAR 190003
-            </p>
-        </div>
-    </footer>
-
-    
-    <!-- FLOATING AI CHATBOT BUTTON -->
-    <button type="button" id="aiChatToggle" class="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-black text-white border-2 border-neutral-300 flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus:outline-none">
-        <span class="absolute top-1 right-1 red-dot-pulse"></span>
-        <i data-lucide="bot" class="w-6 h-6"></i>
-    </button>
-
-    <!-- AI CHATBOT WINDOW -->
-    <div id="aiChatWindow" class="fixed bottom-24 right-4 sm:right-6 z-[100] w-[calc(100vw-32px)] sm:w-96 h-[500px] max-h-[80vh] bg-white border border-neutral-300 rounded-3xl shadow-2xl flex flex-col hidden opacity-0 transition-opacity duration-300 overflow-hidden">
-        <!-- Header -->
-        <div class="p-4 bg-neutral-100 border-b border-neutral-300 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="red-dot-pulse"></span>
-                <span class="font-ndot text-xs uppercase font-bold text-black">FORGE AI AGENT</span>
-            </div>
-            <button type="button" id="closeAiChat" class="text-neutral-500 hover:text-black p-1 cursor-pointer focus:outline-none">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-        </div>
-        <!-- Messages -->
-        <div id="aiChatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 font-sans text-xs flex flex-col bg-white">
-            <div class="bg-neutral-100 border border-neutral-300 p-3 rounded-2xl rounded-tl-xs text-neutral-800 max-w-[85%] self-start">
-                Forge OS Agent initialized. Ask me about our pricing (Basic ₹1,999, Pro ⭐ ₹7,999, Premium 👑 ₹14,999), support windows, domains, or Srinagar HQ location!
-            </div>
-        </div>
-        <!-- Input -->
-        <div class="p-3 border-t border-neutral-300 bg-neutral-50">
-            <form id="aiChatForm" class="flex items-center gap-2">
-                <input type="text" id="aiChatInput" placeholder="Ask about pricing or HQ..." required class="flex-1 bg-white border border-neutral-300 rounded-xl px-3 py-2 text-xs font-mono-tech focus:outline-none focus:border-black" autocomplete="off" />
-                <button type="submit" class="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center shrink-0 hover:bg-neutral-800 transition-colors cursor-pointer focus:outline-none">
-                    <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
-            </form>
-        </div>
+    <!-- Navigation Tabs -->
+    <div class="hidden md:flex gap-8 items-center pointer-events-auto text-xs font-mono tracking-wider uppercase">
+      <button class="nav-link active" data-target="home" onclick="navigate('home')">01 // Overview</button>
+      <button class="nav-link" data-target="anc" onclick="navigate('anc')">02 // ANC Sandbox</button>
+      <button class="nav-link" data-target="customizer" onclick="navigate('customizer')">03 // Colorways</button>
+      <button class="nav-link" data-target="specs" onclick="navigate('specs')">04 // Specs</button>
+      <button class="nav-link" data-target="compare" onclick="navigate('compare')">05 // Compare</button>
     </div>
 
-    <!-- ENQUIRY / BOOKING MODAL -->
-    <div id="enquiryModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="nothing-card max-w-md w-full max-h-[92vh] flex flex-col relative overflow-hidden bg-white shadow-2xl">
-            <button type="button" id="closeEnquiryModal" class="absolute top-4 right-4 text-neutral-500 hover:text-black p-1 z-20 cursor-pointer focus:outline-none">
-                <i data-lucide="x" class="w-5 h-5"></i>
+    <!-- Controls & Pre-book CTA -->
+    <div class="flex gap-3 items-center pointer-events-auto">
+
+      <!-- Audio Click Feedback Synthesizer Toggle -->
+      <button id="sound-toggle" onclick="toggleAudioFeedback()"
+        class="btn-glass p-2.5 rounded-full text-xs flex items-center justify-center w-10 h-10"
+        title="Toggle Sound FX Feedback">
+        <svg id="sound-icon-on" class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+        <svg id="sound-icon-off" class="w-4 h-4 text-gray-500 hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zM17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        </svg>
+      </button>
+
+      <!-- Theme Mode Switcher -->
+      <button onclick="toggleTheme()"
+        class="btn-glass p-2.5 rounded-full text-xs flex items-center justify-center w-10 h-10"
+        title="Toggle Light/Dark Theme">
+        <svg class="w-4 h-4 text-[var(--text-main)] dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg class="w-4 h-4 text-yellow-400 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+
+      <!-- Price & Pre-book CTA -->
+      <div class="hidden sm:flex flex-col items-end leading-none mr-1 font-mono">
+        <span class="font-bold text-[var(--text-main)] text-sm">₹4,150 <span
+            class="text-[10px] text-gray-500 line-through">₹6,000</span></span>
+        <span class="text-[9px] text-red-500 font-bold uppercase tracking-wider">// LAUNCH OFFER</span>
+      </div>
+      <button
+        class="btn-apple px-5 py-2.5 rounded-full text-xs font-bold font-mono tracking-wider shadow-lg flex items-center gap-2"
+        onclick="openPayment()">
+        <span>PRE-BOOK</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- =================================================================== -->
+  <!-- PAGE 01: HOME / HERO (3D EXPLODED SCROLL ENGINE)                     -->
+  <!-- =================================================================== -->
+  <div id="page-home" class="page-view active visible">
+
+    <section class="sticky-container" id="hero-trigger">
+      <div class="sticky-content">
+
+        <!-- Background Kinetic Typography -->
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none select-none opacity-25">
+          <h1 class="text-huge tracking-tighter text-outline" id="hero-text-1">PURE</h1>
+          <h1 class="text-huge tracking-tighter text-red-600" id="hero-text-2">SOUND</h1>
+        </div>
+
+        <!-- Interactive 3D Exploded Earbud Model (SVG Vector Render with Hardware Acceleration) -->
+        <div
+          class="relative z-20 will-change-transform flex items-center justify-center w-[340px] h-[440px] cursor-grab active:cursor-grabbing"
+          id="hero-product" title="Drag to tilt 3D perspective">
+          <svg viewBox="0 0 200 300" class="w-full h-full overflow-visible drop-shadow-2xl">
+            <defs>
+              <!-- Metallic & Transparent Shaders -->
+              <linearGradient id="metal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="40%" stop-color="#9ca3af" />
+                <stop offset="100%" stop-color="#374151" />
+              </linearGradient>
+
+              <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.75)" />
+                <stop offset="60%" stop-color="rgba(255,255,255,0.2)" />
+                <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+              </linearGradient>
+
+              <radialGradient id="ceramic-core" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="70%" stop-color="#e5e7eb" />
+                <stop offset="100%" stop-color="#9ca3af" />
+              </radialGradient>
+
+              <pattern id="carbon-mesh" width="6" height="6" patternUnits="userSpaceOnUse">
+                <path d="M0 6L6 0M-1 1L1 -1M5 7L7 5" stroke="rgba(227,0,0,0.4)" stroke-width="0.75" />
+              </pattern>
+
+              <filter id="red-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Earbud Assembly Container -->
+            <g id="earbud-group">
+              <!-- 1. Outer Glass Shell (Polymer) -->
+              <g id="part-shell" class="transition-transform duration-300">
+                <path
+                  d="M 60 40 C 140 30, 160 90, 150 140 C 140 190, 100 280, 80 280 C 60 280, 50 180, 40 140 C 30 100, 20 50, 60 40 Z"
+                  fill="url(#glass-grad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+              </g>
+
+              <!-- 2. Stem & Contact Pin Base -->
+              <g id="part-stem" class="transition-transform duration-300">
+                <rect x="70" y="145" width="14" height="110" rx="7" fill="rgba(240,240,240,0.15)"
+                  stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="77" y1="152" x2="77" y2="245" stroke="url(#metal-grad)" stroke-width="2" />
+                <rect x="68" y="258" width="18" height="6" rx="3" fill="url(#metal-grad)" />
+                <!-- Nothing Tech Glyph Red Signal Dot -->
+                <circle cx="77" cy="165" r="2.5" fill="#e30000" filter="url(#red-glow-filter)" />
+              </g>
+
+              <!-- 3. Dynamic Ceramic Sound Driver -->
+              <g id="part-driver" class="transition-transform duration-300">
+                <circle cx="95" cy="100" r="36" fill="url(#metal-grad)" stroke="rgba(0,0,0,0.2)" />
+                <circle cx="95" cy="100" r="26" fill="url(#carbon-mesh)" />
+                <circle cx="95" cy="100" r="12" fill="url(#ceramic-core)" stroke="#111" stroke-width="2" />
+                <circle cx="122" cy="65" r="4.5" fill="var(--accent-red)" />
+              </g>
+
+              <!-- 4. Acoustic Silicon Tip -->
+              <g id="part-tip" class="transition-transform duration-300">
+                <path d="M 50 100 C 10 90, -10 110, 10 130 C 30 150, 60 140, 50 100 Z" fill="rgba(255,255,255,0.85)"
+                  stroke="rgba(0,0,0,0.1)" />
+                <path d="M 40 105 C 15 98, -2 110, 15 125 C 30 140, 50 130, 40 105 Z" fill="#ffffff" opacity="0.9" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Telemetry HUD Component Callout Labels -->
+        <div class="absolute inset-0 pointer-events-none z-30 opacity-0 transition-opacity duration-500"
+          id="exploded-labels">
+          <div
+            class="absolute top-[28%] left-[8%] md:left-[22%] text-left glass-panel p-4 rounded-2xl max-w-xs backdrop-blur-xl border border-red-500/20"
+            id="label-tip">
+            <p class="tech-mono text-[10px]">// 01 ACOUSTIC SEAL</p>
+            <p class="text-xs font-bold text-[var(--text-main)] mt-0.5">Medical-Grade Silicone</p>
+            <p class="text-[11px] text-[var(--text-muted)]">Ergonomic fit with pressure equalization vents.</p>
+          </div>
+
+          <div
+            class="absolute top-[18%] right-[8%] md:right-[22%] text-right glass-panel p-4 rounded-2xl max-w-xs backdrop-blur-xl border border-red-500/20"
+            id="label-driver">
+            <p class="tech-mono text-[10px]">// 02 CERAMIC ENGINE</p>
+            <p class="text-xs font-bold text-[var(--text-main)] mt-0.5">11mm Custom Diaphragm</p>
+            <p class="text-[11px] text-[var(--text-muted)]">Ultra-fast frequency response up to 40kHz.</p>
+          </div>
+
+          <div
+            class="absolute bottom-[20%] right-[10%] md:right-[25%] text-left glass-panel p-4 rounded-2xl max-w-xs backdrop-blur-xl border border-red-500/20"
+            id="label-stem">
+            <p class="tech-mono text-[10px]">// 03 H1 SIGNAL PROCESSOR</p>
+            <p class="text-xs font-bold text-[var(--text-main)] mt-0.5">Dual Neural Engine</p>
+            <p class="text-[11px] text-[var(--text-muted)]">100,000 calculations/sec ANC algorithm.</p>
+          </div>
+        </div>
+
+        <!-- Hero Section Specs Banner Overlay -->
+        <div
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center opacity-0 will-change-transform z-30 w-full px-6 max-w-3xl"
+          id="hero-specs">
+          <span
+            class="tech-mono px-3 py-1 rounded-full bg-red-600/10 border border-red-600/30 text-red-500 inline-block mb-3">//
+            INDUSTRIAL TRANSPARENCY</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-[var(--text-main)] mb-3">Brutalist
+            aesthetics. Pure audio.</h2>
+          <p class="text-[var(--text-muted)] max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+            Stripped of non-essentials. Engineered with absolute clarity inside custom aerospace-grade transparent
+            polymers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTHING GLYPH DOT-MATRIX INTERACTIVE CANVAS WIDGET -->
+    <section class="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-main)]">
+      <div class="max-w-5xl mx-auto text-center">
+        <span class="tech-mono">// NOTHING GLYPH MATRIX TELEMETRY</span>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-6">Visual Frequency HUD</h2>
+        <p class="text-[var(--text-muted)] max-w-lg mx-auto text-sm mb-10">Real-time dot-matrix glyph light matrix.
+          Select a preset to trigger live telemetry on the earbud charging shell.</p>
+
+        <!-- Dynamic LED Dot Matrix Canvas -->
+        <div
+          class="glass-panel rounded-3xl p-8 max-w-2xl mx-auto relative overflow-hidden border border-red-500/20 shadow-2xl">
+          <canvas id="glyph-canvas" width="600" height="200" class="w-full h-auto rounded-xl bg-black/40"></canvas>
+
+          <!-- Telemetry Mode Buttons -->
+          <div class="flex flex-wrap gap-3 justify-center mt-6">
+            <button onclick="triggerGlyphMode('pulse')"
+              class="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider hover:border-red-500">
+              Glyph Ring Pulse
+            </button>
+            <button onclick="triggerGlyphMode('battery')"
+              class="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider hover:border-red-500">
+              100% Battery Gauge
+            </button>
+            <button onclick="triggerGlyphMode('anc')"
+              class="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider hover:border-red-500">
+              50dB ANC Waves
+            </button>
+            <button onclick="triggerGlyphMode('pairing')"
+              class="btn-glass px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider hover:border-red-500">
+              Bluetooth 5.3 Pair
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAROUSEL FEATURE CARDS WITH PERSPECTIVE TAB SWITCHING -->
+    <section
+      class="min-h-screen relative flex items-center justify-center py-24 px-6 border-t border-[var(--border-color)]"
+      id="features">
+      <div class="w-full max-w-6xl z-10 grid lg:grid-cols-2 gap-12 items-center">
+
+        <div class="flex flex-col gap-8 text-left">
+          <div>
+            <span class="tech-mono">// PRO ARCHITECTURE</span>
+            <h2 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-3">Absolute Control.</h2>
+            <p class="text-[var(--text-muted)] text-base">Pro-level acoustic tuning meets minimalist engineering.</p>
+          </div>
+
+          <div class="flex flex-col gap-4 border-l-2 border-[var(--border-color)] pl-6 relative">
+            <div class="absolute left-[-2px] top-0 w-1 h-12 bg-red-600 transition-transform duration-500 ease-out"
+              id="tab-indicator"></div>
+
+            <button class="feature-tab text-left group py-2" data-index="0">
+              <span class="tech-mono group-hover:text-red-500 transition-colors">01 // NOISE CANCELLATION</span>
+              <h3 class="text-2xl font-bold text-gray-400 group-hover:text-[var(--text-main)] transition-colors">50dB
+                Active Noise Control</h3>
+            </button>
+            <button class="feature-tab text-left group py-2" data-index="1">
+              <span class="tech-mono group-hover:text-red-500 transition-colors">02 // 3D SPATIAL AUDIO</span>
+              <h3 class="text-2xl font-bold text-gray-400 group-hover:text-[var(--text-main)] transition-colors">Dynamic
+                Head Tracking</h3>
+            </button>
+            <button class="feature-tab text-left group py-2" data-index="2">
+              <span class="tech-mono group-hover:text-red-500 transition-colors">03 // POWER MANAGEMENT</span>
+              <h3 class="text-2xl font-bold text-gray-400 group-hover:text-[var(--text-main)] transition-colors">40-Hour
+                Reserve Power</h3>
+            </button>
+          </div>
+        </div>
+
+        <div class="h-[460px] relative cards-container w-full max-w-md mx-auto lg:max-w-none">
+
+          <!-- Card 0: ANC -->
+          <div class="feature-card glass-panel rounded-3xl p-8 h-full flex flex-col justify-between active" id="card-0">
+            <div class="w-12 h-12 rounded-full border border-red-500/30 bg-red-500/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </div>
+            <div>
+              <span class="tech-mono mb-2 block">// UP TO 50dB NOISE REDUCTION</span>
+              <h4 class="text-3xl font-extrabold mb-3">Absolute Silence.</h4>
+              <p class="text-[var(--text-muted)] text-sm leading-relaxed">Six omnidirectional beamforming microphones
+                analyze external noise 100,000 times per second to inverse ambient frequencies instantly.</p>
+            </div>
+            <div class="flex items-end gap-1.5 h-16 opacity-70">
+              <div class="w-full bg-red-600 rounded-t animate-pulse-slow" style="height: 35%"></div>
+              <div class="w-full bg-red-600 rounded-t animate-pulse-slow" style="height: 95%"></div>
+              <div class="w-full bg-red-600 rounded-t animate-pulse-slow" style="height: 60%"></div>
+              <div class="w-full bg-red-600 rounded-t animate-pulse-slow" style="height: 80%"></div>
+              <div class="w-full bg-red-600 rounded-t animate-pulse-slow" style="height: 40%"></div>
+            </div>
+          </div>
+
+          <!-- Card 1: Spatial Audio -->
+          <div class="feature-card glass-panel rounded-3xl p-8 h-full flex flex-col justify-between next" id="card-1">
+            <div class="w-12 h-12 rounded-full border border-red-500/30 bg-red-500/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <span class="tech-mono mb-2 block">// GYROSCOPIC HEAD TRACKING</span>
+              <h4 class="text-3xl font-extrabold mb-3">Immersive Stage.</h4>
+              <p class="text-[var(--text-muted)] text-sm leading-relaxed">Built-in 6-axis motion gyroscopes map your
+                position in real-time, locking acoustic instruments into dynamic 3D spatial orientation.</p>
+            </div>
+            <div class="relative h-20 flex items-center justify-center opacity-70">
+              <div class="absolute w-14 h-14 border border-red-500 rounded-full animate-spin-slow"></div>
+              <div
+                class="absolute w-20 h-20 border border-dashed border-gray-500 rounded-full animate-[spin_8s_linear_infinite_reverse]">
+              </div>
+              <div class="w-2.5 h-2.5 bg-red-600 rounded-full"></div>
+            </div>
+          </div>
+
+          <!-- Card 2: Battery -->
+          <div class="feature-card glass-panel rounded-3xl p-8 h-full flex flex-col justify-between next" id="card-2">
+            <div class="w-12 h-12 rounded-full border border-red-500/30 bg-red-500/10 flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <span class="tech-mono mb-2 block">// FAST CHARGING CAPACITOR</span>
+              <h4 class="text-3xl font-extrabold mb-3">Relentless Energy.</h4>
+              <p class="text-[var(--text-muted)] text-sm leading-relaxed">40 hours total playback reserve with the
+                transparent case. 10 minutes of fast USB-C charge gives you 5 full hours of playback.</p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="h-3 w-full bg-gray-800 rounded-full overflow-hidden p-0.5 border border-gray-700">
+                <div class="h-full bg-red-600 w-[100%] rounded-full shadow-lg shadow-red-500/50"></div>
+              </div>
+              <div class="flex justify-between text-xs font-mono text-[var(--text-muted)]">
+                <span>0H</span>
+                <span class="text-red-500 font-bold">10 MIN = 5H</span>
+                <span>40H TOTAL</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- =================================================================== -->
+  <!-- PAGE 02: ACTIVE NOISE CANCELLATION (ANC) SOUND SANDBOX              -->
+  <!-- =================================================================== -->
+  <div id="page-anc" class="page-view pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="tech-mono">// WEB AUDIO REAL-TIME SIMULATOR</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-4">50dB Active Noise Sandbox</h1>
+        <p class="text-[var(--text-muted)] max-w-xl mx-auto text-sm">Experience live frequency cancellation right in
+          your browser. Start the audio engine and drag the ANC slider to cancel ambient noise frequencies.</p>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-8 md:p-12 max-w-3xl mx-auto border border-red-500/20 shadow-2xl">
+        <!-- Visualizer Canvas -->
+        <div class="relative bg-black/60 rounded-2xl p-4 mb-8 overflow-hidden border border-gray-800">
+          <canvas id="anc-canvas" width="600" height="180" class="w-full h-auto rounded-lg"></canvas>
+          <div
+            class="absolute top-4 left-4 font-mono text-[10px] text-red-500 uppercase tracking-widest bg-black/80 px-2 py-1 rounded">
+            SPECTROGRAM // <span id="anc-db-readout">0dB REDUCTION</span>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="space-y-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button id="anc-audio-btn" onclick="toggleANCAudio()"
+              class="btn-apple px-6 py-3 rounded-full text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2">
+              <span id="anc-btn-text">START NOISE SIMULATOR</span>
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
             </button>
 
-            <div class="p-6 bg-neutral-100 border-b border-neutral-300">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="red-dot-pulse"></span>
-                    <span class="font-ndot text-xs uppercase font-bold text-black">SYSTEM INITIALIZE</span>
-                </div>
-                <h3 class="font-serif-editorial text-2xl text-black">Book Your Website</h3>
+            <div class="font-mono text-xs text-[var(--text-muted)]">
+              ENV: <span class="text-[var(--text-main)] font-bold">JET ENGINE & CITY NOISE</span>
             </div>
+          </div>
 
-            <div class="p-6 overflow-y-auto flex-1">
-                <form id="enquiryForm" class="space-y-4">
-                    <input type="text" name="website_hp_check" id="website_hp_check" class="hidden" tabindex="-1" autocomplete="off" />
-
-                    <div>
-                        <label class="block text-[10px] font-ndot uppercase text-neutral-500 mb-1">NAME / COMPANY</label>
-                        <input type="text" name="name" required placeholder="Enter full name" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-xs font-mono-tech focus:outline-none focus:border-black" />
-                    </div>
-
-                    <div>
-                        <label class="block text-[10px] font-ndot uppercase text-neutral-500 mb-1">EMAIL ADDRESS</label>
-                        <input type="email" id="email" name="email" required placeholder="name@company.com" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-xs font-mono-tech focus:outline-none focus:border-black" />
-                    </div>
-
-                    <div>
-                        <label class="block text-[10px] font-ndot uppercase text-neutral-500 mb-1">WHATSAPP PHONE</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+91 9697430658" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-xs font-mono-tech focus:outline-none focus:border-black" />
-                        <p id="phoneErrorMsg" class="text-nothingRed text-[10px] font-mono-tech mt-1 hidden"></p>
-                    </div>
-
-                    <div>
-                        <label class="block text-[10px] font-ndot uppercase text-neutral-500 mb-1">LOCATION / COUNTRY</label>
-                        <select name="country" required class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-xs font-mono-tech focus:outline-none focus:border-black">
-                            <option value="" disabled selected>Select country...</option>
-                            <option value="India">India</option>
-                            <option value="United States">United States</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Canada">Canada</option>
-                            <option value="UAE">United Arab Emirates</option>
-                            <option value="Australia">Australia</option>
-                        </select>
-                    </div>
-
-                    <div class="bg-neutral-100 border border-neutral-300 p-3 rounded-xl">
-                        <div class="flex items-center justify-between mb-1">
-                            <span id="captchaQuestion" class="text-xs font-mono-tech text-black font-bold">5 + 3 = ?</span>
-                            <button type="button" id="refreshCaptchaBtn" class="text-neutral-500 hover:text-black p-1 cursor-pointer focus:outline-none">
-                                <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                        <input type="number" id="captchaInput" required placeholder="Answer" class="w-full bg-white border border-neutral-300 rounded-lg px-3 py-1.5 text-xs font-mono-tech focus:outline-none focus:border-black" />
-                        <p id="captchaErrorMsg" class="text-nothingRed text-[10px] font-mono-tech mt-1 hidden">Incorrect captcha solution.</p>
-                    </div>
-
-                    <p id="formStatusError" class="text-nothingRed text-xs font-mono-tech hidden text-center"></p>
-
-                    <button type="submit" class="nothing-btn-red w-full !py-3">
-                        SUBMIT TRANSMISSION
-                    </button>
-                </form>
+          <!-- ANC Slider -->
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-2">
+              <span>TRANSPARENCY MODE</span>
+              <span class="text-red-500 font-bold" id="anc-slider-val">0% ANC</span>
+              <span>MAX 50dB ISOLATION</span>
             </div>
+            <input type="range" id="anc-slider" min="0" max="100" value="0" oninput="updateANCLevel(this.value)"
+              class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-600">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- SUCCESS CONFIRMATION MODAL -->
-    <div id="successModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="nothing-card max-w-sm w-full p-8 text-center bg-white shadow-2xl">
-            <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-300">
-                <i data-lucide="check-circle" class="w-8 h-8"></i>
-            </div>
-            <h3 class="font-ndot text-base text-black uppercase mb-2">[ PRIORITY RECORDED ]</h3>
-            <p class="text-xs text-neutral-600 mb-6 font-sans leading-relaxed">
-                Your request is securely recorded. Our team will contact you shortly at +91-9697430658.
-            </p>
-            <button type="button" id="closeSuccessModal" class="nothing-btn-primary w-full !text-xs">
-                RETURN TO HOME
-            </button>
+
+  <!-- =================================================================== -->
+  <!-- PAGE 03: COLORWAY & FINISH CUSTOMIZER                              -->
+  <!-- =================================================================== -->
+  <div id="page-customizer" class="page-view pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="tech-mono">// INDUSTRIAL MATERIALS</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-4">Colorway Customizer</h1>
+        <p class="text-[var(--text-muted)] max-w-xl mx-auto text-sm">Select an iconic material finish to preview live
+          SVG color transformations and accent highlights.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Preview SVG Box -->
+        <div
+          class="glass-panel rounded-3xl p-12 aspect-square flex items-center justify-center relative overflow-hidden border border-red-500/20 shadow-2xl"
+          id="customizer-box">
+          <svg viewBox="0 0 200 240" class="w-3/4 h-3/4 drop-shadow-2xl transition-all duration-700"
+            id="customizer-svg">
+            <g id="cust-earbud">
+              <path id="cust-shell"
+                d="M 60 40 C 140 30, 160 90, 150 140 C 140 190, 100 280, 80 280 C 60 280, 50 180, 40 140 C 30 100, 20 50, 60 40 Z"
+                fill="rgba(255,255,255,0.85)" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" />
+              <rect id="cust-stem" x="70" y="145" width="14" height="90" rx="7" fill="#e5e7eb" />
+              <circle id="cust-driver" cx="95" cy="100" r="32" fill="#9ca3af" />
+              <circle id="cust-dot" cx="120" cy="65" r="5" fill="#e30000" />
+            </g>
+          </svg>
+          <div class="absolute bottom-4 left-4 font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-widest"
+            id="cust-label">// FINISH: NOTHING CLEAR (SIGNATURE)</div>
         </div>
-    </div>
 
-    <!-- HELP CENTER KNOWLEDGE PORTAL MODAL -->
-    <div id="helpCenterModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="nothing-card max-w-5xl w-full max-h-[92vh] flex flex-col relative overflow-hidden bg-white shadow-2xl">
-            <button type="button" id="closeHelpModal" class="absolute top-4 right-4 text-neutral-500 hover:text-black p-1 z-20 cursor-pointer focus:outline-none">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div class="p-6 bg-neutral-100 border-b border-neutral-300">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="red-dot-pulse"></span>
-                    <span class="font-ndot text-xs uppercase font-bold text-black">OFFICIAL KNOWLEDGE BASE</span>
-                </div>
-                <h2 class="font-serif-editorial text-3xl text-black">Forge Help Center</h2>
-
-                <div class="mt-4 flex flex-col sm:flex-row gap-3">
-                    <input type="text" id="helpSearchInput" placeholder="Search questions (pricing, chatbot, domain)..." class="flex-1 bg-white border border-neutral-300 rounded-xl px-4 py-2 text-xs font-mono-tech focus:outline-none focus:border-black" />
-                    <button type="button" id="expandAllFaqBtn" class="nothing-btn-secondary !py-2 !px-4 !text-xs shrink-0">
-                        TOGGLE EXPAND ALL
-                    </button>
-                </div>
+        <!-- Color Swatch Options -->
+        <div class="space-y-4">
+          <div onclick="selectFinish('clear')"
+            class="glass-panel p-5 rounded-2xl border hover:border-red-500 cursor-pointer flex items-center justify-between transition-all group"
+            id="swatch-clear">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full border border-gray-400 bg-white/70 shadow-inner flex items-center justify-center">
+                <span class="w-2.5 h-2.5 bg-red-600 rounded-full"></span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text-main)]">01 // Nothing Clear</h4>
+                <p class="text-xs text-[var(--text-muted)]">Signature transparent polymer & silver accents</p>
+              </div>
             </div>
+            <span class="text-xs font-mono font-bold text-red-500 opacity-0 group-hover:opacity-100">SELECT</span>
+          </div>
 
-            <div id="helpContentList" class="p-6 overflow-y-auto flex-1 space-y-6">
-                <!-- Dynamically generated categories & Q&A items -->
+          <div onclick="selectFinish('obsidian')"
+            class="glass-panel p-5 rounded-2xl border hover:border-red-500 cursor-pointer flex items-center justify-between transition-all group"
+            id="swatch-obsidian">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full border border-gray-700 bg-gray-900 shadow-inner flex items-center justify-center">
+                <span class="w-2.5 h-2.5 bg-red-600 rounded-full"></span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text-main)]">02 // Obsidian Dark</h4>
+                <p class="text-xs text-[var(--text-muted)]">Smoke transparent tint & matte black</p>
+              </div>
             </div>
+            <span class="text-xs font-mono font-bold text-red-500 opacity-0 group-hover:opacity-100">SELECT</span>
+          </div>
+
+          <div onclick="selectFinish('chalk')"
+            class="glass-panel p-5 rounded-2xl border hover:border-red-500 cursor-pointer flex items-center justify-between transition-all group"
+            id="swatch-chalk">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full border border-gray-300 bg-gray-100 shadow-inner flex items-center justify-center">
+                <span class="w-2.5 h-2.5 bg-red-600 rounded-full"></span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text-main)]">03 // Ceramic Chalk</h4>
+                <p class="text-xs text-[var(--text-muted)]">Apple minimal chalk white with acoustic dot</p>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-red-500 opacity-0 group-hover:opacity-100">SELECT</span>
+          </div>
+
+          <div onclick="selectFinish('cyberred')"
+            class="glass-panel p-5 rounded-2xl border hover:border-red-500 cursor-pointer flex items-center justify-between transition-all group"
+            id="swatch-cyberred">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full border border-red-700 bg-red-600 shadow-inner flex items-center justify-center">
+                <span class="w-2.5 h-2.5 bg-white rounded-full"></span>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-[var(--text-main)]">04 // Cyber Red</h4>
+                <p class="text-xs text-[var(--text-muted)]">Special Edition vibrant tech red & dark chrome</p>
+              </div>
+            </div>
+            <span class="text-xs font-mono font-bold text-red-500 opacity-0 group-hover:opacity-100">SELECT</span>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- BLOG & ARTICLES MODAL -->
-    <div id="blogModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="nothing-card max-w-4xl w-full max-h-[90vh] flex flex-col relative overflow-hidden bg-white shadow-2xl">
-            <button type="button" id="closeBlogModal" class="absolute top-4 right-4 text-neutral-500 hover:text-black p-1 z-20 cursor-pointer focus:outline-none">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
 
-            <div class="p-6 bg-neutral-100 border-b border-neutral-300">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="red-dot-pulse"></span>
-                    <span class="font-ndot text-xs uppercase font-bold text-black">KNOWLEDGE HUB</span>
-                </div>
-                <h2 class="font-serif-editorial text-3xl text-black">Engineering Insights</h2>
-            </div>
+  <!-- =================================================================== -->
+  <!-- PAGE 04: TECHNICAL SPECS                                           -->
+  <!-- =================================================================== -->
+  <div id="page-specs" class="page-view pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="tech-mono">// ARCHITECTURE DATA</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-4">Technical Data</h1>
+        <p class="text-[var(--text-muted)] max-w-lg mx-auto text-sm">Comprehensive engineering specification index.</p>
+      </div>
 
-            <div class="p-6 overflow-y-auto flex-1 space-y-6">
-                <div class="nothing-card p-6 border-l-4 border-l-nothingRed bg-neutral-50">
-                    <span class="text-[10px] font-ndot text-nothingRed uppercase">[ WHITEPAPER ]</span>
-                    <h3 class="font-serif-editorial text-2xl text-black mt-1 mb-2">Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Logic</h3>
-                    <p class="text-xs text-neutral-600 font-sans leading-relaxed mb-4">
-                        Discover how high-growth platforms integrate custom LLM logic to qualify leads, schedule calendar invites, and answer multi-turn queries with zero human lag.
-                    </p>
-                    <span class="text-[10px] font-mono-tech text-neutral-400">AUTHOR: FARMAN SHAFI &bull; AUGUST 2026</span>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="nothing-card p-5">
-                        <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ ARCHITECTURE ]</span>
-                        <h4 class="font-serif-editorial text-xl text-black mt-1 mb-2">Why Static Speed Matters in B2B Acquisition</h4>
-                        <p class="text-xs text-neutral-600 font-sans leading-relaxed">
-                            Sub-100ms loading speeds lower bounce rates by 42% and build immediate enterprise authority.
-                        </p>
-                    </div>
-                    <div class="nothing-card p-5">
-                        <span class="text-[10px] font-ndot text-neutral-400 uppercase">[ AI AGENTS ]</span>
-                        <h4 class="font-serif-editorial text-xl text-black mt-1 mb-2">Preventing Hallucinations in Sales Bots</h4>
-                        <p class="text-xs text-neutral-600 font-sans leading-relaxed">
-                            Grounding LLMs strictly within your knowledge base with automated fallback to human phone operators.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="space-y-4 font-mono text-sm">
+        <div
+          class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[var(--border-color)]">
+          <div class="text-red-500 font-bold uppercase w-48">// AUDIO TECH</div>
+          <div class="text-[var(--text-main)] space-y-1">
+            <p>Custom 11mm Ceramic Diaphragm Driver</p>
+            <p class="text-xs text-[var(--text-muted)]">50dB Active Noise Cancellation with Transparency Mode</p>
+            <p class="text-xs text-[var(--text-muted)]">Dynamic 3D Spatial Audio with Head Tracking</p>
+          </div>
         </div>
-    </div>
 
-    <!-- TERMS & PRIVACY MODAL -->
-    <div id="termsModal" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="nothing-card max-w-2xl w-full p-6 bg-white relative shadow-2xl">
-            <button type="button" id="closeTermsModal" class="absolute top-4 right-4 text-neutral-500 hover:text-black p-1 cursor-pointer focus:outline-none">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <h3 class="font-ndot text-sm text-black uppercase mb-4">[ TERMS & CONDITIONS ]</h3>
-            <div class="text-xs font-sans text-neutral-700 leading-relaxed space-y-3">
-                <p>Full refund available within 7 days of initiation if technical work has not started. Premium Tier includes a 7-day technical refund guarantee.</p>
-                <p>All deployments are backed by included maintenance support (Basic 3 days, Pro ⭐ 15 days, Premium 👑 30 days priority) and zero hidden fees.</p>
-            </div>
+        <div
+          class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[var(--border-color)]">
+          <div class="text-red-500 font-bold uppercase w-48">// CONNECTIVITY</div>
+          <div class="text-[var(--text-main)] space-y-1">
+            <p>Bluetooth 5.3 Low Energy (120ms Latency Mode)</p>
+            <p class="text-xs text-[var(--text-muted)]">LDAC, AAC, SBC & High-Res Audio Codec Support</p>
+            <p class="text-xs text-[var(--text-muted)]">Dual Device Multipoint Instant Seamless Switch</p>
+          </div>
         </div>
+
+        <div
+          class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[var(--border-color)]">
+          <div class="text-red-500 font-bold uppercase w-48">// BATTERY & CASE</div>
+          <div class="text-[var(--text-main)] space-y-1">
+            <p>Up to 40 Hours Total Playback Reserve</p>
+            <p class="text-xs text-[var(--text-muted)]">10-Minute USB-C Fast Charge = 5 Hours Playback</p>
+            <p class="text-xs text-[var(--text-muted)]">Qi Wireless Charging Compatible Transparent Case</p>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[var(--border-color)]">
+          <div class="text-red-500 font-bold uppercase w-48">// BUILD & RESISTANCE</div>
+          <div class="text-[var(--text-main)] space-y-1">
+            <p>IP54 Sweat & Water Resistance (Earbuds & Case)</p>
+            <p class="text-xs text-[var(--text-muted)]">Aerospace-Grade Transparent Polycarbonate Body</p>
+            <p class="text-xs text-[var(--text-muted)]">Weight: 4.5g per earbud / 42g total case weight</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- MASTER SCRIPT LOGIC -->
-    <script>
-        // Database of complete Help Center 73 Q&A Items
-        const helpDatabase = [
-            {
-                catName: "1. PRICE & PAYMENT",
-                items: [
-                    { q: "Is the price shown the final price?", a: "Yes. The price agreed when you order is the exact final price: Basic is ₹1,999, Pro ⭐ Best Selling is ₹7,999, and Premium 👑 Value for Money is ₹14,999." },
-                    { q: "Do I pay everything at once?", a: "No. You pay 40% in advance and the remaining 60% after the project is completed." },
-                    { q: "How can I pay?", a: "We accept PayPal, UPI, Google Pay (GPay), MobiKwik, FamPay, and QR payments." },
-                    { q: "Is the domain included?", a: "Premium 👑 plan (₹14,999) includes a free custom domain for the 1st year." },
-                    { q: "Do I have to pay for hosting?", a: "No. Forge hosts your website on GitHub edge infrastructure, so deployment is free for life." }
-                ]
-            },
-            {
-                catName: "2. WHAT HAPPENS AFTER I PAY?",
-                items: [
-                    { q: "What happens after I pay?", a: "We discuss your requirements and select the right design architecture." },
-                    { q: "How long does my website take?", a: "A standard website takes 7–14 days. A site with an AI chatbot takes 3–4 weeks." },
-                    { q: "Can I see my website before it goes live?", a: "Yes. We show you progress previews before the final launch." }
-                ]
-            },
-            {
-                catName: "3. WEBSITE OWNERSHIP & TECH",
-                items: [
-                    { q: "Who owns my website?", a: "Your website is 100% yours after completion and final payment." },
-                    { q: "Who owns my domain?", a: "You own your domain. Forge provides free 1st year domain registration on the Premium plan." },
-                    { q: "Will I get the full website code?", a: "Yes. Forge provides the complete HTML/CSS/JS codebase upon request." }
-                ]
-            },
-            {
-                catName: "4. SUPPORT & HELP",
-                items: [
-                    { q: "What support duration do I get?", a: "BASIC: 3 Days Support. PRO ⭐: 15 Days Support. PREMIUM 👑: 30 Days Priority Dedicated Support." },
-                    { q: "How do I contact Forge for support?", a: "Call us at +91-9697430658, email farmanshafi2007@gmail.com, or schedule a meeting." }
-                ]
-            },
-            {
-                catName: "5. AI CHATBOT",
-                items: [
-                    { q: "What is the Forge AI chatbot?", a: "It is an autonomous AI agent integrated into your website that understands your business context and qualifies leads 24/7." },
-                    { q: "Is the AI chatbot included with the website?", a: "The AI Chatbot is natively included in the Premium 👑 plan (₹14,999)." }
-                ]
-            },
-            {
-                catName: "6. HEADQUARTERS & ABOUT",
-                items: [
-                    { q: "Where is Forge headquarters located?", a: "HQ: Pandith Pore Rainawari, Srinagar 190003. Office Branch: Rainawari Jogilanker, Srinagar." },
-                    { q: "Is INEXTERIOR an official partner?", a: "Yes! INEXTERIOR is a featured golden industry partner of Forge Softwares." }
-                ]
-            }
-        ];
 
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Set current year
-            const yearEl = document.getElementById('copyrightYear');
-            if (yearEl) yearEl.textContent = new Date().getFullYear();
+  <!-- =================================================================== -->
+  <!-- PAGE 05: HEAD-TO-HEAD COMPARISON MATRIX                            -->
+  <!-- =================================================================== -->
+  <div id="page-compare" class="page-view pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="tech-mono">// BENCHMARK DATA</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mt-2 mb-4">Comparison Matrix</h1>
+        <p class="text-[var(--text-muted)] max-w-lg mx-auto text-sm">See how Aura Pure Sound stacks up against flagship
+          competitors.</p>
+      </div>
 
-            // Initialize Lucide Icons
-            if (window.lucide) lucide.createIcons();
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse font-mono text-xs">
+          <thead>
+            <tr class="border-b border-[var(--border-color)] text-[var(--text-muted)]">
+              <th class="p-4 uppercase">Feature Index</th>
+              <th class="p-4 text-red-500 font-bold text-sm bg-red-600/10 rounded-t-xl">AURA PURE SOUND</th>
+              <th class="p-4 uppercase">Apple AirPods Pro 2</th>
+              <th class="p-4 uppercase">Nothing Ear (2)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border-color)]">
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">ANC Depth</td>
+              <td class="p-4 text-red-500 font-bold bg-red-600/10">50dB Reduction</td>
+              <td class="p-4 text-[var(--text-muted)]">45dB Reduction</td>
+              <td class="p-4 text-[var(--text-muted)]">45dB Reduction</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">Driver Material</td>
+              <td class="p-4 text-red-500 font-bold bg-red-600/10">11mm Ceramic Diaphragm</td>
+              <td class="p-4 text-[var(--text-muted)]">Dynamic Graphene Driver</td>
+              <td class="p-4 text-[var(--text-muted)]">11.6mm Graphene</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">Total Battery Reserve</td>
+              <td class="p-4 text-red-500 font-bold bg-red-600/10">40 Hours</td>
+              <td class="p-4 text-[var(--text-muted)]">30 Hours</td>
+              <td class="p-4 text-[var(--text-muted)]">36 Hours</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">Fast Charge Ratio</td>
+              <td class="p-4 text-red-500 font-bold bg-red-600/10">10 Min = 5 Hours</td>
+              <td class="p-4 text-[var(--text-muted)]">5 Min = 1 Hour</td>
+              <td class="p-4 text-[var(--text-muted)]">10 Min = 2 Hours</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">Industrial Design</td>
+              <td class="p-4 text-red-500 font-bold bg-red-600/10">Transparent Brutalist Polymer</td>
+              <td class="p-4 text-[var(--text-muted)]">White Opaque Plastic</td>
+              <td class="p-4 text-[var(--text-muted)]">Semi-Transparent Plastic</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-[var(--text-main)]">Launch Price Offer</td>
+              <td class="p-4 text-red-500 font-bold text-sm bg-red-600/10 rounded-b-xl">₹4,150 ($50 USD)</td>
+              <td class="p-4 text-[var(--text-muted)]">₹24,900 ($249 USD)</td>
+              <td class="p-4 text-[var(--text-muted)]">₹9,999 ($99 USD)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-            // Video Environment Switcher Logic
-            const videoLayers = document.querySelectorAll('.hero-video-layer');
-            const sceneBtns = document.querySelectorAll('.sceneBtn');
-            let currentVideoIdx = 3;
 
-            function switchScene(idx) {
-                if (idx === currentVideoIdx) return;
-                videoLayers.forEach((vid, i) => {
-                    if (i === idx) {
-                        vid.currentTime = 0;
-                        vid.play().catch(() => {});
-                        vid.style.opacity = '1';
-                    } else {
-                        vid.style.opacity = '0';
-                    }
-                });
-                sceneBtns.forEach((btn, i) => {
-                    if (i === idx) {
-                        btn.classList.add('bg-black', 'text-white', 'border-black');
-                        btn.classList.remove('border-neutral-300');
-                    } else {
-                        btn.classList.remove('bg-black', 'text-white', 'border-black');
-                        btn.classList.add('border-neutral-300');
-                    }
-                });
-                currentVideoIdx = idx;
-            }
+  <!-- =================================================================== -->
+  <!-- PRESS MARQUEE                                                       -->
+  <!-- =================================================================== -->
+  <section class="py-12 border-t border-b border-[var(--border-color)] overflow-hidden bg-black/40">
+    <div
+      class="flex whitespace-nowrap animate-marquee gap-12 font-mono text-xs tracking-widest text-[var(--text-muted)] uppercase">
+      <span>// WIRED: "9.8/10 — THE CLEANEST EARBUDS EVER DESIGNED"</span>
+      <span>// THE VERGE: "PURE INDUSTRIAL TRIUMPH"</span>
+      <span>// MKBHD: "UNBEATABLE TRANSPARENCY & AUDIO REFRACTIVE CLARITY"</span>
+      <span>// WALLPAPER*: "BEST INDUSTRIAL DESIGN OF 2026"</span>
+      <span>// TECHCRUNCH: "NEXT-GEN AUDIO BENCHMARK"</span>
+      <!-- Duplicate for infinite marquee loop -->
+      <span>// WIRED: "9.8/10 — THE CLEANEST EARBUDS EVER DESIGNED"</span>
+      <span>// THE VERGE: "PURE INDUSTRIAL TRIUMPH"</span>
+      <span>// MKBHD: "UNBEATABLE TRANSPARENCY & AUDIO REFRACTIVE CLARITY"</span>
+      <span>// WALLPAPER*: "BEST INDUSTRIAL DESIGN OF 2026"</span>
+      <span>// TECHCRUNCH: "NEXT-GEN AUDIO BENCHMARK"</span>
+    </div>
+  </section>
 
-            sceneBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const idx = parseInt(btn.getAttribute('data-video-index'), 10);
-                    switchScene(idx);
-                });
-            });
 
-            // Hero Particle Canvas
-            const canvas = document.getElementById('hero-canvas');
-            if (canvas) {
-                const ctx = canvas.getContext('2d');
-                let particles = [];
+  <!-- =================================================================== -->
+  <!-- PRE-BOOK MODAL & CURRENCY ENGINE                                   -->
+  <!-- =================================================================== -->
+  <div class="modal-overlay" id="payment-modal-overlay">
+    <div class="payment-modal text-center">
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-left">
+          <span class="tech-mono">// SECURE LAUNCH PRE-BOOK</span>
+          <h3 class="text-xl font-bold tracking-tight text-[var(--text-main)]">Reserve Aura</h3>
+        </div>
+        <button onclick="closePayment()" class="btn-glass p-2 rounded-full text-gray-400 hover:text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
 
-                function resizeCanvas() {
-                    if (!canvas.parentElement) return;
-                    canvas.width = canvas.parentElement.clientWidth;
-                    canvas.height = canvas.parentElement.clientHeight;
-                    initParticles();
-                }
+      <!-- Currency Toggle -->
+      <div class="flex gap-2 justify-center mb-4 font-mono text-xs">
+        <button onclick="setCurrency('INR')"
+          class="px-3 py-1 rounded-full border border-red-500 bg-red-600/20 text-red-500 font-bold" id="curr-inr">INR
+          (₹)</button>
+        <button onclick="setCurrency('USD')"
+          class="px-3 py-1 rounded-full border border-[var(--border-color)] text-gray-400" id="curr-usd">USD
+          ($)</button>
+        <button onclick="setCurrency('EUR')"
+          class="px-3 py-1 rounded-full border border-[var(--border-color)] text-gray-400" id="curr-eur">EUR
+          (€)</button>
+      </div>
 
-                class Particle {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.vx = (Math.random() - 0.5) * 0.5;
-                        this.vy = (Math.random() - 0.5) * 0.5;
-                        this.size = Math.random() * 2 + 1;
-                    }
-                    update() {
-                        this.x += this.vx;
-                        this.y += this.vy;
-                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                    }
-                    draw() {
-                        ctx.fillStyle = 'rgba(215, 25, 33, 0.4)';
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
+      <div class="glass-panel p-5 rounded-2xl mb-6 border border-gray-800 bg-black/40">
+        <p class="text-xs text-[var(--text-muted)] font-mono mb-1">// LAUNCH OFFER DISCOUNT APPLIED</p>
+        <div class="flex items-center justify-center gap-3">
+          <p class="text-4xl font-extrabold text-[var(--text-main)]" id="modal-price-display">₹4,150</p>
+          <span class="text-xs text-red-500 font-mono line-through" id="modal-original-price">₹6,000</span>
+        </div>
 
-                function initParticles() {
-                    particles = [];
-                    const count = Math.floor((canvas.width * canvas.height) / 20000);
-                    for (let i = 0; i < count; i++) particles.push(new Particle());
-                }
+        <!-- Promo Code Box -->
+        <div class="mt-4 flex gap-2">
+          <input type="text" id="promo-input" placeholder="DISCOUNT CODE (e.g. AURA2026)"
+            class="w-full bg-black/50 border border-gray-700 rounded-xl px-3 py-2 text-xs font-mono text-white placeholder-gray-500 uppercase">
+          <button onclick="applyPromo()"
+            class="btn-apple px-4 py-2 rounded-xl text-xs font-mono font-bold">APPLY</button>
+        </div>
+        <div id="promo-msg" class="text-[10px] font-mono mt-1 text-green-400 hidden">// 10% PROMO APPLIED! NEW TOTAL
+          DISCOUNTED.</div>
 
-                function animateCanvas() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(p => {
-                        p.update();
-                        p.draw();
-                    });
-                    requestAnimationFrame(animateCanvas);
-                }
+        <!-- Minimal Pure CSS Dot-Matrix QR Code Representation -->
+        <div class="bg-white p-3 rounded-xl inline-block my-4 shadow-xl">
+          <div class="grid grid-cols-5 gap-1 w-20 h-20 mx-auto opacity-90">
+            <div class="bg-black col-span-2 row-span-2 rounded-sm"></div>
+            <div class="bg-black rounded-sm"></div>
+            <div class="bg-black col-span-2 row-span-2 rounded-sm"></div>
+            <div class="bg-transparent rounded-sm"></div>
+            <div class="bg-black col-span-2 row-span-2 rounded-sm"></div>
+            <div class="bg-black rounded-sm"></div>
+            <div class="bg-transparent col-span-2 rounded-sm"></div>
+            <div class="bg-transparent rounded-sm"></div>
+            <div class="bg-black rounded-sm"></div>
+            <div class="bg-black rounded-sm"></div>
+            <div class="bg-transparent rounded-sm"></div>
+            <div class="bg-black col-span-3 rounded-sm"></div>
+          </div>
+        </div>
 
-                window.addEventListener('resize', resizeCanvas);
-                resizeCanvas();
-                animateCanvas();
-            }
+        <p class="text-[10px] text-[var(--text-muted)] font-mono">SCAN QR OR TAP DIRECT UPI DEEP-LINK</p>
+        <div class="flex items-center justify-center gap-2 mt-1">
+          <p class="font-mono text-xs font-bold text-red-500">9697430658@FAM</p>
+          <button onclick="copyUPI()"
+            class="text-[10px] font-mono bg-gray-800 hover:bg-gray-700 px-2 py-0.5 rounded text-white"
+            id="copy-btn">COPY</button>
+        </div>
+      </div>
 
-            // Scroll Reveal Observer
-            const reveals = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-            reveals.forEach(r => observer.observe(r));
+      <!-- Direct UPI Mobile Link -->
+      <a href="upi://pay?pa=9697430658@FAM&pn=Aura%20Prebook&am=4150&cu=INR&tn=Aura%20Earbuds%20Oct%201"
+        class="btn-apple w-full block py-3.5 rounded-xl text-xs font-mono font-bold tracking-wider uppercase mb-2 shadow-lg"
+        id="upi-link">
+        PAY VIA UPI INSTANT APP
+      </a>
+      <button onclick="closePayment()"
+        class="btn-glass w-full py-2.5 rounded-xl text-xs font-mono uppercase text-gray-400">
+        CANCEL
+      </button>
+    </div>
+  </div>
 
-            // Stat Counter Count-up Animation
-            const counters = document.querySelectorAll('.stat-counter');
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        const target = parseFloat(counter.getAttribute('data-target'));
-                        const decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
-                        let start = 0;
-                        const duration = 1500;
-                        const startTime = performance.now();
 
-                        function update(now) {
-                            const elapsed = now - startTime;
-                            const progress = Math.min(elapsed / duration, 1);
-                            const val = progress * target;
-                            counter.textContent = val.toFixed(decimals);
-                            if (progress < 1) requestAnimationFrame(update);
-                            else counter.textContent = target.toFixed(decimals);
-                        }
-                        requestAnimationFrame(update);
-                        counterObserver.unobserve(counter);
-                    }
-                });
-            }, { threshold: 0.2 });
-            counters.forEach(c => counterObserver.observe(p = c));
+  <!-- =================================================================== -->
+  <!-- JAVASCRIPT MASTER ENGINE                                            -->
+  <!-- =================================================================== -->
+  <script>
+    // 1. Lenis Smooth Scroll Engine
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0
+    });
 
-            // Drawer Navigation Engine
-            const drawerTrigger = document.getElementById('mobileMenuTrigger');
-            const drawerOverlay = document.getElementById('drawerOverlay');
-            const drawerPanel = document.getElementById('drawerPanel');
-            const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-            function toggleDrawer(open) {
-                if (open) {
-                    drawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                    drawerPanel.style.transform = 'translateX(0)';
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    drawerOverlay.classList.add('opacity-0', 'pointer-events-none');
-                    drawerPanel.style.transform = 'translateX(-100%)';
-                    document.body.style.overflow = '';
-                }
-            }
+    // 2. Web Audio UI Sound FX Synthesizer
+    let audioFXEnabled = true;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
 
-            drawerTrigger?.addEventListener('click', () => toggleDrawer(true));
-            closeDrawerBtn?.addEventListener('click', () => toggleDrawer(false));
-            drawerOverlay?.addEventListener('click', () => toggleDrawer(false));
+    function playClickFX(freq = 800, type = 'sine') {
+      if (!audioFXEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
 
-            document.querySelectorAll('.drawerLink').forEach(link => {
-                link.addEventListener('click', () => toggleDrawer(false));
-            });
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
 
-            // Generic Modal Helper Functions
-            function openModal(modalEl) {
-                if (!modalEl) return;
-                modalEl.classList.remove('hidden');
-                setTimeout(() => modalEl.classList.remove('opacity-0'), 10);
-                document.body.style.overflow = 'hidden';
-                if (window.lucide) lucide.createIcons();
-            }
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.04);
 
-            function closeModal(modalEl) {
-                if (!modalEl) return;
-                modalEl.classList.add('opacity-0');
-                setTimeout(() => {
-                    modalEl.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }, 300);
-            }
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
 
-            // Modal Trigger Elements
-            const enquiryModal = document.getElementById('enquiryModal');
-            const successModal = document.getElementById('successModal');
-            const helpModal = document.getElementById('helpCenterModal');
-            const blogModal = document.getElementById('blogModal');
-            const termsModal = document.getElementById('termsModal');
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
 
-            // Captcha Generator
-            let captchaAns = 0;
-            function generateCaptcha() {
-                const n1 = Math.floor(Math.random() * 8) + 2;
-                const n2 = Math.floor(Math.random() * 8) + 1;
-                captchaAns = n1 + n2;
-                const qEl = document.getElementById('captchaQuestion');
-                if (qEl) qEl.textContent = `${n1} + ${n2} = ?`;
-                const input = document.getElementById('captchaInput');
-                if (input) input.value = '';
-            }
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.04);
+      } catch (e) { }
+    }
 
-            document.getElementById('refreshCaptchaBtn')?.addEventListener('click', generateCaptcha);
+    function toggleAudioFeedback() {
+      audioFXEnabled = !audioFXEnabled;
+      document.getElementById('sound-icon-on').classList.toggle('hidden', !audioFXEnabled);
+      document.getElementById('sound-icon-off').classList.toggle('hidden', audioFXEnabled);
+      if (audioFXEnabled) playClickFX(1200);
+    }
 
-            // Trigger Listeners
-            document.querySelectorAll('.nothingBookBtn, #navBookTrigger, #drawerBookBtn, #contactModalTrigger').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    generateCaptcha();
-                    openModal(enquiryModal);
-                });
-            });
+    // Attach click sound to interactive controls
+    document.querySelectorAll('button, a, .feature-tab').forEach(el => {
+      el.addEventListener('mouseenter', () => playClickFX(600, 'triangle'));
+      el.addEventListener('click', () => playClickFX(1000, 'sine'));
+    });
 
-            document.getElementById('navHelpTrigger')?.addEventListener('click', () => openModal(helpModal));
-            document.getElementById('drawerHelpBtn')?.addEventListener('click', () => openModal(helpModal));
-            document.getElementById('footerHelpTrigger')?.addEventListener('click', () => openModal(helpModal));
+    // 3. Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+      }
+      playClickFX(900);
+    }
 
-            document.getElementById('drawerBlogBtn')?.addEventListener('click', () => openModal(blogModal));
-            document.getElementById('footerTermsTrigger')?.addEventListener('click', () => openModal(termsModal));
+    // 4. Page Navigation Router
+    const loader = document.getElementById('page-loader');
+    const views = document.querySelectorAll('.page-view');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-            // Close buttons
-            document.getElementById('closeEnquiryModal')?.addEventListener('click', () => closeModal(enquiryModal));
-            document.getElementById('closeSuccessModal')?.addEventListener('click', () => closeModal(successModal));
-            document.getElementById('closeHelpModal')?.addEventListener('click', () => closeModal(helpModal));
-            document.getElementById('closeBlogModal')?.addEventListener('click', () => closeModal(blogModal));
-            document.getElementById('closeTermsModal')?.addEventListener('click', () => closeModal(termsModal));
+    window.navigate = function (pageId) {
+      playClickFX(1100);
+      loader.classList.remove('pointer-events-none');
+      loader.style.opacity = '1';
 
-            [enquiryModal, successModal, helpModal, blogModal, termsModal].forEach(modal => {
-                modal?.addEventListener('click', (e) => {
-                    if (e.target === modal) closeModal(modal);
-                });
-            });
+      navLinks.forEach(link => {
+        if (link.dataset.target === pageId) link.classList.add('active');
+        else link.classList.remove('active');
+      });
 
-            // Hero Email Transfer
-            document.getElementById('heroEmailForm')?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const val = document.getElementById('heroEmailInput')?.value;
-                const enquiryEmail = document.getElementById('email');
-                if (val && enquiryEmail) enquiryEmail.value = val;
-                generateCaptcha();
-                openModal(enquiryModal);
-            });
+      setTimeout(() => {
+        views.forEach(v => v.classList.remove('active', 'visible'));
+        const targetView = document.getElementById(`page-${pageId}`);
+        if (targetView) targetView.classList.add('active');
 
-            // Enquiry Form Submission Handling
-            const enquiryForm = document.getElementById('enquiryForm');
-            enquiryForm?.addEventListener('submit', (e) => {
-                e.preventDefault();
+        lenis.scrollTo(0, { immediate: true });
 
-                const captchaIn = parseInt(document.getElementById('captchaInput')?.value || '0', 10);
-                const captchaErr = document.getElementById('captchaErrorMsg');
-                if (captchaIn !== captchaAns) {
-                    captchaErr?.classList.remove('hidden');
-                    return;
-                }
-                captchaErr?.classList.add('hidden');
+        setTimeout(() => {
+          if (targetView) targetView.classList.add('visible');
+          loader.style.opacity = '0';
+          loader.classList.add('pointer-events-none');
+        }, 50);
+      }, 300);
+    };
 
-                const phoneVal = document.getElementById('phone')?.value || '';
-                const phoneErr = document.getElementById('phoneErrorMsg');
-                if (phoneVal.length < 7) {
-                    if (phoneErr) {
-                        phoneErr.textContent = 'Please enter a valid phone number.';
-                        phoneErr.classList.remove('hidden');
-                    }
-                    return;
-                }
-                phoneErr?.classList.add('hidden');
+    // 5. Hero 3D Exploded View Scroll Engine & Mouse Tilt
+    const heroTrigger = document.getElementById('hero-trigger');
+    const product = document.getElementById('hero-product');
+    const text1 = document.getElementById('hero-text-1');
+    const text2 = document.getElementById('hero-text-2');
+    const specs = document.getElementById('hero-specs');
 
-                closeModal(enquiryModal);
-                enquiryForm.reset();
-                setTimeout(() => openModal(successModal), 300);
-            });
+    const partShell = document.getElementById('part-shell');
+    const partStem = document.getElementById('part-stem');
+    const partDriver = document.getElementById('part-driver');
+    const partTip = document.getElementById('part-tip');
+    const explodedLabels = document.getElementById('exploded-labels');
 
-            // Help Center Generator
-            const helpContentList = document.getElementById('helpContentList');
-            function renderHelpCenter(filter = '') {
-                if (!helpContentList) return;
-                helpContentList.innerHTML = '';
+    let currentScroll = 0;
+    let targetScroll = 0;
+    let mouseX = 0, mouseY = 0;
 
-                helpDatabase.forEach(cat => {
-                    const filtered = cat.items.filter(item => 
-                        !filter || item.q.toLowerCase().includes(filter) || item.a.toLowerCase().includes(filter)
-                    );
-                    if (filtered.length === 0) return;
+    // Interactive Mouse Tilt
+    window.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
+    });
 
-                    const catDiv = document.createElement('div');
-                    catDiv.className = 'space-y-3';
-                    catDiv.innerHTML = `<h3 class="font-ndot text-xs text-nothingRed uppercase">[ ${cat.catName} ]</h3>`;
+    function updateHeroScroll() {
+      if (document.getElementById('page-home').classList.contains('active')) {
+        targetScroll = window.scrollY;
+        currentScroll += (targetScroll - currentScroll) * 0.08;
 
-                    filtered.forEach(item => {
-                        const itemCard = document.createElement('div');
-                        itemCard.className = 'nothing-card p-4 text-xs font-sans';
-                        itemCard.innerHTML = `
-                            <button type="button" class="faq-toggle font-bold text-black w-full text-left flex items-center justify-between gap-2 cursor-pointer focus:outline-none">
-                                <span>Q: ${item.q}</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400 shrink-0"></i>
-                            </button>
-                            <div class="faq-ans hidden text-neutral-600 mt-2 pt-2 border-t border-neutral-200 leading-relaxed">
-                                A: ${item.a}
-                            </div>
-                        `;
+        const heroHeight = heroTrigger.offsetHeight - window.innerHeight;
+        let rawProgress = heroHeight > 0 ? currentScroll / heroHeight : 0;
+        let progress = Math.max(0, Math.min(1, rawProgress));
 
-                        const btn = itemCard.querySelector('.faq-toggle');
-                        const ans = itemCard.querySelector('.faq-ans');
-                        btn?.addEventListener('click', () => {
-                            ans?.classList.toggle('hidden');
-                        });
+        const scale = 1 + (progress * 2.2);
+        const translateY = progress * 140;
+        const rotate = progress * 12 + mouseX * 0.2;
+        const tiltX = mouseY * 0.2;
 
-                        catDiv.appendChild(itemCard);
-                    });
+        product.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotate(${rotate}deg) rotateX(${tiltX}deg)`;
 
-                    helpContentList.appendChild(catDiv);
-                });
+        // Explode components on scroll progress
+        let explode = Math.max(0, Math.min(1, (progress - 0.1) / 0.65));
 
-                if (window.lucide) lucide.createIcons();
-            }
+        partShell.style.transform = `translate3d(${explode * 30}px, ${explode * -25}px, 0)`;
+        partStem.style.transform = `translate3d(0, ${explode * 75}px, 0)`;
+        partTip.style.transform = `translate3d(${explode * -50}px, ${explode * 15}px, 0)`;
 
-            renderHelpCenter();
+        partDriver.style.transformOrigin = "95px 100px";
+        partDriver.style.transform = `scale(${1 + (explode * 0.25)}) rotate(${explode * 120}deg)`;
 
-            document.getElementById('helpSearchInput')?.addEventListener('input', (e) => {
-                const val = e.target.value.toLowerCase().trim();
-                renderHelpCenter(val);
-            });
+        if (explode > 0.45) {
+          explodedLabels.style.opacity = (explode - 0.45) * 2;
+        } else {
+          explodedLabels.style.opacity = '0';
+        }
 
-            document.getElementById('expandAllFaqBtn')?.addEventListener('click', () => {
-                document.querySelectorAll('.faq-ans').forEach(a => a.classList.remove('hidden'));
-            });
+        // Background kinetic text scrub
+        text1.style.transform = `translate3d(0, ${progress * -350}px, 0)`;
+        text2.style.transform = `translate3d(0, ${progress * 350}px, 0)`;
 
-            // AI Chatbot Logic
-            const aiChatToggle = document.getElementById('aiChatToggle');
-            const aiChatWindow = document.getElementById('aiChatWindow');
-            const closeAiChat = document.getElementById('closeAiChat');
-            const aiChatForm = document.getElementById('aiChatForm');
-            const aiChatInput = document.getElementById('aiChatInput');
-            const aiChatMessages = document.getElementById('aiChatMessages');
+        if (progress > 0.4) {
+          const specProgress = (progress - 0.4) / 0.6;
+          specs.style.opacity = specProgress;
+          specs.style.transform = `translate3d(-50%, ${30 - (specProgress * 30)}px, 0)`;
+        } else {
+          specs.style.opacity = '0';
+          specs.style.transform = `translate3d(-50%, 30px, 0)`;
+        }
+      }
+      requestAnimationFrame(updateHeroScroll);
+    }
+    updateHeroScroll();
 
-            let isAiOpen = false;
-            function toggleAi() {
-                isAiOpen = !isAiOpen;
-                if (isAiOpen) {
-                    aiChatWindow.classList.remove('hidden');
-                    setTimeout(() => aiChatWindow.classList.remove('opacity-0'), 10);
-                } else {
-                    aiChatWindow.classList.add('opacity-0');
-                    setTimeout(() => aiChatWindow.classList.add('hidden'), 300);
-                }
-            }
+    // 6. Feature Tab Carousel Controller
+    const tabs = document.querySelectorAll('.feature-tab');
+    const cards = document.querySelectorAll('.feature-card');
+    const indicator = document.getElementById('tab-indicator');
 
-            aiChatToggle?.addEventListener('click', toggleAi);
-            closeAiChat?.addEventListener('click', toggleAi);
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.querySelector('h3').classList.replace('text-[var(--text-main)]', 'text-gray-400'));
+        tab.querySelector('h3').classList.replace('text-gray-400', 'text-[var(--text-main)]');
 
-            function appendChat(text, isUser) {
-                const msg = document.createElement('div');
-                msg.className = `p-3 rounded-2xl text-xs max-w-[85%] leading-relaxed ${
-                    isUser 
-                    ? 'bg-black text-white rounded-tr-xs self-end' 
-                    : 'bg-neutral-100 border border-neutral-300 text-neutral-800 rounded-tl-xs self-start'
-                }`;
-                msg.innerHTML = text;
-                aiChatMessages?.appendChild(msg);
-                if (aiChatMessages) aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-            }
+        indicator.style.transform = `translate3d(0, ${index * 68}px, 0)`;
 
-            aiChatForm?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const q = aiChatInput.value.trim();
-                if (!q) return;
-
-                appendChat(q, true);
-                aiChatInput.value = '';
-
-                setTimeout(() => {
-                    const qLower = q.toLowerCase();
-                    let reply = "I am the Forge OS AI Agent. Our plans are BASIC (₹1,999), PRO ⭐ (₹7,999), and PREMIUM 👑 (₹14,999). Contact us at +91-9697430658!";
-                    
-                    if (qLower.includes('price') || qLower.includes('cost') || qLower.includes('plan')) {
-                        reply = "Official Forge Tiers:<br>&bull; <strong>BASIC:</strong> ₹1,999 (1–3 Pages, 3 Days Support)<br>&bull; <strong>PRO ⭐ [Best Selling]:</strong> ₹7,999 (Up to 8 Pages, Mobile Responsive, 15 Days Support)<br>&bull; <strong>PREMIUM 👑:</strong> ₹14,999 (Unlimited Pages, AI Chatbot, Free Domain, 30 Days Support)";
-                    } else if (qLower.includes('hq') || qLower.includes('address') || qLower.includes('location')) {
-                        reply = "Forge HQ is located at <strong>Pandith Pore Rainawari, Srinagar, Jammu & Kashmir 190003</strong>.";
-                    } else if (qLower.includes('partner') || qLower.includes('inexterior')) {
-                        reply = "Our featured partner is <strong>INEXTERIOR</strong>: <a href='https://farmanshafi2007-hub.github.io/INEXTERIOR/' target='_blank' class='underline font-bold'>Visit Site</a>";
-                    }
-
-                    appendChat(reply, false);
-                }, 400);
-            });
-
+        cards.forEach((card, cardIndex) => {
+          card.classList.remove('active', 'prev', 'next');
+          if (cardIndex === index) card.classList.add('active');
+          else if (cardIndex < index) card.classList.add('prev');
+          else card.classList.add('next');
         });
-    </script>
+      });
+    });
+
+    // 7. Nothing Glyph LED Dot-Matrix Canvas Engine
+    const glyphCanvas = document.getElementById('glyph-canvas');
+    const glyphCtx = glyphCanvas ? glyphCanvas.getContext('2d') : null;
+    let glyphMode = 'pulse';
+    let glyphFrame = 0;
+
+    function renderGlyphCanvas() {
+      if (!glyphCtx) return;
+      glyphCtx.clearRect(0, 0, glyphCanvas.width, glyphCanvas.height);
+
+      const cols = 30;
+      const rows = 10;
+      const spacing = 18;
+      const offsetX = (glyphCanvas.width - cols * spacing) / 2;
+      const offsetY = (glyphCanvas.height - rows * spacing) / 2;
+
+      glyphFrame += 0.05;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = offsetX + c * spacing;
+          const y = offsetY + r * spacing;
+
+          let opacity = 0.15;
+          let color = '#ffffff';
+
+          if (glyphMode === 'pulse') {
+            const dist = Math.sqrt(Math.pow(c - 15, 2) + Math.pow(r - 5, 2));
+            opacity = Math.max(0.1, Math.sin(dist * 0.5 - glyphFrame) * 0.9);
+          } else if (glyphMode === 'battery') {
+            const fillCol = Math.floor((Math.sin(glyphFrame) + 1) / 2 * cols);
+            if (c <= fillCol) {
+              opacity = 0.9;
+              color = '#e30000';
+            }
+          } else if (glyphMode === 'anc') {
+            const wave = Math.sin(c * 0.4 + glyphFrame * 2) * 3 + 5;
+            if (Math.abs(r - wave) < 1.5) {
+              opacity = 0.95;
+              color = '#e30000';
+            }
+          } else if (glyphMode === 'pairing') {
+            if ((c + r + Math.floor(glyphFrame * 5)) % 4 === 0) opacity = 0.85;
+          }
+
+          glyphCtx.fillStyle = color;
+          glyphCtx.globalAlpha = opacity;
+          glyphCtx.beginPath();
+          glyphCtx.arc(x, y, 2.5, 0, Math.PI * 2);
+          glyphCtx.fill();
+        }
+      }
+      requestAnimationFrame(renderGlyphCanvas);
+    }
+    renderGlyphCanvas();
+
+    window.triggerGlyphMode = function (mode) {
+      glyphMode = mode;
+      playClickFX(1400);
+    };
+
+    // 8. Real-time ANC Web Audio Sandbox Engine
+    let ancAudioCtx = null;
+    let ancNoiseNode = null;
+    let ancFilterNode = null;
+    let isANCAudioRunning = false;
+
+    window.toggleANCAudio = function () {
+      if (!isANCAudioRunning) {
+        try {
+          ancAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          const bufferSize = ancAudioCtx.sampleRate * 2;
+          const buffer = ancAudioCtx.createBuffer(1, bufferSize, ancAudioCtx.sampleRate);
+          const output = buffer.getChannelData(0);
+
+          // Generate low ambient rumble noise
+          for (let i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+          }
+
+          ancNoiseNode = ancAudioCtx.createBufferSource();
+          ancNoiseNode.buffer = buffer;
+          ancNoiseNode.loop = true;
+
+          ancFilterNode = ancAudioCtx.createBiquadFilter();
+          ancFilterNode.type = 'lowpass';
+          ancFilterNode.frequency.value = 2000;
+
+          ancNoiseNode.connect(ancFilterNode);
+          ancFilterNode.connect(ancAudioCtx.destination);
+          ancNoiseNode.start();
+
+          isANCAudioRunning = true;
+          document.getElementById('anc-btn-text').innerText = 'STOP NOISE SIMULATOR';
+          playClickFX(1200);
+        } catch (e) { }
+      } else {
+        if (ancNoiseNode) ancNoiseNode.stop();
+        isANCAudioRunning = false;
+        document.getElementById('anc-btn-text').innerText = 'START NOISE SIMULATOR';
+        playClickFX(600);
+      }
+    };
+
+    window.updateANCLevel = function (val) {
+      document.getElementById('anc-slider-val').innerText = `${val}% ANC`;
+      document.getElementById('anc-db-readout').innerText = `${Math.round(val * 0.5)}dB REDUCTION`;
+
+      if (ancFilterNode && ancAudioCtx) {
+        // Reduce cutoff frequency as ANC increases
+        const freq = 2000 * Math.pow(0.05, val / 100);
+        ancFilterNode.frequency.setValueAtTime(freq, ancAudioCtx.currentTime);
+      }
+    };
+
+    // ANC Spectrogram Canvas Visualizer
+    const ancCanvas = document.getElementById('anc-canvas');
+    const ancCtx = ancCanvas ? ancCanvas.getContext('2d') : null;
+    let ancFrame = 0;
+
+    function renderANCCanvas() {
+      if (!ancCtx) return;
+      ancCtx.clearRect(0, 0, ancCanvas.width, ancCanvas.height);
+
+      const ancLevel = parseInt(document.getElementById('anc-slider').value) || 0;
+      const amplitude = (100 - ancLevel * 0.9) / 100;
+
+      ancCtx.strokeStyle = '#e30000';
+      ancCtx.lineWidth = 2;
+      ancCtx.beginPath();
+
+      const width = ancCanvas.width;
+      const height = ancCanvas.height;
+      const midY = height / 2;
+
+      ancFrame += 0.08;
+
+      for (let x = 0; x < width; x += 3) {
+        const noise = (Math.sin(x * 0.05 + ancFrame) + Math.cos(x * 0.02 - ancFrame)) * 25 * amplitude;
+        const y = midY + noise;
+        if (x === 0) ancCtx.moveTo(x, y);
+        else ancCtx.lineTo(x, y);
+      }
+      ancCtx.stroke();
+      requestAnimationFrame(renderANCCanvas);
+    }
+    renderANCCanvas();
+
+    // 9. Colorway Finish Customizer Engine
+    const finishes = {
+      clear: { shell: 'rgba(255,255,255,0.85)', stem: '#e5e7eb', driver: '#9ca3af', dot: '#e30000', label: '// FINISH: NOTHING CLEAR (SIGNATURE)' },
+      obsidian: { shell: 'rgba(30,30,35,0.85)', stem: '#1f2937', driver: '#374151', dot: '#e30000', label: '// FINISH: OBSIDIAN DARK (SMOKE TINT)' },
+      chalk: { shell: '#f9fafb', stem: '#e5e7eb', driver: '#d1d5db', dot: '#e30000', label: '// FINISH: CERAMIC CHALK (WHITE)' },
+      cyberred: { shell: 'rgba(227,0,0,0.85)', stem: '#7f1d1d', driver: '#111827', dot: '#ffffff', label: '// FINISH: CYBER RED (SPECIAL EDITION)' }
+    };
+
+    window.selectFinish = function (key) {
+      const f = finishes[key];
+      if (!f) return;
+
+      document.getElementById('cust-shell').setAttribute('fill', f.shell);
+      document.getElementById('cust-stem').setAttribute('fill', f.stem);
+      document.getElementById('cust-driver').setAttribute('fill', f.driver);
+      document.getElementById('cust-dot').setAttribute('fill', f.dot);
+      document.getElementById('cust-label').innerText = f.label;
+
+      playClickFX(1300);
+    };
+
+    // 10. Payment Modal & Multi-Currency Engine
+    const paymentModal = document.getElementById('payment-modal-overlay');
+    window.openPayment = () => { paymentModal.classList.add('open'); playClickFX(1100); };
+    window.closePayment = () => { paymentModal.classList.remove('open'); playClickFX(700); };
+
+    const currencyRates = {
+      INR: { price: '₹4,150', orig: '₹6,000', link: 'upi://pay?pa=9697430658@FAM&pn=Aura%20Prebook&am=4150&cu=INR&tn=Aura%20Earbuds%20Oct%201' },
+      USD: { price: '$50', orig: '$75', link: '#' },
+      EUR: { price: '€46', orig: '€70', link: '#' }
+    };
+
+    window.setCurrency = function (curr) {
+      ['inr', 'usd', 'eur'].forEach(c => {
+        const btn = document.getElementById(`curr-${c}`);
+        if (c === curr.toLowerCase()) {
+          btn.className = 'px-3 py-1 rounded-full border border-red-500 bg-red-600/20 text-red-500 font-bold';
+        } else {
+          btn.className = 'px-3 py-1 rounded-full border border-[var(--border-color)] text-gray-400';
+        }
+      });
+
+      const data = currencyRates[curr];
+      if (data) {
+        document.getElementById('modal-price-display').innerText = data.price;
+        document.getElementById('modal-original-price').innerText = data.orig;
+        document.getElementById('upi-link').setAttribute('href', data.link);
+      }
+      playClickFX(1000);
+    };
+
+    window.applyPromo = function () {
+      const val = document.getElementById('promo-input').value.trim().toUpperCase();
+      if (val === 'AURA2026') {
+        document.getElementById('modal-price-display').innerText = '₹3,735';
+        document.getElementById('promo-msg').classList.remove('hidden');
+        playClickFX(1500);
+      }
+    };
+
+    window.copyUPI = function () {
+      navigator.clipboard.writeText('9697430658@FAM');
+      const btn = document.getElementById('copy-btn');
+      btn.innerText = 'COPIED!';
+      setTimeout(() => btn.innerText = 'COPY', 2000);
+      playClickFX(1200);
+    };
+  </script>
 </body>
 
 </html>
