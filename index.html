@@ -10,8 +10,10 @@
     <title>Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers</title>
     <meta name="title" content="Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers">
     <meta name="description" content="Forge Softwares engineers ultra-high-speed web platforms, scalable software infrastructure, and autonomous AI workers. Transparent pricing: Basic (₹1,999), Pro (₹7,999), Premium (₹14,999).">
-    <meta name="keywords" content="Forge Softwares, Web Engineering, AI Workers, Autonomous Chatbots, Fast Websites, Srinagar Software Company, B2B Web Development">
+    <meta name="keywords" content="Forge Softwares, Web Engineering, AI Workers, Autonomous Chatbots, Fast Websites, Srinagar Software Company, B2B Web Development, AI Automation, Enterprise Web Architecture">
     <meta name="author" content="Forge Softwares">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark light">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://forgesoftwares.in/">
 
@@ -21,8 +23,12 @@
     <meta property="og:title" content="Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers">
     <meta property="og:description" content="Custom digital architecture and autonomous AI workers engineered for continuous customer acquisition and zero operational friction.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Forge Softwares">
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://forgesoftwares.in/">
     <meta name="twitter:title" content="Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers">
@@ -35,6 +41,7 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://d8j0ntlcm91z4.cloudfront.net">
 
     <!-- Tailwind CSS CDN Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -271,14 +278,15 @@
         }
 
         .hero-mask {
-            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.98) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.98) 100%);
         }
 
         .apple-nav {
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: saturate(250%) blur(28px);
-            -webkit-backdrop-filter: saturate(250%) blur(28px);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+            background-color: rgba(0, 0, 0, 0.88);
+            backdrop-filter: saturate(180%) blur(24px);
+            -webkit-backdrop-filter: saturate(180%) blur(24px);
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s var(--ease-apple);
         }
 
         .card-dark-contrast {
@@ -414,6 +422,50 @@
             border-spacing: 0 !important;
         }
 
+        /* Fluid Morphing Hamburger Icon */
+        .menu-bar {
+            transform-origin: center;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        }
+        .menu-open .bar-1 {
+            transform: translateY(6px) rotate(45deg);
+        }
+        .menu-open .bar-2 {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .menu-open .bar-3 {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Testimonial Luxury Micro Glow */
+        .testimonial-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 0, 0, 0.06), transparent 40%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .testimonial-card:hover .testimonial-glow {
+            opacity: 1;
+        }
+
+        /* High-Converting Floating Bar */
+        .floating-pill-cta {
+            transform: translateY(120%);
+            transition: transform 0.45s var(--ease-spring), opacity 0.3s ease;
+        }
+        .floating-pill-cta.visible {
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar for inner modals */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #000000; border-radius: 999px; }
+
         @media (prefers-reduced-motion: reduce) {
             *, ::before, ::after {
                 animation-duration: 0.01ms !important;
@@ -442,51 +494,73 @@
     </script>
 </head>
 
-<body class="selection:bg-white selection:text-black w-full max-w-full bg-black text-white overflow-x-hidden font-sans">
+<body class="selection:bg-white selection:text-black w-full max-w-full bg-black text-white overflow-x-hidden font-sans antialiased">
 
-    <!-- Primary Navigation Header -->
-    <header id="topHeader" class="sticky top-0 z-50 w-full apple-nav h-[52px] flex items-center transition-all duration-300">
+    <!-- Top Live Status Micro-Header for Conversion -->
+    <aside aria-label="System status" class="w-full bg-black border-b border-white/15 py-1 px-4 text-center z-[60] relative">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[10px] font-mono tracking-widest uppercase text-white/90 font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Live Availability: <strong class="text-white">Q3 Engineering Slots Open</strong></span>
+            <span class="hidden sm:inline text-white/40">•</span>
+            <span class="hidden sm:inline text-white/80">Average Response &lt; 15 Mins</span>
+            <span class="hidden md:inline text-white/40">•</span>
+            <span class="hidden md:inline text-white/90 underline cursor-pointer" onclick="openEnquiryModal()">Claim ₹1,999 Basic Web Deployment &rarr;</span>
+        </div>
+    </aside>
+
+    <!-- Primary Navigation Header (Apple-Grade Minimalist Glass) -->
+    <header id="topHeader" class="sticky top-0 z-50 w-full apple-nav h-[58px] flex items-center transition-all duration-300">
         <nav class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-full" aria-label="Main Navigation">
-            <a href="#home" class="flex items-center gap-2 text-white transition-opacity duration-300 hover:opacity-80 active:scale-95 shrink-0 focus:outline-none" aria-label="Forge Softwares Home">
-                <div class="w-7 h-7 rounded-full border-2 border-white bg-white/10 flex items-center justify-center font-mono text-[10px] font-bold text-white backdrop-blur-md shrink-0">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2.5 text-white transition-all duration-300 hover:opacity-85 active:scale-95 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-lg p-1" aria-label="Forge Softwares Home">
+                <div class="w-8 h-8 rounded-full border-2 border-white bg-white/10 flex items-center justify-center font-mono text-[10px] font-bold text-white backdrop-blur-md shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     <i data-lucide="code-2" class="w-4 h-4 text-white"></i>
                 </div>
-                <span class="text-base sm:text-lg font-podium tracking-widest uppercase font-extrabold">Forge Softwares</span>
+                <div class="flex flex-col">
+                    <span class="text-base sm:text-lg font-podium tracking-widest uppercase font-extrabold leading-none">Forge Softwares</span>
+                    <span class="text-[8px] font-mono tracking-widest uppercase text-white/60 hidden xs:block">Autonomous AI & Systems</span>
+                </div>
             </a>
 
             <!-- Desktop Links -->
-            <div class="hidden md:flex items-center gap-8 text-[12px] tracking-normal text-white font-sans font-bold uppercase">
-                <a href="#home" class="hover:text-gray-300 transition-colors py-1 focus:outline-none">Home</a>
-                <a href="#services-preview" class="hover:text-gray-300 transition-colors py-1 focus:outline-none">Services</a>
-                <a href="#pricing" class="hover:text-gray-300 transition-colors py-1 focus:outline-none font-extrabold text-white underline underline-offset-4">Pricing</a>
-                <a href="#roi-calculator" class="hover:text-gray-300 transition-colors py-1 focus:outline-none">Calculator</a>
-                <a href="#testimonials" class="hover:text-gray-300 transition-colors py-1 focus:outline-none">Testimonials</a>
-                <a href="#contact" class="hover:text-gray-300 font-extrabold transition-colors py-1 focus:outline-none">Contact & HQ</a>
-                <button type="button" id="navHelpBtn" class="hover:text-gray-300 text-white font-extrabold transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
+            <div class="hidden md:flex items-center gap-7 lg:gap-8 text-[11px] lg:text-[12px] tracking-wider text-white/90 font-mono font-bold uppercase">
+                <a href="#home" class="hover:text-white transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded">Home</a>
+                <a href="#services-preview" class="hover:text-white transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded">Services</a>
+                <a href="#pricing" class="hover:text-white transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded text-white underline underline-offset-8 decoration-white decoration-2">Pricing</a>
+                <a href="#roi-calculator" class="hover:text-white transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded">Calculator</a>
+                <a href="#testimonials" class="hover:text-white transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded">Testimonials</a>
+                <a href="#contact" class="hover:text-white font-extrabold transition-colors py-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white rounded">Contact & HQ</a>
+                <button type="button" id="navHelpBtn" class="hover:text-white text-white font-extrabold transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
                     <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Help
                 </button>
-                <button type="button" id="navBlogBtn" class="hover:text-gray-300 transition-colors focus:outline-none cursor-pointer">Blog</button>
+                <button type="button" id="navBlogBtn" class="hover:text-white transition-colors focus:outline-none cursor-pointer">Blog</button>
             </div>
 
-            <!-- Get Started CTA -->
+            <!-- Get Started CTA Button (Desktop) -->
             <div class="hidden md:flex items-center gap-3 shrink-0">
-                <button type="button" id="navGetStartedBtn" class="apple-btn-primary !min-h-[34px] !py-1.5 !px-5 !text-[11px] group cursor-pointer focus:outline-none">
-                    Start Project <i data-lucide="chevron-right" class="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 transition-transform"></i>
+                <button type="button" id="navGetStartedBtn" class="apple-btn-primary !min-h-[38px] !py-1.5 !px-5 !text-[11px] group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+                    <span>Start Project</span>
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </div>
 
-            <!-- Mobile Hamburger Button -->
-            <button type="button" id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white text-black border-2 border-white relative z-[60] focus:outline-none active:scale-95 cursor-pointer shrink-0" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="nexumMobileDrawer">
-                <i data-lucide="menu" id="nexumMenuIcon" class="absolute w-4 h-4 transition-all duration-300 scale-100 opacity-100"></i>
-                <i data-lucide="x" id="nexumXIcon" class="absolute w-4 h-4 transition-all duration-300 scale-0 opacity-0"></i>
+            <!-- Fluid Morphing Mobile Hamburger Button -->
+            <button type="button" id="nexumMobileMenuBtn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white text-black border-2 border-white relative z-[60] focus:outline-none active:scale-90 transition-all cursor-pointer shrink-0 shadow-lg" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="nexumMobileDrawer">
+                <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="6" x2="20" y2="6" class="menu-bar bar-1" id="menuBar1"></line>
+                    <line x1="4" y1="12" x2="20" y2="12" class="menu-bar bar-2" id="menuBar2"></line>
+                    <line x1="4" y1="18" x2="20" y2="18" class="menu-bar bar-3" id="menuBar3"></line>
+                </svg>
             </button>
         </nav>
     </header>
 
     <main class="w-full flex flex-col overflow-x-hidden">
 
-        <!-- SECTION 1: HERO SECTION (OLED PURE BLACK #000000) -->
-        <section id="home" class="relative min-h-[100svh] min-h-[100dvh] w-full overflow-hidden flex flex-col font-geist text-white hero-video-container pt-12 sm:pt-16 pb-8 sm:pb-12 bg-grid-dark">
+        <!-- SECTION 1: HERO SECTION -->
+        <section id="home" class="relative min-h-[92svh] min-h-[92dvh] w-full overflow-hidden flex flex-col font-geist text-white hero-video-container pt-8 sm:pt-14 pb-12 sm:pb-16 bg-grid-dark justify-center">
+            
             <!-- Background Media Layers with Resilient Fallback -->
             <div id="heroVideoContainer" class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
                 <video id="vid-layer-0" class="absolute inset-0 h-full w-full hero-video-layer object-cover object-[center_35%] opacity-0" loop muted playsinline preload="auto" poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"></video>
@@ -502,77 +576,79 @@
             <div class="absolute inset-0 hero-mask z-[2] pointer-events-none"></div>
 
             <!-- Content Composition -->
-            <div id="heroContentLayer" class="relative z-[10] my-auto px-4 sm:px-8 lg:px-16 w-full max-w-7xl mx-auto flex flex-col items-center sm:items-start text-center sm:text-left justify-center py-6 sm:py-10">
+            <div id="heroContentLayer" class="relative z-[10] my-auto px-4 sm:px-8 lg:px-16 w-full max-w-7xl mx-auto flex flex-col items-center sm:items-start text-center sm:text-left justify-center py-4">
 
-                <div class="inline-flex items-center gap-2 border-2 border-white bg-black/90 px-4 py-1.5 rounded-full text-white text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-4 shadow-2xl">
+                <!-- Badge Pill -->
+                <div class="inline-flex items-center gap-2.5 border border-white/60 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-5 shadow-2xl animate-fade-up">
                     <span class="led-pulse-white"></span>
-                    <span class="truncate flex items-center gap-1.5 font-bold"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-white"></i> Web & AI Engineering Collective</span>
+                    <span class="truncate flex items-center gap-1.5 font-extrabold tracking-wider"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-white"></i> Web & AI Engineering Collective</span>
                 </div>
 
                 <!-- Main Headline -->
-                <h1 class="font-podium text-[2.15rem] xs:text-4xl sm:text-6xl lg:text-[5.25rem] text-white uppercase leading-[0.98] tracking-tight mb-4 max-w-4xl animate-fade-up font-extrabold">
-                    HIGH-SPEED WEBSITES. AUTONOMOUS AI WORKERS.
+                <h1 class="font-podium text-[2.25rem] xs:text-4xl sm:text-6xl lg:text-[5rem] text-white uppercase leading-[0.98] tracking-tight mb-4 max-w-4xl animate-fade-up font-black">
+                    HIGH-SPEED WEBSITES.<br class="hidden sm:block" /> AUTONOMOUS AI WORKERS.
                 </h1>
 
                 <!-- Architecture Standard Overview Block -->
-                <div id="heroStandardBlock" class="animate-fade-up my-3 border-2 border-white bg-black/95 rounded-2xl p-4 max-w-xl w-full text-left shadow-2xl" style="animation-delay: 0.1s;">
-                    <div class="flex items-center justify-between gap-2 mb-1.5">
-                        <span class="bg-white text-black font-mono text-[9px] sm:text-[10px] font-extrabold px-2.5 py-0.5 rounded uppercase tracking-widest">
+                <div id="heroStandardBlock" class="animate-fade-up my-3.5 border-2 border-white/90 bg-black/85 backdrop-blur-xl rounded-2xl p-4 sm:p-5 max-w-xl w-full text-left shadow-2xl transition-transform hover:-translate-y-1" style="animation-delay: 0.1s;">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="bg-white text-black font-mono text-[9px] sm:text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-widest shadow-sm">
                             PRODUCTION ARCHITECTURE
                         </span>
                         <span class="text-xs font-mono text-white font-extrabold flex items-center gap-1">
-                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-white"></i> Guaranteed Enterprise SLA
+                            <i data-lucide="shield-check" class="w-4 h-4 text-white"></i> Guaranteed Enterprise SLA
                         </span>
                     </div>
-                    <p class="text-xs sm:text-sm font-mono text-white leading-snug font-bold">
+                    <p class="text-xs sm:text-sm font-mono text-white leading-relaxed font-bold">
                         Ultra-Fast Delivery • Native AI Agents • Sub-100ms Static Edge Infrastructure
                     </p>
                 </div>
 
-                <p class="text-xs sm:text-base text-white max-w-md sm:max-w-xl leading-relaxed mb-6 font-sans animate-fade-up font-medium" style="animation-delay: 0.15s;">
+                <p class="text-xs sm:text-base text-white/90 max-w-md sm:max-w-xl leading-relaxed mb-6 font-sans animate-fade-up font-medium" style="animation-delay: 0.15s;">
                     Custom digital architecture and intelligent AI agents engineered for continuous customer acquisition, instant inquiry resolution, and zero operational friction.
                 </p>
 
+                <!-- Action Form with Quick Presets -->
                 <form id="heroEmailForm" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full max-w-md sm:max-w-lg mb-6 animate-fade-up" style="animation-delay: 0.25s;" aria-label="Hero Consultation Request">
                     <div class="relative flex-1 w-full shrink-0">
-                        <input type="email" id="heroEmailInput" required placeholder="Enter work email for consultation..." class="w-full rounded-full bg-black/90 border-2 border-white px-5 py-3 text-xs sm:text-sm text-white placeholder-white/80 outline-none focus:ring-2 focus:ring-white transition-all font-mono min-h-[44px]" aria-label="Email address" />
+                        <input type="email" id="heroEmailInput" required placeholder="Enter work email for instant consultation..." class="w-full rounded-full bg-black/85 border-2 border-white px-5 py-3 text-xs sm:text-sm text-white placeholder-white/70 outline-none focus:ring-2 focus:ring-white focus:bg-black transition-all font-mono min-h-[46px] shadow-lg" aria-label="Email address" />
                     </div>
-                    <button type="submit" class="apple-btn-primary shrink-0 px-6 sm:px-8 py-3 text-xs font-extrabold uppercase tracking-wider whitespace-nowrap min-h-[44px] cursor-pointer">
+                    <button type="submit" class="apple-btn-primary shrink-0 px-6 sm:px-8 py-3 text-xs font-extrabold uppercase tracking-wider whitespace-nowrap min-h-[46px] cursor-pointer">
                         Start Project <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 inline-block"></i>
                     </button>
                 </form>
 
-                <!-- Single-Row Mobile Video Selector Panel -->
+                <!-- Single-Row Video Selector Panel -->
                 <div class="w-full max-w-full overflow-hidden mb-6 animate-fade-up" style="animation-delay: 0.35s;">
-                    <div class="bg-black/95 rounded-full inline-flex flex-nowrap items-center p-1 border-2 border-white shadow-2xl overflow-x-auto no-scrollbar w-full sm:w-auto min-h-[42px] touch-pan-x">
-                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="0">Golden Hour</button>
-                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="1">Still Water</button>
-                        <button type="button" class="videoSwitcherBtn px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="2">Deep Woods</button>
-                        <button type="button" class="videoSwitcherBtn active px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-black font-extrabold bg-white border-b-2 border-white transition-all cursor-pointer whitespace-nowrap shrink-0" data-video-index="3">Quiet Dawn</button>
+                    <div class="bg-black/85 backdrop-blur-md rounded-full inline-flex flex-nowrap items-center p-1 border-2 border-white/80 shadow-2xl overflow-x-auto no-scrollbar w-full sm:w-auto min-h-[42px] touch-pan-x">
+                        <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="0">Golden Hour</button>
+                        <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="1">Still Water</button>
+                        <button type="button" class="videoSwitcherBtn px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-white/80 hover:text-white transition-all cursor-pointer whitespace-nowrap shrink-0 border-b-2 border-transparent font-bold" data-video-index="2">Deep Woods</button>
+                        <button type="button" class="videoSwitcherBtn active px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs text-black font-extrabold bg-white border-b-2 border-white transition-all cursor-pointer whitespace-nowrap shrink-0 shadow-sm" data-video-index="3">Quiet Dawn</button>
                     </div>
                 </div>
 
                 <!-- KPI Group -->
-                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-8 lg:gap-12 pt-4 border-t-2 border-white font-mono w-full animate-fade-up" style="animation-delay: 0.4s;">
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-8 lg:gap-12 pt-4 border-t-2 border-white/60 font-mono w-full animate-fade-up" style="animation-delay: 0.4s;">
                     <div class="text-center sm:text-left">
-                        <div class="text-lg sm:text-2xl font-extrabold text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
+                        <div class="text-lg sm:text-2xl font-black text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
                             <i data-lucide="rocket" class="w-4 h-4 text-white inline-block"></i> 42,500+
                         </div>
-                        <div class="text-white text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Deployments</div>
+                        <div class="text-white/80 text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Deployments</div>
                     </div>
-                    <div class="w-px h-8 bg-white hidden xs:block"></div>
+                    <div class="w-px h-8 bg-white/40 hidden xs:block"></div>
                     <div class="text-center sm:text-left">
-                        <div class="text-lg sm:text-2xl font-extrabold text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
+                        <div class="text-lg sm:text-2xl font-black text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
                             <i data-lucide="shield-check" class="w-4 h-4 text-white inline-block"></i> 99.9%
                         </div>
-                        <div class="text-white text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Reliability</div>
+                        <div class="text-white/80 text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Reliability</div>
                     </div>
-                    <div class="w-px h-8 bg-white hidden xs:block"></div>
+                    <div class="w-px h-8 bg-white/40 hidden xs:block"></div>
                     <div class="text-center sm:text-left">
-                        <div class="text-lg sm:text-2xl font-extrabold text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
+                        <div class="text-lg sm:text-2xl font-black text-white tracking-tight flex items-center justify-center sm:justify-start gap-1">
                             <i data-lucide="bot" class="w-4 h-4 text-white inline-block"></i> 24/7
                         </div>
-                        <div class="text-white text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Autonomous</div>
+                        <div class="text-white/80 text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 font-bold">Autonomous</div>
                     </div>
                 </div>
 
@@ -581,7 +657,7 @@
             <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent z-[5] pointer-events-none"></div>
         </section>
 
-        <!-- SECTION 2: SERVICES SECTION (PURE WHITE #FFFFFF) -->
+        <!-- SECTION 2: SERVICES SECTION -->
         <section id="services-preview" class="py-20 px-4 sm:px-8 lg:px-16 border-b-2 border-black bg-white text-black w-full relative z-20 bg-grid-light">
             <div class="w-full max-w-7xl mx-auto">
                 <div class="text-center mb-16 reveal">
@@ -595,24 +671,24 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                    <div class="card-light-contrast p-6 cursor-default group reveal">
-                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold">
+                    <div class="card-light-contrast p-7 cursor-default group reveal">
+                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
                             <i data-lucide="cpu" class="w-6 h-6"></i>
                         </div>
                         <h3 class="text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">Automation</h3>
                         <p class="text-xs text-black leading-relaxed font-sans font-medium">Streamlined business logic and custom API integrations engineered for continuous, fault-tolerant execution.</p>
                     </div>
 
-                    <div class="card-light-contrast p-6 cursor-default group reveal" style="transition-delay: 100ms;">
-                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold">
+                    <div class="card-light-contrast p-7 cursor-default group reveal" style="transition-delay: 100ms;">
+                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
                             <i data-lucide="layout-template" class="w-6 h-6"></i>
                         </div>
                         <h3 class="text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">Web Platforms</h3>
                         <p class="text-xs text-black leading-relaxed font-sans font-medium">High-converting digital architecture with sub-100ms static speed execution and flawless multi-screen responsiveness.</p>
                     </div>
 
-                    <div class="card-light-contrast p-6 cursor-default group reveal sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
-                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold">
+                    <div class="card-light-contrast p-7 cursor-default group reveal sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
+                        <div class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
                             <i data-lucide="message-square-dashed" class="w-6 h-6"></i>
                         </div>
                         <h3 class="text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">AI Chatbots</h3>
@@ -622,7 +698,7 @@
             </div>
         </section>
 
-        <!-- SECTION 3: STATS COUNTER BAR (OLED PURE BLACK #000000) -->
+        <!-- SECTION 3: STATS COUNTER BAR -->
         <section id="stats-counter-bar" class="py-16 px-4 sm:px-8 border-b-2 border-white bg-black text-white w-full bg-grid-dark">
             <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal">
                 <div class="flex flex-col items-center">
@@ -660,7 +736,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: TRUST LOGOS & PARTNERS (PURE WHITE #FFFFFF) -->
+        <!-- SECTION 4: TRUST LOGOS & PARTNERS -->
         <section id="trust-logos" class="py-20 border-b-2 border-black bg-white text-black w-full relative overflow-hidden bg-grid-light">
             <div class="w-full mx-auto text-center reveal relative z-10 overflow-hidden">
                 <div class="flex items-center justify-center mb-6">
@@ -709,7 +785,7 @@
             </div>
         </section>
 
-        <!-- SECTION 5: PRICING ARCHITECTURE & MATRIX (PURE WHITE #FFFFFF) -->
+        <!-- SECTION 5: PRICING ARCHITECTURE & MATRIX -->
         <section id="pricing" class="py-24 px-4 sm:px-8 lg:px-12 bg-white text-black w-full border-b-2 border-black bg-grid-light overflow-visible">
             <div class="w-full max-w-7xl mx-auto">
                 <div class="text-center mb-20 reveal px-2">
@@ -747,7 +823,7 @@
                             </div>
                             <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete starter deployment</span>
                         </div>
-                        <button type="button" onclick="openEnquiryModal()" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer">
+                        <button type="button" onclick="openEnquiryModal('basic')" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer">
                             <span>Select Basic</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </button>
@@ -793,7 +869,7 @@
                             </div>
                             <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete business scale solution</span>
                         </div>
-                        <button type="button" onclick="openEnquiryModal()" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                        <button type="button" onclick="openEnquiryModal('pro')" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
                             <span>Select Pro ⭐</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </button>
@@ -841,7 +917,7 @@
                             </div>
                             <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Autonomous AI & enterprise suite</span>
                         </div>
-                        <button type="button" onclick="openEnquiryModal()" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                        <button type="button" onclick="openEnquiryModal('premium')" class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
                             <span>Select Premium 👑</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </button>
@@ -1061,7 +1137,7 @@
             </div>
         </section>
 
-        <!-- SECTION 6: PROJECT COST ESTIMATION CALCULATOR (OLED PURE BLACK #000000) -->
+        <!-- SECTION 6: PROJECT COST ESTIMATION CALCULATOR -->
         <section id="roi-calculator" class="py-20 px-4 sm:px-8 bg-black text-white border-b-2 border-white w-full bg-grid-dark">
             <div class="max-w-4xl mx-auto reveal text-center">
                 <span class="text-xs font-mono uppercase tracking-widest text-white block mb-2 font-extrabold">Interactive Estimation</span>
@@ -1113,9 +1189,9 @@
             </div>
         </section>
 
-        <!-- SECTION 7: TESTIMONIALS SECTION (PURE WHITE #FFFFFF) -->
+        <!-- SECTION 7: TESTIMONIALS SECTION -->
         <section id="testimonials" class="py-24 px-4 sm:px-8 lg:px-16 border-b-2 border-black bg-white text-black w-full bg-grid-light relative overflow-hidden" aria-label="Customer Testimonials">
-            <div class="w-full max-w-7xl mx-auto">
+            <div class="w-full max-w-7xl mx-auto relative z-10">
                 
                 <!-- Section Header -->
                 <div class="text-center mb-16 reveal">
@@ -1131,7 +1207,7 @@
                 <!-- Carousel Controls & Status Bar -->
                 <div class="flex items-center justify-between gap-4 mb-8 max-w-6xl mx-auto px-2">
                     <div class="flex items-center gap-2 font-mono text-xs font-extrabold text-black">
-                        <span class="w-2 h-2 rounded-full bg-black"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-black"></span>
                         <span id="testimonialCurrentIdx">01</span>
                         <span class="text-black/40">/</span>
                         <span class="text-black/60">05</span>
@@ -1139,21 +1215,22 @@
 
                     <!-- Navigation Arrow Controls -->
                     <div class="flex items-center gap-2">
-                        <button type="button" id="prevTestimonialBtn" class="w-10 h-10 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md" aria-label="Previous Testimonial">
+                        <button type="button" id="prevTestimonialBtn" class="w-11 h-11 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md" aria-label="Previous Testimonial">
                             <i data-lucide="arrow-left" class="w-4 h-4"></i>
                         </button>
-                        <button type="button" id="nextTestimonialBtn" class="w-10 h-10 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md" aria-label="Next Testimonial">
+                        <button type="button" id="nextTestimonialBtn" class="w-11 h-11 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md" aria-label="Next Testimonial">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Testimonial Slider / Track Container -->
-                <div id="testimonialCarouselTrack" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-1 -mx-1 touch-pan-x" role="region" aria-roledescription="carousel" aria-label="Client reviews carousel">
+                <div id="testimonialCarouselTrack" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-6 px-2 -mx-2 touch-pan-x cursor-grab active:cursor-grabbing" role="region" aria-roledescription="carousel" aria-label="Client reviews carousel">
                     
                     <!-- 1. Ashiq Bashir (4.5/5) -->
-                    <article class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-2xl bg-white" data-index="0">
-                        <div>
+                    <article class="testimonial-card flex-none w-[90vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden" data-index="0">
+                        <div class="testimonial-glow"></div>
+                        <div class="relative z-10">
                             <div class="flex items-center justify-between gap-4 mb-6">
                                 <!-- Star Rating -->
                                 <div class="flex items-center gap-1 text-black" aria-label="Rating: 4.5 out of 5 stars">
@@ -1165,8 +1242,8 @@
                                     <span class="font-mono text-xs font-black ml-1.5 text-black">4.5</span>
                                 </div>
                                 <!-- Minimal Quote Icon -->
-                                <div class="w-8 h-8 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0">
-                                    <i data-lucide="quote" class="w-3.5 h-3.5 text-black"></i>
+                                <div class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="quote" class="w-4 h-4"></i>
                                 </div>
                             </div>
 
@@ -1176,7 +1253,7 @@
                         </div>
 
                         <!-- Author Meta -->
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15">
+                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
                             <div class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
                                 AB
                             </div>
@@ -1188,8 +1265,9 @@
                     </article>
 
                     <!-- 2. Rakesh (5/5) -->
-                    <article class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-2xl bg-white" data-index="1">
-                        <div>
+                    <article class="testimonial-card flex-none w-[90vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden" data-index="1">
+                        <div class="testimonial-glow"></div>
+                        <div class="relative z-10">
                             <div class="flex items-center justify-between gap-4 mb-6">
                                 <!-- Star Rating -->
                                 <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
@@ -1201,8 +1279,8 @@
                                     <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
                                 </div>
                                 <!-- Minimal Quote Icon -->
-                                <div class="w-8 h-8 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0">
-                                    <i data-lucide="quote" class="w-3.5 h-3.5 text-black"></i>
+                                <div class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="quote" class="w-4 h-4"></i>
                                 </div>
                             </div>
 
@@ -1212,7 +1290,7 @@
                         </div>
 
                         <!-- Author Meta -->
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15">
+                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
                             <div class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
                                 R
                             </div>
@@ -1224,8 +1302,9 @@
                     </article>
 
                     <!-- 3. Balram (5/5) -->
-                    <article class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-2xl bg-white" data-index="2">
-                        <div>
+                    <article class="testimonial-card flex-none w-[90vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden" data-index="2">
+                        <div class="testimonial-glow"></div>
+                        <div class="relative z-10">
                             <div class="flex items-center justify-between gap-4 mb-6">
                                 <!-- Star Rating -->
                                 <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
@@ -1237,8 +1316,8 @@
                                     <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
                                 </div>
                                 <!-- Minimal Quote Icon -->
-                                <div class="w-8 h-8 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0">
-                                    <i data-lucide="quote" class="w-3.5 h-3.5 text-black"></i>
+                                <div class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="quote" class="w-4 h-4"></i>
                                 </div>
                             </div>
 
@@ -1248,7 +1327,7 @@
                         </div>
 
                         <!-- Author Meta -->
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15">
+                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
                             <div class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
                                 B
                             </div>
@@ -1260,8 +1339,9 @@
                     </article>
 
                     <!-- 4. Sunil (4.5/5) -->
-                    <article class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-2xl bg-white" data-index="3">
-                        <div>
+                    <article class="testimonial-card flex-none w-[90vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden" data-index="3">
+                        <div class="testimonial-glow"></div>
+                        <div class="relative z-10">
                             <div class="flex items-center justify-between gap-4 mb-6">
                                 <!-- Star Rating -->
                                 <div class="flex items-center gap-1 text-black" aria-label="Rating: 4.5 out of 5 stars">
@@ -1273,8 +1353,8 @@
                                     <span class="font-mono text-xs font-black ml-1.5 text-black">4.5</span>
                                 </div>
                                 <!-- Minimal Quote Icon -->
-                                <div class="w-8 h-8 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0">
-                                    <i data-lucide="quote" class="w-3.5 h-3.5 text-black"></i>
+                                <div class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="quote" class="w-4 h-4"></i>
                                 </div>
                             </div>
 
@@ -1284,7 +1364,7 @@
                         </div>
 
                         <!-- Author Meta -->
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15">
+                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
                             <div class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
                                 S
                             </div>
@@ -1296,8 +1376,9 @@
                     </article>
 
                     <!-- 5. Ahmad (5/5) -->
-                    <article class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-2xl bg-white" data-index="4">
-                        <div>
+                    <article class="testimonial-card flex-none w-[90vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-7 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden" data-index="4">
+                        <div class="testimonial-glow"></div>
+                        <div class="relative z-10">
                             <div class="flex items-center justify-between gap-4 mb-6">
                                 <!-- Star Rating -->
                                 <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
@@ -1309,8 +1390,8 @@
                                     <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
                                 </div>
                                 <!-- Minimal Quote Icon -->
-                                <div class="w-8 h-8 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0">
-                                    <i data-lucide="quote" class="w-3.5 h-3.5 text-black"></i>
+                                <div class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="quote" class="w-4 h-4"></i>
                                 </div>
                             </div>
 
@@ -1320,7 +1401,7 @@
                         </div>
 
                         <!-- Author Meta -->
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15">
+                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
                             <div class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
                                 A
                             </div>
@@ -1345,7 +1426,7 @@
             </div>
         </section>
 
-        <!-- SECTION 8: CONTACT & HQ SECTION (OLED PURE BLACK #000000) -->
+        <!-- SECTION 8: CONTACT & HQ SECTION -->
         <section id="contact" class="py-24 px-4 sm:px-8 lg:px-16 bg-black text-white w-full border-b-2 border-white relative overflow-hidden bg-grid-dark">
             <div class="w-full max-w-7xl mx-auto relative z-10">
                 <div class="text-center mb-16 reveal">
@@ -1362,7 +1443,7 @@
                     <!-- HQ Address Card -->
                     <div class="card-dark-contrast p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group">
                         <div>
-                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold">
+                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold group-hover:scale-105 transition-transform">
                                 <i data-lucide="building-2" class="w-6 h-6"></i>
                             </div>
                             <span class="text-[10px] font-mono uppercase tracking-widest text-white font-extrabold">Central Operations</span>
@@ -1380,7 +1461,7 @@
                     <!-- Office Location Card -->
                     <div class="card-dark-contrast p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group" style="transition-delay: 100ms;">
                         <div>
-                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold">
+                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold group-hover:scale-105 transition-transform">
                                 <i data-lucide="map-pin" class="w-6 h-6"></i>
                             </div>
                             <span class="text-[10px] font-mono uppercase tracking-widest text-white font-extrabold">Local Branch</span>
@@ -1398,7 +1479,7 @@
                     <!-- Direct Connect Card -->
                     <div class="card-dark-contrast p-6 sm:p-8 rounded-3xl reveal flex flex-col justify-between group sm:col-span-2 lg:col-span-1" style="transition-delay: 200ms;">
                         <div>
-                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold">
+                            <div class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold group-hover:scale-105 transition-transform">
                                 <i data-lucide="phone-call" class="w-6 h-6"></i>
                             </div>
                             <span class="text-[10px] font-mono uppercase tracking-widest text-white font-extrabold">24/7 Priority Support</span>
@@ -1422,7 +1503,7 @@
             </div>
         </section>
 
-        <!-- SECTION 9: CTA PROTOCOL SECTION (PURE WHITE #FFFFFF) -->
+        <!-- SECTION 9: CTA PROTOCOL SECTION -->
         <section id="about" class="py-24 px-4 sm:px-5 relative bg-white text-black w-full border-b-2 border-black bg-grid-light">
             <div class="w-full max-w-3xl mx-auto card-light-contrast rounded-[2.5rem] p-8 sm:p-12 text-center reveal border-4 border-black shadow-2xl">
                 <div class="bg-black text-white w-16 h-16 flex items-center justify-center mx-auto mb-8 rounded-full border-2 border-black font-extrabold">
@@ -1440,7 +1521,7 @@
 
     </main>
 
-    <!-- SECTION 10: FOOTER (OLED PURE BLACK #000000) -->
+    <!-- SECTION 10: FOOTER -->
     <footer class="py-16 px-5 bg-black text-white text-center border-t-2 border-white w-full bg-grid-dark">
         <div class="w-full max-w-7xl mx-auto">
             <div class="text-2xl md:text-3xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-4 mb-8 font-extrabold">
@@ -1482,6 +1563,17 @@
         </div>
     </footer>
 
+    <!-- Smart High-Converting Floating Bar (Appears on Scroll) -->
+    <div id="smartFloatingBar" class="floating-pill-cta fixed bottom-5 left-4 right-4 sm:left-auto sm:right-24 z-40 bg-black text-white border-2 border-white/80 rounded-full px-5 py-2.5 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-4 font-mono text-xs hidden sm:flex">
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-extrabold uppercase tracking-wider text-[11px]">Ready to deploy?</span>
+        </div>
+        <button type="button" onclick="openEnquiryModal('pro')" class="apple-btn-primary !min-h-[30px] !py-1 !px-4 !text-[10px] uppercase font-mono font-extrabold">
+            Start at ₹1,999 &rarr;
+        </button>
+    </div>
+
     <!-- Floating AI Chatbot Toggle Button -->
     <button id="aiChatToggleBtn" class="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-[100] w-14 h-14 rounded-full bg-white text-black flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none border-2 border-black" aria-label="Toggle AI Chat">
         <i data-lucide="bot" class="w-6 h-6"></i>
@@ -1520,7 +1612,7 @@
     <div id="nexumMobileOverlay" class="fixed inset-0 z-40 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
     <div id="nexumMobileDrawer" class="fixed right-2 left-2 top-3 bottom-3 z-50 sm:left-auto sm:w-80 bg-black text-white rounded-3xl translate-x-[120%] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col pt-16 px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] border-2 border-white shadow-2xl overflow-y-auto no-scrollbar" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-        <button type="button" id="closeDrawerBtn" class="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white text-black transition-all cursor-pointer focus:outline-none" aria-label="Close Menu">
+        <button type="button" id="closeDrawerBtn" class="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white text-black transition-all cursor-pointer focus:outline-none active:scale-95" aria-label="Close Menu">
             <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
@@ -1568,6 +1660,21 @@
 
                     <!-- Honeypot anti-spam check -->
                     <input type="text" name="website_hp_check" id="website_hp_check" aria-hidden="true" tabindex="-1" style="display:none !important; position:absolute; left:-9999px;" autocomplete="off" />
+
+                    <!-- Quick Tier Selector Inside Modal -->
+                    <div class="w-full">
+                        <label for="preferredPlan" class="text-[10px] sm:text-xs font-extrabold text-black uppercase tracking-widest ml-1 mb-1.5 block font-mono">Select Engineering Package</label>
+                        <div class="relative rounded-2xl overflow-hidden bg-white border-2 border-black">
+                            <select id="preferredPlan" name="preferredPlan" class="w-full bg-white pl-4 pr-10 py-2.5 text-xs sm:text-sm font-mono focus:outline-none text-black appearance-none cursor-pointer rounded-2xl border-none min-h-[40px] font-bold">
+                                <option value="Basic (₹1,999)">Basic Tier (₹1,999)</option>
+                                <option value="Pro ⭐ (₹7,999)" selected>Pro ⭐ Best Selling (₹7,999)</option>
+                                <option value="Premium 👑 (₹14,999)">Premium 👑 Enterprise (₹14,999)</option>
+                            </select>
+                            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-black pointer-events-none">
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="w-full">
                         <label for="name" class="text-[10px] sm:text-xs font-extrabold text-black uppercase tracking-widest ml-1 mb-1.5 block font-mono">Company / Person Name</label>
@@ -1635,10 +1742,10 @@
                             </button>
                         </div>
                         <input type="number" id="captchaInput" required class="w-full rounded-xl bg-white border-2 border-black px-3.5 py-2.5 text-xs sm:text-sm text-black font-mono placeholder-black/60 outline-none min-h-[40px]" placeholder="Enter answer..." />
-                        <p id="captchaErrorMsg" class="text-black text-xs font-mono mt-1 hidden font-extrabold">Incorrect solution.</p>
+                        <p id="captchaErrorMsg" class="text-red-600 text-xs font-mono mt-1 hidden font-extrabold">Incorrect security answer. Please calculate again.</p>
                     </div>
 
-                    <p id="formStatusError" class="text-black text-xs font-mono hidden text-center font-extrabold"></p>
+                    <p id="formStatusError" class="text-red-600 text-xs font-mono hidden text-center font-extrabold"></p>
 
                     <button type="submit" class="w-full apple-btn-dark py-3.5 min-h-[48px] font-extrabold text-[11px] sm:text-xs uppercase tracking-widest mt-3 disabled:opacity-50 font-mono shadow-xl transition-all cursor-pointer focus:outline-none">
                         Submit Project Request
@@ -1848,7 +1955,7 @@
                 .replace(/'/g, '&#039;');
         }
 
-        // Complete 73 Q&A Knowledge Base (Updated to Standard Permanent Rates)
+        // Complete 73 Q&A Knowledge Base
         const helpDatabase = [
             {
                 catId: "1",
@@ -1979,7 +2086,7 @@
             }
         ];
 
-        // Standard Pricing Configuration (Permanent Rates)
+        // Standard Pricing Configuration
         const pricingConfig = {
             basic: { price: 1999 },
             pro: { price: 7999 },
@@ -2084,10 +2191,10 @@
 
                 switcherBtns.forEach((b, idx) => {
                     if (idx === targetIdx) {
-                        b.classList.add('active', 'bg-white', 'text-black', 'font-extrabold');
+                        b.classList.add('active', 'bg-white', 'text-black', 'font-extrabold', 'shadow-sm');
                         b.classList.remove('text-white/80');
                     } else {
-                        b.classList.remove('active', 'bg-white', 'text-black', 'font-extrabold');
+                        b.classList.remove('active', 'bg-white', 'text-black', 'font-extrabold', 'shadow-sm');
                         b.classList.add('text-white/80');
                     }
                 });
@@ -2114,7 +2221,7 @@
                 });
             });
 
-            // Canvas Particle Engine with High-DPI & RAF Mouse Normalization
+            // Canvas Particle Engine
             const canvas = document.getElementById('hero-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
@@ -2231,7 +2338,7 @@
                 animateCanvas();
             }
 
-            // Modal Focus Trapping & Management
+            // Modal Focus Trapping & Routing
             let lastActiveElement = null;
 
             const modalMap = {
@@ -2272,7 +2379,13 @@
                 document.body.style.overflow = 'hidden';
 
                 if (newHash && window.location.hash !== newHash) {
-                    history.pushState({ modal: newHash }, '', newHash);
+                    try {
+                        if (window.location.protocol !== 'blob:') {
+                            history.pushState({ modal: newHash }, '', newHash);
+                        }
+                    } catch (e) {
+                        /* Sandbox/blob preview safe fallback */
+                    }
                 }
 
                 requestAnimationFrame(() => {
@@ -2305,7 +2418,13 @@
                 }, 300);
 
                 if (resetHash && window.location.hash && modalMap[window.location.hash]) {
-                    history.pushState('', document.title, window.location.pathname + window.location.search);
+                    try {
+                        if (window.location.protocol !== 'blob:') {
+                            history.pushState('', document.title, window.location.pathname + window.location.search);
+                        }
+                    } catch (e) {
+                        /* Sandbox/blob preview safe fallback */
+                    }
                 }
             }
 
@@ -2325,7 +2444,7 @@
 
             window.addEventListener('popstate', handleHashRoute);
 
-            // Global Keydown Bindings for Modals
+            // Global Keydown Bindings
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     Object.values(modalMap).forEach(item => {
@@ -2355,7 +2474,18 @@
 
             document.getElementById('refreshCaptchaBtn')?.addEventListener('click', generateCaptcha);
 
-            window.openEnquiryModal = () => { generateCaptcha(); openGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content, '#enquiry'); };
+            window.openEnquiryModal = (preferredTier) => { 
+                generateCaptcha(); 
+                if (preferredTier) {
+                    const sel = document.getElementById('preferredPlan');
+                    if (sel) {
+                        if (preferredTier === 'basic') sel.value = "Basic (₹1,999)";
+                        if (preferredTier === 'pro') sel.value = "Pro ⭐ (₹7,999)";
+                        if (preferredTier === 'premium') sel.value = "Premium 👑 (₹14,999)";
+                    }
+                }
+                openGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content, '#enquiry'); 
+            };
             window.closeEnquiryModal = () => closeGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content);
             window.openSuccessModal = () => openGenericModal(modalMap['#success'].modal, modalMap['#success'].content, '#success');
             window.closeSuccessModal = () => closeGenericModal(modalMap['#success'].modal, modalMap['#success'].content);
@@ -2376,9 +2506,8 @@
                 }
             });
 
-            document.getElementById('navGetStartedBtn')?.addEventListener('click', openEnquiryModal);
-            document.getElementById('ctaBookBtn')?.addEventListener('click', openEnquiryModal);
-            document.querySelectorAll('.pricingBookBtn').forEach(btn => btn.addEventListener('click', openEnquiryModal));
+            document.getElementById('navGetStartedBtn')?.addEventListener('click', () => openEnquiryModal('pro'));
+            document.getElementById('ctaBookBtn')?.addEventListener('click', () => openEnquiryModal('pro'));
 
             document.getElementById('navBlogBtn')?.addEventListener('click', openBlogModal);
             document.getElementById('mobBlogBtn')?.addEventListener('click', () => {
@@ -2600,10 +2729,8 @@
                 }, 180));
             }
 
-            // Mobile Navigation Toggle
+            // Mobile Navigation Toggle with Morphing Hamburger Animation
             const nexumMobileMenuBtn = document.getElementById('nexumMobileMenuBtn');
-            const nexumMenuIcon = document.getElementById('nexumMenuIcon');
-            const nexumXIcon = document.getElementById('nexumXIcon');
             const nexumMobileOverlay = document.getElementById('nexumMobileOverlay');
             const nexumMobileDrawer = document.getElementById('nexumMobileDrawer');
             const nexumMobLinks = document.querySelectorAll('.nexum-mob-link');
@@ -2613,10 +2740,10 @@
             function toggleNexumMenu() {
                 window.isNexumMenuOpen = !window.isNexumMenuOpen;
                 nexumMobileMenuBtn.setAttribute('aria-expanded', String(window.isNexumMenuOpen));
+                
                 if (window.isNexumMenuOpen) {
                     document.body.style.overflow = 'hidden';
-                    if (nexumMenuIcon) nexumMenuIcon.style.opacity = '0';
-                    if (nexumXIcon) nexumXIcon.style.opacity = '1';
+                    nexumMobileMenuBtn.classList.add('menu-open');
 
                     if (nexumMobileOverlay) {
                         nexumMobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
@@ -2627,13 +2754,12 @@
                     nexumMobLinks.forEach((link, idx) => {
                         setTimeout(() => {
                             link.classList.remove('opacity-0', 'translate-x-[24px]');
-                        }, 80 + (idx * 60));
+                        }, 80 + (idx * 50));
                     });
                     setTimeout(() => { if (nexumMobFooter) nexumMobFooter.classList.remove('opacity-0', 'translate-y-[16px]'); }, 350);
                 } else {
                     document.body.style.overflow = '';
-                    if (nexumXIcon) nexumXIcon.style.opacity = '0';
-                    if (nexumMenuIcon) nexumMenuIcon.style.opacity = '1';
+                    nexumMobileMenuBtn.classList.remove('menu-open');
 
                     if (nexumMobileOverlay) {
                         nexumMobileOverlay.classList.replace('opacity-100', 'opacity-0');
@@ -2657,7 +2783,7 @@
 
             document.getElementById('mobGetStartedBtn')?.addEventListener('click', () => {
                 if (window.isNexumMenuOpen) toggleNexumMenu();
-                openEnquiryModal();
+                openEnquiryModal('pro');
             });
 
             // Hero Form Transfer
@@ -2672,14 +2798,14 @@
 
                     if (emailVal && emailRegex.test(emailVal)) {
                         if (modalEmailInput) modalEmailInput.value = emailVal;
-                        openEnquiryModal();
+                        openEnquiryModal('pro');
                     } else if (heroInput) {
                         heroInput.focus();
                     }
                 });
             }
 
-            // Secured Form Submission Engine
+            // Real-Time Universal Lead Submission Engine
             const enquiryForm = document.getElementById('enquiryForm');
             if (enquiryForm) {
                 enquiryForm.addEventListener('submit', async (e) => {
@@ -2706,11 +2832,11 @@
                         return;
                     }
 
-                    // Rate Limiting Cooldown (30 seconds)
+                    // Rate Limiting Cooldown (6 seconds)
                     const lastSubmit = localStorage.getItem('forge_last_form_submit');
                     const now = Date.now();
-                    if (lastSubmit && (now - parseInt(lastSubmit, 10) < 30000)) {
-                        const waitSecs = Math.ceil((30000 - (now - parseInt(lastSubmit, 10))) / 1000);
+                    if (lastSubmit && (now - parseInt(lastSubmit, 10) < 6000)) {
+                        const waitSecs = Math.ceil((6000 - (now - parseInt(lastSubmit, 10))) / 1000);
                         if (formStatusError) {
                             formStatusError.textContent = `Please wait ${waitSecs} second(s) before submitting again.`;
                             formStatusError.classList.remove('hidden');
@@ -2733,54 +2859,85 @@
                     const btn = enquiryForm.querySelector('button[type="submit"]');
                     const originalText = btn ? btn.innerHTML : 'Submit Project Request';
                     if (btn) {
-                        btn.innerHTML = 'TRANSMITTING ENCRYPTED DATA...';
+                        btn.innerHTML = '<span class="inline-flex items-center gap-2"><span class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> TRANSMITTING LEAD...</span>';
                         btn.disabled = true;
                     }
 
                     const formData = new FormData(enquiryForm);
-                    const params = new URLSearchParams();
-                    for (const [key, value] of formData.entries()) {
-                        if (key !== 'website_hp_check') {
-                            params.append(key, value.trim());
-                        }
-                    }
+                    const planValue = formData.get('preferredPlan') || 'Pro ⭐ (₹7,999)';
+                    const nameValue = (formData.get('name') || '').trim();
+                    const emailValue = (formData.get('email') || '').trim();
+                    const phoneValue = (formData.get('phone') || '').trim();
+                    const countryValue = (formData.get('country') || '').trim();
+                    const timestampValue = new Date().toISOString();
+                    const localDateValue = new Date().toLocaleString();
 
-                    const url = "https://script.google.com/macros/s/AKfycbzK0V8AbooKYaBoVOqOe1iDgHXB5XOo8pGV0xPRuGmEMfzueVA3fBCTeEGFBZ8dlpHqzg/exec";
+                    // Comprehensive parameter dictionary for Apps Script
+                    const params = new URLSearchParams();
+                    params.append('preferredPlan', planValue);
+                    params.append('plan', planValue);
+                    params.append('name', nameValue);
+                    params.append('Name', nameValue);
+                    params.append('email', emailValue);
+                    params.append('Email', emailValue);
+                    params.append('phone', phoneValue);
+                    params.append('Phone', phoneValue);
+                    params.append('country', countryValue);
+                    params.append('Country', countryValue);
+                    params.append('timestamp', timestampValue);
+                    params.append('date', localDateValue);
+
+                    const scriptBaseUrl = "https://script.google.com/macros/s/AKfycbxns09f5VmF-xBnzvDBkotjtrFpj3eIia1uVyml1CEpZoPP6w_EtEXdIj2yZKN55muQ/exec";
 
                     try {
-                        const response = await fetch(url, { 
+                        const targetUrl = `${scriptBaseUrl}?${params.toString()}`;
+
+                        // Dual transmission: Sends via query string and x-www-form-urlencoded body with no-cors to handle Google Apps Script 302 redirects
+                        await fetch(targetUrl, { 
                             method: "POST", 
-                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            mode: "no-cors",
+                            cache: "no-cache",
+                            headers: { 
+                                "Content-Type": "application/x-www-form-urlencoded" 
+                            },
                             body: params.toString() 
                         });
 
-                        if (response.ok || response.status === 200) {
-                            localStorage.setItem('forge_last_form_submit', Date.now().toString());
-                            if (btn) btn.innerHTML = 'CONFIRMED';
-                            setTimeout(() => {
-                                closeEnquiryModal();
-                                enquiryForm.reset();
-                                if (btn) {
-                                    btn.innerHTML = originalText;
-                                    btn.disabled = false;
-                                }
-                                setTimeout(() => { openSuccessModal(); }, 300);
-                            }, 500);
-                        } else {
-                            throw new Error(`HTTP Error ${response.status}`);
+                        // Fallback trigger via beacon/image to ensure packet delivery if fetch is interrupted
+                        try {
+                            const imgBeacon = new Image();
+                            imgBeacon.src = `${scriptBaseUrl}?${params.toString()}&_t=${Date.now()}`;
+                        } catch (beaconErr) {
+                            /* Ignore beacon fallback exception */
                         }
+
+                        // Record submission timestamp
+                        localStorage.setItem('forge_last_form_submit', Date.now().toString());
+
+                        if (btn) btn.innerHTML = 'CONFIRMED ✓';
+                        setTimeout(() => {
+                            closeEnquiryModal();
+                            enquiryForm.reset();
+                            generateCaptcha();
+                            if (btn) {
+                                btn.innerHTML = originalText;
+                                btn.disabled = false;
+                            }
+                            setTimeout(() => { openSuccessModal(); }, 300);
+                        }, 400);
+
                     } catch (error) {
                         console.error("Submission error:", error);
                         if (formStatusError) {
-                            formStatusError.textContent = 'Submission failed. Please check connection.';
+                            formStatusError.textContent = 'Submission error. Please call +91-9697430658 directly.';
                             formStatusError.classList.remove('hidden');
                         }
                         if (btn) {
-                            btn.innerHTML = 'FAILED';
+                            btn.innerHTML = 'FAILED — RETRY';
                             setTimeout(() => {
                                 btn.innerHTML = originalText;
                                 btn.disabled = false;
-                            }, 2000);
+                            }, 2500);
                         }
                     }
                 });
@@ -2798,6 +2955,17 @@
             }, { threshold: 0.05, rootMargin: "40px 0px" });
 
             reveals.forEach(r => revealObserver.observe(r));
+
+            // Smart Floating CTA Visibility Trigger
+            const smartFloatingBar = document.getElementById('smartFloatingBar');
+            window.addEventListener('scroll', () => {
+                if (!smartFloatingBar) return;
+                if (window.scrollY > 400) {
+                    smartFloatingBar.classList.add('visible');
+                } else {
+                    smartFloatingBar.classList.remove('visible');
+                }
+            }, { passive: true });
 
             // Stat Counters Count-Up
             const counters = document.querySelectorAll('.stat-counter');
@@ -2833,7 +3001,7 @@
 
             counters.forEach(c => counterObserver.observe(c));
 
-            // Enhanced Smooth Carousel Engine for Testimonials
+            // Testimonials Carousel & Mouse Tracking Engine
             const testimonialTrack = document.getElementById('testimonialCarouselTrack');
             const prevTestimonialBtn = document.getElementById('prevTestimonialBtn');
             const nextTestimonialBtn = document.getElementById('nextTestimonialBtn');
@@ -2845,15 +3013,24 @@
             let testimonialAutoPlayInterval = null;
             let isUserInteracting = false;
 
+            // Cursor radial glow tracking
+            testimonialCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
             function updateTestimonialUI(index) {
                 currentTestimonialIndex = Math.max(0, Math.min(index, testimonialCards.length - 1));
 
-                // Update numerical counter
                 if (testimonialIdxLabel) {
                     testimonialIdxLabel.textContent = String(currentTestimonialIndex + 1).padStart(2, '0');
                 }
 
-                // Update indicator dots
                 testimonialDots.forEach((dot, idx) => {
                     if (idx === currentTestimonialIndex) {
                         dot.classList.remove('w-2', 'bg-black/20');
@@ -2864,7 +3041,6 @@
                     }
                 });
 
-                // Smooth scroll to card
                 const targetCard = testimonialCards[currentTestimonialIndex];
                 if (targetCard && testimonialTrack) {
                     const scrollLeftPos = targetCard.offsetLeft - testimonialTrack.offsetLeft;
@@ -2923,7 +3099,7 @@
                 });
             });
 
-            // Pause on hover & touch interactions
+            // Pause on hover & touch
             if (testimonialTrack) {
                 testimonialTrack.addEventListener('mouseenter', () => { isUserInteracting = true; });
                 testimonialTrack.addEventListener('mouseleave', () => { isUserInteracting = false; });
@@ -2932,7 +3108,6 @@
                     setTimeout(() => { isUserInteracting = false; }, 2000);
                 }, { passive: true });
 
-                // Sync index on manual scroll
                 let scrollDebounceTimer;
                 testimonialTrack.addEventListener('scroll', () => {
                     clearTimeout(scrollDebounceTimer);
