@@ -1,1007 +1,703 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-[#0a1012] text-[#fdf1e1]">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mostar city</title>
-  <meta name="description" content="A cinematic three-screen scroll story for Mostar city." />
-  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mostar — The Emerald Arch of Bosnia</title>
+  <meta name="description" content="A cinematic scroll journey across Mostar, Stari Most, and the historic bazaar of Bosnia and Herzegovina." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>" />
+  
+  <!-- Inter & Editorial Serif Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            display: ['"Cinzel"', 'serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            sand: '#fdf1e1',
+            darkink: '#0b1113',
+            emeraldWater: '#2b7f87',
+            stoneArch: '#d4c7b5',
+            glassBg: 'rgba(11, 17, 19, 0.65)',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    @font-face {
-      font-family: "Ogg Medium";
-      src: url("https://dcym8fthxf5uu.cloudfront.net/fonts/247a073c-29f5-4a89-aa3a-741020f346fc/OggText-Medium.woff2") format("woff2");
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
+    /* Custom Apple-grade Smooth Scroll & Layer Management */
     :root {
-      --mx: 0; --my: 0;
-      --back-opacity: 1; --back-x: 0px; --back-y: 0px; --back-scale: 0.76;
-      --four-y: 10vh; --four-scale: 0.78;
-      --bazaar-y: 20vh;
-      --blur-px: 0px; --back-brightness: 1;
-      --bazaar-blur-px: 0px; --bazaar-brightness: 1; --bazaar-saturation: 1;
-      --shade-opacity: 1; --shade-z: 2;
-      --shade-top-alpha: 0; --shade-mid-alpha: 0; --shade-bottom-alpha: 0;
-      --blur-tint: 74, 181, 224;
-      --title-y: 0px; --title-scale: 1; --title-opacity: 1;
-      --bridge-x: -50%; --bridge-y: 0px; --bridge-bottom: 5vh;
-      --bridge-width: 67.2vw; --bridge-scale: 1.02;
-      --split-left-x: -50%;  --split-left-y: 0px;  --split-left-scale: 1;
-      --split-right-x: -50%; --split-right-y: 0px; --split-right-scale: 1;
-      --frame2-opacity: 0; --frame2-x: -50%; --frame2-y: -50%; --frame2-scale: 1.06;
-      --intro-copy-y: 0px; --intro-copy-opacity: 1;
-      --panel2-opacity: 0; --panel2-y: calc(-50% + 58px);
-      --panel3-opacity: 0; --panel3-y: calc(-50% + 58px);
-      --sights-opacity: 0; --sights-controls-opacity: 0; --sights-y: 0px;
-      --sights-enter-x: 420vw; --sights-visibility: hidden;
-      --sights-shift: 0px; --sights-scale: 1;
-      --sights-top: clamp(112px, 19vh, 220px);
-      --sights-screen-top: clamp(112px, 19vh, 220px);
-      --ink: #111411; --paper: #fdf1e1; --shadow: rgba(0, 0, 0, 0.32);
-      font-family: Inter, Satoshi, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--paper);
-      background: #0b1110;
-      letter-spacing: 0;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --paper: #fdf1e1;
+      --ink: #0b1113;
     }
 
-    * { box-sizing: border-box; }
-    html { min-height: 100%; scroll-behavior: smooth; background: #0b1110; }
-    body {
-      min-height: 100%;
-      margin: 0;
-      overflow-x: clip;
-      background: #0b1110;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
     }
-    button { border: 0; font: inherit; outline: none; }
-    .site-shell { min-height: 100vh; }
+
+    body {
+      overflow-x: hidden;
+      background-color: #0b1113;
+      font-family: 'Inter', sans-serif;
+      overscroll-behavior-y: none;
+    }
 
     /* Scroll rig */
     .cinema-scroll {
       position: relative;
-      height: calc(100vh + 3700px);
+      height: calc(100vh + 3800px);
     }
+
     .stage {
       position: sticky;
       top: 0;
       height: 100vh;
-      min-height: 620px;
+      height: 100dvh;
+      width: 100vw;
       overflow: hidden;
       isolation: isolate;
-      background: #7fb4d4;
+      background: #5ea3cc;
       transform: translateZ(0);
     }
 
-    .world,
-    .back-stack,
-    .sky-img,
-    .shade,
-    .scene-img,
-    .site-header,
-    .sights-slider,
-    .sights-controls,
-    .hero-title,
-    .intro-copy,
-    .story-panel {
+    /* GPU-accelerated parallax layers */
+    .scene-layer {
       position: absolute;
-    }
-
-    .world {
-      inset: 0;
-      overflow: hidden;
-      background: #79b7dd;
-      transform: translateZ(0);
-    }
-
-    /* Site Header */
-    .site-header {
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      display: grid;
-      grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
-      align-items: center;
-      gap: 32px;
-      padding: 32px;
-      color: rgba(253, 241, 225, 0.86);
-      pointer-events: auto;
-    }
-
-    .site-logo {
-      justify-self: start;
-      font-family: "Ogg Medium", serif;
-      font-size: 24px;
-      line-height: 1;
-      font-weight: 500;
-      color: rgba(253, 241, 225, 0.92);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .site-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: clamp(24px, 2.2vw, 44px);
-    }
-
-    .site-nav a,
-    .language-switcher {
-      color: rgba(253, 241, 225, 0.86);
-      font-weight: 700;
-      line-height: 1;
-      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
-    }
-
-    .site-nav a {
-      font-size: 20px;
-      font-weight: 400;
-      transition: color 0.2s ease;
-    }
-    .site-nav a:hover {
-      color: #fff;
-    }
-
-    .language-switcher {
-      justify-self: end;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0;
-      background: transparent;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .language-switcher span {
-      display: inline-flex;
-      line-height: 1;
-    }
-
-    /* Scene Images */
-    .scene-img {
-      display: block;
+      will-change: transform, opacity, filter;
+      pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
-      pointer-events: none;
       backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
       transform: translateZ(0);
-      will-change: transform, opacity;
     }
 
-    .sky-img {
-      inset: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: none;
-      filter: blur(var(--blur-px)) brightness(var(--back-brightness));
-      will-change: filter;
+    /* Glassmorphic elements */
+    .apple-glass {
+      background: rgba(18, 26, 29, 0.55);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(253, 241, 225, 0.14);
     }
 
-    .back-stack {
-      top: 0;
-      bottom: 0;
-      left: -3vw;
-      right: -3vw;
-      z-index: 1;
-      opacity: var(--back-opacity);
-      transform: translate3d(var(--back-x), var(--back-y), 0) scale(var(--back-scale));
-      transform-origin: 50% 100%;
-      will-change: transform, opacity;
-      backface-visibility: hidden;
+    .card-glass {
+      background: rgba(253, 241, 225, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 1px 1px rgba(255, 255, 255, 0.4) inset;
     }
 
-    .back-img {
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(var(--blur-px)) brightness(var(--back-brightness));
-    }
-
-    .back-bazaar,
-    .back-four {
-      top: auto;
-      bottom: 0;
-      left: 48%;
-      right: auto;
-      width: 112%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .back-bazaar {
-      z-index: 3;
-      opacity: 1;
-      filter: blur(var(--bazaar-blur-px)) brightness(var(--bazaar-brightness)) saturate(var(--bazaar-saturation));
-      transform: translate3d(-50%, var(--bazaar-y), 0) scale(0.86);
-      will-change: transform, filter;
-    }
-
-    .back-four {
-      z-index: 1;
-      opacity: 0.72;
-      mix-blend-mode: screen;
-      transform: translate3d(-50%, calc(var(--four-y) - 110px), 0) scale(var(--four-scale));
-      will-change: transform;
-    }
-
-    /* Sights Slider */
-    .sights-slider {
-      left: 0;
-      right: 0;
-      top: var(--sights-top);
-      z-index: 2;
-      padding: 0;
-      opacity: 1;
-      visibility: var(--sights-visibility);
-      transform: translate3d(var(--sights-enter-x), var(--sights-y), 0) scale(var(--sights-scale));
-      transform-origin: 0 0;
-      pointer-events: auto;
-      will-change: transform, visibility;
-    }
-
+    /* Smooth touch slider track */
     .sights-track {
       display: flex;
-      gap: clamp(16px, 1.15vw, 24px);
-      align-items: stretch;
-      transform: translate3d(calc(var(--sights-shift) - 18vw), 0, 0);
-      transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+      gap: 16px;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      touch-action: pan-y;
       will-change: transform;
     }
 
-    .sights-track.is-jumping {
-      transition: none !important;
+    .sights-track.dragging {
+      transition: none;
     }
 
-    .sight-card {
-      position: relative;
-      flex: 0 0 clamp(360px, 19.4vw, 430px);
-      height: 220px;
-      padding: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(253, 241, 225, 0.42);
-      border-radius: 24px;
-      color: #000;
-      background: #fdf1e1;
-      box-shadow: 0 18px 52px rgba(2, 47, 64, 0.12);
-      backdrop-filter: none;
-      cursor: pointer;
-      pointer-events: auto;
-      user-select: none;
-      transform: translateZ(0);
+    /* Text shadows for crystal readability on bright skies */
+    .cinematic-glow {
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.65), 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    .panel-shadow {
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 1px 8px rgba(0, 0, 0, 0.5);
     }
 
-    .sight-card::before,
-    .sight-card::after {
-      content: none;
+    /* Custom scroll indicator pulse */
+    @keyframes pulseSoft {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+    .animate-pulse-soft {
+      animation: pulseSoft 2.4s ease-in-out infinite;
     }
 
-    .sight-card:focus-visible,
-    .sight-card.is-active {
-      outline: none;
-    }
-
-    .sight-kicker,
-    .sight-card h3,
-    .sight-card p {
-      text-shadow: none;
-      position: relative;
-      z-index: 1;
-    }
-
-    .sight-kicker {
-      display: block;
-      margin-bottom: 56px;
-      color: #000;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1.05;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .sight-pin {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 67.2px;
-      height: 67.2px;
-      pointer-events: none;
-      object-fit: contain;
-    }
-
-    .sight-card h3 {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: calc(24px + (16px * 1.16 * 2) + 12px);
-      max-width: calc(100% - 76px);
-      margin: 0;
-      color: #000;
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 0.95;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .sight-card p {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      max-width: 100%;
-      margin: 12px 0 0;
-      color: #000;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.16;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      max-height: calc(2em * 1.16);
-      overflow: hidden;
-    }
-
-    /* Sights Controls */
-    .sights-controls {
-      left: 48px;
-      right: auto;
-      top: calc(var(--sights-screen-top) + 220px + 16px);
-      z-index: 5;
-      display: flex;
-      justify-content: flex-start;
-      gap: 14px;
-      opacity: var(--sights-controls-opacity);
-      transform: translate3d(0, var(--sights-y), 0);
-      pointer-events: none;
-      will-change: transform, opacity;
-    }
-
-    .sights-controls.is-ready {
-      pointer-events: auto;
-    }
-
-    .sight-nav {
-      width: 54px;
-      height: 54px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 999px;
-      color: #111411;
-      background: rgba(253, 241, 225, 0.94);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      font-size: 1.25rem;
-      font-weight: 700;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .sight-nav:hover {
-      background: #ffffff;
-      transform: scale(1.05);
-    }
-    .sight-nav:active {
-      transform: scale(0.96);
-    }
-
-    /* Hero Title */
-    .hero-title {
-      left: 50%;
-      top: clamp(122px, 19vh, 205px);
-      z-index: 3;
-      width: min(94vw, 1780px);
-      margin: 0;
-      color: #fdf1e1;
-      font-family: "Ogg Medium", serif;
-      font-size: 14rem;
-      font-weight: 500;
-      line-height: 0.78;
-      text-align: center;
-      text-shadow: none;
-      transform: translate3d(-50%, var(--title-y), 0) scale(var(--title-scale));
-      opacity: var(--title-opacity);
-      will-change: transform, opacity;
-      pointer-events: none;
-      backface-visibility: hidden;
-    }
-
-    /* Foreground Layers */
-    .bridge-img {
-      left: 50%;
-      bottom: var(--bridge-bottom);
-      z-index: 4;
-      width: min(var(--bridge-width), 2140px);
-      height: auto;
-      transform: translate3d(var(--bridge-x), var(--bridge-y), 0) scale(var(--bridge-scale));
-      transform-origin: 50% 48%;
-      will-change: transform, width, bottom;
-    }
-
-    .splitframe-img {
-      left: 50%;
-      bottom: -2vh;
-      z-index: 6;
-      width: min(118vw, 2240px);
-      height: auto;
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    .splitframe-left {
-      transform: translate3d(var(--split-left-x), var(--split-left-y), 0) scale(var(--split-left-scale));
-      transform-origin: 21% 52%;
-    }
-
-    .splitframe-right {
-      transform: translate3d(var(--split-right-x), var(--split-right-y), 0) scale(var(--split-right-scale));
-      transform-origin: 79% 52%;
-    }
-
-    .frame-two-img {
-      filter: none !important;
-      backdrop-filter: none;
-      left: 50%;
-      top: 50%;
-      z-index: 5;
-      width: min(122vw, 2160px);
-      height: auto;
-      opacity: var(--frame2-opacity);
-      transform: translate3d(var(--frame2-x), var(--frame2-y), 0) scale(var(--frame2-scale));
-      transform-origin: 50% 48%;
-      will-change: transform, opacity;
-    }
-
-    /* Ambient Shade */
-    .shade {
-      inset: 0;
-      z-index: var(--shade-z);
-      pointer-events: none;
-      opacity: var(--shade-opacity);
-      background: linear-gradient(180deg,
-        rgba(var(--blur-tint), var(--shade-top-alpha)) 0%,
-        rgba(var(--blur-tint), var(--shade-mid-alpha)) 48%,
-        rgba(var(--blur-tint), var(--shade-bottom-alpha)) 100%);
-      will-change: background, z-index;
-    }
-
-    /* Intro Copy */
-    .intro-copy {
-      left: 50%;
-      bottom: clamp(56px, 28vh, 400px);
-      z-index: 9;
-      width: min(560px, calc(100vw - 40px));
-      text-align: center;
-      transform: translate3d(-50%, var(--intro-copy-y), 0);
-      opacity: var(--intro-copy-opacity);
-      will-change: transform, opacity;
-      pointer-events: none;
-      backface-visibility: hidden;
-    }
-
-    .intro-copy p {
-      margin: 0 auto;
-      max-width: 560px;
-      color: #fdf1e1;
-      font-size: 1.18rem;
-      font-weight: 500;
-      line-height: 1.18;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42);
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 26px;
-      pointer-events: auto;
-    }
-
-    .hero-tags span {
-      min-height: 42px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 25px;
-      color: var(--ink);
-      border-radius: 999px;
-      background: #fdf1e1;
-      font-size: 0.98rem;
-      font-weight: 500;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    /* Story Panels */
-    .story-panel {
-      left: 50%;
-      top: 45%;
-      z-index: 10;
-      width: min(760px, calc(100vw - 42px));
-      text-align: center;
-      pointer-events: none;
-      transform: translate3d(-50%, -50%, 0);
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-    }
-
-    .story-panel h2 {
-      margin: 0;
-      color: #fdf1e1;
-      font-family: "Ogg Medium", serif;
-      font-size: 4.75rem;
-      font-weight: 500;
-      line-height: 0.95;
-      text-shadow: 0 16px 38px var(--shadow);
-    }
-
-    .story-panel p {
-      width: min(520px, 100%);
-      margin: 26px auto 0;
-      color: #fdf1e1;
-      font-size: 1.14rem;
-      font-weight: 500;
-      line-height: 1.18;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42);
-    }
-
-    .story-panel-bridge {
-      top: 60%;
-      opacity: var(--panel2-opacity);
-      transform: translate3d(-50%, var(--panel2-y), 0);
-    }
-
-    .story-panel-bazaar {
-      top: 29%;
-      opacity: var(--panel3-opacity);
-      transform: translate3d(-50%, var(--panel3-y), 0);
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 86px;
-      width: min(470px, 100%);
-      margin: 72px auto 0;
-    }
-
-    .facts dt {
-      color: #fdf1e1;
-      font-family: "Ogg Medium", serif;
-      font-size: 4.2rem;
-      font-weight: 500;
-      line-height: 0.9;
-      text-shadow: 0 14px 34px var(--shadow);
-    }
-
-    .facts dd {
-      margin: 18px 0 0;
-      color: #fdf1e1;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.14;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42);
-    }
-
-    .note-button {
-      min-height: 50px;
-      margin-top: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 0 28px;
-      border-radius: 999px;
-      color: var(--ink);
-      background: #fdf1e1;
-      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
-      pointer-events: auto;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .note-button:hover {
-      background: #ffffff;
-      transform: scale(1.03);
-    }
-    .note-button span:first-child {
-      font-size: 1.25rem;
-      line-height: 1;
-    }
-
-    /* Media Queries */
-    @media (max-width: 1500px) {
-      .hero-title { font-size: 11rem; }
-      .story-panel h2 { font-size: 4.1rem; }
-    }
-
-    @media (max-width: 1100px) {
-      .hero-title { top: 15vh; font-size: 7.5rem; }
-      .bridge-img { width: 138vw; }
-      .frame-two-img { width: 132vw; }
-      .story-panel h2 { font-size: 3.2rem; }
-      .facts { gap: 34px; margin-top: 44px; }
-      .facts dt { font-size: 3.2rem; }
-      .sight-card { flex-basis: clamp(320px, 40vw, 390px); min-height: 178px; }
-    }
-
-    @media (max-width: 640px) {
-      .stage { min-height: 640px; }
-      .site-header { grid-template-columns: 1fr auto; gap: 18px; padding: 24px; }
-      .site-nav {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        justify-content: flex-start;
-        gap: 18px;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-      .site-nav::-webkit-scrollbar { display: none; }
-      .hero-title { top: 16vh; font-size: 4.5rem; }
-      .bridge-img { bottom: 2vh; width: 190vw; }
-      .frame-two-img { width: 176vw; }
-      .intro-copy { bottom: 42px; }
-      .intro-copy p, .story-panel p { font-size: 1rem; }
-      .hero-tags { gap: 8px; }
-      .hero-tags span { min-height: 38px; padding: 0 16px; font-size: 0.88rem; }
-      .story-panel { top: 42%; }
-      .story-panel-bazaar { top: 26%; }
-      .story-panel h2 { font-size: 2.45rem; }
-      .facts { gap: 18px; margin-top: 34px; }
-      .facts dt { font-size: 2.5rem; }
-      .sights-slider { padding: 0; }
-      .sights-track { gap: 12px; transform: translate3d(calc(var(--sights-shift) - 18vw), 0, 0); }
-      .sight-card { flex-basis: min(82vw, 330px); height: 220px; padding: 24px; border-radius: 24px; }
-      .sights-controls { top: calc(var(--sights-screen-top) + 236px); }
-      .sight-card h3 { max-width: 78%; }
-      .sight-card p { max-width: 100%; margin-top: 10px; }
-      .sight-kicker { margin-bottom: 56px; }
-      .sight-pin { top: 24px; right: 24px; width: 57.6px; height: 57.6px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .scene-img, .back-stack, .hero-title, .intro-copy,
-      .story-panel, .sights-track, .sights-slider { transition: none !important; }
-    }
+    /* Hide scrollbar for cleanly scrollable chips */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body>
-  <main class="site-shell">
+<body class="selection:bg-sand selection:text-darkink">
+
+  <!-- Dynamic Safe-Area Aware Navigation Header -->
+  <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300 pointer-events-auto" id="siteHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(env(safe-area-inset-top,0px)+12px)] pb-3">
+      <div class="apple-glass rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-2xl transition-all hover:border-sand/30">
+        
+        <!-- Brand Logo -->
+        <a href="#cinema" class="flex items-center gap-2 group focus:outline-none">
+          <span class="text-xl">🕌</span>
+          <span class="font-serif text-sm sm:text-base md:text-lg font-bold tracking-wide text-sand/90 group-hover:text-sand transition-colors">
+            Bosnia <span class="text-xs sm:text-sm font-light text-sand/60">&amp; Herzegovina</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase" aria-label="Desktop Navigation">
+          <button onclick="scrollToStep(0)" class="text-sand/80 hover:text-sand transition-colors hover:scale-105 active:scale-95 duration-150">Intro</button>
+          <button onclick="scrollToStep(1000)" class="text-sand/80 hover:text-sand transition-colors hover:scale-105 active:scale-95 duration-150">Bridge</button>
+          <button onclick="scrollToStep(2100)" class="text-sand/80 hover:text-sand transition-colors hover:scale-105 active:scale-95 duration-150">Bazaar</button>
+          <button onclick="scrollToStep(3200)" class="text-sand/80 hover:text-sand transition-colors hover:scale-105 active:scale-95 duration-150">Highlights</button>
+        </nav>
+
+        <!-- Header Actions: Ambient Audio + Language Switcher + Mobile Menu -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Audio Ambience Toggle -->
+          <button id="audioToggle" aria-label="Toggle ambient river sounds" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-sand text-xs flex items-center gap-1.5 transition-all active:scale-95">
+            <span id="audioIcon" class="text-sm">🎵</span>
+            <span class="hidden sm:inline text-[11px] font-medium tracking-wide">Ambience</span>
+          </button>
+
+          <!-- Language Selector -->
+          <div class="relative">
+            <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-sand text-xs font-semibold tracking-wider border border-white/10 transition-all">
+              <span id="currentLang">EN</span>
+              <svg class="w-3 h-3 text-sand/70 transition-transform duration-200" id="langArrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="langDropdown" class="hidden absolute right-0 mt-2 w-28 apple-glass rounded-2xl shadow-xl overflow-hidden py-1 border border-sand/20 z-50">
+              <button onclick="setLanguage('EN')" class="w-full text-left px-3.5 py-2 text-xs text-sand hover:bg-white/15 transition-colors font-medium">English</button>
+              <button onclick="setLanguage('BS')" class="w-full text-left px-3.5 py-2 text-xs text-sand hover:bg-white/15 transition-colors font-medium">Bosanski</button>
+              <button onclick="setLanguage('DE')" class="w-full text-left px-3.5 py-2 text-xs text-sand hover:bg-white/15 transition-colors font-medium">Deutsch</button>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Guide Button -->
+          <button onclick="openModal('guide')" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sand text-darkink text-xs font-bold shadow-lg hover:bg-white transition-all active:scale-95">
+            <span>Explore</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Quick Jump Pills (Clean & Never Overlaps Content) -->
+      <div class="flex md:hidden items-center justify-center gap-2 mt-2 px-1">
+        <div class="apple-glass rounded-full px-3 py-1 flex items-center gap-3.5 text-[11px] font-semibold text-sand/85 shadow-lg border border-sand/10">
+          <button onclick="scrollToStep(0)" class="hover:text-white active:scale-90 transition-transform">Intro</button>
+          <span class="text-sand/30">•</span>
+          <button onclick="scrollToStep(1000)" class="hover:text-white active:scale-90 transition-transform">Bridge</button>
+          <span class="text-sand/30">•</span>
+          <button onclick="scrollToStep(2100)" class="hover:text-white active:scale-90 transition-transform">Bazaar</button>
+          <span class="text-sand/30">•</span>
+          <button onclick="scrollToStep(3200)" class="hover:text-white active:scale-90 transition-transform">Sights</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Cinema Stage Shell -->
+  <main class="site-shell relative">
     <section class="cinema-scroll" id="cinema" aria-label="Mostar cinematic scroll story">
       <div class="stage">
-        <div class="world">
-          <img class="scene-img sky-img" src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png" alt="" />
-          
-          <header class="site-header" aria-label="Primary navigation">
-            <a class="site-logo" href="#cinema">Bosnia and Herzegovina</a>
-            <nav class="site-nav" aria-label="Main menu">
-              <a href="#cinema">Intro</a>
-              <a href="#bridge">Bridge</a>
-              <a href="#bazaar">Bazaar</a>
-              <a href="#routes">Routes</a>
-            </nav>
-            <button class="language-switcher" aria-label="Change language">
-              <span>EN</span>
-              <span aria-hidden="true">⌄</span>
-            </button>
-          </header>
+        
+        <!-- Parallax Background World -->
+        <div class="absolute inset-0 overflow-hidden bg-[#67a7cf]">
+          <!-- Sky layer -->
+          <img id="skyLayer" class="scene-layer inset-0 w-full h-full object-cover z-0" 
+               src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png" 
+               alt="Mostar Sky" 
+               onerror="this.src='https://placehold.co/1920x1080/4a8bb3/ffffff?text=Mostar+Sky'" />
 
-          <div class="back-stack">
-            <img class="scene-img back-img back-four" src="https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png" alt="" />
-            
-            <section class="sights-slider" aria-label="Mostar sights slider">
-              <div class="sights-track">
-                <!-- 5 original cards -->
-                <article class="sight-card" tabindex="0" role="button" aria-label="Open Stari Most card">
-                  <span class="sight-kicker">Old Bridge</span>
-                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png" alt="" />
-                  <h3>Stari Most</h3>
-                  <p>The stone arch over the Neretva and Mostar's main landmark.</p>
-                </article>
+          <!-- Mountain & Back architecture layer -->
+          <div id="backStack" class="scene-layer inset-x-[-4vw] top-0 bottom-0 z-10 flex items-end justify-center pointer-events-none">
+            <img id="backFour" class="scene-layer bottom-0 left-1/2 -translate-x-1/2 w-[118%] md:w-[108%] max-w-none object-contain mix-blend-screen opacity-75"
+                 src="https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png"
+                 alt="Mostar Horizon" />
 
-                <article class="sight-card" tabindex="0" role="button" aria-label="Open Kujundziluk card">
-                  <span class="sight-kicker">Bazaar Street</span>
-                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png" alt="" />
-                  <h3>Kujundziluk</h3>
-                  <p>Copper shops, souvenirs, and the old bazaar lane by the bridge.</p>
-                </article>
-
-                <article class="sight-card" tabindex="0" role="button" aria-label="Open Koski Mehmed Pasha Mosque card">
-                  <span class="sight-kicker">Viewpoint</span>
-                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230448_825949c9-ccdb-4857-b4a6-e349eccc9010.png" alt="" />
-                  <h3>Koski Mehmed Pasha Mosque</h3>
-                  <p>A classic minaret view back toward Stari Most and the river.</p>
-                </article>
-
-                <article class="sight-card" tabindex="0" role="button" aria-label="Open Kajtaz House card">
-                  <span class="sight-kicker">Ottoman House</span>
-                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png" alt="" />
-                  <h3>Kajtaz House</h3>
-                  <p>A preserved residential house showing Mostar's Ottoman layers.</p>
-                </article>
-
-                <article class="sight-card" tabindex="0" role="button" aria-label="Open War Photo Exhibition card">
-                  <span class="sight-kicker">Museum</span>
-                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png" alt="" />
-                  <h3>War Photo Exhibition</h3>
-                  <p>A compact, moving stop for context on the city's recent history.</p>
-                </article>
-              </div>
-            </section>
-
-            <img class="scene-img back-img back-bazaar" src="https://raft-blast-61784561.figma.site/_assets/v11/864afe00e41e2fa20a5aa546e15cb807e0f81384.png" alt="" />
+            <img id="backBazaar" class="scene-layer bottom-0 left-1/2 -translate-x-1/2 w-[115%] max-w-none object-contain z-20"
+                 src="https://raft-blast-61784561.figma.site/_assets/v11/864afe00e41e2fa20a5aa546e15cb807e0f81384.png"
+                 alt="Mostar Bazaar Architecture" />
           </div>
 
-          <div class="sights-controls" aria-label="Slider controls">
-            <button class="sight-nav sight-prev" aria-label="Previous sight">←</button>
-            <button class="sight-nav sight-next" aria-label="Next sight">→</button>
-          </div>
+          <!-- Color Grading / Dynamic Lighting Veil -->
+          <div id="ambientShade" class="scene-layer inset-0 z-20 pointer-events-none transition-opacity duration-300"></div>
 
-          <h1 class="hero-title">MOSTAR</h1>
+          <!-- Midground Arch & Split Foreground Elements -->
+          <img id="bridgeImg" class="scene-layer left-1/2 bottom-[4vh] sm:bottom-[6vh] -translate-x-1/2 z-30 w-[95vw] sm:w-[80vw] md:w-[68vw] max-w-[2100px] object-contain transition-transform"
+               src="https://raft-blast-61784561.figma.site/_assets/v11/c6a6d8ef49bca43f708aa852692942c45ec950d4.png"
+               alt="Stari Most Stone Bridge" />
 
-          <img class="scene-img splitframe-img splitframe-left" src="https://raft-blast-61784561.figma.site/_assets/v11/7536d7b60a1fce482cf6edf3f0bffd3bad5d0f8a.png" alt="" />
-          <img class="scene-img splitframe-img splitframe-right" src="https://raft-blast-61784561.figma.site/_assets/v11/392db6a6a6b98e868bd7f8d3f55bb719d51e5028.png" alt="" />
+          <!-- Dynamic Stone Sides (Left & Right flanking towers) -->
+          <img id="splitLeft" class="scene-layer left-1/2 bottom-[-2vh] -translate-x-1/2 z-40 w-[118vw] max-w-[2240px] pointer-events-none"
+               src="https://raft-blast-61784561.figma.site/_assets/v11/7536d7b60a1fce482cf6edf3f0bffd3bad5d0f8a.png"
+               alt="Left Tower Stone" />
 
-          <img class="scene-img bridge-img" src="https://raft-blast-61784561.figma.site/_assets/v11/c6a6d8ef49bca43f708aa852692942c45ec950d4.png" alt="" />
-          <img class="scene-img frame-two-img" src="https://raft-blast-61784561.figma.site/_assets/v11/ba75252bab2b1c510987b74837770f7bc8a6b2d4.png" alt="" />
+          <img id="splitRight" class="scene-layer left-1/2 bottom-[-2vh] -translate-x-1/2 z-40 w-[118vw] max-w-[2240px] pointer-events-none"
+               src="https://raft-blast-61784561.figma.site/_assets/v11/392db6a6a6b98e868bd7f8d3f55bb719d51e5028.png"
+               alt="Right Tower Stone" />
 
-          <div class="shade"></div>
+          <img id="frameTwoImg" class="scene-layer left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-35 w-[122vw] max-w-[2160px] opacity-0 pointer-events-none"
+               src="https://raft-blast-61784561.figma.site/_assets/v11/ba75252bab2b1c510987b74837770f7bc8a6b2d4.png"
+               alt="Close Arch Detail" />
         </div>
 
-        <section class="intro-copy" aria-label="Mostar overview">
-          <p>A stone arch, emerald water, and a compact old city made for slow mornings, late light, and one unforgettable crossing.</p>
-          <div class="hero-tags" aria-label="Mostar highlights">
-            <span>Old Bridge</span>
-            <span>Neretva River</span>
-            <span>UNESCO old city</span>
+        <!-- Story Panel 1: Hero Main Header & Subtitles -->
+        <div id="heroContainer" class="absolute inset-0 z-40 flex flex-col items-center justify-between pt-[calc(env(safe-area-inset-top,0px)+74px)] sm:pt-[calc(env(safe-area-inset-top,0px)+90px)] pb-[calc(env(safe-area-inset-bottom,0px)+24px)] px-4 pointer-events-none">
+          
+          <!-- Giant Grand Mostar Hero Title -->
+          <div id="heroTitle" class="w-full text-center transition-all duration-300">
+            <span class="block text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.3em] uppercase text-sand/80 mb-1 cinematic-glow">
+              Heart of Herzegovina
+            </span>
+            <h1 class="font-serif text-[4.2rem] xs:text-[5.5rem] sm:text-[7.5rem] md:text-[10.5rem] lg:text-[13rem] font-black leading-[0.82] tracking-tighter text-sand cinematic-glow select-none">
+              MOSTAR
+            </h1>
           </div>
-        </section>
 
-        <section class="story-panel story-panel-bridge" id="bridge" aria-label="Old Bridge details">
-          <h2>The bridge is the city's compass.</h2>
-          <p>Stari Most links the banks of the Neretva and anchors a historic quarter shaped by Ottoman, Mediterranean, and European layers.</p>
-          <dl class="facts">
-            <div>
-              <dt>1566</dt>
-              <dd>Original bridge completed</dd>
+          <!-- Hero Bottom Intro Card -->
+          <div id="introCopy" class="w-full max-w-xl mx-auto text-center pointer-events-auto transition-all duration-300">
+            <p class="text-sm sm:text-base md:text-lg text-sand/90 font-medium leading-relaxed cinematic-glow px-3">
+              A 16th-century stone arch, emerald glacial water, and an ancient bazaar built for slow mornings, warm sun, and the soul of the Balkans.
+            </p>
+            
+            <!-- Quick feature badges -->
+            <div class="flex flex-wrap justify-center items-center gap-2 mt-4 px-2">
+              <span class="px-3.5 py-1.5 rounded-full bg-sand/90 backdrop-blur text-darkink text-xs font-bold shadow-lg">Stari Most Arch</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-sand/90 backdrop-blur text-darkink text-xs font-bold shadow-lg">Neretva River</span>
+              <span class="px-3.5 py-1.5 rounded-full bg-sand/90 backdrop-blur text-darkink text-xs font-bold shadow-lg">UNESCO Heritage</span>
             </div>
-            <div>
-              <dt>2005</dt>
-              <dd>Old Bridge Area inscribed by UNESCO</dd>
-            </div>
-          </dl>
-        </section>
 
-        <section class="story-panel story-panel-bazaar" id="bazaar" aria-label="Old town details">
-          <h2>The bazaar keeps Mostar close.</h2>
-          <p>Stone lanes, mosque courtyards, copper stalls, and riverside coffee stay within a short walk of Stari Most.</p>
-          <button class="note-button">
-            <span aria-hidden="true">↗</span>
-            <span>Open old town notes</span>
-          </button>
-        </section>
+            <!-- Scroll invitation hint -->
+            <div class="mt-4 flex items-center justify-center gap-2 text-sand/75 text-xs font-medium animate-pulse-soft">
+              <span>Scroll down to enter the city</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Panel 2: The Bridge Story -->
+        <div id="panelBridge" class="absolute inset-x-4 top-1/2 -translate-y-1/2 max-w-2xl mx-auto z-40 text-center opacity-0 pointer-events-none transition-all duration-300">
+          <div class="inline-block px-3 py-1 rounded-full bg-sand/20 border border-sand/30 backdrop-blur text-sand text-[11px] font-bold tracking-widest uppercase mb-3">
+            Architectural Wonder
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-sand panel-shadow">
+            The bridge is the city's compass.
+          </h2>
+          <p class="mt-4 text-sm sm:text-base md:text-lg text-sand/90 leading-relaxed max-w-lg mx-auto panel-shadow">
+            Commissioned by Suleiman the Magnificent in 1557 and completed in 1566, Stari Most stands as one of the finest masterpieces of Islamic engineering in the Western world.
+          </p>
+
+          <!-- Historical Facts Grid -->
+          <div class="grid grid-cols-2 gap-4 sm:gap-8 max-w-md mx-auto mt-6">
+            <div class="p-3 sm:p-4 rounded-2xl apple-glass text-center border border-sand/20 shadow-xl">
+              <span class="block font-serif text-3xl sm:text-5xl font-bold text-sand">1566</span>
+              <span class="block mt-1 text-xs text-sand/80 font-medium">Original bridge erected</span>
+            </div>
+            <div class="p-3 sm:p-4 rounded-2xl apple-glass text-center border border-sand/20 shadow-xl">
+              <span class="block font-serif text-3xl sm:text-5xl font-bold text-sand">2005</span>
+              <span class="block mt-1 text-xs text-sand/80 font-medium">UNESCO World Heritage</span>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button onclick="openModal('bridgeDetails')" class="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sand text-darkink font-bold text-xs sm:text-sm shadow-2xl hover:bg-white hover:scale-105 active:scale-95 transition-all">
+              <span>Read Bridge Chronicles</span>
+              <span class="text-sm">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Story Panel 3: The Bazaar Story -->
+        <div id="panelBazaar" class="absolute inset-x-4 top-1/2 -translate-y-1/2 max-w-2xl mx-auto z-40 text-center opacity-0 pointer-events-none transition-all duration-300">
+          <div class="inline-block px-3 py-1 rounded-full bg-sand/20 border border-sand/30 backdrop-blur text-sand text-[11px] font-bold tracking-widest uppercase mb-3">
+            Living Culture
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-sand panel-shadow">
+            The bazaar keeps Mostar close.
+          </h2>
+          <p class="mt-4 text-sm sm:text-base md:text-lg text-sand/90 leading-relaxed max-w-lg mx-auto panel-shadow">
+            Stone alleyways, Ottoman courtyard cafes, hammering coppersmiths, and roasted Bosnian coffee aroma that greets the sunrise across the canyon.
+          </p>
+
+          <div class="mt-7">
+            <button onclick="openModal('bazaarDetails')" class="pointer-events-auto inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-sand text-darkink font-bold text-xs sm:text-sm shadow-2xl hover:bg-white hover:scale-105 active:scale-95 transition-all">
+              <span class="text-base">☕</span>
+              <span>Explore Old Town &amp; Bazaar Notes</span>
+              <span class="text-base">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Story Panel 4: Interactive Sights Carousel -->
+        <div id="sightsSliderContainer" class="absolute inset-x-0 bottom-6 sm:bottom-12 z-40 opacity-0 pointer-events-none transition-all duration-300 flex flex-col items-center">
+          
+          <div class="w-full max-w-6xl px-4 sm:px-6">
+            <!-- Header for Sights Screen -->
+            <div class="flex items-end justify-between mb-4">
+              <div>
+                <span class="text-[11px] uppercase tracking-widest text-sand/80 font-semibold block">Interactive Guide</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-sand panel-shadow">Must-Visit Landmarks</h3>
+              </div>
+              
+              <!-- Carousel Navigation Buttons -->
+              <div class="flex items-center gap-2 pointer-events-auto">
+                <button id="sliderPrev" aria-label="Previous sight" class="w-10 h-10 rounded-full bg-sand/90 text-darkink flex items-center justify-center font-bold text-lg hover:bg-white active:scale-90 transition-all shadow-lg">
+                  ←
+                </button>
+                <button id="sliderNext" aria-label="Next sight" class="w-10 h-10 rounded-full bg-sand/90 text-darkink flex items-center justify-center font-bold text-lg hover:bg-white active:scale-90 transition-all shadow-lg">
+                  →
+                </button>
+              </div>
+            </div>
+
+            <!-- Touch Track Slider -->
+            <div class="overflow-hidden rounded-3xl py-2" id="sliderViewport">
+              <div class="sights-track pointer-events-auto" id="sightsTrack">
+                
+                <!-- Card 1: Stari Most -->
+                <article class="sight-card card-glass rounded-3xl p-5 sm:p-6 w-[280px] xs:w-[320px] sm:w-[360px] flex-shrink-0 cursor-pointer hover:scale-[1.02] transition-transform shadow-2xl relative" onclick="openSightDetail(0)">
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full">Old Bridge</span>
+                    <span class="text-2xl">🏛️</span>
+                  </div>
+                  <h4 class="font-serif text-xl sm:text-2xl font-bold text-darkink mb-1.5 leading-snug">Stari Most</h4>
+                  <p class="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed line-clamp-2">
+                    The UNESCO centerpiece spanning the Neretva river, famous for fearless traditional divers.
+                  </p>
+                  <div class="mt-4 flex items-center justify-between text-xs font-semibold text-emerald-900 pt-3 border-t border-darkink/10">
+                    <span>View Highlights</span>
+                    <span>→</span>
+                  </div>
+                </article>
+
+                <!-- Card 2: Kujundziluk -->
+                <article class="sight-card card-glass rounded-3xl p-5 sm:p-6 w-[280px] xs:w-[320px] sm:w-[360px] flex-shrink-0 cursor-pointer hover:scale-[1.02] transition-transform shadow-2xl relative" onclick="openSightDetail(1)">
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-amber-800 bg-amber-100/80 px-2.5 py-1 rounded-full">Bazaar Street</span>
+                    <span class="text-2xl">🛍️</span>
+                  </div>
+                  <h4 class="font-serif text-xl sm:text-2xl font-bold text-darkink mb-1.5 leading-snug">Kujundžiluk</h4>
+                  <p class="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed line-clamp-2">
+                    Cobbled artisan lanes packed with copper artwork, handmade rugs, and authentic sweets.
+                  </p>
+                  <div class="mt-4 flex items-center justify-between text-xs font-semibold text-amber-900 pt-3 border-t border-darkink/10">
+                    <span>View Highlights</span>
+                    <span>→</span>
+                  </div>
+                </article>
+
+                <!-- Card 3: Koski Mehmed Pasha -->
+                <article class="sight-card card-glass rounded-3xl p-5 sm:p-6 w-[280px] xs:w-[320px] sm:w-[360px] flex-shrink-0 cursor-pointer hover:scale-[1.02] transition-transform shadow-2xl relative" onclick="openSightDetail(2)">
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-blue-800 bg-blue-100/80 px-2.5 py-1 rounded-full">Panoramic View</span>
+                    <span class="text-2xl">🕌</span>
+                  </div>
+                  <h4 class="font-serif text-xl sm:text-2xl font-bold text-darkink mb-1.5 leading-snug">Koski Mehmed Pasha</h4>
+                  <p class="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed line-clamp-2">
+                    1618 mosque boasting the most breathtaking panoramic minaret view of Stari Most and cliffs.
+                  </p>
+                  <div class="mt-4 flex items-center justify-between text-xs font-semibold text-blue-900 pt-3 border-t border-darkink/10">
+                    <span>View Highlights</span>
+                    <span>→</span>
+                  </div>
+                </article>
+
+                <!-- Card 4: Kajtaz House -->
+                <article class="sight-card card-glass rounded-3xl p-5 sm:p-6 w-[280px] xs:w-[320px] sm:w-[360px] flex-shrink-0 cursor-pointer hover:scale-[1.02] transition-transform shadow-2xl relative" onclick="openSightDetail(3)">
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-rose-800 bg-rose-100/80 px-2.5 py-1 rounded-full">Ottoman Manor</span>
+                    <span class="text-2xl">🏡</span>
+                  </div>
+                  <h4 class="font-serif text-xl sm:text-2xl font-bold text-darkink mb-1.5 leading-snug">Kajtaz House</h4>
+                  <p class="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed line-clamp-2">
+                    A preserved 16th-century residential compound with lush walled courtyards and carved wood ceilings.
+                  </p>
+                  <div class="mt-4 flex items-center justify-between text-xs font-semibold text-rose-900 pt-3 border-t border-darkink/10">
+                    <span>View Highlights</span>
+                    <span>→</span>
+                  </div>
+                </article>
+
+                <!-- Card 5: War Photo Exhibition -->
+                <article class="sight-card card-glass rounded-3xl p-5 sm:p-6 w-[280px] xs:w-[320px] sm:w-[360px] flex-shrink-0 cursor-pointer hover:scale-[1.02] transition-transform shadow-2xl relative" onclick="openSightDetail(4)">
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase text-purple-800 bg-purple-100/80 px-2.5 py-1 rounded-full">Museum</span>
+                    <span class="text-2xl">📷</span>
+                  </div>
+                  <h4 class="font-serif text-xl sm:text-2xl font-bold text-darkink mb-1.5 leading-snug">War Photo Exhibition</h4>
+                  <p class="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed line-clamp-2">
+                    A moving memorial photographic gallery inside the west tower chronicling resilience and peace.
+                  </p>
+                  <div class="mt-4 flex items-center justify-between text-xs font-semibold text-purple-900 pt-3 border-t border-darkink/10">
+                    <span>View Highlights</span>
+                    <span>→</span>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+            <!-- Dots Indicator for Mobile Experience -->
+            <div class="flex items-center justify-center gap-1.5 mt-3 pointer-events-auto" id="sliderDots"></div>
+          </div>
+        </div>
+
+        <!-- Scroll Progress Bar -->
+        <div class="absolute bottom-0 inset-x-0 h-1 bg-white/10 z-50">
+          <div id="scrollProgressBar" class="h-full bg-sand w-0 transition-all duration-75"></div>
+        </div>
+
       </div>
     </section>
   </main>
+
+  <!-- Interactive Modal / Slide-Up Sheet -->
+  <div id="modalOverlay" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="modalContent" class="w-full max-w-xl max-h-[85vh] sm:max-h-[80vh] overflow-y-auto no-scrollbar bg-[#121c1f] border border-sand/20 rounded-t-[32px] sm:rounded-3xl p-6 sm:p-8 text-sand shadow-2xl transform translate-y-full sm:translate-y-6 sm:scale-95 transition-all duration-300">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <span id="modalIcon" class="text-2xl">🏛️</span>
+          <h3 id="modalTitle" class="font-serif text-xl sm:text-2xl font-bold text-sand">Mostar Explorer</h3>
+        </div>
+        <button onclick="closeModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-sand flex items-center justify-center transition-transform active:scale-90 font-bold">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modalBody" class="py-4 space-y-4 text-sm sm:text-base text-sand/90 leading-relaxed">
+        <!-- Dynamic content injected by JS -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-4 border-t border-white/10 flex justify-end gap-3">
+        <button onclick="closeModal()" class="px-5 py-2.5 rounded-full bg-sand text-darkink font-bold text-xs sm:text-sm hover:bg-white active:scale-95 transition-transform">
+          Got it
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
     (function () {
       "use strict";
 
-      // Cache elements
-      const section = document.querySelector(".cinema-scroll");
-      const skyImg = document.querySelector(".sky-img");
-      const backStack = document.querySelector(".back-stack");
-      const backFour = document.querySelector(".back-four");
-      const backBazaar = document.querySelector(".back-bazaar");
-      const heroTitle = document.querySelector(".hero-title");
-      const bridgeImg = document.querySelector(".bridge-img");
-      const splitLeft = document.querySelector(".splitframe-left");
-      const splitRight = document.querySelector(".splitframe-right");
-      const frameTwoImg = document.querySelector(".frame-two-img");
-      const shade = document.querySelector(".shade");
-      const introCopy = document.querySelector(".intro-copy");
-      const panelBridge = document.querySelector(".story-panel-bridge");
-      const panelBazaar = document.querySelector(".story-panel-bazaar");
-      const sightsSlider = document.querySelector(".sights-slider");
-      const sightsTrack = document.querySelector(".sights-track");
-      const sightsControls = document.querySelector(".sights-controls");
-      const sightPrev = document.querySelector(".sight-prev");
-      const sightNext = document.querySelector(".sight-next");
-      const initialCards = Array.from(document.querySelectorAll(".sight-card"));
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      // Sight data repository for rich exploration
+      const sightsData = [
+        {
+          title: "Stari Most (The Old Bridge)",
+          tag: "UNESCO World Heritage Site",
+          icon: "🏛️",
+          desc: "Erected by Mimar Hayruddin, student of the legendary architect Sinan, the single stone arch stood for 427 years before being destroyed in 1993 and painstakingly restored piece-by-piece using local Tenelija limestone in 2004.",
+          tips: "Watch for the local divers of the Mostar Diving Club who leap 24 meters down into the icy emerald waters of the Neretva."
+        },
+        {
+          title: "Kujundžiluk (Old Bazaar)",
+          tag: "Historic Ottoman Marketplace",
+          icon: "🛍️",
+          desc: "Dating back to the middle of the 16th century, Kujundžiluk was the heart of trade in Herzegovina with more than 500 craft workshops producing brassware, leather goods, and intricate jewelry.",
+          tips: "Stop at a traditional copper workshop to watch masters hand-engrave traditional džezva coffee pots."
+        },
+        {
+          title: "Koski Mehmed Pasha Mosque",
+          tag: "Panoramic Landmark (1618)",
+          icon: "🕌",
+          desc: "Perched high on the cliff above the river, this sacred site contains original wall paintings, floral engravings, and a steep spiral staircase leading to the highest view over Stari Most.",
+          tips: "Climb the minaret for the signature postcard photograph of the entire river gorge."
+        },
+        {
+          title: "Kajtaz House",
+          tag: "16th-Century Ottoman Residence",
+          icon: "🏡",
+          desc: "Once the harem of a high-ranking judge (qadi), this secluded residence preserves original handwoven kilim rugs, wooden mashrabiya windows, and private garden irrigation channels.",
+          tips: "Experience the cool micro-climate created by the traditional courtyards and stone thermal mass."
+        },
+        {
+          title: "War Photo Exhibition",
+          tag: "Helebija Tower Gallery",
+          icon: "📷",
+          desc: "Curated by New Zealand photojournalist Wade Goddard, this striking collection captures the raw human spirit and rebirth of Mostar across the 1990s.",
+          tips: "Located directly inside the upper chamber of the western bridge tower."
+        }
+      ];
 
-      const originalSightCount = initialCards.length;
-      let sightCards = [];
-      let activeSight = originalSightCount;
+      // DOM Elements Cache
+      const cinemaSection = document.getElementById("cinema");
+      const skyLayer = document.getElementById("skyLayer");
+      const backStack = document.getElementById("backStack");
+      const backFour = document.getElementById("backFour");
+      const backBazaar = document.getElementById("backBazaar");
+      const bridgeImg = document.getElementById("bridgeImg");
+      const splitLeft = document.getElementById("splitLeft");
+      const splitRight = document.getElementById("splitRight");
+      const frameTwoImg = document.getElementById("frameTwoImg");
+      const ambientShade = document.getElementById("ambientShade");
 
-      let targetMouseX = 0;
-      let targetMouseY = 0;
-      let mouseX = 0;
-      let mouseY = 0;
+      const heroContainer = document.getElementById("heroContainer");
+      const heroTitle = document.getElementById("heroTitle");
+      const introCopy = document.getElementById("introCopy");
+      const panelBridge = document.getElementById("panelBridge");
+      const panelBazaar = document.getElementById("panelBazaar");
+      const sightsSliderContainer = document.getElementById("sightsSliderContainer");
+      const scrollProgressBar = document.getElementById("scrollProgressBar");
+
+      const sightsTrack = document.getElementById("sightsTrack");
+      const sliderPrev = document.getElementById("sliderPrev");
+      const sliderNext = document.getElementById("sliderNext");
+      const sliderDots = document.getElementById("sliderDots");
+
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalContent = document.getElementById("modalContent");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalIcon = document.getElementById("modalIcon");
+      const modalBody = document.getElementById("modalBody");
+
+      // State
+      let currentActiveCard = 0;
       let targetScroll = 0;
       let smoothScroll = 0;
-      let initialized = false;
       let isTicking = false;
+      let mouseX = 0, mouseY = 0;
+      let targetMouseX = 0, targetMouseY = 0;
 
-      // Layout cache to prevent layout thrashing
-      let cachedSectionTop = 0;
-      let cachedMaxScroll = 3700;
-      let cachedWinHeight = window.innerHeight;
-      let cachedWinWidth = window.innerWidth;
-      let cachedCardWidth = 360;
-      let cachedTrackGap = 20;
+      // Touch Carousel Handling
+      let touchStartX = 0;
+      let touchCurrentX = 0;
+      let isDragging = false;
 
-      function measureLayout() {
-        cachedWinHeight = window.innerHeight;
-        cachedWinWidth = window.innerWidth;
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          cachedSectionTop = window.scrollY + rect.top;
-          cachedMaxScroll = Math.max(0, section.offsetHeight - cachedWinHeight);
-        }
-        if (sightCards.length && sightsTrack) {
-          cachedCardWidth = sightCards[0].offsetWidth;
-          const style = window.getComputedStyle(sightsTrack);
-          cachedTrackGap = parseFloat(style.columnGap || style.gap || "0");
-        }
-      }
-
-      // Mathematical helpers
+      // Math Helpers
       const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
       const smoothstep = (e0, e1, v) => {
         const x = clamp((v - e0) / (e1 - e0));
         return x * x * (3 - 2 * x);
       };
       const lerp = (a, b, t) => a + (b - a) * t;
-      const segmentInOut = (s, a, b, c, d) => {
-        const enter = smoothstep(a, b, s);
-        const exit = smoothstep(c, d, s);
-        return { enter, exit, active: enter * (1 - exit) };
-      };
 
-      const getScrollDistance = () => {
-        const current = window.scrollY - cachedSectionTop;
-        return clamp(current, 0, cachedMaxScroll);
-      };
+      function getScrollProgress() {
+        if (!cinemaSection) return 0;
+        const rect = cinemaSection.getBoundingClientRect();
+        const maxScroll = cinemaSection.offsetHeight - window.innerHeight;
+        const scrolled = -rect.top;
+        return clamp(scrolled / (maxScroll || 1));
+      }
 
-      function update() {
+      function getRawScrollPx() {
+        if (!cinemaSection) return 0;
+        const rect = cinemaSection.getBoundingClientRect();
+        return Math.max(0, -rect.top);
+      }
+
+      function renderFrame() {
         isTicking = false;
-        targetScroll = getScrollDistance();
+        const rawScroll = getRawScrollPx();
+        smoothScroll = lerp(smoothScroll, rawScroll, 0.12);
 
-        if (!initialized || reduceMotion.matches) {
-          smoothScroll = targetScroll;
-          initialized = true;
-        } else {
-          smoothScroll = lerp(smoothScroll, targetScroll, 0.14);
+        if (Math.abs(smoothScroll - rawScroll) < 0.1) smoothScroll = rawScroll;
+
+        mouseX = lerp(mouseX, targetMouseX, 0.08);
+        mouseY = lerp(mouseY, targetMouseY, 0.08);
+
+        const totalProgress = getScrollProgress();
+        if (scrollProgressBar) {
+          scrollProgressBar.style.width = `${totalProgress * 100}%`;
         }
 
-        if (Math.abs(smoothScroll - targetScroll) < 0.05) {
-          smoothScroll = targetScroll;
-        }
+        // Timeline Step Calculations:
+        // Step 1 (0 -> 700px): Hero text fades out, bridge zooms gently
+        // Step 2 (700 -> 1800px): Bridge panel emerges, split towers part
+        // Step 3 (1800 -> 2800px): Bazaar panel emerges, warm light
+        // Step 4 (2800 -> 3800px): Sights interactive carousel glides up
 
-        if (reduceMotion.matches) {
-          mouseX = 0;
-          mouseY = 0;
-        } else {
-          mouseX = lerp(mouseX, targetMouseX, 0.12);
-          mouseY = lerp(mouseY, targetMouseY, 0.12);
-          if (Math.abs(mouseX - targetMouseX) < 0.0001) mouseX = targetMouseX;
-          if (Math.abs(mouseY - targetMouseY) < 0.0001) mouseY = targetMouseY;
-        }
+        const introFade = smoothstep(0, 500, smoothScroll);
+        const bridgeStep = smoothstep(550, 950, smoothScroll) * (1 - smoothstep(1450, 1850, smoothScroll));
+        const bazaarStep = smoothstep(1650, 2050, smoothScroll) * (1 - smoothstep(2550, 2900, smoothScroll));
+        const sightsStep = smoothstep(2750, 3200, smoothScroll);
 
-        // Mathematical segments & choreographies
-        const frame2 = segmentInOut(smoothScroll, 560, 900, 1300, 1620);
-        const frame3 = segmentInOut(smoothScroll, 1760, 2140, 2540, 2700);
-        const progress = clamp(smoothScroll / 2700);
-        const introExit = smoothstep(90, 650, smoothScroll);
-        const sightsEnterRaw = smoothstep(2760, 3560, smoothScroll);
-        const sightsEnter = Math.pow(sightsEnterRaw, 1.55);
-        const sightsControlsEnter = smoothstep(3360, 3660, smoothScroll);
-        const blurActive = clamp(frame2.active + frame3.active);
-        const frame2Opacity = frame2.active * (1 - frame3.enter);
-        const splitDrift = Math.pow(frame2.enter, 1.5);
-        const panel2Opacity = frame2.active * (1 - frame2.exit);
-        const panel3Opacity = frame3.active * (1 - frame3.exit);
-        const backScale = 0.76 + progress * 0.2 + frame2.enter * 0.18 + frame3.enter * 0.16;
-        const sharedHeroY = progress * -74;
-        const sharedHeroScale = progress * 0.23;
-        const sightsScreenTop = Math.min(220, Math.max(112, cachedWinHeight * 0.19)) - 50;
-        const sightsParentTop = cachedWinHeight - (cachedWinHeight - sightsScreenTop) / backScale;
+        const splitDrift = smoothstep(600, 1600, smoothScroll);
+        const bridgeZoom = 1 + smoothstep(0, 2000, smoothScroll) * 0.45;
 
-        // Apply direct element updates to avoid root style recalculations
-        if (skyImg) {
-          skyImg.style.filter = `blur(${blurActive * 14}px) brightness(${1 - blurActive * 0.255})`;
+        // 1. Sky & Backgrounds
+        if (skyLayer) {
+          const skyBlur = smoothstep(500, 1800, smoothScroll) * 12;
+          const skyDim = 1 - smoothstep(500, 2500, smoothScroll) * 0.2;
+          skyLayer.style.filter = `blur(${skyBlur}px) brightness(${skyDim})`;
         }
 
         if (backStack) {
-          backStack.style.opacity = (1 - frame2.active * 0.06).toString();
-          backStack.style.transform = `translate3d(${mouseX * -12}px, ${mouseY * -4}px, 0) scale(${backScale})`;
+          const backScale = 0.85 + totalProgress * 0.25;
+          backStack.style.transform = `translate3d(${mouseX * -15}px, ${mouseY * -6}px, 0) scale(${backScale})`;
         }
 
-        if (backFour) {
-          backFour.style.transform = `translate3d(-50%, calc(${10 + progress * 10}vh - 110px), 0) scale(${0.78 + progress * 0.16})`;
-        }
-
-        if (backBazaar) {
-          backBazaar.style.filter = `blur(${frame2.active * 14}px) brightness(${1 - frame2.active * 0.255 - frame3.active * 0.06}) saturate(${1 + frame3.active * 0.18})`;
-          backBazaar.style.transform = `translate3d(-50%, ${20 - progress * 8}vh, 0) scale(0.86)`;
-        }
-
-        if (heroTitle) {
-          heroTitle.style.transform = `translate3d(-50%, ${introExit * -210}px, 0) scale(${1 - introExit * 0.08})`;
-          heroTitle.style.opacity = (1 - introExit).toString();
-        }
-
+        // 2. Main Bridge & Stone Frame
         if (bridgeImg) {
-          bridgeImg.style.transform = `translate3d(calc(-50% + ${mouseX * 18}px), ${mouseY * 8 + sharedHeroY - frame2.exit * 760}px, 0) scale(${1.02 + sharedHeroScale + frame2.exit * 0.46})`;
-          bridgeImg.style.bottom = `${5 - frame2.enter * 13}vh`;
-          bridgeImg.style.width = `min(${67.2 + frame2.enter * 37.8}vw, 2140px)`;
+          const bY = mouseY * 12 - smoothstep(1500, 3000, smoothScroll) * 350;
+          bridgeImg.style.transform = `translate3d(calc(-50% + ${mouseX * 20}px), ${bY}px, 0) scale(${bridgeZoom})`;
         }
 
         if (splitLeft) {
-          splitLeft.style.transform = `translate3d(calc(-50% + ${-splitDrift * 46}vw + ${mouseX * 22}px), ${mouseY * 10 + sharedHeroY - splitDrift * 180}px, 0) scale(${1 + sharedHeroScale + frame2.enter * 0.74})`;
+          const leftOffset = -splitDrift * 48;
+          splitLeft.style.transform = `translate3d(calc(-50% + ${leftOffset}vw + ${mouseX * 24}px), ${mouseY * 10}px, 0) scale(${1 + splitDrift * 0.4})`;
         }
 
         if (splitRight) {
-          splitRight.style.transform = `translate3d(calc(-50% + ${splitDrift * 46}vw + ${mouseX * 22}px), ${mouseY * 10 + sharedHeroY - splitDrift * 180}px, 0) scale(${1 + sharedHeroScale + frame2.enter * 0.74})`;
+          const rightOffset = splitDrift * 48;
+          splitRight.style.transform = `translate3d(calc(-50% + ${rightOffset}vw + ${mouseX * 24}px), ${mouseY * 10}px, 0) scale(${1 + splitDrift * 0.4})`;
         }
 
-        if (frameTwoImg) {
-          frameTwoImg.style.opacity = frame2Opacity.toString();
-          frameTwoImg.style.transform = `translate3d(calc(-50% + ${mouseX * 10}px), calc(-50% + ${mouseY * 8 - frame2.exit * 150}px), 0) scale(${1.06 + frame2.enter * 0.08 + frame2.exit * 0.08})`;
-        }
-
-        if (shade) {
-          shade.style.zIndex = frame2.active > 0.02 ? "2" : "0";
-          shade.style.background = `linear-gradient(180deg, rgba(74, 181, 224, ${blurActive * 0.465}) 0%, rgba(74, 181, 224, ${blurActive * 0.42}) 48%, rgba(74, 181, 224, ${blurActive * 0.51}) 100%)`;
+        // 3. Hero Layer Transitions
+        if (heroTitle) {
+          heroTitle.style.opacity = (1 - introFade).toString();
+          heroTitle.style.transform = `translate3d(0, ${-introFade * 120}px, 0) scale(${1 - introFade * 0.08})`;
         }
 
         if (introCopy) {
-          introCopy.style.transform = `translate3d(-50%, ${introExit * 90}px, 0)`;
-          introCopy.style.opacity = (1 - introExit).toString();
+          introCopy.style.opacity = (1 - introFade).toString();
+          introCopy.style.transform = `translate3d(0, ${introFade * 60}px, 0)`;
+          introCopy.style.pointerEvents = introFade > 0.6 ? 'none' : 'auto';
         }
 
+        // 4. Panel 2 (Bridge Story)
         if (panelBridge) {
-          panelBridge.style.opacity = panel2Opacity.toString();
-          panelBridge.style.transform = `translate3d(-50%, calc(-50% + ${-frame2.exit * 86 + (1 - frame2.enter) * 58}px), 0)`;
+          panelBridge.style.opacity = bridgeStep.toString();
+          panelBridge.style.transform = `translate3d(-50%, calc(-50% + ${(1 - bridgeStep) * 40}px), 0)`;
+          panelBridge.style.pointerEvents = bridgeStep > 0.5 ? 'auto' : 'none';
         }
 
+        // 5. Panel 3 (Bazaar Story)
         if (panelBazaar) {
-          panelBazaar.style.opacity = panel3Opacity.toString();
-          panelBazaar.style.transform = `translate3d(-50%, calc(-50% + ${-frame3.exit * 86 + (1 - frame3.enter) * 58}px), 0)`;
+          panelBazaar.style.opacity = bazaarStep.toString();
+          panelBazaar.style.transform = `translate3d(-50%, calc(-50% + ${(1 - bazaarStep) * 40}px), 0)`;
+          panelBazaar.style.pointerEvents = bazaarStep > 0.5 ? 'auto' : 'none';
         }
 
-        if (sightsSlider) {
-          sightsSlider.style.visibility = sightsEnter > 0.01 ? "visible" : "hidden";
-          sightsSlider.style.top = `${sightsParentTop}px`;
-          sightsSlider.style.transform = `translate3d(${(1 - sightsEnter) * 420}vw, 0px, 0) scale(${1 / backScale})`;
+        // 6. Sights Slider Panel
+        if (sightsSliderContainer) {
+          sightsSliderContainer.style.opacity = sightsStep.toString();
+          sightsSliderContainer.style.transform = `translate3d(0, ${(1 - sightsStep) * 60}px, 0)`;
+          sightsSliderContainer.style.pointerEvents = sightsStep > 0.4 ? 'auto' : 'none';
         }
 
-        if (sightsControls) {
-          sightsControls.style.opacity = sightsControlsEnter.toString();
-          sightsControls.style.top = `${sightsScreenTop + 220 + 16}px`;
-          sightsControls.classList.toggle("is-ready", sightsControlsEnter > 0.98);
+        // 7. Ambient Shade
+        if (ambientShade) {
+          const shadeAlpha = smoothstep(400, 1600, smoothScroll) * 0.45;
+          ambientShade.style.background = `linear-gradient(180deg, rgba(14, 40, 52, ${shadeAlpha * 0.7}) 0%, rgba(20, 55, 68, ${shadeAlpha}) 100%)`;
         }
 
-        // Loop animation frame if delta is still present
-        const needsScroll = Math.abs(smoothScroll - targetScroll) > 0.05;
-        const needsMouse = Math.abs(mouseX - targetMouseX) > 0.0001 || Math.abs(mouseY - targetMouseY) > 0.0001;
-
-        if (needsScroll || needsMouse) {
+        // Continue RAF loop if still catching up
+        if (Math.abs(smoothScroll - rawScroll) > 0.1 || Math.abs(mouseX - targetMouseX) > 0.001) {
           requestTick();
         }
       }
@@ -1009,109 +705,279 @@
       function requestTick() {
         if (!isTicking) {
           isTicking = true;
-          requestAnimationFrame(update);
+          requestAnimationFrame(renderFrame);
         }
       }
 
-      function setupSightSlider() {
+      function updateSliderPosition() {
         if (!sightsTrack) return;
-        sightsTrack.replaceChildren();
+        const card = sightsTrack.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 16;
+        const offset = currentActiveCard * (cardWidth + gap);
+        sightsTrack.style.transform = `translate3d(-${offset}px, 0, 0)`;
 
-        for (let setIndex = 0; setIndex < 3; setIndex++) {
-          initialCards.forEach((card, cardIndex) => {
-            const clone = card.cloneNode(true);
-            const globalIndex = setIndex * originalSightCount + cardIndex;
-            clone.dataset.sightIndex = globalIndex.toString();
-            sightsTrack.appendChild(clone);
-          });
+        // Update dot indicators
+        const dots = sliderDots.querySelectorAll(".dot");
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("bg-sand", i === currentActiveCard);
+          dot.classList.toggle("w-6", i === currentActiveCard);
+          dot.classList.toggle("bg-sand/30", i !== currentActiveCard);
+          dot.classList.toggle("w-2", i !== currentActiveCard);
+        });
+      }
+
+      function setupSlider() {
+        if (!sightsTrack || !sliderDots) return;
+        sliderDots.innerHTML = "";
+        const cardCount = sightsTrack.children.length;
+
+        for (let i = 0; i < cardCount; i++) {
+          const dot = document.createElement("button");
+          dot.className = `dot h-2 rounded-full transition-all duration-300 ${i === 0 ? 'w-6 bg-sand' : 'w-2 bg-sand/30'}`;
+          dot.setAttribute("aria-label", `Slide ${i + 1}`);
+          dot.onclick = () => {
+            currentActiveCard = i;
+            updateSliderPosition();
+          };
+          sliderDots.appendChild(dot);
         }
 
-        sightCards = Array.from(sightsTrack.querySelectorAll(".sight-card"));
-        activeSight = originalSightCount; // Center on middle set
+        if (sliderPrev) {
+          sliderPrev.onclick = () => {
+            currentActiveCard = (currentActiveCard - 1 + cardCount) % cardCount;
+            updateSliderPosition();
+          };
+        }
 
-        sightCards.forEach((card) => {
-          card.addEventListener("click", () => selectSightCard(card));
-          card.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              selectSightCard(card);
+        if (sliderNext) {
+          sliderNext.onclick = () => {
+            currentActiveCard = (currentActiveCard + 1) % cardCount;
+            updateSliderPosition();
+          };
+        }
+
+        // Touch swipe gestures
+        const viewport = document.getElementById("sliderViewport");
+        if (viewport) {
+          viewport.addEventListener("touchstart", (e) => {
+            touchStartX = e.touches[0].clientX;
+            isDragging = true;
+          }, { passive: true });
+
+          viewport.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            touchCurrentX = e.touches[0].clientX;
+          }, { passive: true });
+
+          viewport.addEventListener("touchend", () => {
+            if (!isDragging) return;
+            isDragging = false;
+            const diffX = touchStartX - touchCurrentX;
+            if (Math.abs(diffX) > 40) {
+              if (diffX > 0 && currentActiveCard < cardCount - 1) {
+                currentActiveCard++;
+              } else if (diffX < 0 && currentActiveCard > 0) {
+                currentActiveCard--;
+              }
+              updateSliderPosition();
             }
           });
-        });
-
-        sightsTrack.addEventListener("transitionend", normalizeSightSlider);
-        measureLayout();
-        updateSightSlider();
-      }
-
-      function updateSightSlider() {
-        if (!sightCards.length || !sightsTrack) return;
-        const shift = -(cachedCardWidth + cachedTrackGap) * activeSight;
-        sightsTrack.style.transform = `translate3d(calc(${shift}px - 18vw), 0, 0)`;
-
-        sightCards.forEach((card, idx) => {
-          card.classList.toggle("is-active", idx === activeSight);
-        });
-      }
-
-      function moveSightSlider(dir) {
-        activeSight += dir;
-        updateSightSlider();
-      }
-
-      function selectSightCard(card) {
-        const idx = Number(card.dataset.sightIndex);
-        if (Number.isFinite(idx)) {
-          activeSight = idx;
-          updateSightSlider();
         }
       }
 
-      function jumpSightSlider(i) {
-        if (!sightsTrack) return;
-        sightsTrack.classList.add("is-jumping");
-        activeSight = i;
-        updateSightSlider();
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            sightsTrack.classList.remove("is-jumping");
-          });
-        });
-      }
+      // Audio Generator (Pure Web Audio API - no external assets required)
+      let audioCtx = null;
+      let isAudioPlaying = false;
+      let noiseNode = null;
+      let gainNode = null;
 
-      function normalizeSightSlider() {
-        if (activeSight >= originalSightCount * 2) {
-          jumpSightSlider(activeSight - originalSightCount);
-        } else if (activeSight < originalSightCount) {
-          jumpSightSlider(activeSight + originalSightCount);
+      function initWebAudio() {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContext();
+
+          // Pink-noise glacial water breeze generator
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+            b6 = white * 0.115926;
+          }
+
+          const whiteNoise = audioCtx.createBufferSource();
+          whiteNoise.buffer = noiseBuffer;
+          whiteNoise.loop = true;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(380, audioCtx.currentTime);
+
+          gainNode = audioCtx.createGain();
+          gainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
+
+          whiteNoise.connect(filter);
+          filter.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+
+          whiteNoise.start(0);
+        } catch (err) {
+          console.warn("Web Audio not supported or blocked", err);
         }
       }
 
-      // Event listeners
-      window.addEventListener("scroll", requestTick, { passive: true });
-      
-      window.addEventListener("resize", () => {
-        measureLayout();
-        updateSightSlider();
-        requestTick();
-      }, { passive: true });
+      const audioToggle = document.getElementById("audioToggle");
+      const audioIcon = document.getElementById("audioIcon");
 
+      if (audioToggle) {
+        audioToggle.addEventListener("click", () => {
+          if (!audioCtx) initWebAudio();
+          if (!audioCtx) return;
+
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+
+          isAudioPlaying = !isAudioPlaying;
+          if (isAudioPlaying) {
+            gainNode.gain.linearRampToValueAtTime(0.35, audioCtx.currentTime + 1.2);
+            audioIcon.textContent = "🔊";
+            audioToggle.classList.add("bg-emerald-500/40", "text-white");
+          } else {
+            gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+            audioIcon.textContent = "🎵";
+            audioToggle.classList.remove("bg-emerald-500/40", "text-white");
+          }
+        });
+      }
+
+      // Smooth step scrollTo helper
+      window.scrollToStep = function (px) {
+        if (!cinemaSection) return;
+        const top = cinemaSection.getBoundingClientRect().top + window.scrollY + px;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      };
+
+      // Modal Handlers
+      window.openModal = function (type) {
+        if (type === 'guide') {
+          modalIcon.textContent = "🧭";
+          modalTitle.textContent = "Mostar Travel Guide";
+          modalBody.innerHTML = `
+            <p class="text-sand/80">Mostar is celebrated as the cultural and historic crown of Herzegovina. Surrounded by Hum and Velež mountains, its crystal-clear Neretva river flows directly beneath Ottoman arches.</p>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Best Time to Visit</span>
+              <p class="text-xs text-sand/80">May through October offers long golden hours, outdoor terrace dining, and the traditional July Red Bull cliff diving championship.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Local Specialty</span>
+              <p class="text-xs text-sand/80">Pair a freshly brewed Bosnian coffee (serviced in copper dzezva with rahat lokum) with homemade warm pita and somun bread.</p>
+            </div>
+          `;
+        } else if (type === 'bridgeDetails') {
+          modalIcon.textContent = "🏛️";
+          modalTitle.textContent = "Stari Most Architectural Chronicles";
+          modalBody.innerHTML = `
+            <p class="text-sand/80">When built in 1566, Stari Most was the widest man-made stone arch in the world, spanning 29 meters (95 ft) without a single central pillar in the raging river below.</p>
+            <p class="text-sand/80">The mortar was famously bound with egg whites and goat hair according to local legend, giving the Tenelija stone its luminescent golden glow under sunset.</p>
+          `;
+        } else if (type === 'bazaarDetails') {
+          modalIcon.textContent = "☕";
+          modalTitle.textContent = "Old Bazaar & Coffee Culture";
+          modalBody.innerHTML = `
+            <p class="text-sand/80">Kujundžiluk stretches along the east bank of the river. Historically, artisans were grouped strictly by trade: coppersmiths, goldsmiths, leather tanners, and carpet weavers.</p>
+            <p class="text-sand/80">Bosnian coffee is not just a drink; it is a timeless social ceremony of patience, friendship, and slowing down time.</p>
+          `;
+        }
+        showModal();
+      };
+
+      window.openSightDetail = function (idx) {
+        const item = sightsData[idx];
+        if (!item) return;
+        modalIcon.textContent = item.icon;
+        modalTitle.textContent = item.title;
+        modalBody.innerHTML = `
+          <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30 mb-2">
+            ${item.tag}
+          </div>
+          <p class="text-sand/90 text-sm sm:text-base leading-relaxed">${item.desc}</p>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mt-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">Insider Traveler Tip</span>
+            <p class="text-xs text-sand/80">${item.tips}</p>
+          </div>
+        `;
+        showModal();
+      };
+
+      function showModal() {
+        modalOverlay.classList.remove("opacity-0", "pointer-events-none");
+        modalContent.classList.remove("translate-y-full", "sm:translate-y-6", "sm:scale-95");
+      }
+
+      window.closeModal = function () {
+        modalOverlay.classList.add("opacity-0", "pointer-events-none");
+        modalContent.classList.add("translate-y-full", "sm:translate-y-6", "sm:scale-95");
+      };
+
+      if (modalOverlay) {
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) closeModal();
+        });
+      }
+
+      // Language Switcher Dropdown
+      const langBtn = document.getElementById("langBtn");
+      const langDropdown = document.getElementById("langDropdown");
+      const langArrow = document.getElementById("langArrow");
+      const currentLang = document.getElementById("currentLang");
+
+      if (langBtn && langDropdown) {
+        langBtn.onclick = (e) => {
+          e.stopPropagation();
+          const isHidden = langDropdown.classList.toggle("hidden");
+          langArrow.classList.toggle("rotate-180", !isHidden);
+        };
+
+        window.setLanguage = function (code) {
+          if (currentLang) currentLang.textContent = code;
+          langDropdown.classList.add("hidden");
+          langArrow.classList.remove("rotate-180");
+        };
+
+        document.addEventListener("click", () => {
+          langDropdown.classList.add("hidden");
+          langArrow.classList.remove("rotate-180");
+        });
+      }
+
+      // Mouse Parallax listener
       window.addEventListener("pointermove", (e) => {
-        targetMouseX = e.clientX / cachedWinWidth - 0.5;
-        targetMouseY = e.clientY / cachedWinHeight - 0.5;
+        targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
         requestTick();
       }, { passive: true });
 
-      if (sightPrev) {
-        sightPrev.addEventListener("click", () => moveSightSlider(-1));
-      }
-      if (sightNext) {
-        sightNext.addEventListener("click", () => moveSightSlider(1));
-      }
+      // Native Window Listeners
+      window.addEventListener("scroll", requestTick, { passive: true });
+      window.addEventListener("resize", () => {
+        updateSliderPosition();
+        requestTick();
+      }, { passive: true });
 
-      // Start engine
-      setupSightSlider();
-      measureLayout();
+      // Init routines
+      setupSlider();
       requestTick();
     })();
   </script>
