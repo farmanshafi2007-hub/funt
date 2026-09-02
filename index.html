@@ -370,6 +370,14 @@
             justify-content: space-between;
         }
 
+        /* Body scroll lock when mobile nav is open */
+        body.nav-open {
+            overflow: hidden !important;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
         .sky {
             position: absolute;
             inset: 0;
@@ -403,35 +411,43 @@
 
         /* HERO UI & COPY COMPOSITION */
         .hero-ui {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
+            position: relative;
+            z-index: 10;
             pointer-events: none;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
-            height: 100%;
+            min-height: 100svh;
+            min-height: 100dvh;
+            flex: 1;
         }
 
         .copy {
-            position: absolute;
-            inset: 0;
-            transform: translateY(var(--vshift));
-            pointer-events: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             width: 100%;
-            height: 100%;
+            max-width: 960px;
+            margin: auto;
+            padding: calc(96px + var(--sai-top)) 24px calc(64px + var(--sai-bottom));
+            pointer-events: none;
+            z-index: 10;
         }
 
-        .copy a {
+        .copy a,
+        .copy button {
             pointer-events: auto;
         }
 
         .col {
-            position: absolute;
-            left: 0;
-            right: calc(var(--gutter) * var(--u));
-            text-align: center;
+            position: relative;
             width: 100%;
+            text-align: center;
         }
 
         /* HERO NAVIGATION BAR */
@@ -440,10 +456,19 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 10;
+            z-index: 50;
             height: calc(88 * var(--u));
             pointer-events: auto;
             width: 100%;
+            transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+        }
+
+        /* Glass header on scroll */
+        .navbar.navbar-scrolled {
+            background: rgba(4, 16, 31, 0.72);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            backdrop-filter: blur(20px) saturate(1.4);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.35);
         }
 
         .navbar::after {
@@ -614,229 +639,196 @@
         }
 
         .eyebrow {
-            top: calc(188.8 * var(--u));
-            font-size: calc(30.45 * var(--u));
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: calc(4 * var(--u));
-            text-indent: calc(4 * var(--u));
-            color: #fff;
+            font-family: var(--font-mono);
+            font-size: clamp(10px, 1.3vw, 13px);
+            font-weight: 800;
+            letter-spacing: clamp(2px, 0.4vw, 4px);
+            text-indent: clamp(2px, 0.4vw, 4px);
+            text-transform: uppercase;
+            color: #67e8f9;
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 0 0 20px rgba(103, 232, 249, 0.5);
         }
 
         h1.title {
-            top: calc(268 * var(--u));
             font-family: var(--font-serif);
             font-weight: 400;
-            font-size: calc(112.4 * var(--u));
-            line-height: 1.05;
-            letter-spacing: calc(2 * var(--u));
-            text-indent: calc(2 * var(--u));
-            color: #fff;
+            font-size: clamp(34px, 5.8vw, 74px);
+            line-height: 1.08;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0 auto 16px;
+            max-width: 900px;
+            text-wrap: balance;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0,0,0,0.9);
             padding: 0 1rem;
         }
 
         .rule {
-            top: calc(405.5 * var(--u));
-            height: calc(5 * var(--u));
-            font-size: 0;
-            line-height: 0;
-            padding-right: calc(2 * var(--u));
+            height: 4px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .rule span {
             display: inline-block;
-            vertical-align: top;
-            width: calc(100 * var(--u));
+            width: 56px;
             height: 100%;
-            border-radius: calc(2.5 * var(--u));
-            background: var(--cyan);
+            border-radius: 999px;
+            background: #67e8f9;
+            box-shadow: 0 0 16px rgba(103, 232, 249, 0.8);
         }
 
         p.lede {
-            top: calc(433.2 * var(--u));
-            font-size: calc(18.36 * var(--u));
+            font-size: clamp(14px, 1.7vw, 18px);
             font-weight: 400;
-            line-height: calc(30 * var(--u));
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 680px;
-            margin: 0 auto;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.94);
+            max-width: 660px;
+            margin: 0 auto 32px;
+            text-wrap: balance;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
             padding: 0 1rem;
         }
 
         .cta {
-            top: calc(597 * var(--u));
-            height: calc(66 * var(--u));
-            isolation: isolate;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            pointer-events: auto;
+            z-index: 20;
         }
 
-        .cta a {
+        .hero-cta-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: calc(216 * var(--u));
-            height: calc(66 * var(--u));
-            border-radius: calc(33 * var(--u));
-            font-size: calc(17 * var(--u));
-            font-weight: 700;
-            letter-spacing: 0;
-            text-indent: 0;
-            line-height: 1;
-            color: var(--btn-ink);
+            gap: 10px;
+            width: min(300px, 88vw);
+            height: 56px;
+            min-height: 56px;
+            border-radius: 999px;
+            font-size: clamp(13.5px, 3.5vw, 15px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #04101f;
             text-decoration: none;
-            padding-top: calc(2 * var(--u));
-            background: linear-gradient(180deg, #ffffff 0%, #d6e8f8 4%, #d9ecfe 72%, #ffffff 100%);
-            box-shadow: 0 calc(10 * var(--u)) calc(18 * var(--u)) calc(-8 * var(--u)) rgba(255, 255, 255, 0.50),
-                0 0 calc(26 * var(--u)) rgba(255, 255, 255, 0.18),
-                inset 0 0 0 calc(2 * var(--u)) rgba(255, 255, 255, 0.9);
-            transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+            background: linear-gradient(180deg, #ffffff 0%, #e5f2ff 35%, #cfe6fe 80%, #ffffff 100%);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 0 1.5px rgba(255, 255, 255, 0.95) inset,
+                0 0 25px rgba(103, 232, 249, 0.35);
+            transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
             cursor: pointer;
-            min-height: 44px;
         }
 
-        .cta a:hover {
-            transform: scale(1.04);
-            box-shadow: 0 calc(12 * var(--u)) calc(24 * var(--u)) rgba(255, 255, 255, 0.45);
+        .hero-cta-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow:
+                0 14px 38px rgba(0, 0, 0, 0.5),
+                0 0 0 2px rgba(255, 255, 255, 1) inset,
+                0 0 35px rgba(103, 232, 249, 0.55);
         }
 
-        .label {
-            position: absolute;
-            top: calc(33 * var(--u));
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-size: calc(17.8 * var(--u));
-            letter-spacing: calc(4.6 * var(--u));
-            line-height: 1;
-            color: #fff;
-            white-space: nowrap;
-            pointer-events: none;
+        .hero-cta-btn:active {
+            transform: scale(0.97);
         }
 
-        .label.label-l {
-            left: calc(111 * var(--u));
-        }
-
-        .label.label-r {
-            right: calc(104 * var(--u));
-        }
-
-        .planet {
-            position: absolute;
-            z-index: 2;
-            padding: 0;
-            border: 0;
-            background: none;
-            -webkit-appearance: none;
-            appearance: none;
-            line-height: 0;
-            cursor: pointer;
-            pointer-events: auto;
-            touch-action: manipulation;
-            aspect-ratio: 1 / 1;
-            display: flex;
+        /* Planet Switcher Tabs */
+        .planet-switcher-tabs {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65));
-            will-change: transform, opacity;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            background: rgba(4, 16, 31, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            padding: 4px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+            gap: 3px;
         }
 
-        .planet img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-            user-select: none;
-            -webkit-user-drag: none;
-            pointer-events: none;
-            will-change: opacity, transform;
+        .planet-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            min-height: 32px;
         }
 
-        .planet img.is-shown {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: auto;
+        .planet-tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .planet:hover {
-            transform: translateY(-50%) scale(1.06);
+        .planet-tab-btn.active {
+            color: #04101f;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+            font-weight: 800;
         }
 
-        .planet:active {
-            transform: translateY(-50%) scale(0.98);
-        }
-
-        /* Desktop planet scaling: 180px–240px with smooth float */
-        .planet-l {
-            width: clamp(180px, 14vw, 240px);
-            left: clamp(-130px, -8vw, -95px);
-            top: 50%;
-            transform: translateY(-50%);
-            animation: planetFloatL 6s ease-in-out infinite alternate;
-        }
-
-        .planet-r {
-            width: clamp(180px, 14vw, 240px);
-            right: clamp(-130px, -8vw, -95px);
-            top: 50%;
-            transform: translateY(-50%);
-            animation: planetFloatR 6.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes planetFloatL {
-            0% {
-                transform: translateY(-50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(calc(-50% - 8px)) rotate(-2deg);
-            }
-        }
-
-        @keyframes planetFloatR {
-            0% {
-                transform: translateY(-50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(calc(-50% + 8px)) rotate(2deg);
-            }
+        .planet-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .scroll {
             position: absolute;
-            z-index: 4;
+            z-index: 15;
             left: 50%;
-            margin-left: calc((-48 - (var(--gutter) / 2)) * var(--u));
-            bottom: calc(68 * var(--u));
-            width: calc(96 * var(--u));
-            height: calc(96 * var(--u));
+            transform: translateX(-50%);
+            bottom: calc(20px + var(--sai-bottom));
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(24, 30, 42, 0.70);
-            -webkit-backdrop-filter: blur(calc(6 * var(--u)));
-            backdrop-filter: blur(calc(6 * var(--u)));
-            border: 0;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             pointer-events: auto;
-            transition: transform 0.3s var(--ease-spring), background 0.3s ease;
+            transition: transform 0.3s var(--ease-spring), background 0.3s ease, border-color 0.3s ease;
             min-height: 44px;
             min-width: 44px;
         }
 
         .scroll:hover {
-            transform: translateY(-4px) scale(1.05);
-            background: rgba(35, 45, 65, 0.85);
+            transform: translateX(-50%) translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .scroll svg {
-            width: calc(20 * var(--u));
-            height: calc(25 * var(--u));
+            width: 14px;
+            height: 18px;
             display: block;
         }
 
@@ -1017,19 +1009,10 @@
             animation: ent-rise 0.7s var(--e-quint) 0.86s both;
         }
 
-        .anim.play .label.label-l {
+        .anim.play .cta a,
+        .anim.play .planet-switcher-tabs {
             --rise: calc(8 * var(--u));
-            animation: ent-rise 0.6s var(--e-quint) 1.04s both;
-        }
-
-        .anim.play .label.label-r {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.6s var(--e-quint) 1.10s both;
-        }
-
-        .anim.play .cta a {
-            --rise: calc(8 * var(--u));
-            animation: ent-settle 0.7s var(--e-quint) 1.14s both;
+            animation: ent-settle 0.7s var(--e-quint) 1.05s both;
         }
 
         .anim.play .scroll {
@@ -1046,28 +1029,37 @@
 
             .burger {
                 display: flex;
+                z-index: 100001;
+                position: relative;
             }
 
+            /* ═══ TRUE FULLSCREEN OVERLAY NAV ═══ */
             .links {
-                position: absolute;
-                top: calc(96 * var(--u));
-                right: 0;
-                z-index: 50;
-                width: min(calc(324 * var(--u)), calc(100vw - 32px));
-                max-width: 90vw;
+                position: fixed;
+                inset: 0;
+                width: 100vw;
+                height: 100dvh;
+                height: 100vh;
+                z-index: 100000;
                 flex-direction: column;
-                align-items: stretch;
-                padding: calc(12 * var(--u));
-                border-radius: calc(20 * var(--u));
-                background: rgba(9, 21, 42, 0.96);
-                backdrop-filter: blur(calc(18 * var(--u)));
-                -webkit-backdrop-filter: blur(calc(18 * var(--u)));
-                border: calc(1 * var(--u)) solid rgba(255, 255, 255, 0.18);
-                box-shadow: 0 calc(18 * var(--u)) calc(44 * var(--u)) rgba(2, 8, 20, 0.75);
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                padding: calc(80px + var(--sai-top)) 32px calc(40px + var(--sai-bottom));
+                border-radius: 0;
+                background: rgba(4, 12, 24, 0.97);
+                -webkit-backdrop-filter: blur(30px) saturate(1.6);
+                backdrop-filter: blur(30px) saturate(1.6);
+                border: none;
+                box-shadow: none;
                 opacity: 0;
                 visibility: hidden;
-                transform: translateY(calc(-10 * var(--u)));
-                transition: opacity 0.24s ease, transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.28s;
+                transform: translateY(-12px);
+                transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                            transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                            visibility 0.38s;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             .navrow[data-open="true"] .links {
@@ -1076,39 +1068,68 @@
                 transform: none;
             }
 
+            /* Hide hero content behind overlay when nav is open */
+            body.nav-open .stage .hero-ui .copy,
+            body.nav-open .stage .planet,
+            body.nav-open .stage .scroll,
+            body.nav-open .stage .cta a {
+                pointer-events: none;
+            }
+
             .links a:nth-child(n) {
                 margin-left: 0;
                 height: auto;
-                min-height: 44px;
-                justify-content: flex-start;
-                padding: calc(12 * var(--u)) calc(16 * var(--u));
-                font-size: calc(18 * var(--u));
-                letter-spacing: calc(-0.5 * var(--u));
+                min-height: 52px;
+                justify-content: center;
+                text-align: center;
+                padding: 14px 24px;
+                font-size: clamp(17px, 4.5vw, 22px);
+                font-weight: 500;
+                letter-spacing: -0.3px;
+                color: rgba(255,255,255,0.85);
+                transition: color 0.2s ease, transform 0.2s ease;
+                width: 100%;
+                max-width: 320px;
+                border-radius: 16px;
+            }
+
+            .links a:nth-child(n):hover,
+            .links a:nth-child(n):focus-visible {
+                color: #fff;
+                background: rgba(255,255,255,0.06);
+            }
+
+            .links a:nth-child(n):active {
+                transform: scale(0.97);
             }
 
             .links a+a {
-                border-top: calc(1 * var(--u)) solid rgba(255, 255, 255, 0.1);
+                border-top: none;
             }
 
             .links a[aria-current="page"]::after {
                 top: auto;
-                bottom: calc(9 * var(--u));
-                left: calc(16 * var(--u));
+                bottom: 6px;
+                left: 50%;
                 right: auto;
-                width: calc(26 * var(--u));
-                height: calc(3 * var(--u));
+                transform: translateX(-50%);
+                width: 24px;
+                height: 3px;
+                border-radius: 2px;
             }
 
             .links a.enroll {
-                margin: calc(12 * var(--u)) 0 calc(2 * var(--u));
+                margin: 20px auto 8px;
                 width: 100%;
-                height: calc(46 * var(--u));
-                min-height: 44px;
-                border-radius: calc(23 * var(--u));
+                max-width: 280px;
+                height: 52px;
+                min-height: 52px;
+                border-radius: 999px;
                 justify-content: center;
-                padding-top: calc(2 * var(--u));
-                font-size: calc(17 * var(--u));
-                letter-spacing: calc(-0.4 * var(--u));
+                padding-top: 0;
+                font-size: 15px;
+                font-weight: 700;
+                letter-spacing: -0.3px;
                 border-top: 0;
             }
 
@@ -1142,26 +1163,6 @@
                 text-wrap: pretty;
             }
 
-            /* Tablet planet scaling: 140px–170px */
-            .planet-l {
-                width: clamp(140px, 18vw, 170px);
-                left: clamp(-80px, -7vw, -50px);
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 2;
-            }
-
-            .planet-r {
-                width: clamp(140px, 18vw, 170px);
-                right: clamp(-80px, -7vw, -50px);
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 2;
-            }
-
-            .label.label-r {
-                right: calc(116 * var(--u));
-            }
         }
 
         /* C) PHONE (320px to 579px) */
@@ -1179,100 +1180,87 @@
                 min-height: 100dvh;
             }
 
+            /* Readability gradient over sky on mobile */
+            .stage::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                background: linear-gradient(
+                    180deg,
+                    rgba(4, 16, 31, 0.6) 0%,
+                    rgba(4, 16, 31, 0.3) 35%,
+                    rgba(4, 16, 31, 0.2) 55%,
+                    rgba(4, 16, 31, 0.5) 80%,
+                    rgba(4, 16, 31, 0.8) 100%
+                );
+                pointer-events: none;
+            }
+
             .navbar {
-                height: 68px;
+                height: calc(72px + var(--sai-top));
+                padding-top: var(--sai-top);
             }
 
             .navbar::after {
                 left: 16px;
                 right: 16px;
-                top: 66px;
+                top: calc(70px + var(--sai-top));
             }
 
             .navrow {
                 left: 16px;
                 right: 16px;
-                height: 66px;
+                height: 70px;
             }
 
-            .links {
-                top: 72px;
-                right: 16px;
-                width: min(300px, calc(100vw - 32px));
-                max-width: calc(100vw - 32px);
+            .logo {
+                font-size: 16px;
+                gap: 6px;
+                top: 0;
             }
 
             .copy {
-                position: relative;
-                top: 0;
-                transform: none;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 72px 16px 36px;
-                padding-top: calc(72px + var(--sai-top));
-                padding-bottom: calc(36px + var(--sai-bottom));
+                padding: calc(78px + var(--sai-top)) 16px calc(54px + var(--sai-bottom));
                 min-height: 100svh;
                 min-height: 100dvh;
-                text-align: center;
-                gap: 0;
-                z-index: 10;
-            }
-
-            .col {
-                position: relative;
-                z-index: 10;
-                width: 100%;
-                right: auto;
-                left: auto;
             }
 
             .eyebrow {
-                font-size: clamp(10px, 3.2vw, 15px);
-                letter-spacing: clamp(1.5px, 0.8vw, 3.5px);
-                text-indent: clamp(1.5px, 0.8vw, 3.5px);
-                margin-bottom: 8px;
+                font-size: clamp(9.5px, 2.8vw, 12px);
+                letter-spacing: clamp(1.5px, 0.6vw, 3px);
+                text-indent: clamp(1.5px, 0.6vw, 3px);
+                margin-bottom: 12px;
                 padding: 0 8px;
-                z-index: 10;
+                opacity: 0.9;
             }
 
             h1.title {
-                font-size: clamp(26px, 8.5vw, 50px);
-                line-height: 1.1;
-                margin-top: 4px;
-                margin-bottom: 12px;
-                letter-spacing: 0.3px;
-                text-indent: 0;
-                text-wrap: balance;
+                font-size: clamp(28px, 8.5vw, 48px);
+                line-height: 1.08;
+                margin-top: 0;
+                margin-bottom: 14px;
+                letter-spacing: -0.3px;
                 padding: 0 8px;
-                z-index: 10;
             }
 
             .rule {
-                margin-top: 4px;
-                margin-bottom: 12px;
-                height: 4px;
-                padding-right: 0;
-                display: flex;
-                justify-content: center;
-                z-index: 10;
+                margin-top: 0;
+                margin-bottom: 14px;
+                height: 3.5px;
             }
 
             .rule span {
-                width: 52px;
+                width: 44px;
             }
 
             p.lede {
-                margin-top: 0;
-                font-size: clamp(12.5px, 3.4vw, 15px);
-                line-height: 1.55;
-                max-width: min(88vw, 360px);
-                text-wrap: balance;
+                font-size: clamp(13px, 3.6vw, 15.5px);
+                line-height: 1.6;
+                max-width: min(90vw, 360px);
                 margin-bottom: 24px;
-                opacity: 0.92;
                 padding: 0 4px;
-                z-index: 10;
+                opacity: 0.9;
             }
 
             p.lede br {
@@ -1280,62 +1268,29 @@
             }
 
             .cta {
-                top: auto;
-                margin-top: 0;
-                height: auto;
-                min-height: 56px;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                gap: 12px;
                 width: 100%;
-                max-width: min(350px, 88vw);
-                margin: 0 auto;
-                z-index: 10;
+                max-width: 320px;
             }
 
-            .cta a {
-                width: clamp(160px, 46vw, 200px);
-                height: 50px;
-                min-height: 50px;
-                border-radius: 999px;
-                font-size: clamp(12px, 3.2vw, 14px);
-                z-index: 20;
-                position: relative;
-                margin: 0 auto;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+            .hero-cta-btn {
+                width: 100%;
+                max-width: 300px;
+                height: 52px;
+                min-height: 52px;
+                font-size: 13.5px;
             }
 
-            /* Planet labels — hidden on mobile for clean uncluttered layout */
-            .label {
-                display: none;
-            }
-
-            /* Mobile planet scaling: 95px–120px, symmetrically anchored to CTA flanks */
-            .planet-l {
-                width: clamp(95px, 24vw, 120px);
-                left: clamp(-46px, -10vw, -25px);
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 2;
-            }
-
-            .planet-r {
-                width: clamp(95px, 24vw, 120px);
-                right: clamp(-46px, -10vw, -25px);
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 2;
+            .planet-tab-btn {
+                padding: 6px 12px;
+                font-size: 10px;
+                min-height: 28px;
             }
 
             .scroll {
-                width: 48px;
-                height: 48px;
-                margin-left: -24px;
+                width: 42px;
+                height: 42px;
                 bottom: calc(14px + var(--sai-bottom));
-                z-index: 15;
             }
 
             .scroll svg {
@@ -1350,61 +1305,77 @@
             }
         }
 
+        /* LANDSCAPE MODE — prevent massive hero on short viewports */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .stage {
+                min-height: auto;
+                height: auto;
+            }
+
+            .copy {
+                min-height: auto !important;
+                padding-top: calc(76px + var(--sai-top)) !important;
+                padding-bottom: calc(24px + var(--sai-bottom)) !important;
+            }
+
+            h1.title {
+                font-size: clamp(22px, 5vw, 36px) !important;
+                margin-bottom: 8px !important;
+            }
+
+            .eyebrow {
+                margin-bottom: 4px !important;
+            }
+
+            p.lede {
+                margin-bottom: 14px !important;
+                font-size: 13px !important;
+            }
+
+            .cta {
+                gap: 8px !important;
+            }
+
+            .hero-cta-btn {
+                height: 46px !important;
+                min-height: 46px !important;
+                font-size: 12px !important;
+            }
+        }
+
         /* NARROW PHONE (<= 375px) */
         @media (max-width: 375px) {
-            .cta a {
-                width: clamp(145px, 44vw, 170px);
+            .hero-cta-btn {
+                height: 50px;
+                min-height: 50px;
+                font-size: 12.5px;
+            }
+
+            h1.title {
+                font-size: clamp(24px, 8vw, 40px);
+                padding: 0 4px;
+            }
+
+            .eyebrow {
+                font-size: clamp(8.5px, 2.4vw, 10.5px);
+            }
+
+            p.lede {
+                font-size: clamp(12px, 3.2vw, 13.5px);
+                max-width: min(92vw, 310px);
+            }
+        }
+
+        /* EXTRA NARROW PHONE (<= 340px) */
+        @media (max-width: 340px) {
+            .hero-cta-btn {
                 height: 48px;
                 min-height: 48px;
                 font-size: 11.5px;
             }
 
-            .planet-l {
-                width: clamp(88px, 22vw, 102px);
-                left: -22px;
-            }
-
-            .planet-r {
-                width: clamp(88px, 22vw, 102px);
-                right: -22px;
-            }
-
             h1.title {
-                font-size: clamp(24px, 8vw, 42px);
-                padding: 0 4px;
-            }
-
-            .eyebrow {
-                font-size: clamp(9px, 2.7vw, 12px);
-            }
-
-            p.lede {
-                font-size: clamp(11.5px, 3.2vw, 13.5px);
-                max-width: min(90vw, 320px);
-            }
-        }
-
-        /* EXTRA NARROW PHONE (<= 340px) — iPhone SE, Galaxy Fold etc. */
-        @media (max-width: 340px) {
-            .cta a {
-                width: 135px;
-                height: 46px;
-                min-height: 46px;
-                font-size: 11px;
-            }
-
-            .planet-l {
-                width: 80px;
-                left: -18px;
-            }
-
-            .planet-r {
-                width: 80px;
-                right: -18px;
-            }
-
-            h1.title {
-                font-size: clamp(22px, 7.5vw, 36px);
+                font-size: clamp(22px, 7.5vw, 34px);
             }
 
             .copy {
@@ -1743,6 +1714,60 @@
             #enquiryContent {
                 max-height: calc(100dvh - 1.5rem);
             }
+
+            /* Safe area padding for modals on notched/Dynamic Island devices */
+            #enquiryModal,
+            #successModal,
+            #helpCenterModal,
+            #blogModal,
+            #termsModal,
+            #privacyModal {
+                padding-top: max(0.75rem, var(--sai-top));
+                padding-bottom: max(0.75rem, var(--sai-bottom));
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           PHASE 6: FOOTER SAFE AREA BOTTOM
+        ═══════════════════════════════════════════════════════════════ */
+        footer {
+            padding-bottom: calc(3rem + var(--sai-bottom)) !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           PHASE 7: TYPOGRAPHY — GLOBAL OVERFLOW SAFETY
+        ═══════════════════════════════════════════════════════════════ */
+        h1, h2, h3, h4, h5, h6 {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        @supports (text-wrap: balance) {
+            h1, h2, h3 {
+                text-wrap: balance;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           PHASE 8: ACCESSIBILITY — FOCUS VISIBLE RINGS
+        ═══════════════════════════════════════════════════════════════ */
+        :focus-visible {
+            outline: 2px solid rgba(56, 189, 248, 0.8);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Better active state feedback for all interactive elements */
+        button:active,
+        a:active,
+        [role="button"]:active {
+            transform: scale(0.97);
+        }
+
+        /* Ensure no horizontal overflow on any page */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -1835,8 +1860,8 @@
                 <!-- Hero Copy Layout -->
                 <div class="copy">
                     <div class="col eyebrow">
-                        <span class="ent-mask"><span class="ent-line" id="planetEyebrow">FORGE SOFTWARES • SCALE YOUR
-                                BRAND</span></span>
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span class="ent-mask"><span class="ent-line" id="planetEyebrow">FORGE SOFTWARES • SCALE YOUR BRAND</span></span>
                     </div>
                     <h1 class="col title" id="planetHeadline">
                         <span class="ent-mask"><span class="ent-line">BUILD YOUR WEBSITE NOW.</span></span>
@@ -1847,39 +1872,23 @@
                         AI workers. Transparent pricing starts at ₹1,999. Book your engineering slot today!
                     </p>
                     <div class="col cta">
-                        <!-- Left Planet Slot Button -->
-                        <!-- Left Planet Slot Button -->
-                        <button class="planet planet-l" type="button" id="slotBtnL" data-slot="l" data-planet="venus"
-                            aria-label="Explore Venus Architecture">
-                            <img data-planet="earth" alt="Earth Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png';" />
-                            <img data-planet="venus" alt="Venus Architecture" class="is-shown"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_cf55d1d8-7b59-4a64-80da-d72052ae974e.png';" />
-                            <img data-planet="mars" alt="Mars Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png';" />
-                        </button>
+                        <a href="javascript:void(0)" onclick="openEnquiryModal('pro')" class="hero-cta-btn">
+                            <span>START PROJECT</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
 
-                        <!-- Right Planet Slot Button -->
-                        <button class="planet planet-r" type="button" id="slotBtnR" data-slot="r" data-planet="mars"
-                            aria-label="Explore Mars AI Agents">
-                            <img data-planet="earth" alt="Earth Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png';" />
-                            <img data-planet="venus" alt="Venus Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_cf55d1d8-7b59-4a64-80da-d72052ae974e.png';" />
-                            <img data-planet="mars" alt="Mars Architecture" class="is-shown"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png"
-                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png';" />
-                        </button>
-
-                        <!-- Pill Button -->
-                        <a href="javascript:void(0)" onclick="openEnquiryModal('pro')">START PROJECT</a>
-                        <span class="label label-l" id="labelSlotL">VENUS</span>
-                        <span class="label label-r" id="labelSlotR">MARS</span>
+                        <!-- Planet Switcher Tabs Pill -->
+                        <div class="planet-switcher-tabs" id="planetTabs" role="tablist" aria-label="Select Architecture Planet">
+                            <button type="button" class="planet-tab-btn active" data-planet="earth" aria-selected="true" role="tab" aria-label="Earth Architecture">
+                                <span class="planet-dot bg-cyan-400"></span> EARTH
+                            </button>
+                            <button type="button" class="planet-tab-btn" data-planet="venus" aria-selected="false" role="tab" aria-label="Venus Architecture">
+                                <span class="planet-dot bg-amber-400"></span> VENUS
+                            </button>
+                            <button type="button" class="planet-tab-btn" data-planet="mars" aria-selected="false" role="tab" aria-label="Mars AI Agents">
+                                <span class="planet-dot bg-rose-500"></span> MARS
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3878,36 +3887,12 @@
             const ledeEl = document.getElementById('planetLede');
             if (ledeEl) ledeEl.innerHTML = targetData.lede;
 
-            // Restructure Flanking Planets with stable distinct targets
-            const rest = PLANET_ORDER.filter(p => p !== nextPlanet);
-            const slotL = rest[0];
-            const slotR = rest[1];
-
-            // Slot L Update
-            const slotBtnL = document.getElementById('slotBtnL');
-            const labelSlotL = document.getElementById('labelSlotL');
-            if (slotBtnL && PLANET_DATA[slotL]) {
-                slotBtnL.setAttribute('data-planet', slotL);
-                slotBtnL.setAttribute('aria-label', `Explore ${PLANET_DATA[slotL].label} Architecture`);
-                slotBtnL.querySelectorAll('img').forEach(img => {
-                    const isShown = img.getAttribute('data-planet') === slotL;
-                    img.classList.toggle('is-shown', isShown);
-                });
-            }
-            if (labelSlotL && PLANET_DATA[slotL]) labelSlotL.textContent = PLANET_DATA[slotL].label;
-
-            // Slot R Update
-            const slotBtnR = document.getElementById('slotBtnR');
-            const labelSlotR = document.getElementById('labelSlotR');
-            if (slotBtnR && PLANET_DATA[slotR]) {
-                slotBtnR.setAttribute('data-planet', slotR);
-                slotBtnR.setAttribute('aria-label', `Explore ${PLANET_DATA[slotR].label} Architecture`);
-                slotBtnR.querySelectorAll('img').forEach(img => {
-                    const isShown = img.getAttribute('data-planet') === slotR;
-                    img.classList.toggle('is-shown', isShown);
-                });
-            }
-            if (labelSlotR && PLANET_DATA[slotR]) labelSlotR.textContent = PLANET_DATA[slotR].label;
+            // Update Planet Switcher Tabs UI
+            document.querySelectorAll('.planet-tab-btn').forEach(tab => {
+                const isCurrent = tab.getAttribute('data-planet') === nextPlanet;
+                tab.classList.toggle('active', isCurrent);
+                tab.setAttribute('aria-selected', String(isCurrent));
+            });
 
             currentFeaturedPlanet = nextPlanet;
         }
@@ -4073,29 +4058,25 @@
                 }
             }
 
-            // Bind Planet Switcher Buttons
-            const slotBtnL = document.getElementById('slotBtnL');
-            const slotBtnR = document.getElementById('slotBtnR');
-
-            if (slotBtnL) {
-                slotBtnL.addEventListener('click', (e) => {
+            // Bind Planet Switcher Tabs
+            document.querySelectorAll('.planet-tab-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const target = slotBtnL.getAttribute('data-planet') || 'venus';
-                    showPlanet(target);
+                    const target = btn.getAttribute('data-planet');
+                    if (target) {
+                        showPlanet(target);
+                        pauseCarousel();
+                    }
                 });
-                slotBtnL.addEventListener('pointerenter', () => warmPlanetClip(slotBtnL.getAttribute('data-planet') || 'venus'));
-                slotBtnL.addEventListener('focus', () => warmPlanetClip(slotBtnL.getAttribute('data-planet') || 'venus'));
-            }
-
-            if (slotBtnR) {
-                slotBtnR.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = slotBtnR.getAttribute('data-planet') || 'mars';
-                    showPlanet(target);
+                btn.addEventListener('pointerenter', () => {
+                    const target = btn.getAttribute('data-planet');
+                    if (target) warmPlanetClip(target);
                 });
-                slotBtnR.addEventListener('pointerenter', () => warmPlanetClip(slotBtnR.getAttribute('data-planet') || 'mars'));
-                slotBtnR.addEventListener('focus', () => warmPlanetClip(slotBtnR.getAttribute('data-planet') || 'mars'));
-            }
+                btn.addEventListener('focus', () => {
+                    const target = btn.getAttribute('data-planet');
+                    if (target) warmPlanetClip(target);
+                });
+            });
 
             // Touch Swipe Gesture Support for Hero Planet Cycling
             const heroStage = document.getElementById('home');
@@ -4147,15 +4128,27 @@
                 }
             });
 
-            // Burger Menu Interaction
+            // Burger Menu Interaction + Body Scroll Lock
             const siteNavRow = document.getElementById('siteNavRow');
             const burgerBtn = document.getElementById('burgerBtn');
+            let savedScrollY = 0;
 
             function setBurgerOpen(isOpen) {
                 if (!siteNavRow || !burgerBtn) return;
                 siteNavRow.dataset.open = String(isOpen);
                 burgerBtn.setAttribute('aria-expanded', String(isOpen));
                 burgerBtn.setAttribute('aria-label', isOpen ? "Close navigation" : "Open navigation");
+
+                // Body scroll lock
+                if (isOpen) {
+                    savedScrollY = window.scrollY;
+                    document.body.classList.add('nav-open');
+                    document.body.style.top = `-${savedScrollY}px`;
+                } else {
+                    document.body.classList.remove('nav-open');
+                    document.body.style.top = '';
+                    window.scrollTo(0, savedScrollY);
+                }
             }
 
             burgerBtn?.addEventListener('click', (e) => {
@@ -4182,6 +4175,77 @@
             document.querySelectorAll('#site-nav a, #site-nav button').forEach(a => {
                 a.addEventListener('click', () => setBurgerOpen(false));
             });
+
+            // Swipe-to-close gesture on fullscreen nav overlay
+            const siteNav = document.getElementById('site-nav');
+            let navTouchStartY = 0;
+            if (siteNav) {
+                siteNav.addEventListener('touchstart', (e) => {
+                    if (e.touches && e.touches[0]) navTouchStartY = e.touches[0].clientY;
+                }, { passive: true });
+                siteNav.addEventListener('touchend', (e) => {
+                    if (e.changedTouches && e.changedTouches[0]) {
+                        const diffY = e.changedTouches[0].clientY - navTouchStartY;
+                        if (diffY < -60) setBurgerOpen(false); // Swipe up to close
+                    }
+                }, { passive: true });
+            }
+
+            // Glass Header on Scroll
+            const navbarEl = document.querySelector('.navbar');
+            if (navbarEl) {
+                const scrollThreshold = 40;
+                let lastScrollState = false;
+                const onScroll = () => {
+                    const scrolled = window.scrollY > scrollThreshold;
+                    if (scrolled !== lastScrollState) {
+                        navbarEl.classList.toggle('navbar-scrolled', scrolled);
+                        lastScrollState = scrolled;
+                    }
+                };
+                window.addEventListener('scroll', onScroll, { passive: true });
+                onScroll(); // Check initial state
+            }
+
+            // Hero Carousel Autoplay (Phase 4)
+            let carouselAutoplayTimer = null;
+            let carouselPauseTimer = null;
+            let carouselPaused = false;
+
+            function startCarouselAutoplay() {
+                stopCarouselAutoplay();
+                carouselAutoplayTimer = setInterval(() => {
+                    if (carouselPaused) return;
+                    const curIdx = PLANET_ORDER.indexOf(currentFeaturedPlanet);
+                    const nextP = PLANET_ORDER[(curIdx + 1) % PLANET_ORDER.length];
+                    showPlanet(nextP);
+                }, 6000);
+            }
+
+            function stopCarouselAutoplay() {
+                if (carouselAutoplayTimer) {
+                    clearInterval(carouselAutoplayTimer);
+                    carouselAutoplayTimer = null;
+                }
+            }
+
+            function pauseCarousel() {
+                carouselPaused = true;
+                if (carouselPauseTimer) clearTimeout(carouselPauseTimer);
+                carouselPauseTimer = setTimeout(() => {
+                    carouselPaused = false;
+                }, 8000);
+            }
+
+            // Start autoplay after entrance animation
+            setTimeout(() => startCarouselAutoplay(), 2500);
+
+            // Pause on any hero interaction
+            const heroStageEl = document.getElementById('home');
+            if (heroStageEl) {
+                heroStageEl.addEventListener('touchstart', pauseCarousel, { passive: true });
+                heroStageEl.addEventListener('click', pauseCarousel);
+            }
 
             const roiTierSelect = document.getElementById('roiTierSelect');
             const roiSpeedRange = document.getElementById('roiSpeedRange');
