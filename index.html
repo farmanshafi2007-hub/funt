@@ -556,86 +556,82 @@
         .links {
             display: flex;
             align-items: center;
+            gap: 4px;
             pointer-events: auto;
         }
 
-        .links a {
+        .links a,
+        .links button.nav-btn {
             position: relative;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            height: calc(86 * var(--u));
-            font-size: calc(18.4 * var(--u));
-            font-weight: 400;
+            justify-content: center;
+            gap: 6px;
+            height: 38px;
+            min-height: 38px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
             line-height: 1;
-            color: #fff;
+            color: rgba(255, 255, 255, 0.82);
             text-decoration: none;
-            padding: 0 calc(17.5 * var(--u));
-            letter-spacing: calc(-1 * var(--u));
+            padding: 0 14px;
+            border-radius: 999px;
             white-space: nowrap;
             cursor: pointer;
-            transition: color 0.2s ease;
+            background: transparent;
+            border: 0;
+            transition: all 0.2s ease;
         }
 
-        .links a:hover {
-            color: var(--cyan);
+        .links a:hover,
+        .links button.nav-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .links a[aria-current="page"] {
+            color: #67e8f9;
+            background: rgba(103, 232, 249, 0.12);
+            font-weight: 600;
         }
 
         .links a[aria-current="page"]::after {
             content: "";
             position: absolute;
-            left: 0;
-            right: 0;
-            top: calc(83.5 * var(--u));
-            height: calc(4 * var(--u));
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 2.5px;
             background: var(--cyan);
-            border-radius: calc(1 * var(--u));
-        }
-
-        .links a:nth-child(3) {
-            letter-spacing: calc(-1.75 * var(--u));
-        }
-
-        .links a:nth-child(2) {
-            margin-left: calc(24 * var(--u));
-        }
-
-        .links a:nth-child(3) {
-            margin-left: calc(26 * var(--u));
-        }
-
-        .links a:nth-child(4) {
-            margin-left: calc(27 * var(--u));
-        }
-
-        .links a:nth-child(5) {
-            margin-left: calc(24 * var(--u));
+            border-radius: 999px;
         }
 
         .links a.enroll {
-            margin-left: calc(28.5 * var(--u));
-            width: calc(107 * var(--u));
-            height: calc(38 * var(--u));
-            border-radius: calc(19 * var(--u));
-            display: flex;
+            margin-left: 8px;
+            padding: 0 20px;
+            height: 38px;
+            min-height: 38px;
+            border-radius: 999px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: calc(17 * var(--u));
-            font-weight: 600;
-            letter-spacing: calc(-0.75 * var(--u));
-            line-height: 1;
-            color: var(--btn-ink);
+            font-size: 13.5px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #04101f;
             text-decoration: none;
-            padding-top: calc(2 * var(--u));
-            background: linear-gradient(180deg, #ffffff 0%, #d8ecfe 9%, #dceefe 72%, #f4f9ff 100%);
-            box-shadow: 0 calc(3 * var(--u)) calc(14 * var(--u)) rgba(255, 255, 255, 0.22),
-                inset 0 0 0 calc(1.5 * var(--u)) rgba(255, 255, 255, 0.92);
+            background: linear-gradient(180deg, #ffffff 0%, #d8ecfe 50%, #f4f9ff 100%);
+            box-shadow: 0 4px 16px rgba(103, 232, 249, 0.35), inset 0 0 0 1.5px rgba(255, 255, 255, 0.95);
             flex: none;
             transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
         }
 
         .links a.enroll:hover {
-            transform: scale(1.04);
-            box-shadow: 0 calc(5 * var(--u)) calc(18 * var(--u)) rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 6px 22px rgba(103, 232, 249, 0.55), inset 0 0 0 1.5px #ffffff;
         }
 
         .eyebrow {
@@ -1076,60 +1072,75 @@
                 pointer-events: none;
             }
 
-            .links a:nth-child(n) {
-                margin-left: 0;
+            .links a,
+            .links button.nav-btn {
+                margin: 0 auto;
                 height: auto;
-                min-height: 52px;
+                min-height: 48px;
+                width: 100%;
+                max-width: 290px;
+                display: inline-flex;
+                align-items: center;
                 justify-content: center;
                 text-align: center;
-                padding: 14px 24px;
-                font-size: clamp(17px, 4.5vw, 22px);
-                font-weight: 500;
-                letter-spacing: -0.3px;
-                color: rgba(255,255,255,0.85);
-                transition: color 0.2s ease, transform 0.2s ease;
-                width: 100%;
-                max-width: 320px;
-                border-radius: 16px;
+                gap: 8px;
+                padding: 12px 20px;
+                font-family: var(--font-sans);
+                font-size: clamp(16px, 4.2vw, 19px);
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                color: rgba(255, 255, 255, 0.9);
+                border-radius: 14px;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+                transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
             }
 
-            .links a:nth-child(n):hover,
-            .links a:nth-child(n):focus-visible {
+            .links a:hover,
+            .links a:focus-visible,
+            .links button.nav-btn:hover,
+            .links button.nav-btn:focus-visible {
                 color: #fff;
-                background: rgba(255,255,255,0.06);
+                background: rgba(255, 255, 255, 0.08);
             }
 
-            .links a:nth-child(n):active {
+            .links a:active,
+            .links button.nav-btn:active {
                 transform: scale(0.97);
             }
 
-            .links a+a {
+            .links a+a,
+            .links a+button,
+            .links button+a,
+            .links button+button {
                 border-top: none;
             }
 
+            .links a[aria-current="page"] {
+                color: #67e8f9;
+                background: rgba(103, 232, 249, 0.12);
+            }
+
             .links a[aria-current="page"]::after {
-                top: auto;
-                bottom: 6px;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%);
-                width: 24px;
-                height: 3px;
-                border-radius: 2px;
+                content: none;
             }
 
             .links a.enroll {
-                margin: 20px auto 8px;
+                margin: 14px auto 0;
                 width: 100%;
-                max-width: 280px;
+                max-width: 290px;
                 height: 52px;
                 min-height: 52px;
                 border-radius: 999px;
                 justify-content: center;
-                padding-top: 0;
                 font-size: 15px;
-                font-weight: 700;
-                letter-spacing: -0.3px;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                background: linear-gradient(180deg, #ffffff 0%, #cfe6fe 100%);
+                color: #04101f;
+                box-shadow: 0 4px 20px rgba(103, 232, 249, 0.4);
                 border-top: 0;
             }
 
@@ -1764,10 +1775,85 @@
             transform: scale(0.97);
         }
 
-        /* Ensure no horizontal overflow on any page */
-        html, body {
-            overflow-x: hidden;
-            max-width: 100vw;
+        /* ═══════════════════════════════════════════════════════════════
+           ANIMATIONS & SHIMMER GLOW FOR BUTTONS & ICONS
+        ═══════════════════════════════════════════════════════════════ */
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg) translateX(-150%);
+            animation: shimmerSweep 3.8s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerSweep {
+            0% {
+                transform: rotate(30deg) translateX(-150%);
+            }
+            35%, 100% {
+                transform: rotate(30deg) translateX(150%);
+            }
+        }
+
+        /* Icon depth float animation */
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-5px) rotate(4deg);
+            }
+        }
+
+        .icon-float {
+            animation: iconFloat 4.5s ease-in-out infinite;
+        }
+
+        .icon-box-glow {
+            transition: all 0.35s var(--ease-spring);
+            box-shadow: 0 0 20px rgba(103, 232, 249, 0.2);
+        }
+
+        .group:hover .icon-box-glow {
+            transform: scale(1.12) rotate(6deg);
+            box-shadow: 0 0 32px rgba(103, 232, 249, 0.7);
+            border-color: #67e8f9 !important;
+        }
+
+        /* Luminous text glow */
+        .text-glow-cyan {
+            text-shadow: 0 0 24px rgba(103, 232, 249, 0.65);
+        }
+
+        .text-glow-amber {
+            text-shadow: 0 0 24px rgba(251, 191, 36, 0.65);
+        }
+
+        /* High-converting urgency ticker */
+        .urgency-ticker {
+            background: linear-gradient(90deg, #180202 0%, #3a0808 30%, #180202 50%, #3a0808 80%, #180202 100%);
+            background-size: 200% 100%;
+            animation: tickerPulse 5s linear infinite;
+        }
+
+        @keyframes tickerPulse {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -1791,17 +1877,20 @@
     class="selection:bg-white selection:text-black w-full max-w-full bg-[#04101f] text-white overflow-x-hidden antialiased">
 
     <aside aria-label="System status"
-        class="w-full bg-[#030d19] border-b border-white/15 py-1.5 px-3 sm:px-4 text-center z-[60] relative">
+        class="w-full urgency-ticker border-b border-red-500/30 py-2 px-3 sm:px-4 text-center z-[60] relative">
         <div
-            class="max-w-7xl mx-auto flex items-center justify-center flex-wrap gap-x-2 gap-y-0.5 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-white/90 font-bold">
-            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-            <span class="whitespace-nowrap">Live Availability: <strong class="text-white">Q3 Slots Open</strong></span>
-            <span class="hidden sm:inline text-white/40">•</span>
-            <span class="hidden sm:inline text-white/80 whitespace-nowrap">Average Response &lt; 15 Mins</span>
-            <span class="hidden md:inline text-white/40">•</span>
+            class="max-w-7xl mx-auto flex items-center justify-center flex-wrap gap-x-3 gap-y-1 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-white font-bold">
+            <span class="flex items-center gap-1.5 bg-red-600/30 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></span>
+                <span>MARKET NOTICE</span>
+            </span>
+            <span class="text-white/90">Competitors deploy AI systems overnight. <strong class="text-white underline decoration-red-500">Only 3 Q3 engineering slots left.</strong></span>
+            <span class="hidden sm:inline text-white/30">•</span>
             <span
-                class="hidden md:inline text-white/90 underline cursor-pointer hover:text-cyan-300 transition-colors whitespace-nowrap"
-                onclick="openEnquiryModal('basic')">Claim ₹1,999 Basic Web Deployment &rarr;</span>
+                class="text-cyan-300 hover:text-cyan-100 font-extrabold cursor-pointer transition-colors whitespace-nowrap flex items-center gap-1"
+                onclick="openEnquiryModal('pro')">
+                Lock In Your Website Before Competitors Do &rarr;
+            </span>
         </div>
     </aside>
 
@@ -1842,13 +1931,13 @@
                             <a href="#roi-calculator">Calculator</a>
                             <a href="#testimonials">Reviews</a>
                             <a href="#contact">Contact</a>
-                            <button type="button" onclick="openHelpModal()"
-                                class="text-white hover:text-cyan-300 transition-colors flex items-center gap-1 font-mono text-xs cursor-pointer px-3 min-h-[44px]">
+                            <button type="button" onclick="openHelpModal()" class="nav-btn" aria-label="Open Help Center">
                                 <i data-lucide="help-circle" class="w-3.5 h-3.5 text-cyan-300"></i> Help
                             </button>
-                            <button type="button" onclick="openBlogModal()"
-                                class="text-white hover:text-cyan-300 transition-colors font-mono text-xs cursor-pointer px-3 min-h-[44px]">Blog</button>
-                            <a class="enroll" href="javascript:void(0)" onclick="openEnquiryModal('pro')">Start</a>
+                            <button type="button" onclick="openBlogModal()" class="nav-btn" aria-label="Open Blog">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-cyan-300"></i> Blog
+                            </button>
+                            <a class="enroll shimmer-btn" href="javascript:void(0)" onclick="openEnquiryModal('pro')">Start &rarr;</a>
                         </nav>
                         <button class="burger" type="button" id="burgerBtn" aria-label="Open navigation"
                             aria-expanded="false" aria-controls="site-nav">
@@ -1903,6 +1992,39 @@
             </button>
         </section>
 
+        <!-- HIGH-CONVERSION COMPETITIVE URGENCY BANNER -->
+        <section class="w-full bg-[#030914] border-y-2 border-cyan-500/30 py-8 px-4 sm:px-8 relative overflow-hidden bg-grid-dark z-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-red-600/15 via-cyan-500/10 to-emerald-500/15 pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+                <div class="flex items-start sm:items-center gap-4">
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-red-500 via-amber-500 to-orange-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-red-500/30 icon-float border border-white/20">
+                        <i data-lucide="flame" class="w-7 h-7 text-white animate-pulse"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-black uppercase tracking-wider">
+                                <span class="w-2 h-2 rounded-full bg-red-400 animate-ping"></span>
+                                MARKET REALITY WARNING
+                            </span>
+                            <span class="text-[11px] font-mono text-cyan-300 font-bold uppercase tracking-wider">94% of visitors judge credibility on web speed & design</span>
+                        </div>
+                        <h3 class="text-base sm:text-xl md:text-2xl font-extrabold font-bubbledot text-white uppercase tracking-tight text-glow-cyan">
+                            If You Don't Deploy High-Speed Web Tech, Competitors Will Take Your Clients Overnight.
+                        </h3>
+                        <p class="text-xs sm:text-sm text-white/80 font-sans mt-1 max-w-3xl font-medium leading-relaxed">
+                            In 2026, businesses without sub-100ms static speed and autonomous AI capture lose 4.2× more deals to automated competitors. Forge builds your enterprise web architecture in 7–14 days.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 shrink-0 w-full lg:w-auto">
+                    <button type="button" onclick="openEnquiryModal('pro')" class="w-full lg:w-auto apple-btn-primary shimmer-btn px-7 py-4 font-mono text-xs sm:text-sm font-black uppercase tracking-widest bg-gradient-to-r from-cyan-400 to-emerald-400 text-black rounded-full shadow-lg shadow-cyan-400/30 hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2">
+                        <span>Lock In Your Advantage</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- SECTION 2: SERVICES SECTION -->
         <section id="services-preview"
             class="py-16 sm:py-20 px-4 sm:px-8 lg:px-16 border-b-2 border-black bg-white text-black w-full relative z-20 bg-grid-light">
@@ -1923,7 +2045,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal">
                         <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
+                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
                             <i data-lucide="cpu" class="w-6 h-6"></i>
                         </div>
                         <h3
@@ -1936,7 +2058,7 @@
                     <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal"
                         style="transition-delay: 100ms;">
                         <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
+                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
                             <i data-lucide="layout-template" class="w-6 h-6"></i>
                         </div>
                         <h3
@@ -1950,7 +2072,7 @@
                     <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal sm:col-span-2 lg:col-span-1"
                         style="transition-delay: 200ms;">
                         <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold group-hover:scale-110 transition-transform">
+                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
                             <i data-lucide="message-square-dashed" class="w-6 h-6"></i>
                         </div>
                         <h3
@@ -2264,7 +2386,7 @@
                                     scale solution</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('pro')"
-                                class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                                class="pricingBookBtn apple-btn-dark shimmer-btn w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
                                 <span>Select Pro ⭐</span>
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
@@ -2358,7 +2480,7 @@
                                     enterprise suite</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('premium')"
-                                class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                                class="pricingBookBtn apple-btn-dark shimmer-btn w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
                                 <span>Select Premium 👑</span>
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
