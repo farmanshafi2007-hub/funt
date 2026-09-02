@@ -709,14 +709,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             width: min(300px, 88vw);
-            height: 56px;
-            min-height: 56px;
+            height: 54px;
+            min-height: 54px;
             border-radius: 999px;
-            font-size: clamp(13.5px, 3.5vw, 15px);
+            font-family: var(--font-mono);
+            font-size: clamp(13px, 3.2vw, 14px);
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #04101f;
             text-decoration: none;
@@ -745,33 +746,33 @@
         .planet-switcher-tabs {
             display: inline-flex;
             align-items: center;
-            background: rgba(4, 16, 31, 0.65);
+            background: rgba(4, 16, 31, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 999px;
-            padding: 4px;
+            padding: 3.5px;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-            gap: 3px;
+            gap: 2px;
         }
 
         .planet-tab-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 7px 16px;
+            gap: 5px;
+            padding: 6px 14px;
             border-radius: 999px;
             font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 10.5px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.7);
             background: transparent;
             border: none;
             cursor: pointer;
             transition: all 0.25s ease;
-            min-height: 32px;
+            min-height: 30px;
         }
 
         .planet-tab-btn:hover {
@@ -1451,14 +1452,18 @@
         .apple-btn-primary {
             background: #FFFFFF !important;
             color: #000000 !important;
+            font-family: var(--font-code), monospace;
             border-radius: 999px;
             font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
             padding: 12px 28px;
             font-size: 12px;
             transition: all 0.3s var(--ease-spring);
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             min-height: 44px;
             cursor: pointer;
             border: 2px solid #FFFFFF;
@@ -1480,14 +1485,18 @@
         .apple-btn-dark {
             background: #000000 !important;
             color: #FFFFFF !important;
+            font-family: var(--font-code), monospace;
             border-radius: 999px;
             font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
             padding: 12px 28px;
             font-size: 12px;
             transition: all 0.3s var(--ease-spring);
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             min-height: 44px;
             cursor: pointer;
             border: 2px solid #000000;
@@ -1877,20 +1886,17 @@
     class="selection:bg-white selection:text-black w-full max-w-full bg-[#04101f] text-white overflow-x-hidden antialiased">
 
     <aside aria-label="System status"
-        class="w-full urgency-ticker border-b border-red-500/30 py-2 px-3 sm:px-4 text-center z-[60] relative">
+        class="w-full bg-[#030d19] border-b border-white/10 py-1.5 px-3 sm:px-4 text-center z-[60] relative">
         <div
-            class="max-w-7xl mx-auto flex items-center justify-center flex-wrap gap-x-3 gap-y-1 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-white font-bold">
-            <span class="flex items-center gap-1.5 bg-red-600/30 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></span>
-                <span>MARKET NOTICE</span>
-            </span>
-            <span class="text-white/90">Competitors deploy AI systems overnight. <strong class="text-white underline decoration-red-500">Only 3 Q3 engineering slots left.</strong></span>
+            class="max-w-7xl mx-auto flex items-center justify-center flex-wrap gap-x-3 gap-y-0.5 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-white/90 font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+            <span>Q3 SLOTS: <strong class="text-white">3 REMAINING</strong></span>
             <span class="hidden sm:inline text-white/30">•</span>
+            <span class="hidden sm:inline text-white/70">Sub-100ms Edge Deployments</span>
+            <span class="hidden md:inline text-white/30">•</span>
             <span
-                class="text-cyan-300 hover:text-cyan-100 font-extrabold cursor-pointer transition-colors whitespace-nowrap flex items-center gap-1"
-                onclick="openEnquiryModal('pro')">
-                Lock In Your Website Before Competitors Do &rarr;
-            </span>
+                class="text-cyan-300 hover:text-cyan-100 underline font-extrabold cursor-pointer transition-colors whitespace-nowrap"
+                onclick="openEnquiryModal('pro')">Claim ₹1,999 Deployment &rarr;</span>
         </div>
     </aside>
 
@@ -1992,38 +1998,21 @@
             </button>
         </section>
 
-        <!-- HIGH-CONVERSION COMPETITIVE URGENCY BANNER -->
-        <section class="w-full bg-[#030914] border-y-2 border-cyan-500/30 py-8 px-4 sm:px-8 relative overflow-hidden bg-grid-dark z-20">
-            <div class="absolute inset-0 bg-gradient-to-r from-red-600/15 via-cyan-500/10 to-emerald-500/15 pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
-                <div class="flex items-start sm:items-center gap-4">
-                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-red-500 via-amber-500 to-orange-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-red-500/30 icon-float border border-white/20">
-                        <i data-lucide="flame" class="w-7 h-7 text-white animate-pulse"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-                            <span class="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-black uppercase tracking-wider">
-                                <span class="w-2 h-2 rounded-full bg-red-400 animate-ping"></span>
-                                MARKET REALITY WARNING
-                            </span>
-                            <span class="text-[11px] font-mono text-cyan-300 font-bold uppercase tracking-wider">94% of visitors judge credibility on web speed & design</span>
-                        </div>
-                        <h3 class="text-base sm:text-xl md:text-2xl font-extrabold font-bubbledot text-white uppercase tracking-tight text-glow-cyan">
-                            If You Don't Deploy High-Speed Web Tech, Competitors Will Take Your Clients Overnight.
-                        </h3>
-                        <p class="text-xs sm:text-sm text-white/80 font-sans mt-1 max-w-3xl font-medium leading-relaxed">
-                            In 2026, businesses without sub-100ms static speed and autonomous AI capture lose 4.2× more deals to automated competitors. Forge builds your enterprise web architecture in 7–14 days.
-                        </p>
-                    </div>
+        <!-- SPEED ADVANTAGE STRIP -->
+        <aside aria-label="Speed advantage notice" class="w-full bg-[#020813] border-y border-white/10 py-3 px-4 sm:px-8 relative z-20">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="flex items-center justify-center sm:justify-start gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
+                    <p class="font-mono text-xs sm:text-sm uppercase tracking-wider text-white/90 font-bold">
+                        <strong class="text-cyan-300">2026 ADVANTAGE:</strong> Sub-100ms platforms convert 4.2× higher. Outpace your competition.
+                    </p>
                 </div>
-                <div class="flex items-center gap-3 shrink-0 w-full lg:w-auto">
-                    <button type="button" onclick="openEnquiryModal('pro')" class="w-full lg:w-auto apple-btn-primary shimmer-btn px-7 py-4 font-mono text-xs sm:text-sm font-black uppercase tracking-widest bg-gradient-to-r from-cyan-400 to-emerald-400 text-black rounded-full shadow-lg shadow-cyan-400/30 hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2">
-                        <span>Lock In Your Advantage</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
+                <button type="button" onclick="openEnquiryModal('pro')"
+                    class="shimmer-btn px-4 sm:px-5 py-2 font-mono text-[10.5px] sm:text-[11px] font-black uppercase tracking-widest bg-cyan-400 text-black rounded-full hover:bg-cyan-300 transition-all cursor-pointer whitespace-nowrap shrink-0 shadow-md shadow-cyan-400/20">
+                    Deploy Website &rarr;
+                </button>
             </div>
-        </section>
+        </aside>
 
         <!-- SECTION 2: SERVICES SECTION -->
         <section id="services-preview"
