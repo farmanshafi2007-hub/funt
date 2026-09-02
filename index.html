@@ -700,7 +700,7 @@
 
         .planet {
             position: absolute;
-            z-index: -1;
+            z-index: 1;
             padding: 0;
             border: 0;
             background: none;
@@ -711,6 +711,7 @@
             pointer-events: auto;
             transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
             touch-action: manipulation;
+            will-change: transform;
         }
 
         .planet img {
@@ -719,6 +720,7 @@
             height: auto;
             user-select: none;
             -webkit-user-drag: none;
+            pointer-events: none;
         }
 
         .planet img.is-shown {
@@ -726,23 +728,46 @@
         }
 
         .planet:hover {
-            transform: scale(1.045);
+            transform: translateY(-50%) scale(1.06);
         }
 
         .planet:active {
-            transform: scale(0.99);
+            transform: translateY(-50%) scale(0.98);
         }
 
+        /* Desktop planet scaling: 180px–260px with smooth float */
         .planet-l {
-            width: calc(143 * var(--u));
-            left: calc(-69.5 * var(--u));
-            top: calc(-38.3 * var(--u));
+            width: clamp(180px, 15vw, 250px);
+            left: clamp(-135px, -8.5vw, -95px);
+            top: 50%;
+            transform: translateY(-50%);
+            animation: planetFloatL 6s ease-in-out infinite alternate;
         }
 
         .planet-r {
-            width: calc(143 * var(--u));
-            right: calc(-64.7 * var(--u));
-            top: calc(-40.6 * var(--u));
+            width: clamp(180px, 15vw, 250px);
+            right: clamp(-135px, -8.5vw, -95px);
+            top: 50%;
+            transform: translateY(-50%);
+            animation: planetFloatR 6.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes planetFloatL {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateY(calc(-50% - 8px)) rotate(-2deg);
+            }
+        }
+
+        @keyframes planetFloatR {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateY(calc(-50% + 8px)) rotate(2deg);
+            }
         }
 
         .scroll {
@@ -1075,10 +1100,25 @@
             }
 
             p.lede {
-                max-width: calc(620 * var(--u));
+                max-width: min(90vw, 620px);
                 margin-left: auto;
                 margin-right: auto;
                 text-wrap: pretty;
+            }
+
+            /* Tablet planet scaling: 120px–180px */
+            .planet-l {
+                width: clamp(120px, 16vw, 175px);
+                left: clamp(-85px, -7vw, -55px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .planet-r {
+                width: clamp(120px, 16vw, 175px);
+                right: clamp(-85px, -7vw, -55px);
+                top: 50%;
+                transform: translateY(-50%);
             }
 
             .label.label-r {
@@ -1132,7 +1172,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 72px 20px 36px;
+                padding: 72px 16px 36px;
                 padding-top: calc(72px + var(--sai-top));
                 padding-bottom: calc(36px + var(--sai-bottom));
                 min-height: 100svh;
@@ -1149,27 +1189,27 @@
             }
 
             .eyebrow {
-                font-size: clamp(10px, 3.2vw, 16px);
-                letter-spacing: clamp(1.5px, 0.8vw, 4px);
-                text-indent: clamp(1.5px, 0.8vw, 4px);
-                margin-bottom: 10px;
+                font-size: clamp(10px, 3.2vw, 15px);
+                letter-spacing: clamp(1.5px, 0.8vw, 3.5px);
+                text-indent: clamp(1.5px, 0.8vw, 3.5px);
+                margin-bottom: 8px;
                 padding: 0 8px;
             }
 
             h1.title {
-                font-size: clamp(26px, 8.5vw, 52px);
+                font-size: clamp(26px, 8.5vw, 50px);
                 line-height: 1.1;
                 margin-top: 4px;
                 margin-bottom: 12px;
                 letter-spacing: 0.3px;
                 text-indent: 0;
                 text-wrap: balance;
-                padding: 0 12px;
+                padding: 0 8px;
             }
 
             .rule {
                 margin-top: 4px;
-                margin-bottom: 14px;
+                margin-bottom: 12px;
                 height: 4px;
                 padding-right: 0;
                 display: flex;
@@ -1177,16 +1217,16 @@
             }
 
             .rule span {
-                width: 56px;
+                width: 52px;
             }
 
             p.lede {
                 margin-top: 0;
                 font-size: clamp(12.5px, 3.4vw, 15px);
                 line-height: 1.55;
-                max-width: min(85vw, 360px);
+                max-width: min(88vw, 360px);
                 text-wrap: balance;
-                margin-bottom: 28px;
+                margin-bottom: 24px;
                 opacity: 0.92;
                 padding: 0 4px;
             }
@@ -1205,64 +1245,56 @@
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-                max-width: min(300px, 80vw);
+                max-width: min(340px, 88vw);
             }
 
             .cta a {
-                width: clamp(160px, 44vw, 200px);
-                height: clamp(46px, 12vw, 54px);
+                width: clamp(150px, 44vw, 190px);
+                height: 48px;
                 border-radius: 999px;
-                font-size: clamp(12px, 3.4vw, 15px);
+                font-size: clamp(12px, 3.2vw, 14px);
                 z-index: 5;
                 position: relative;
             }
 
-            /* Planet labels — repositioned below CTA to prevent overlap */
+            /* Planet labels — positioned neatly on flanks */
             .label {
-                position: relative;
-                top: auto;
-                transform: none;
-                font-size: clamp(10px, 2.8vw, 13px);
-                letter-spacing: 2px;
-                opacity: 0.7;
-                display: inline-block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: clamp(9px, 2.5vw, 11px);
+                letter-spacing: 1.5px;
+                opacity: 0.75;
+                display: none; /* Hide text label on mobile to keep planet visuals clean and uncluttered */
             }
 
-            .label.label-l {
-                left: auto;
-                margin-right: auto;
-            }
-
-            .label.label-r {
-                right: auto;
-                margin-left: auto;
-            }
-
-            /* Planets — smaller, positioned lower, never overlap CTA */
+            /* Mobile planet scaling: 90px–140px, positioned smoothly on flanks */
             .planet-l {
-                width: clamp(56px, 16vw, 72px);
-                left: clamp(-28px, -6vw, -16px);
-                top: -6px;
+                width: clamp(90px, 25vw, 125px);
+                left: clamp(-42px, -9vw, -20px);
+                top: 50%;
+                transform: translateY(-50%);
                 z-index: 1;
             }
 
             .planet-r {
-                width: clamp(56px, 16vw, 72px);
-                right: clamp(-28px, -6vw, -16px);
-                top: -6px;
+                width: clamp(90px, 25vw, 125px);
+                right: clamp(-42px, -9vw, -20px);
+                top: 50%;
+                transform: translateY(-50%);
                 z-index: 1;
             }
 
             .scroll {
-                width: 52px;
-                height: 52px;
-                margin-left: -26px;
+                width: 48px;
+                height: 48px;
+                margin-left: -24px;
                 bottom: calc(14px + var(--sai-bottom));
             }
 
             .scroll svg {
-                width: 13px;
-                height: 17px;
+                width: 12px;
+                height: 16px;
             }
         }
 
@@ -1275,72 +1307,61 @@
         /* NARROW PHONE (<= 375px) */
         @media (max-width: 375px) {
             .cta a {
-                width: clamp(140px, 42vw, 170px);
+                width: clamp(140px, 42vw, 165px);
                 height: 46px;
-                font-size: 12px;
+                font-size: 11.5px;
             }
 
             .planet-l {
-                width: clamp(48px, 14vw, 60px);
-                left: -18px;
+                width: clamp(85px, 23vw, 105px);
+                left: -24px;
             }
 
             .planet-r {
-                width: clamp(48px, 14vw, 60px);
-                right: -18px;
-            }
-
-            .label.label-l,
-            .label.label-r {
-                font-size: 10px;
-                letter-spacing: 1.5px;
+                width: clamp(85px, 23vw, 105px);
+                right: -24px;
             }
 
             h1.title {
-                font-size: clamp(24px, 8vw, 44px);
-                padding: 0 8px;
+                font-size: clamp(24px, 8vw, 42px);
+                padding: 0 4px;
             }
 
             .eyebrow {
-                font-size: clamp(9px, 2.8vw, 13px);
+                font-size: clamp(9px, 2.7vw, 12px);
             }
 
             p.lede {
-                font-size: clamp(11.5px, 3.2vw, 14px);
+                font-size: clamp(11.5px, 3.2vw, 13.5px);
                 max-width: min(90vw, 320px);
             }
         }
 
         /* EXTRA NARROW PHONE (<= 340px) — iPhone SE, Galaxy Fold etc. */
         @media (max-width: 340px) {
-            .label.label-l,
-            .label.label-r {
-                display: none;
-            }
-
             .cta a {
                 width: 130px;
-                height: 42px;
+                height: 44px;
                 font-size: 11px;
             }
 
             .planet-l {
-                width: 42px;
-                left: -14px;
+                width: 80px;
+                left: -20px;
             }
 
             .planet-r {
-                width: 42px;
-                right: -14px;
+                width: 80px;
+                right: -20px;
             }
 
             h1.title {
-                font-size: clamp(22px, 7.5vw, 38px);
+                font-size: clamp(22px, 7.5vw, 36px);
             }
 
             .copy {
-                padding-left: 14px;
-                padding-right: 14px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
 
@@ -1583,51 +1604,70 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           CARD & BUTTON OVERFLOW GUARDS
+           CARD & PRICING POLISH (PREVENT BADGE CLIPPING)
         ═══════════════════════════════════════════════════════════════ */
         .card-dark-contrast,
         .card-light-contrast {
             max-width: 100%;
-            overflow: hidden;
+            border-radius: 1.5rem;
+            position: relative;
+            transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
         }
 
+        .card-light-contrast {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-dark-contrast {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pro pricing card pixel-perfect rendering */
+        .pricing-card-pro {
+            border: 3.5px solid #000000 !important;
+            overflow: visible !important;
+        }
+
+        /* Universal Touch-Friendly Button Standards (Min 48px) */
         .apple-btn-primary,
         .apple-btn-dark {
             max-width: 100%;
             text-overflow: ellipsis;
+            min-height: 48px;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .apple-btn-primary:active,
+        .apple-btn-dark:active {
+            transform: scale(0.97);
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           FOOTER — MOBILE RESPONSIVE STACKING
+           FOOTER — CLEAN RESPONSIVE STACKING & SPACING
         ═══════════════════════════════════════════════════════════════ */
-        @media (max-width: 579px) {
-            .footer-links-wrap {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-                line-height: 1.8;
-            }
-            .footer-links-wrap .footer-sep {
-                display: none;
-            }
+        .footer-social-btn {
+            width: 44px;
+            height: 44px;
+            min-height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s var(--ease-spring);
         }
-        @media (min-width: 580px) {
-            .footer-links-wrap .footer-sep {
-                display: inline;
-            }
+        .footer-social-btn:hover {
+            transform: translateY(-2px) scale(1.08);
         }
-
-        /* ═══════════════════════════════════════════════════════════════
-           FLOATING ELEMENTS — SAFE AREA SUPPORT
-        ═══════════════════════════════════════════════════════════════ */
-        @media (max-width: 579px) {
-            .floating-pill-cta {
-                left: 1rem !important;
-                right: 1rem !important;
-                bottom: calc(1.25rem + var(--sai-bottom)) !important;
-                font-size: 10px;
-            }
+        .footer-social-btn:active {
+            transform: scale(0.95);
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -2023,255 +2063,261 @@
 
                 <!-- 3 Pricing Cards Overview Grid -->
                 <div
-                    class="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch w-full mb-16 sm:mb-20 relative z-10 pt-4">
+                    class="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch w-full mb-16 sm:mb-20 relative z-10 pt-6">
 
                     <!-- BASIC Tier -->
-                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col h-full w-full group relative">
-                        <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3">
-                            <div
-                                class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full group relative">
+                        <div>
+                            <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3">
+                                <div
+                                    class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                                    <span
+                                        class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
+                                    FORGE
+                                </div>
                                 <span
-                                    class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
-                                FORGE
+                                    class="text-[9px] font-mono bg-black text-white border border-black px-2.5 py-1 rounded font-extrabold uppercase">Standard</span>
                             </div>
-                            <span
-                                class="text-[9px] font-mono bg-black text-white border border-black px-2.5 py-1 rounded font-extrabold uppercase">Standard</span>
-                        </div>
-                        <div class="mb-4">
-                            <span
-                                class="text-xs font-mono uppercase tracking-widest text-black font-bold block mb-1">Essential</span>
-                            <h3
-                                class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
-                                <i data-lucide="feather" class="w-5 h-5 text-black"></i> Basic
-                            </h3>
-                            <p class="text-black text-xs mt-2 font-medium">New businesses & low budget owners</p>
-                        </div>
-                        <div class="mb-6 font-mono">
-                            <div class="flex items-baseline gap-2">
+                            <div class="mb-4">
                                 <span
-                                    class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹1,999</span>
-                                <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                    class="text-xs font-mono uppercase tracking-widest text-black font-bold block mb-1">Essential</span>
+                                <h3
+                                    class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
+                                    <i data-lucide="feather" class="w-5 h-5 text-black"></i> Basic
+                                </h3>
+                                <p class="text-black text-xs mt-2 font-medium">New businesses & low budget owners</p>
                             </div>
-                            <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete starter
-                                deployment</span>
-                        </div>
-                        <button type="button" onclick="openEnquiryModal('basic')"
-                            class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer">
-                            <span>Select Basic</span>
-                            <i data-lucide="arrow-right"
-                                class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
-                        </button>
-                        <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Standard delivery queue
-                            with 3-day support.</p>
+                            <div class="mb-6 font-mono">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹1,999</span>
+                                    <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete starter
+                                    deployment</span>
+                            </div>
+                            <button type="button" onclick="openEnquiryModal('basic')"
+                                class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer">
+                                <span>Select Basic</span>
+                                <i data-lucide="arrow-right"
+                                    class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
+                            </button>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Standard delivery queue
+                                with 3-day support.</p>
 
-                        <ul
-                            class="space-y-3 border-t-2 border-black pt-6 text-xs text-black flex-1 font-sans font-medium">
-                            <li class="flex items-start gap-2.5"><i data-lucide="file-text"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>1–3 Pages</strong>
-                                    Simple Business Layout</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="layout"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Business Design</span>
-                            </li>
-                            <li class="flex items-start gap-2.5 text-black"><i data-lucide="smartphone-off"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Desktop Formatted
-                                    Layout</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="message-circle"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>WhatsApp Chat Button
-                                    Included</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="mail"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Contact Form</span>
-                            </li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="share-2"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Social Media Links
-                                    Included</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="search"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic SEO Setup</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="zap"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic Speed
-                                    Optimization</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="server"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Free Deployment & SSL
-                                    Security</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>1 Free Revision</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="clock"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Days Support &
-                                    Maintenance</span></li>
-                        </ul>
+                            <ul
+                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                                <li class="flex items-start gap-2.5"><i data-lucide="file-text"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>1–3 Pages</strong>
+                                        Simple Business Layout</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="layout"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Business Design</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 text-black"><i data-lucide="smartphone-off"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Desktop Formatted
+                                        Layout</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="message-circle"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>WhatsApp Chat Button
+                                        Included</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="mail"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Contact Form</span>
+                                </li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="share-2"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Social Media Links
+                                        Included</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="search"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic SEO Setup</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="zap"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic Speed
+                                        Optimization</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="server"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Free Deployment & SSL
+                                        Security</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>1 Free Revision</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="clock"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Days Support &
+                                        Maintenance</span></li>
+                            </ul>
+                        </div>
                     </article>
 
                     <!-- PRO ⭐ Tier -->
                     <article
-                        class="card-light-contrast reveal p-6 sm:p-8 flex flex-col h-full w-full relative group border-4 border-black"
+                        class="card-light-contrast pricing-card-pro reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full relative group"
                         style="transition-delay: 100ms;">
                         <div
-                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
                             <i data-lucide="star" class="w-3 h-3 text-white fill-white"></i> BEST SELLING ⭐
                         </div>
-                        <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
-                            <div
-                                class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                        <div>
+                            <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
+                                <div
+                                    class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                                    <span
+                                        class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
+                                    FORGE
+                                </div>
                                 <span
-                                    class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
-                                FORGE
+                                    class="text-[9px] font-mono bg-black text-white px-2.5 py-1 rounded font-extrabold uppercase">Most
+                                    Popular</span>
                             </div>
-                            <span
-                                class="text-[9px] font-mono bg-black text-white px-2.5 py-1 rounded font-extrabold uppercase">Most
-                                Popular</span>
-                        </div>
-                        <div class="mb-4">
-                            <span
-                                class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Scale</span>
-                            <h3
-                                class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-black"></i> Pro ⭐
-                            </h3>
-                            <p class="text-black text-xs mt-2 font-medium">Growing businesses & startups</p>
-                        </div>
-                        <div class="mb-6 font-mono">
-                            <div class="flex items-baseline gap-2">
+                            <div class="mb-4">
                                 <span
-                                    class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹7,999</span>
-                                <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                    class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Scale</span>
+                                <h3
+                                    class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-black"></i> Pro ⭐
+                                </h3>
+                                <p class="text-black text-xs mt-2 font-medium">Growing businesses & startups</p>
                             </div>
-                            <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete business
-                                scale solution</span>
-                        </div>
-                        <button type="button" onclick="openEnquiryModal('pro')"
-                            class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
-                            <span>Select Pro ⭐</span>
-                            <i data-lucide="arrow-right"
-                                class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
-                        </button>
-                        <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 15-day dedicated
-                            maintenance support.</p>
+                            <div class="mb-6 font-mono">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹7,999</span>
+                                    <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete business
+                                    scale solution</span>
+                            </div>
+                            <button type="button" onclick="openEnquiryModal('pro')"
+                                class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                                <span>Select Pro ⭐</span>
+                                <i data-lucide="arrow-right"
+                                    class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
+                            </button>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 15-day dedicated
+                                maintenance support.</p>
 
-                        <ul
-                            class="space-y-3 border-t-2 border-black pt-6 text-xs text-black flex-1 font-sans font-medium">
-                            <li class="flex items-start gap-2.5"><i data-lucide="layers"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Up to 8 Pages</strong>
-                                    Modern Architecture</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="palette"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Modern Professional
-                                    Design</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="smartphone"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Mobile & Tablet
-                                        Responsive</strong></span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="map-pin"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Maps Integration</span>
-                            </li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="mail-check"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Professional Form + Email
-                                    Alerts</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="image"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Portfolio & Photo
-                                    Gallery</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="newspaper"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Blog / News Engine
-                                    Included</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="search-check"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced On-Page SEO
-                                    Setup</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="bar-chart-2"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Analytics
-                                    Integration</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="gauge"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Fast Loading Speed
-                                    Tuning</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="bell"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Instant Email Lead
-                                    Notifications</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Free Revisions</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="clock"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>15 Days Maintenance
-                                    Support</span></li>
-                        </ul>
+                            <ul
+                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                                <li class="flex items-start gap-2.5"><i data-lucide="layers"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Up to 8 Pages</strong>
+                                        Modern Architecture</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="palette"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Modern Professional
+                                        Design</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="smartphone"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Mobile & Tablet
+                                            Responsive</strong></span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="map-pin"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Maps Integration</span>
+                                </li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="mail-check"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Professional Form + Email
+                                        Alerts</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="image"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Portfolio & Photo
+                                        Gallery</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="newspaper"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Blog / News Engine
+                                        Included</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="search-check"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced On-Page SEO
+                                        Setup</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="bar-chart-2"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Analytics
+                                        Integration</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="gauge"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Fast Loading Speed
+                                        Tuning</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="bell"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Instant Email Lead
+                                        Notifications</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Free Revisions</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="clock"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>15 Days Maintenance
+                                        Support</span></li>
+                            </ul>
+                        </div>
                     </article>
 
                     <!-- PREMIUM 👑 Tier -->
-                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col h-full w-full relative group"
+                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full relative group"
                         style="transition-delay: 200ms;">
                         <div
-                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
                             <i data-lucide="crown" class="w-3.5 h-3.5 text-white"></i> VALUE FOR MONEY 👑
                         </div>
-                        <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
-                            <div
-                                class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                        <div>
+                            <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
+                                <div
+                                    class="flex items-center gap-2 text-xs font-mono text-black uppercase font-extrabold tracking-wider">
+                                    <span
+                                        class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
+                                    FORGE
+                                </div>
                                 <span
-                                    class="w-5 h-5 rounded-full border-2 border-black bg-black text-white flex items-center justify-center text-[9px] font-bold">(F)</span>
-                                FORGE
+                                    class="text-[9px] font-mono bg-black text-white px-2.5 py-1 rounded font-extrabold uppercase">Enterprise</span>
                             </div>
-                            <span
-                                class="text-[9px] font-mono bg-black text-white px-2.5 py-1 rounded font-extrabold uppercase">Enterprise</span>
-                        </div>
-                        <div class="mb-4">
-                            <span
-                                class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Enterprise</span>
-                            <h3
-                                class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
-                                <i data-lucide="crown" class="w-6 h-6 text-black"></i> Premium 👑
-                            </h3>
-                            <p class="text-black text-xs mt-2 font-medium">Established businesses & premium brands</p>
-                        </div>
-                        <div class="mb-6 font-mono">
-                            <div class="flex items-baseline gap-2">
+                            <div class="mb-4">
                                 <span
-                                    class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹14,999</span>
-                                <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                    class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Enterprise</span>
+                                <h3
+                                    class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
+                                    <i data-lucide="crown" class="w-6 h-6 text-black"></i> Premium 👑
+                                </h3>
+                                <p class="text-black text-xs mt-2 font-medium">Established businesses & premium brands</p>
                             </div>
-                            <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Autonomous AI &
-                                enterprise suite</span>
-                        </div>
-                        <button type="button" onclick="openEnquiryModal('premium')"
-                            class="pricingBookBtn apple-btn-dark w-full uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
-                            <span>Select Premium 👑</span>
-                            <i data-lucide="arrow-right"
-                                class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
-                        </button>
-                        <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 30 days priority
-                            dedicated support.</p>
+                            <div class="mb-6 font-mono">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹14,999</span>
+                                    <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
+                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Autonomous AI &
+                                    enterprise suite</span>
+                            </div>
+                            <button type="button" onclick="openEnquiryModal('premium')"
+                                class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
+                                <span>Select Premium 👑</span>
+                                <i data-lucide="arrow-right"
+                                    class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
+                            </button>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 30 days priority
+                                dedicated support.</p>
 
-                        <ul
-                            class="space-y-3 border-t-2 border-black pt-6 text-xs text-black flex-1 font-sans font-medium">
-                            <li class="flex items-start gap-2.5"><i data-lucide="infinity"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Unlimited
-                                        Pages</strong> Custom Architecture</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="wand-2"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>100% Custom Premium Tailored
-                                    Design</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="bot"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
-                                        Chatbot Integrated</strong></span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="globe"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Free Custom Domain
-                                        (1st Year)</strong></span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="shield-check"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Enterprise SSL & Premium
-                                    Hosting Setup</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="search-code"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced SEO + Technical
-                                    Schema.org</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="zap"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Maximum Speed & Core Web
-                                    Vitals Tuning</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="filter"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced Lead Capture
-                                    System</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="sparkles"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Premium Interactive
-                                    Effects</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="user-check"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Complete Content Upload
-                                    Assistance</span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Unlimited
-                                        Revisions</strong></span></li>
-                            <li class="flex items-start gap-2.5"><i data-lucide="headphones"
-                                    class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>30 Days Priority
-                                        Dedicated Support</strong></span></li>
-                        </ul>
+                            <ul
+                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                                <li class="flex items-start gap-2.5"><i data-lucide="infinity"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Unlimited
+                                            Pages</strong> Custom Architecture</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="wand-2"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>100% Custom Premium Tailored
+                                        Design</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="bot"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
+                                            Chatbot Integrated</strong></span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="globe"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Free Custom Domain
+                                            (1st Year)</strong></span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="shield-check"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Enterprise SSL & Premium
+                                        Hosting Setup</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="search-code"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced SEO + Technical
+                                        Schema.org</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="zap"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Maximum Speed & Core Web
+                                        Vitals Tuning</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="filter"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced Lead Capture
+                                        System</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="sparkles"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Premium Interactive
+                                        Effects</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="user-check"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Complete Content Upload
+                                        Assistance</span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="check-circle-2"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Unlimited
+                                            Revisions</strong></span></li>
+                                <li class="flex items-start gap-2.5"><i data-lucide="headphones"
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>30 Days Priority
+                                            Dedicated Support</strong></span></li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
 
@@ -2756,7 +2802,7 @@
 
                     <!-- 2. Rakesh (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-6 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
                         data-index="1">
                         <div class="testimonial-glow"></div>
                         <div class="relative z-10">
@@ -2797,7 +2843,7 @@
 
                     <!-- 3. Balram (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-6 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
                         data-index="2">
                         <div class="testimonial-glow"></div>
                         <div class="relative z-10">
@@ -2838,7 +2884,7 @@
 
                     <!-- 4. Sunil (4.5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-6 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
                         data-index="3">
                         <div class="testimonial-glow"></div>
                         <div class="relative z-10">
@@ -2879,7 +2925,7 @@
 
                     <!-- 5. Ahmad (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[88vw] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-6 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
                         data-index="4">
                         <div class="testimonial-glow"></div>
                         <div class="relative z-10">
@@ -3084,146 +3130,94 @@
 
     </main>
 
-    <!-- SECTION 10: FOOTER -->
-    <footer
-        class="py-12 sm:py-16 px-4 sm:px-5 bg-black text-white text-center border-t-2 border-white w-full bg-grid-dark">
-        <div class="w-full max-w-7xl mx-auto">
-            <div
-                class="text-xl sm:text-3xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 font-extrabold">
-                <div class="bg-white text-black p-2.5 sm:p-3 rounded-2xl border-2 border-white shadow-xl">
-                    <i data-lucide="hexagon" class="w-5 sm:w-6 h-5 sm:h-6"></i>
+    <!-- SECTION 10: FOOTER REBUILD (CLEAN, MINIMAL, 5-SECTION STRUCTURE) -->
+    <footer class="py-12 sm:py-16 px-4 sm:px-8 bg-black text-white text-center border-t-2 border-white w-full bg-grid-dark">
+        <div class="w-full max-w-5xl mx-auto flex flex-col items-center space-y-8 sm:space-y-10">
+
+            <!-- Section 1: Brand & One-line Description -->
+            <div class="flex flex-col items-center text-center max-w-xl">
+                <div class="text-xl sm:text-2xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-3 mb-2.5 font-extrabold">
+                    <div class="bg-white text-black p-2 rounded-xl border-2 border-white shadow-lg">
+                        <i data-lucide="hexagon" class="w-5 h-5"></i>
+                    </div>
+                    <span>Forge Softwares</span>
                 </div>
-                <span>Forge Softwares</span>
+                <p class="text-xs sm:text-sm text-white/80 font-sans leading-relaxed font-medium">
+                    High-speed web platforms, planetary-scale digital infrastructure, and autonomous systems.
+                </p>
             </div>
 
-            <!-- Enhanced High-Contrast Social Action Bar -->
-            <div class="flex justify-center items-center gap-4 sm:gap-6 mb-6 sm:mb-8 w-full">
-                <!-- Instagram Official Color -->
+            <!-- Section 2: Centered Social Icons Row -->
+            <div class="flex justify-center items-center gap-4 w-full">
+                <!-- Instagram -->
                 <a href="https://www.instagram.com/forgesoftwares?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
                     target="_blank" rel="noopener noreferrer"
-                    class="social-btn-ig w-11 sm:w-12 h-11 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer min-h-[44px] min-w-[44px]"
+                    class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Follow us on Instagram" aria-label="Follow Forge Softwares on Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                 </a>
 
-                <!-- Facebook Official Blue -->
-                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-btn-fb w-11 sm:w-12 h-11 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer min-h-[44px] min-w-[44px]"
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
+                    class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Visit us on Facebook" aria-label="Visit Facebook Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                     </svg>
                 </a>
 
-                <!-- X / Twitter Sleek Contrast -->
+                <!-- X / Twitter -->
                 <a href="https://x.com/pellixperfumes?s=21" target="_blank" rel="noopener noreferrer"
-                    class="social-btn-x w-11 sm:w-12 h-11 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer min-h-[44px] min-w-[44px]"
+                    class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Follow us on X (Twitter)" aria-label="Visit Twitter Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z" />
                     </svg>
                 </a>
             </div>
 
-            <p class="text-white text-[10px] sm:text-xs font-mono mb-2 font-bold px-4 break-words">Support & Inquiries: +91-9697430658 |
-                farmanshafi2007@gmail.com</p>
-            <p class="text-white text-[10px] sm:text-xs font-mono mb-6 sm:mb-8 font-bold px-4">HQ: Pandith Pore Rainawari • Office:
-                Rainawari Jogilanker, Srinagar 190003</p>
-
-            <div class="h-0.5 w-24 sm:w-32 bg-white mx-auto mb-6 sm:mb-8 rounded-full"></div>
-
-            <div class="footer-links-wrap text-white text-[10px] sm:text-xs uppercase tracking-widest font-mono leading-loose font-extrabold px-4">
-                <span>Premium B2B Agency &copy; <span id="copyrightYear">2026</span>. All rights reserved.</span>
-                <span class="footer-sep">&nbsp;|&nbsp;</span>
-                <span>Parent Group of Cobra & Runo</span>
-                <span class="footer-sep">&nbsp;|&nbsp;</span>
-                <button type="button" onclick="openHelpModal()"
-                    class="hover:text-cyan-300 text-white font-extrabold transition-colors underline underline-offset-4 cursor-pointer">Help
-                    & Support</button>
-                <span class="footer-sep">&nbsp;|&nbsp;</span>
-                <button type="button" onclick="openTerms()"
-                    class="hover:text-cyan-300 text-white transition-colors underline underline-offset-4 cursor-pointer">Terms
-                    & Conditions</button>
-                <span class="footer-sep">&nbsp;|&nbsp;</span>
-                <button type="button" onclick="openPrivacy()"
-                    class="hover:text-cyan-300 text-white transition-colors underline underline-offset-4 cursor-pointer">Privacy
-                    Policy</button>
+            <!-- Section 3: Contact Information with Icons -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 w-full max-w-3xl text-xs font-mono font-bold">
+                <a href="tel:+919697430658" class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px]">
+                    <i data-lucide="phone" class="w-4 h-4 shrink-0"></i>
+                    <span>+91-9697430658</span>
+                </a>
+                <a href="mailto:farmanshafi2007@gmail.com" class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px] break-all">
+                    <i data-lucide="mail" class="w-4 h-4 shrink-0"></i>
+                    <span>farmanshafi2007@gmail.com</span>
+                </a>
+                <div class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 min-h-[44px]">
+                    <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i>
+                    <span>Rainawari, Srinagar 190003</span>
+                </div>
             </div>
+
+            <!-- Section 4: Quick Links -->
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs font-mono uppercase tracking-wider font-extrabold text-white/90">
+                <button type="button" onclick="openHelpModal()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Help & Support</button>
+                <span class="text-white/30 hidden sm:inline">•</span>
+                <button type="button" onclick="openTerms()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Terms & Conditions</button>
+                <span class="text-white/30 hidden sm:inline">•</span>
+                <button type="button" onclick="openPrivacy()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Privacy Policy</button>
+                <span class="text-white/30 hidden sm:inline">•</span>
+                <a href="#contact" class="hover:text-cyan-300 transition-colors py-1">Contact</a>
+                <span class="text-white/30 hidden sm:inline">•</span>
+                <a href="#pricing" class="hover:text-cyan-300 transition-colors py-1">Pricing</a>
+            </div>
+
+            <div class="h-0.5 w-24 bg-white/30 rounded-full"></div>
+
+            <!-- Section 5: Bottom Copyright -->
+            <div class="text-[11px] font-mono text-white/80 uppercase tracking-widest leading-relaxed">
+                <p class="font-extrabold text-white">&copy; <span id="copyrightYear">2026</span> Forge Softwares • Premium B2B Engineering Agency</p>
+                <p class="text-[10px] text-white/60 mt-1 font-bold">Parent Group: Cobra • RUNO</p>
+            </div>
+
         </div>
         <div style="height: var(--sai-bottom)"></div>
     </footer>
-
-    <!-- Smart High-Converting Floating Bar (Appears on Scroll) -->
-    <div id="smartFloatingBar"
-        class="floating-pill-cta fixed bottom-5 left-4 right-4 sm:left-auto sm:right-24 z-40 bg-black/90 text-white border-2 border-white/80 rounded-full px-3 sm:px-5 py-2 sm:py-2.5 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-2 sm:gap-4 font-mono text-[10px] sm:text-xs">
-        <div class="flex items-center gap-1.5 sm:gap-2">
-            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-extrabold uppercase tracking-wider text-[9px] sm:text-[11px]">Ready to deploy?</span>
-        </div>
-        <button type="button" onclick="openEnquiryModal('pro')"
-            class="apple-btn-primary !min-h-[30px] sm:!min-h-[32px] !py-1 !px-3 sm:!px-4 !text-[9px] sm:!text-[10px] uppercase font-mono font-extrabold whitespace-nowrap">
-            Start at ₹1,999 &rarr;
-        </button>
-    </div>
-
-    <!-- Floating AI Chatbot Toggle Button -->
-    <button id="aiChatToggleBtn"
-        class="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-[100] w-14 h-14 rounded-full bg-white text-black flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer focus:outline-none border-2 border-black min-h-[44px] min-w-[44px]"
-        aria-label="Toggle AI Chat">
-        <i data-lucide="bot" class="w-6 h-6"></i>
-    </button>
-
-    <!-- AI Chatbot Modal Window -->
-    <div id="aiChatWindow"
-        class="fixed bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] right-3 left-3 sm:left-auto sm:right-6 z-[100] sm:w-[380px] h-auto max-h-[min(520px,calc(75dvh-var(--sai-bottom)))] card-light-contrast flex flex-col hidden opacity-0 transition-opacity duration-300 shadow-2xl border-2 border-black"
-        role="region" aria-label="AI Chat Assistant">
-        <div class="p-4 border-b-2 border-black flex justify-between items-center bg-black text-white rounded-t-[18px]">
-            <div class="flex items-center gap-3">
-                <div class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
-                <div class="flex flex-col">
-                    <span
-                        class="font-mono text-xs font-extrabold uppercase tracking-widest text-white leading-none">Forge
-                        AI Agent</span>
-                    <span class="text-[9px] text-white/80 font-sans mt-1 font-bold">Online Knowledge Assist</span>
-                </div>
-            </div>
-            <button type="button" id="closeAiChatBtn"
-                class="text-white hover:opacity-75 transition-opacity cursor-pointer focus:outline-none p-1 min-h-[36px] min-w-[36px] flex items-center justify-center"
-                aria-label="Close chat">
-                <i data-lucide="chevron-down" class="w-5 h-5"></i>
-            </button>
-        </div>
-        <div id="aiChatMessages"
-            class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar text-sm font-sans flex flex-col bg-white text-black">
-            <div
-                class="bg-black text-white p-3.5 rounded-2xl rounded-tl-sm self-start max-w-[85%] border-2 border-black shadow-md font-medium">
-                System initialized. I am the Forge Softwares autonomous assistant. Ask me about our <strong>Pricing
-                    Architecture</strong> (Basic ₹1,999, Pro ⭐ ₹7,999, Premium 👑 ₹14,999), custom domains, HQ location,
-                or support windows!
-            </div>
-        </div>
-        <div class="p-4 border-t-2 border-black bg-white rounded-b-[18px]">
-            <form id="aiChatForm" class="flex items-center gap-2.5">
-                <input type="text" id="aiChatInput" placeholder="Ask about pricing, HQ, stack..."
-                    class="flex-1 bg-white border-2 border-black rounded-full px-4 py-2.5 text-xs sm:text-sm text-black focus:outline-none transition-colors font-mono min-h-[44px]"
-                    autocomplete="off" required aria-label="Type a question" />
-                <button type="submit"
-                    class="w-[44px] h-[44px] rounded-full bg-black text-white flex items-center justify-center shrink-0 hover:bg-gray-800 transition-colors cursor-pointer shadow-md focus:outline-none"
-                    aria-label="Send message">
-                    <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- ENQUIRY MODAL -->
     <div id="enquiryModal"
@@ -3939,9 +3933,10 @@
             const yearEl = document.getElementById('copyrightYear');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            const initIcons = () => { if (window.lucide) lucide.createIcons(); };
+            const initIcons = () => { if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons(); };
+            initIcons();
             if ('requestIdleCallback' in window) { requestIdleCallback(initIcons); }
-            else { setTimeout(() => requestAnimationFrame(initIcons), 150); }
+            else { setTimeout(initIcons, 200); }
 
             // Entrance Animation Driver
             if (document.documentElement.classList.contains('anim')) {
@@ -4503,14 +4498,6 @@
             }, { threshold: 0.05, rootMargin: "40px 0px" });
             reveals.forEach(r => revealObserver.observe(r));
 
-            // Floating CTA Visibility Trigger
-            const smartFloatingBar = document.getElementById('smartFloatingBar');
-            window.addEventListener('scroll', () => {
-                if (!smartFloatingBar) return;
-                if (window.scrollY > 400) smartFloatingBar.classList.add('visible');
-                else smartFloatingBar.classList.remove('visible');
-            }, { passive: true });
-
             // Stat Counters Count-Up
             const counters = document.querySelectorAll('.stat-counter');
             const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -4580,67 +4567,6 @@
             prevTestimonialBtn?.addEventListener('click', () => updateTestimonialUI((currentTestimonialIndex - 1 + testimonialCards.length) % testimonialCards.length));
             testimonialDots.forEach(dot => {
                 dot.addEventListener('click', () => updateTestimonialUI(parseInt(dot.getAttribute('data-index') || '0', 10)));
-            });
-
-            const aiChatToggleBtn = document.getElementById('aiChatToggleBtn');
-            const aiChatWindow = document.getElementById('aiChatWindow');
-            const closeAiChatBtn = document.getElementById('closeAiChatBtn');
-            const aiChatForm = document.getElementById('aiChatForm');
-            const aiChatInput = document.getElementById('aiChatInput');
-            const aiChatMessages = document.getElementById('aiChatMessages');
-            let isAiChatOpen = false;
-
-            function toggleAiChat() {
-                isAiChatOpen = !isAiChatOpen;
-                if (isAiChatOpen) {
-                    aiChatWindow.classList.remove('hidden');
-                    setTimeout(() => aiChatWindow.classList.remove('opacity-0'), 10);
-                    aiChatInput?.focus();
-                } else {
-                    aiChatWindow.classList.add('opacity-0');
-                    setTimeout(() => aiChatWindow.classList.add('hidden'), 300);
-                }
-            }
-
-            aiChatToggleBtn?.addEventListener('click', toggleAiChat);
-            closeAiChatBtn?.addEventListener('click', toggleAiChat);
-
-            function appendChatMessage(text, isUser) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = `p-3.5 rounded-2xl text-xs sm:text-sm shadow-sm leading-relaxed ${isUser ? 'bg-white text-black border-2 border-black rounded-tr-sm self-end max-w-[85%] font-extrabold' : 'bg-black text-white border-2 border-black rounded-tl-sm self-start max-w-[85%] font-medium'
-                    }`;
-                msgDiv.innerHTML = text;
-                aiChatMessages?.appendChild(msgDiv);
-                if (aiChatMessages) aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-            }
-
-            function querySmartKnowledgeEngine(userQuery) {
-                const q = userQuery.toLowerCase();
-                if (q.includes('price') || q.includes('cost') || q.includes('tier') || q.includes('package') || q.includes('plan')) {
-                    return "Here is our official <strong>Pricing Architecture</strong>:<br/><br/>• <strong>BASIC:</strong> ₹1,999 (1–3 Pages, 3 Days Support)<br/>• <strong>PRO ⭐ [Best Selling]:</strong> ₹7,999 (Up to 8 Pages, Mobile Responsive, Blog Engine, 15 Days Support)<br/>• <strong>PREMIUM 👑 [Value for Money]:</strong> ₹14,999 (Unlimited Pages, Native AI Chatbot, Free 1st Year Domain, 30 Days Priority Support)";
-                }
-                if (q.includes('hq') || q.includes('location') || q.includes('address') || q.includes('office')) {
-                    return "Our <strong>Headquarters (HQ)</strong> is located at <strong>Pandith Pore Rainawari, Srinagar 190003</strong>.<br/>Office Branch: Rainawari Jogilanker, Srinagar. Phone: +91-9697430658.";
-                }
-                if (q.includes('domain') || q.includes('hosting')) {
-                    return "A free custom domain is <strong>included in the Premium 👑 plan</strong> for the 1st year. Fast Edge SSL hosting deployment is included across all plans!";
-                }
-                if (q.includes('support') || q.includes('maintenance')) {
-                    return "Our support windows are strictly defined:<br/>• Basic: 3 Days Support<br/>• Pro ⭐: 15 Days Support<br/>• Premium 👑: 30 Days Priority Dedicated Support";
-                }
-                return "Welcome to Forge Softwares! We engineer ultra-high-speed websites & AI workers that acquire customers 24/7. Contact senior operators directly at <strong>+91-9697430658</strong> or <strong>farmanshafi2007@gmail.com</strong>.";
-            }
-
-            aiChatForm?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const userText = aiChatInput?.value.trim();
-                if (!userText) return;
-                appendChatMessage(escapeHTML(userText), true);
-                if (aiChatInput) aiChatInput.value = '';
-                setTimeout(() => {
-                    const answer = querySmartKnowledgeEngine(userText);
-                    appendChatMessage(answer, false);
-                }, 300);
             });
         });
     </script>
