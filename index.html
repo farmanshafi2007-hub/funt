@@ -634,6 +634,10 @@
             box-shadow: 0 6px 22px rgba(103, 232, 249, 0.55), inset 0 0 0 1.5px #ffffff;
         }
 
+        .nav-divider {
+            display: none;
+        }
+
         .eyebrow {
             font-family: var(--font-mono);
             font-size: clamp(10px, 1.3vw, 13px);
@@ -1016,21 +1020,96 @@
             animation: ent-settle 0.6s var(--e-quint) 1.42s both;
         }
 
-        /* A) NAV COLLAPSE */
+        /* ═══════════════════════════════════════════════════════════════
+           A) MOBILE NAVIGATION — APPLE HUMAN INTERFACE STANDARD
+        ═══════════════════════════════════════════════════════════════ */
         @media (max-width: 1030px),
         (max-height: 620px) {
-            .navrow {
-                left: calc(20 * var(--u));
-                right: calc(20 * var(--u));
+            .navbar {
+                height: auto;
+                padding-top: max(14px, var(--sai-top));
+                padding-bottom: 12px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
+            .navbar::after {
+                left: 20px;
+                right: 20px;
+                top: 100%;
+            }
+
+            .navrow {
+                position: relative;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 52px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            /* Circular Frosted Glass Burger & Close Button */
             .burger {
                 display: flex;
                 z-index: 100001;
                 position: relative;
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                padding: 0;
+                cursor: pointer;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-spring);
             }
 
-            /* ═══ TRUE FULLSCREEN OVERLAY NAV ═══ */
+            .burger:hover {
+                background: rgba(255, 255, 255, 0.14);
+                border-color: rgba(255, 255, 255, 0.25);
+            }
+
+            .burger:active {
+                transform: scale(0.92);
+            }
+
+            .burger span {
+                width: 20px;
+                height: 2px;
+                border-radius: 2px;
+                background: #ffffff;
+                transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s linear;
+            }
+
+            .navrow[data-open="true"] .burger {
+                background: rgba(255, 255, 255, 0.14);
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .navrow[data-open="true"] .burger span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .navrow[data-open="true"] .burger span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            .navrow[data-open="true"] .burger span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            /* ═══ TRUE FULLSCREEN APPLE OVERLAY NAV ═══ */
             .links {
                 position: fixed;
                 inset: 0;
@@ -1038,23 +1117,24 @@
                 height: 100dvh;
                 height: 100vh;
                 z-index: 100000;
+                display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 gap: 0;
-                padding: calc(80px + var(--sai-top)) 32px calc(40px + var(--sai-bottom));
+                padding: calc(84px + var(--sai-top)) 20px calc(28px + var(--sai-bottom));
                 border-radius: 0;
-                background: rgba(4, 12, 24, 0.97);
-                -webkit-backdrop-filter: blur(30px) saturate(1.6);
-                backdrop-filter: blur(30px) saturate(1.6);
+                background: radial-gradient(circle at 50% 15%, rgba(103, 232, 249, 0.08) 0%, rgba(4, 16, 31, 0.98) 50%, #020712 100%);
+                -webkit-backdrop-filter: blur(36px) saturate(1.8);
+                backdrop-filter: blur(36px) saturate(1.8);
                 border: none;
                 box-shadow: none;
                 opacity: 0;
                 visibility: hidden;
-                transform: translateY(-12px);
-                transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                            transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                            visibility 0.38s;
+                transform: translateY(-8px);
+                transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                            transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                            visibility 0.32s;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
@@ -1065,6 +1145,35 @@
                 transform: none;
             }
 
+            /* Staggered entrance animations */
+            .navrow[data-open="true"] .links a,
+            .navrow[data-open="true"] .links button.nav-btn,
+            .navrow[data-open="true"] .links .nav-divider {
+                animation: navItemSlideIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(1) { animation-delay: 25ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(2) { animation-delay: 55ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(3) { animation-delay: 85ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(4) { animation-delay: 115ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(5) { animation-delay: 145ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(6) { animation-delay: 175ms; }
+            .navrow[data-open="true"] .links .nav-divider     { animation-delay: 205ms; }
+            .navrow[data-open="true"] .links button:nth-of-type(1) { animation-delay: 235ms; }
+            .navrow[data-open="true"] .links button:nth-of-type(2) { animation-delay: 265ms; }
+            .navrow[data-open="true"] .links a.enroll        { animation-delay: 295ms; }
+
+            @keyframes navItemSlideIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(12px) scale(0.97);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
             /* Hide hero content behind overlay when nav is open */
             body.nav-open .stage .hero-ui .copy,
             body.nav-open .stage .planet,
@@ -1073,42 +1182,45 @@
                 pointer-events: none;
             }
 
+            /* Unified Apple Segmented Navigation Rows */
             .links a,
             .links button.nav-btn {
-                margin: 0 auto;
-                height: auto;
+                margin: 3px auto;
+                height: 48px;
                 min-height: 48px;
                 width: 100%;
-                max-width: 290px;
+                max-width: 330px;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
                 gap: 8px;
-                padding: 12px 20px;
-                font-family: var(--font-sans);
-                font-size: clamp(16px, 4.2vw, 19px);
-                font-weight: 600;
-                letter-spacing: -0.2px;
-                color: rgba(255, 255, 255, 0.9);
-                border-radius: 14px;
+                padding: 0 20px;
+                font-family: var(--apple-font);
+                font-size: clamp(16px, 4.2vw, 17.5px);
+                font-weight: 500;
+                letter-spacing: -0.25px;
+                color: rgba(255, 255, 255, 0.76);
+                border-radius: 16px;
                 background: transparent;
-                border: 0;
+                border: 1px solid transparent;
                 cursor: pointer;
-                transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+                transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
             }
 
             .links a:hover,
             .links a:focus-visible,
             .links button.nav-btn:hover,
             .links button.nav-btn:focus-visible {
-                color: #fff;
+                color: #ffffff;
                 background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.12);
             }
 
             .links a:active,
             .links button.nav-btn:active {
                 transform: scale(0.97);
+                background: rgba(255, 255, 255, 0.12);
             }
 
             .links a+a,
@@ -1118,31 +1230,48 @@
                 border-top: none;
             }
 
+            /* Active Segmented Control Pill */
             .links a[aria-current="page"] {
-                color: #67e8f9;
-                background: rgba(103, 232, 249, 0.12);
+                color: #67e8f9 !important;
+                font-weight: 700 !important;
+                background: rgba(103, 232, 249, 0.12) !important;
+                border: 1px solid rgba(103, 232, 249, 0.35) !important;
+                box-shadow: 0 0 20px rgba(103, 232, 249, 0.2), inset 0 0 10px rgba(103, 232, 249, 0.08) !important;
             }
 
             .links a[aria-current="page"]::after {
                 content: none;
             }
 
-            .links a.enroll {
-                margin: 14px auto 0;
+            /* Secondary Navigation Subtle Divider */
+            .nav-divider {
+                display: block;
                 width: 100%;
-                max-width: 290px;
-                height: 52px;
-                min-height: 52px;
+                max-width: 300px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+                margin: 7px auto;
+                flex: none;
+            }
+
+            /* Primary Action CTA in Nav */
+            .links a.enroll {
+                margin: 10px auto 0;
+                width: 100%;
+                max-width: 330px;
+                height: 50px;
+                min-height: 50px;
                 border-radius: 999px;
                 justify-content: center;
-                font-size: 15px;
+                font-family: var(--font-code), monospace;
+                font-size: 13.5px;
                 font-weight: 800;
-                letter-spacing: 0.5px;
+                letter-spacing: 1px;
                 text-transform: uppercase;
-                background: linear-gradient(180deg, #ffffff 0%, #cfe6fe 100%);
+                background: linear-gradient(180deg, #ffffff 0%, #d8ecfe 50%, #c2e2fe 100%);
                 color: #04101f;
-                box-shadow: 0 4px 20px rgba(103, 232, 249, 0.4);
-                border-top: 0;
+                box-shadow: 0 6px 24px rgba(103, 232, 249, 0.45), inset 0 0 0 1.5px rgba(255, 255, 255, 0.95);
+                border: none;
             }
 
             .links a.enroll::after {
@@ -1937,11 +2066,14 @@
                             <a href="#roi-calculator">Calculator</a>
                             <a href="#testimonials">Reviews</a>
                             <a href="#contact">Contact</a>
+                            <div class="nav-divider" role="separator" aria-hidden="true"></div>
                             <button type="button" onclick="openHelpModal()" class="nav-btn" aria-label="Open Help Center">
-                                <i data-lucide="help-circle" class="w-3.5 h-3.5 text-cyan-300"></i> Help
+                                <i data-lucide="help-circle" class="w-4 h-4 text-cyan-300"></i>
+                                <span>Help</span>
                             </button>
                             <button type="button" onclick="openBlogModal()" class="nav-btn" aria-label="Open Blog">
-                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-cyan-300"></i> Blog
+                                <i data-lucide="book-open" class="w-4 h-4 text-cyan-300"></i>
+                                <span>Blog</span>
                             </button>
                             <a class="enroll shimmer-btn" href="javascript:void(0)" onclick="openEnquiryModal('pro')">Start &rarr;</a>
                         </nav>
