@@ -45,13 +45,21 @@
     <meta name="twitter:image"
         content="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png">
 
-    <!-- Core Performance Preconnects -->
+    <!-- Core Performance Preconnects & Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://d8j0ntlcm91z4.cloudfront.net">
+
+    <!-- Preload Hero Planetary Assets -->
+    <link rel="preload" as="image"
+        href="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png">
+    <link rel="preload" as="image"
+        href="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png">
+    <link rel="preload" as="image"
+        href="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png">
 
     <!-- Blocking Inline Entrance Init Script -->
     <script>
@@ -259,18 +267,31 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
 
         /* Global overflow safety net */
-        section, article, aside, main, footer, header, nav {
+        section,
+        article,
+        aside,
+        main,
+        footer,
+        header,
+        nav {
             max-width: 100vw;
         }
-        img, video, iframe, canvas, svg {
+
+        img,
+        video,
+        iframe,
+        canvas,
+        svg {
             max-width: 100%;
             height: auto;
         }
+
         table {
             max-width: 100%;
         }
@@ -700,7 +721,7 @@
 
         .planet {
             position: absolute;
-            z-index: 1;
+            z-index: 2;
             padding: 0;
             border: 0;
             background: none;
@@ -709,22 +730,35 @@
             line-height: 0;
             cursor: pointer;
             pointer-events: auto;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
             touch-action: manipulation;
-            will-change: transform;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65));
+            will-change: transform, opacity;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .planet img {
-            display: none;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
             user-select: none;
             -webkit-user-drag: none;
             pointer-events: none;
+            will-change: opacity, transform;
         }
 
         .planet img.is-shown {
-            display: block;
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
         }
 
         .planet:hover {
@@ -735,18 +769,18 @@
             transform: translateY(-50%) scale(0.98);
         }
 
-        /* Desktop planet scaling: 180px–260px with smooth float */
+        /* Desktop planet scaling: 180px–240px with smooth float */
         .planet-l {
-            width: clamp(180px, 15vw, 250px);
-            left: clamp(-135px, -8.5vw, -95px);
+            width: clamp(180px, 14vw, 240px);
+            left: clamp(-130px, -8vw, -95px);
             top: 50%;
             transform: translateY(-50%);
             animation: planetFloatL 6s ease-in-out infinite alternate;
         }
 
         .planet-r {
-            width: clamp(180px, 15vw, 250px);
-            right: clamp(-135px, -8.5vw, -95px);
+            width: clamp(180px, 14vw, 240px);
+            right: clamp(-130px, -8vw, -95px);
             top: 50%;
             transform: translateY(-50%);
             animation: planetFloatR 6.5s ease-in-out infinite alternate;
@@ -756,6 +790,7 @@
             0% {
                 transform: translateY(-50%) rotate(0deg);
             }
+
             100% {
                 transform: translateY(calc(-50% - 8px)) rotate(-2deg);
             }
@@ -765,6 +800,7 @@
             0% {
                 transform: translateY(-50%) rotate(0deg);
             }
+
             100% {
                 transform: translateY(calc(-50% + 8px)) rotate(2deg);
             }
@@ -1106,19 +1142,21 @@
                 text-wrap: pretty;
             }
 
-            /* Tablet planet scaling: 120px–180px */
+            /* Tablet planet scaling: 140px–170px */
             .planet-l {
-                width: clamp(120px, 16vw, 175px);
-                left: clamp(-85px, -7vw, -55px);
+                width: clamp(140px, 18vw, 170px);
+                left: clamp(-80px, -7vw, -50px);
                 top: 50%;
                 transform: translateY(-50%);
+                z-index: 2;
             }
 
             .planet-r {
-                width: clamp(120px, 16vw, 175px);
-                right: clamp(-85px, -7vw, -55px);
+                width: clamp(140px, 18vw, 170px);
+                right: clamp(-80px, -7vw, -50px);
                 top: 50%;
                 transform: translateY(-50%);
+                z-index: 2;
             }
 
             .label.label-r {
@@ -1179,10 +1217,12 @@
                 min-height: 100dvh;
                 text-align: center;
                 gap: 0;
+                z-index: 10;
             }
 
             .col {
-                position: static;
+                position: relative;
+                z-index: 10;
                 width: 100%;
                 right: auto;
                 left: auto;
@@ -1194,6 +1234,7 @@
                 text-indent: clamp(1.5px, 0.8vw, 3.5px);
                 margin-bottom: 8px;
                 padding: 0 8px;
+                z-index: 10;
             }
 
             h1.title {
@@ -1205,6 +1246,7 @@
                 text-indent: 0;
                 text-wrap: balance;
                 padding: 0 8px;
+                z-index: 10;
             }
 
             .rule {
@@ -1214,6 +1256,7 @@
                 padding-right: 0;
                 display: flex;
                 justify-content: center;
+                z-index: 10;
             }
 
             .rule span {
@@ -1229,6 +1272,7 @@
                 margin-bottom: 24px;
                 opacity: 0.92;
                 padding: 0 4px;
+                z-index: 10;
             }
 
             p.lede br {
@@ -1245,44 +1289,45 @@
                 align-items: center;
                 justify-content: center;
                 width: 100%;
-                max-width: min(340px, 88vw);
+                max-width: min(350px, 88vw);
+                margin: 0 auto;
+                z-index: 10;
             }
 
             .cta a {
-                width: clamp(150px, 44vw, 190px);
-                height: 48px;
+                width: clamp(160px, 46vw, 200px);
+                height: 50px;
+                min-height: 50px;
                 border-radius: 999px;
                 font-size: clamp(12px, 3.2vw, 14px);
-                z-index: 5;
+                z-index: 20;
                 position: relative;
+                margin: 0 auto;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            /* Planet labels — positioned neatly on flanks */
+            /* Planet labels — hidden on mobile for clean uncluttered layout */
             .label {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: clamp(9px, 2.5vw, 11px);
-                letter-spacing: 1.5px;
-                opacity: 0.75;
-                display: none; /* Hide text label on mobile to keep planet visuals clean and uncluttered */
+                display: none;
             }
 
-            /* Mobile planet scaling: 90px–140px, positioned smoothly on flanks */
+            /* Mobile planet scaling: 95px–120px, symmetrically anchored to CTA flanks */
             .planet-l {
-                width: clamp(90px, 25vw, 125px);
-                left: clamp(-42px, -9vw, -20px);
+                width: clamp(95px, 24vw, 120px);
+                left: clamp(-46px, -10vw, -25px);
                 top: 50%;
                 transform: translateY(-50%);
-                z-index: 1;
+                z-index: 2;
             }
 
             .planet-r {
-                width: clamp(90px, 25vw, 125px);
-                right: clamp(-42px, -9vw, -20px);
+                width: clamp(95px, 24vw, 120px);
+                right: clamp(-46px, -10vw, -25px);
                 top: 50%;
                 transform: translateY(-50%);
-                z-index: 1;
+                z-index: 2;
             }
 
             .scroll {
@@ -1290,6 +1335,7 @@
                 height: 48px;
                 margin-left: -24px;
                 bottom: calc(14px + var(--sai-bottom));
+                z-index: 15;
             }
 
             .scroll svg {
@@ -1307,19 +1353,20 @@
         /* NARROW PHONE (<= 375px) */
         @media (max-width: 375px) {
             .cta a {
-                width: clamp(140px, 42vw, 165px);
-                height: 46px;
+                width: clamp(145px, 44vw, 170px);
+                height: 48px;
+                min-height: 48px;
                 font-size: 11.5px;
             }
 
             .planet-l {
-                width: clamp(85px, 23vw, 105px);
-                left: -24px;
+                width: clamp(88px, 22vw, 102px);
+                left: -22px;
             }
 
             .planet-r {
-                width: clamp(85px, 23vw, 105px);
-                right: -24px;
+                width: clamp(88px, 22vw, 102px);
+                right: -22px;
             }
 
             h1.title {
@@ -1340,19 +1387,20 @@
         /* EXTRA NARROW PHONE (<= 340px) — iPhone SE, Galaxy Fold etc. */
         @media (max-width: 340px) {
             .cta a {
-                width: 130px;
-                height: 44px;
+                width: 135px;
+                height: 46px;
+                min-height: 46px;
                 font-size: 11px;
             }
 
             .planet-l {
                 width: 80px;
-                left: -20px;
+                left: -18px;
             }
 
             .planet-r {
                 width: 80px;
-                right: -20px;
+                right: -18px;
             }
 
             h1.title {
@@ -1582,10 +1630,12 @@
             padding-bottom: 0.5rem;
             -webkit-overflow-scrolling: touch;
         }
+
         .help-pills-scroll::-webkit-scrollbar {
             display: none;
         }
-        .help-pills-scroll > button {
+
+        .help-pills-scroll>button {
             scroll-snap-align: start;
             flex-shrink: 0;
         }
@@ -1595,6 +1645,7 @@
             overflow: hidden;
             transition: max-height 0.35s var(--ease-apple), opacity 0.25s ease;
         }
+
         .help-answer-box.hidden {
             max-height: 0;
             opacity: 0;
@@ -1644,6 +1695,7 @@
             user-select: none;
             -webkit-user-select: none;
         }
+
         .apple-btn-primary:active,
         .apple-btn-dark:active {
             transform: scale(0.97);
@@ -1663,9 +1715,11 @@
             justify-content: center;
             transition: all 0.25s var(--ease-spring);
         }
+
         .footer-social-btn:hover {
             transform: translateY(-2px) scale(1.08);
         }
+
         .footer-social-btn:active {
             transform: scale(0.95);
         }
@@ -1674,15 +1728,18 @@
            MODAL RESPONSIVE — HELP CENTER, BLOG, ENQUIRY
         ═══════════════════════════════════════════════════════════════ */
         @media (max-width: 579px) {
+
             #helpCenterModal .help-toggle-trigger h4,
             #helpCenterModal .help-answer-box {
                 font-size: 12px;
             }
+
             #helpCenterContent,
             #blogContent {
                 max-height: calc(100dvh - 1.25rem);
                 border-radius: 1rem;
             }
+
             #enquiryContent {
                 max-height: calc(100dvh - 1.5rem);
             }
@@ -1692,7 +1749,10 @@
            REDUCED MOTION — BLANKET SAFETY
         ═══════════════════════════════════════════════════════════════ */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -1714,7 +1774,8 @@
             <span class="hidden sm:inline text-white/40">•</span>
             <span class="hidden sm:inline text-white/80 whitespace-nowrap">Average Response &lt; 15 Mins</span>
             <span class="hidden md:inline text-white/40">•</span>
-            <span class="hidden md:inline text-white/90 underline cursor-pointer hover:text-cyan-300 transition-colors whitespace-nowrap"
+            <span
+                class="hidden md:inline text-white/90 underline cursor-pointer hover:text-cyan-300 transition-colors whitespace-nowrap"
                 onclick="openEnquiryModal('basic')">Claim ₹1,999 Basic Web Deployment &rarr;</span>
         </div>
     </aside>
@@ -1787,25 +1848,32 @@
                     </p>
                     <div class="col cta">
                         <!-- Left Planet Slot Button -->
-                        <button class="planet planet-l" type="button" id="slotBtnL" data-slot="l"
+                        <!-- Left Planet Slot Button -->
+                        <button class="planet planet-l" type="button" id="slotBtnL" data-slot="l" data-planet="venus"
                             aria-label="Explore Venus Architecture">
                             <img data-planet="earth" alt="Earth Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202005_3346cc4d-ec3b-44ab-825c-18e49f5021a.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png';" />
                             <img data-planet="venus" alt="Venus Architecture" class="is-shown"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_cf55d1d8-7b59-4a64-80da-d72052ae974e.png';" />
                             <img data-planet="mars" alt="Mars Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png';" />
                         </button>
 
                         <!-- Right Planet Slot Button -->
-                        <button class="planet planet-r" type="button" id="slotBtnR" data-slot="r"
+                        <button class="planet planet-r" type="button" id="slotBtnR" data-slot="r" data-planet="mars"
                             aria-label="Explore Mars AI Agents">
                             <img data-planet="earth" alt="Earth Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202005_3346cc4d-ec3b-44ab-825c-18e49f5021a.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png';" />
                             <img data-planet="venus" alt="Venus Architecture"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_cf55d1d8-7b59-4a64-80da-d72052ae974e.png';" />
                             <img data-planet="mars" alt="Mars Architecture" class="is-shown"
-                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png">
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png"
+                                onerror="this.onerror=null; this.src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png';" />
                         </button>
 
                         <!-- Pill Button -->
@@ -2066,7 +2134,8 @@
                     class="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch w-full mb-16 sm:mb-20 relative z-10 pt-6">
 
                     <!-- BASIC Tier -->
-                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full group relative">
+                    <article
+                        class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full group relative">
                         <div>
                             <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3">
                                 <div
@@ -2093,7 +2162,8 @@
                                         class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹1,999</span>
                                     <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
                                 </div>
-                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete starter
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete
+                                    starter
                                     deployment</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('basic')"
@@ -2102,16 +2172,17 @@
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Standard delivery queue
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Standard delivery
+                                queue
                                 with 3-day support.</p>
 
-                            <ul
-                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                            <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="file-text"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>1–3 Pages</strong>
                                         Simple Business Layout</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="layout"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Business Design</span>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Simple Business
+                                        Design</span>
                                 </li>
                                 <li class="flex items-start gap-2.5 text-black"><i data-lucide="smartphone-off"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Desktop Formatted
@@ -2126,7 +2197,8 @@
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Social Media Links
                                         Included</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="search"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic SEO Setup</span></li>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic SEO Setup</span>
+                                </li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="zap"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Basic Speed
                                         Optimization</span></li>
@@ -2134,7 +2206,8 @@
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Free Deployment & SSL
                                         Security</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>1 Free Revision</span></li>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>1 Free Revision</span>
+                                </li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="clock"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Days Support &
                                         Maintenance</span></li>
@@ -2177,7 +2250,8 @@
                                         class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹7,999</span>
                                     <span class="text-xs text-black font-sans font-bold">(One-Time)</span>
                                 </div>
-                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete business
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete
+                                    business
                                     scale solution</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('pro')"
@@ -2186,13 +2260,14 @@
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 15-day dedicated
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 15-day
+                                dedicated
                                 maintenance support.</p>
 
-                            <ul
-                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                            <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="layers"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Up to 8 Pages</strong>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Up to 8
+                                            Pages</strong>
                                         Modern Architecture</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="palette"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Modern Professional
@@ -2201,7 +2276,8 @@
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Mobile & Tablet
                                             Responsive</strong></span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="map-pin"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Maps Integration</span>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Google Maps
+                                        Integration</span>
                                 </li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="mail-check"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Professional Form + Email
@@ -2225,7 +2301,8 @@
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Instant Email Lead
                                         Notifications</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="rotate-ccw"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Free Revisions</span></li>
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>3 Free Revisions</span>
+                                </li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="clock"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>15 Days Maintenance
                                         Support</span></li>
@@ -2234,7 +2311,8 @@
                     </article>
 
                     <!-- PREMIUM 👑 Tier -->
-                    <article class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full relative group"
+                    <article
+                        class="card-light-contrast reveal p-6 sm:p-8 flex flex-col justify-between h-full w-full relative group"
                         style="transition-delay: 200ms;">
                         <div
                             class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
@@ -2258,7 +2336,8 @@
                                     class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
                                     <i data-lucide="crown" class="w-6 h-6 text-black"></i> Premium 👑
                                 </h3>
-                                <p class="text-black text-xs mt-2 font-medium">Established businesses & premium brands</p>
+                                <p class="text-black text-xs mt-2 font-medium">Established businesses & premium brands
+                                </p>
                             </div>
                             <div class="mb-6 font-mono">
                                 <div class="flex items-baseline gap-2">
@@ -2275,16 +2354,17 @@
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 30 days priority
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 30 days
+                                priority
                                 dedicated support.</p>
 
-                            <ul
-                                class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
+                            <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="infinity"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Unlimited
                                             Pages</strong> Custom Architecture</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="wand-2"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>100% Custom Premium Tailored
+                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>100% Custom Premium
+                                        Tailored
                                         Design</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="bot"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
@@ -3131,12 +3211,14 @@
     </main>
 
     <!-- SECTION 10: FOOTER REBUILD (CLEAN, MINIMAL, 5-SECTION STRUCTURE) -->
-    <footer class="py-12 sm:py-16 px-4 sm:px-8 bg-black text-white text-center border-t-2 border-white w-full bg-grid-dark">
+    <footer
+        class="py-12 sm:py-16 px-4 sm:px-8 bg-black text-white text-center border-t-2 border-white w-full bg-grid-dark">
         <div class="w-full max-w-5xl mx-auto flex flex-col items-center space-y-8 sm:space-y-10">
 
             <!-- Section 1: Brand & One-line Description -->
             <div class="flex flex-col items-center text-center max-w-xl">
-                <div class="text-xl sm:text-2xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-3 mb-2.5 font-extrabold">
+                <div
+                    class="text-xl sm:text-2xl font-bubbledot uppercase tracking-widest text-white flex items-center justify-center gap-3 mb-2.5 font-extrabold">
                     <div class="bg-white text-black p-2 rounded-xl border-2 border-white shadow-lg">
                         <i data-lucide="hexagon" class="w-5 h-5"></i>
                     </div>
@@ -3154,17 +3236,22 @@
                     target="_blank" rel="noopener noreferrer"
                     class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Follow us on Instagram" aria-label="Follow Forge Softwares on Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                 </a>
 
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.facebook.com/share/1DL2d9EcCZ/?mibextid=wwXIfr" target="_blank"
+                    rel="noopener noreferrer"
                     class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Visit us on Facebook" aria-label="Visit Facebook Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                     </svg>
                 </a>
 
@@ -3172,35 +3259,44 @@
                 <a href="https://x.com/pellixperfumes?s=21" target="_blank" rel="noopener noreferrer"
                     class="footer-social-btn bg-white text-black border-2 border-white hover:bg-black hover:text-white"
                     title="Follow us on X (Twitter)" aria-label="Visit Twitter Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.007 4.126H5.078z" />
                     </svg>
                 </a>
             </div>
 
             <!-- Section 3: Contact Information with Icons -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 w-full max-w-3xl text-xs font-mono font-bold">
-                <a href="tel:+919697430658" class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px]">
+                <a href="tel:+919697430658"
+                    class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px]">
                     <i data-lucide="phone" class="w-4 h-4 shrink-0"></i>
                     <span>+91-9697430658</span>
                 </a>
-                <a href="mailto:farmanshafi2007@gmail.com" class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px] break-all">
+                <a href="mailto:farmanshafi2007@gmail.com"
+                    class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 hover:bg-white hover:text-black transition-colors min-h-[44px] break-all">
                     <i data-lucide="mail" class="w-4 h-4 shrink-0"></i>
                     <span>farmanshafi2007@gmail.com</span>
                 </a>
-                <div class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 min-h-[44px]">
+                <div
+                    class="flex items-center justify-center gap-2 p-3 rounded-2xl border-2 border-white/20 bg-white/5 min-h-[44px]">
                     <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i>
                     <span>Rainawari, Srinagar 190003</span>
                 </div>
             </div>
 
             <!-- Section 4: Quick Links -->
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs font-mono uppercase tracking-wider font-extrabold text-white/90">
-                <button type="button" onclick="openHelpModal()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Help & Support</button>
+            <div
+                class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-xs font-mono uppercase tracking-wider font-extrabold text-white/90">
+                <button type="button" onclick="openHelpModal()"
+                    class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Help & Support</button>
                 <span class="text-white/30 hidden sm:inline">•</span>
-                <button type="button" onclick="openTerms()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Terms & Conditions</button>
+                <button type="button" onclick="openTerms()"
+                    class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Terms & Conditions</button>
                 <span class="text-white/30 hidden sm:inline">•</span>
-                <button type="button" onclick="openPrivacy()" class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Privacy Policy</button>
+                <button type="button" onclick="openPrivacy()"
+                    class="hover:text-cyan-300 transition-colors cursor-pointer py-1">Privacy Policy</button>
                 <span class="text-white/30 hidden sm:inline">•</span>
                 <a href="#contact" class="hover:text-cyan-300 transition-colors py-1">Contact</a>
                 <span class="text-white/30 hidden sm:inline">•</span>
@@ -3211,7 +3307,8 @@
 
             <!-- Section 5: Bottom Copyright -->
             <div class="text-[11px] font-mono text-white/80 uppercase tracking-widest leading-relaxed">
-                <p class="font-extrabold text-white">&copy; <span id="copyrightYear">2026</span> Forge Softwares • Premium B2B Engineering Agency</p>
+                <p class="font-extrabold text-white">&copy; <span id="copyrightYear">2026</span> Forge Softwares •
+                    Premium B2B Engineering Agency</p>
                 <p class="text-[10px] text-white/60 mt-1 font-bold">Parent Group: Cobra • RUNO</p>
             </div>
 
@@ -3258,16 +3355,31 @@
                         <label for="preferredPlan"
                             class="text-[10px] sm:text-xs font-extrabold text-black uppercase tracking-widest ml-1 mb-1.5 block font-mono">Select
                             Engineering Package</label>
-                        <div class="relative rounded-2xl overflow-hidden bg-white border-2 border-black">
-                            <select id="preferredPlan" name="preferredPlan"
-                                class="w-full bg-white pl-4 pr-10 py-2.5 text-xs sm:text-sm font-mono focus:outline-none text-black appearance-none cursor-pointer rounded-2xl border-none min-h-[44px] font-bold">
-                                <option value="Basic (₹1,999)">Basic Tier (₹1,999)</option>
-                                <option value="Pro ⭐ (₹7,999)" selected>Pro ⭐ Best Selling (₹7,999)</option>
-                                <option value="Premium 👑 (₹14,999)">Premium 👑 Enterprise (₹14,999)</option>
-                            </select>
-                            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-black pointer-events-none">
+                        <div
+                            class="relative rounded-2xl bg-white border-2 border-black min-h-[58px] p-0 flex items-center justify-between shadow-sm group hover:border-black transition-all">
+                            <!-- Visual Clean Text Display -->
+                            <div class="flex-1 pl-5 pr-2 py-2 flex flex-col justify-center pointer-events-none z-0">
+                                <div id="planDisplayTitle"
+                                    class="font-mono text-xs sm:text-sm font-extrabold text-black tracking-wide leading-tight">
+                                    Pro ⭐ Best Selling
+                                </div>
+                                <div id="planDisplayPrice"
+                                    class="font-mono text-[11px] sm:text-xs font-bold text-black/70 mt-0.5 leading-tight">
+                                    ₹7,999 One-Time
+                                </div>
+                            </div>
+                            <!-- Dropdown Chevron Pinned Right -->
+                            <div class="pr-5 text-black pointer-events-none shrink-0 z-0">
                                 <i data-lucide="chevron-down" class="w-4 h-4"></i>
                             </div>
+                            <!-- Native Accessible Select Overlaid -->
+                            <select id="preferredPlan" name="preferredPlan"
+                                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 text-base appearance-none"
+                                aria-label="Select Engineering Package">
+                                <option value="Basic (₹1,999)">Basic Tier — ₹1,999 (One-Time)</option>
+                                <option value="Pro ⭐ (₹7,999)" selected>Pro ⭐ Best Selling — ₹7,999 (One-Time)</option>
+                                <option value="Premium 👑 (₹14,999)">Premium 👑 Enterprise — ₹14,999 (One-Time)</option>
+                            </select>
                         </div>
                     </div>
 
@@ -3441,8 +3553,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4 help-pills-scroll font-mono text-[10px] sm:text-xs max-w-full"
-                    id="helpCategoryPills">
+                <div class="mt-4 help-pills-scroll font-mono text-[10px] sm:text-xs max-w-full" id="helpCategoryPills">
                     <button type="button"
                         class="helpCatFilterBtn active px-3.5 py-1.5 rounded-full bg-white text-black font-extrabold whitespace-nowrap cursor-pointer min-h-[38px] shrink-0"
                         data-cat="all">All Topics (73)</button>
@@ -3767,7 +3878,7 @@
             const ledeEl = document.getElementById('planetLede');
             if (ledeEl) ledeEl.innerHTML = targetData.lede;
 
-            // Restructure Flanking Planets
+            // Restructure Flanking Planets with stable distinct targets
             const rest = PLANET_ORDER.filter(p => p !== nextPlanet);
             const slotL = rest[0];
             const slotR = rest[1];
@@ -3775,26 +3886,28 @@
             // Slot L Update
             const slotBtnL = document.getElementById('slotBtnL');
             const labelSlotL = document.getElementById('labelSlotL');
-            if (slotBtnL) {
+            if (slotBtnL && PLANET_DATA[slotL]) {
                 slotBtnL.setAttribute('data-planet', slotL);
-                slotBtnL.setAttribute('aria-label', `Explore ${PLANET_DATA[slotL].label}`);
+                slotBtnL.setAttribute('aria-label', `Explore ${PLANET_DATA[slotL].label} Architecture`);
                 slotBtnL.querySelectorAll('img').forEach(img => {
-                    img.classList.toggle('is-shown', img.getAttribute('data-planet') === slotL);
+                    const isShown = img.getAttribute('data-planet') === slotL;
+                    img.classList.toggle('is-shown', isShown);
                 });
             }
-            if (labelSlotL) labelSlotL.textContent = PLANET_DATA[slotL].label;
+            if (labelSlotL && PLANET_DATA[slotL]) labelSlotL.textContent = PLANET_DATA[slotL].label;
 
             // Slot R Update
             const slotBtnR = document.getElementById('slotBtnR');
             const labelSlotR = document.getElementById('labelSlotR');
-            if (slotBtnR) {
+            if (slotBtnR && PLANET_DATA[slotR]) {
                 slotBtnR.setAttribute('data-planet', slotR);
-                slotBtnR.setAttribute('aria-label', `Explore ${PLANET_DATA[slotR].label}`);
+                slotBtnR.setAttribute('aria-label', `Explore ${PLANET_DATA[slotR].label} Architecture`);
                 slotBtnR.querySelectorAll('img').forEach(img => {
-                    img.classList.toggle('is-shown', img.getAttribute('data-planet') === slotR);
+                    const isShown = img.getAttribute('data-planet') === slotR;
+                    img.classList.toggle('is-shown', isShown);
                 });
             }
-            if (labelSlotR) labelSlotR.textContent = PLANET_DATA[slotR].label;
+            if (labelSlotR && PLANET_DATA[slotR]) labelSlotR.textContent = PLANET_DATA[slotR].label;
 
             currentFeaturedPlanet = nextPlanet;
         }
@@ -4185,16 +4298,33 @@
 
             document.getElementById('refreshCaptchaBtn')?.addEventListener('click', generateCaptcha);
 
+            const planDisplayMap = {
+                'Basic (₹1,999)': { title: 'Basic Tier', price: '₹1,999 One-Time' },
+                'Pro ⭐ (₹7,999)': { title: 'Pro ⭐ Best Selling', price: '₹7,999 One-Time' },
+                'Premium 👑 (₹14,999)': { title: 'Premium 👑 Enterprise', price: '₹14,999 One-Time' }
+            };
+
+            function syncPlanDropdownUI() {
+                const sel = document.getElementById('preferredPlan');
+                const titleEl = document.getElementById('planDisplayTitle');
+                const priceEl = document.getElementById('planDisplayPrice');
+                if (!sel || !titleEl || !priceEl) return;
+                const info = planDisplayMap[sel.value] || { title: sel.value, price: 'Deployment Package' };
+                titleEl.textContent = info.title;
+                priceEl.textContent = info.price;
+            }
+
+            document.getElementById('preferredPlan')?.addEventListener('change', syncPlanDropdownUI);
+
             window.openEnquiryModal = (preferredTier) => {
                 generateCaptcha();
-                if (preferredTier) {
-                    const sel = document.getElementById('preferredPlan');
-                    if (sel) {
-                        if (preferredTier === 'basic') sel.value = "Basic (₹1,999)";
-                        if (preferredTier === 'pro') sel.value = "Pro ⭐ (₹7,999)";
-                        if (preferredTier === 'premium') sel.value = "Premium 👑 (₹14,999)";
-                    }
+                const sel = document.getElementById('preferredPlan');
+                if (sel) {
+                    if (preferredTier === 'basic') sel.value = "Basic (₹1,999)";
+                    else if (preferredTier === 'premium') sel.value = "Premium 👑 (₹14,999)";
+                    else sel.value = "Pro ⭐ (₹7,999)";
                 }
+                syncPlanDropdownUI();
                 openGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content, '#enquiry');
             };
             window.closeEnquiryModal = () => closeGenericModal(modalMap['#enquiry'].modal, modalMap['#enquiry'].content);
