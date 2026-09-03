@@ -83,9 +83,9 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Typography System: Prata, Hanken Grotesk, Poppins, Geist, JetBrains Mono, Inter -->
+    <!-- Typography System: Newsreader (Claude Serif), Plus Jakarta Sans (Claude Sans), Prata, Hanken Grotesk, Poppins, Geist, JetBrains Mono, Inter -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&family=Prata&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&family=Prata&display=swap"
         rel="stylesheet">
 
     <!-- BubbledotICG-FinePos Font -->
@@ -468,7 +468,7 @@
             background: rgba(4, 16, 31, 0.72);
             -webkit-backdrop-filter: blur(20px) saturate(1.4);
             backdrop-filter: blur(20px) saturate(1.4);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.35);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.35);
         }
 
         .navbar::after {
@@ -664,7 +664,7 @@
             margin: 0 auto 16px;
             max-width: 900px;
             text-wrap: balance;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0,0,0,0.9);
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
             padding: 0 1rem;
         }
 
@@ -946,78 +946,78 @@
         }
 
         .anim.play .sky {
-            animation: ent-fade 1.6s var(--e-slow) 0.25s both;
+            animation: ent-fade 0.8s var(--e-slow) 0.05s both;
         }
 
         .anim.play .navbar::after {
-            animation: ent-draw 0.9s var(--e-expo) 0.12s both;
+            animation: ent-draw 0.5s var(--e-expo) 0.06s both;
         }
 
         .anim.play .logo {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.6s var(--e-quint) 0.20s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.4s var(--e-quint) 0.08s both;
         }
 
         .anim.play .links a:nth-child(1) {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.55s var(--e-quint) 0.26s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.35s var(--e-quint) 0.10s both;
         }
 
         .anim.play .links a:nth-child(2) {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.55s var(--e-quint) 0.31s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.35s var(--e-quint) 0.13s both;
         }
 
         .anim.play .links a:nth-child(3) {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.55s var(--e-quint) 0.36s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.35s var(--e-quint) 0.16s both;
         }
 
         .anim.play .links a:nth-child(4) {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.55s var(--e-quint) 0.41s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.35s var(--e-quint) 0.19s both;
         }
 
         .anim.play .links a:nth-child(5) {
-            --rise: calc(8 * var(--u));
-            animation: ent-rise 0.55s var(--e-quint) 0.43s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-rise 0.35s var(--e-quint) 0.22s both;
         }
 
         .anim.play .links a.enroll,
         .anim.play .burger {
-            --rise: calc(8 * var(--u));
-            animation: ent-settle 0.6s var(--e-quint) 0.46s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-settle 0.4s var(--e-quint) 0.24s both;
         }
 
         .anim.play .links a[aria-current="page"]::after {
-            animation: ent-draw 0.55s var(--e-expo) 0.60s both;
+            animation: ent-draw 0.4s var(--e-expo) 0.30s both;
         }
 
         .anim.play .eyebrow .ent-line {
-            animation: ent-reveal 0.75s var(--e-expo) 0.30s both;
+            animation: ent-reveal 0.45s var(--e-expo) 0.12s both;
         }
 
         .anim.play h1.title .ent-line {
-            animation: ent-reveal 0.95s var(--e-expo) 0.44s both;
+            animation: ent-reveal 0.55s var(--e-expo) 0.18s both;
         }
 
         .anim.play .rule span {
-            animation: ent-draw 0.65s var(--e-expo) 0.78s both;
+            animation: ent-draw 0.45s var(--e-expo) 0.24s both;
         }
 
         .anim.play p.lede {
-            --rise: calc(12 * var(--u));
-            animation: ent-rise 0.7s var(--e-quint) 0.86s both;
+            --rise: calc(8 * var(--u));
+            animation: ent-rise 0.5s var(--e-quint) 0.28s both;
         }
 
         .anim.play .cta a,
         .anim.play .planet-switcher-tabs {
-            --rise: calc(8 * var(--u));
-            animation: ent-settle 0.7s var(--e-quint) 1.05s both;
+            --rise: calc(6 * var(--u));
+            animation: ent-settle 0.45s var(--e-quint) 0.34s both;
         }
 
         .anim.play .scroll {
-            animation: ent-settle 0.6s var(--e-quint) 1.42s both;
+            animation: ent-settle 0.45s var(--e-quint) 0.40s both;
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -1133,8 +1133,8 @@
                 visibility: hidden;
                 transform: translateY(-8px);
                 transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                            transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                            visibility 0.32s;
+                    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.32s;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
@@ -1152,22 +1152,52 @@
                 animation: navItemSlideIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
             }
 
-            .navrow[data-open="true"] .links a:nth-of-type(1) { animation-delay: 25ms; }
-            .navrow[data-open="true"] .links a:nth-of-type(2) { animation-delay: 55ms; }
-            .navrow[data-open="true"] .links a:nth-of-type(3) { animation-delay: 85ms; }
-            .navrow[data-open="true"] .links a:nth-of-type(4) { animation-delay: 115ms; }
-            .navrow[data-open="true"] .links a:nth-of-type(5) { animation-delay: 145ms; }
-            .navrow[data-open="true"] .links a:nth-of-type(6) { animation-delay: 175ms; }
-            .navrow[data-open="true"] .links .nav-divider     { animation-delay: 205ms; }
-            .navrow[data-open="true"] .links button:nth-of-type(1) { animation-delay: 235ms; }
-            .navrow[data-open="true"] .links button:nth-of-type(2) { animation-delay: 265ms; }
-            .navrow[data-open="true"] .links a.enroll        { animation-delay: 295ms; }
+            .navrow[data-open="true"] .links a:nth-of-type(1) {
+                animation-delay: 25ms;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(2) {
+                animation-delay: 55ms;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(3) {
+                animation-delay: 85ms;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(4) {
+                animation-delay: 115ms;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(5) {
+                animation-delay: 145ms;
+            }
+
+            .navrow[data-open="true"] .links a:nth-of-type(6) {
+                animation-delay: 175ms;
+            }
+
+            .navrow[data-open="true"] .links .nav-divider {
+                animation-delay: 205ms;
+            }
+
+            .navrow[data-open="true"] .links button:nth-of-type(1) {
+                animation-delay: 235ms;
+            }
+
+            .navrow[data-open="true"] .links button:nth-of-type(2) {
+                animation-delay: 265ms;
+            }
+
+            .navrow[data-open="true"] .links a.enroll {
+                animation-delay: 295ms;
+            }
 
             @keyframes navItemSlideIn {
                 0% {
                     opacity: 0;
                     transform: translateY(12px) scale(0.97);
                 }
+
                 100% {
                     opacity: 1;
                     transform: translateY(0) scale(1);
@@ -1327,14 +1357,12 @@
                 position: absolute;
                 inset: 0;
                 z-index: 1;
-                background: linear-gradient(
-                    180deg,
-                    rgba(4, 16, 31, 0.6) 0%,
-                    rgba(4, 16, 31, 0.3) 35%,
-                    rgba(4, 16, 31, 0.2) 55%,
-                    rgba(4, 16, 31, 0.5) 80%,
-                    rgba(4, 16, 31, 0.8) 100%
-                );
+                background: linear-gradient(180deg,
+                        rgba(4, 16, 31, 0.6) 0%,
+                        rgba(4, 16, 31, 0.3) 35%,
+                        rgba(4, 16, 31, 0.2) 55%,
+                        rgba(4, 16, 31, 0.5) 80%,
+                        rgba(4, 16, 31, 0.8) 100%);
                 pointer-events: none;
             }
 
@@ -1555,27 +1583,27 @@
         .card-dark-contrast:hover {
             border-color: #FFFFFF;
             background: #0E0E0E;
-            transform: translate3d(0, -4px, 0);
-            box-shadow: 0 20px 45px rgba(255, 255, 255, 0.18);
+            transform: translate3d(0, -3px, 0);
+            box-shadow: 0 16px 40px rgba(255, 255, 255, 0.16);
         }
 
         .card-light-contrast {
             background: #FFFFFF;
             border: 2px solid #000000;
             border-radius: 24px;
-            transition: transform 0.4s var(--ease-spring), border-color 0.3s ease, box-shadow 0.4s ease;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: visible;
             color: #000000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
             will-change: transform;
         }
 
         .card-light-contrast:hover {
             border-color: #000000;
             background: #FAFAFA;
-            transform: translate3d(0, -4px, 0);
-            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.2);
+            transform: translate3d(0, -3px, 0);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
         }
 
         .apple-btn-primary {
@@ -1886,13 +1914,21 @@
         /* ═══════════════════════════════════════════════════════════════
            PHASE 7: TYPOGRAPHY — GLOBAL OVERFLOW SAFETY
         ═══════════════════════════════════════════════════════════════ */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             overflow-wrap: break-word;
             word-break: break-word;
         }
 
         @supports (text-wrap: balance) {
-            h1, h2, h3 {
+
+            h1,
+            h2,
+            h3 {
                 text-wrap: balance;
             }
         }
@@ -1928,12 +1964,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                60deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.4) 50%,
-                transparent 70%
-            );
+            background: linear-gradient(60deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    transparent 70%);
             transform: rotate(30deg) translateX(-150%);
             animation: shimmerSweep 3.8s infinite;
             pointer-events: none;
@@ -1943,16 +1977,21 @@
             0% {
                 transform: rotate(30deg) translateX(-150%);
             }
-            35%, 100% {
+
+            35%,
+            100% {
                 transform: rotate(30deg) translateX(150%);
             }
         }
 
         /* Icon depth float animation */
         @keyframes iconFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-5px) rotate(4deg);
             }
@@ -1990,8 +2029,491 @@
         }
 
         @keyframes tickerPulse {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           MINIMAL POLISH: SCROLL PROGRESS, FLOATING CONTROLS & RANGE SLIDER
+        ═══════════════════════════════════════════════════════════════ */
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2.5px;
+            width: 0%;
+            background: linear-gradient(90deg, #67e8f9 0%, #38bdf8 50%, #818cf8 100%);
+            box-shadow: 0 0 10px rgba(103, 232, 249, 0.8), 0 0 4px rgba(56, 189, 248, 0.6);
+            z-index: 99999;
+            pointer-events: none;
+            transition: width 0.08s ease-out;
+        }
+
+        #backToTopBtn {
+            position: fixed;
+            bottom: calc(24px + var(--sai-bottom));
+            right: 24px;
+            z-index: 80;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(4, 16, 31, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 16px rgba(103, 232, 249, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px) scale(0.92);
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        #backToTopBtn.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        #backToTopBtn:hover {
+            background: rgba(103, 232, 249, 0.2);
+            border-color: rgba(103, 232, 249, 0.7);
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(103, 232, 249, 0.5);
+        }
+
+        #backToTopBtn:active {
+            transform: translateY(0) scale(0.94);
+        }
+
+        /* Fluid custom styled ROI slider */
+        input[type="range"]#roiSpeedRange {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 999px;
+            background: linear-gradient(to right, #67e8f9 0%, #67e8f9 var(--range-progress, 45%), rgba(255, 255, 255, 0.15) var(--range-progress, 45%), rgba(255, 255, 255, 0.15) 100%);
+            outline: none;
+            transition: background 0.1s ease;
+        }
+
+        input[type="range"]#roiSpeedRange::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2.5px solid #04101f;
+            box-shadow: 0 0 14px rgba(103, 232, 249, 0.9), 0 2px 6px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+        }
+
+        input[type="range"]#roiSpeedRange::-webkit-slider-thumb:hover {
+            transform: scale(1.18);
+            box-shadow: 0 0 20px rgba(103, 232, 249, 1), 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        input[type="range"]#roiSpeedRange::-webkit-slider-thumb:active {
+            transform: scale(1.08);
+        }
+
+        input[type="range"]#roiSpeedRange::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2.5px solid #04101f;
+            box-shadow: 0 0 14px rgba(103, 232, 249, 0.9);
+            cursor: pointer;
+        }
+
+        /* Staggered Scroll-Reveal Delays */
+        .reveal-delay-100 { transition-delay: 100ms !important; }
+        .reveal-delay-200 { transition-delay: 200ms !important; }
+        .reveal-delay-300 { transition-delay: 300ms !important; }
+        .reveal-delay-400 { transition-delay: 400ms !important; }
+
+        /* Minimal Spotlight Glow on Hover */
+        .card-spotlight {
+            position: relative;
+        }
+
+        .card-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(103, 232, 249, 0.18), transparent 60%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .card-spotlight:hover::before {
+            opacity: 1;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           LUMINOUS BRIGHT & PREMIUM ICON SYSTEM
+        ═══════════════════════════════════════════════════════════════ */
+        .icon-luminous-cyan {
+            color: #38bdf8 !important;
+            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.35));
+            transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
+        }
+        .icon-luminous-emerald {
+            color: #34d399 !important;
+            filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.75)) drop-shadow(0 0 16px rgba(52, 211, 153, 0.35));
+            transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
+        }
+        .icon-luminous-purple {
+            color: #c084fc !important;
+            filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.75)) drop-shadow(0 0 16px rgba(192, 132, 252, 0.35));
+            transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
+        }
+        .icon-luminous-amber {
+            color: #fbbf24 !important;
+            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.75)) drop-shadow(0 0 16px rgba(251, 191, 36, 0.35));
+            transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
+        }
+
+        /* Frosted Glass Luminous Icon Pods */
+        .icon-pod {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.25rem;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
+        }
+
+        .icon-pod-cyan {
+            background: radial-gradient(circle at 35% 35%, rgba(56, 189, 248, 0.2), rgba(4, 16, 31, 0.95)) !important;
+            border: 1.5px solid rgba(56, 189, 248, 0.55) !important;
+            box-shadow: 0 8px 24px -4px rgba(56, 189, 248, 0.35), inset 0 0 14px rgba(56, 189, 248, 0.18) !important;
+            color: #38bdf8 !important;
+        }
+        .icon-pod-cyan:hover, .group:hover .icon-pod-cyan {
+            border-color: #67e8f9 !important;
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.55), inset 0 0 20px rgba(103, 232, 249, 0.35) !important;
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        .icon-pod-emerald {
+            background: radial-gradient(circle at 35% 35%, rgba(52, 211, 153, 0.2), rgba(4, 16, 31, 0.95)) !important;
+            border: 1.5px solid rgba(52, 211, 153, 0.55) !important;
+            box-shadow: 0 8px 24px -4px rgba(52, 211, 153, 0.35), inset 0 0 14px rgba(52, 211, 153, 0.18) !important;
+            color: #34d399 !important;
+        }
+        .icon-pod-emerald:hover, .group:hover .icon-pod-emerald {
+            border-color: #34d399 !important;
+            box-shadow: 0 12px 32px rgba(52, 211, 153, 0.55), inset 0 0 20px rgba(52, 211, 153, 0.35) !important;
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        .icon-pod-purple {
+            background: radial-gradient(circle at 35% 35%, rgba(192, 132, 252, 0.2), rgba(4, 16, 31, 0.95)) !important;
+            border: 1.5px solid rgba(192, 132, 252, 0.55) !important;
+            box-shadow: 0 8px 24px -4px rgba(192, 132, 252, 0.35), inset 0 0 14px rgba(192, 132, 252, 0.18) !important;
+            color: #c084fc !important;
+        }
+        .icon-pod-purple:hover, .group:hover .icon-pod-purple {
+            border-color: #c084fc !important;
+            box-shadow: 0 12px 32px rgba(192, 132, 252, 0.55), inset 0 0 20px rgba(192, 132, 252, 0.35) !important;
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        .icon-pod-amber {
+            background: radial-gradient(circle at 35% 35%, rgba(251, 191, 36, 0.2), rgba(4, 16, 31, 0.95)) !important;
+            border: 1.5px solid rgba(251, 191, 36, 0.55) !important;
+            box-shadow: 0 8px 24px -4px rgba(251, 191, 36, 0.35), inset 0 0 14px rgba(251, 191, 36, 0.18) !important;
+            color: #fbbf24 !important;
+        }
+        .icon-pod-amber:hover, .group:hover .icon-pod-amber {
+            border-color: #fbbf24 !important;
+            box-shadow: 0 12px 32px rgba(251, 191, 36, 0.55), inset 0 0 20px rgba(251, 191, 36, 0.35) !important;
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           GOOGLE BLOG ("THE KEYWORD") & GOOGLE SUPPORT STYLING SYSTEM
+        ═══════════════════════════════════════════════════════════════ */
+        .google-search-bar {
+            background: #ffffff;
+            border: 1.5px solid #dadce0;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.12);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .google-search-bar:focus-within {
+            border-color: #1a73e8;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.25);
+        }
+
+        .google-chip {
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            border: 1px solid #dadce0;
+            background: #f8f9fa;
+            color: #3c4043;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .google-chip:hover {
+            background: #e8eaed;
+            color: #202124;
+            border-color: #bdc1c6;
+            transform: translateY(-1px);
+        }
+        .google-chip.active {
+            background: #202124;
+            color: #ffffff;
+            border-color: #202124;
+            box-shadow: 0 2px 8px rgba(32, 33, 36, 0.25);
+        }
+
+        .google-topic-card {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 18px;
+            padding: 16px 20px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(32, 33, 36, 0.05);
+        }
+        .google-topic-card:hover {
+            border-color: #1a73e8;
+            box-shadow: 0 8px 24px rgba(26, 115, 232, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .google-blog-card {
+            background: #ffffff;
+            border: 1px solid #e8eaed;
+            border-radius: 20px;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(32, 33, 36, 0.06);
+        }
+        .google-blog-card:hover {
+            border-color: #dadce0;
+            box-shadow: 0 14px 36px rgba(32, 33, 36, 0.14);
+            transform: translateY(-4px);
+        }
+
+        .google-faq-card {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 16px;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 3px rgba(32, 33, 36, 0.04);
+        }
+        .google-faq-card:hover {
+            border-color: #bdc1c6;
+            box-shadow: 0 4px 14px rgba(32, 33, 36, 0.08);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CLAUDE WEBSITE EDITORIAL DESIGN SYSTEM & MOBILE FLUIDITY
+        ═══════════════════════════════════════════════════════════════ */
+        :root {
+            --font-claude-serif: 'Newsreader', 'Tiempos', Georgia, serif;
+            --font-claude-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+            --claude-bg: #faf9f5;
+            --claude-card: #ffffff;
+            --claude-ink: #1f1e1d;
+            --claude-body: #4d4c47;
+            --claude-muted: #73726c;
+            --claude-border: #e8e6df;
+            --claude-accent: #c96442;
+            --claude-accent-soft: rgba(201, 100, 66, 0.12);
+        }
+
+        .font-claude-serif {
+            font-family: var(--font-claude-serif) !important;
+        }
+        .font-claude-sans {
+            font-family: var(--font-claude-sans) !important;
+        }
+
+        .claude-search-bar {
+            background: #ffffff;
+            border: 1.5px solid #e8e6df;
+            box-shadow: 0 2px 10px rgba(31, 30, 29, 0.04);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .claude-search-bar:focus-within {
+            border-color: #c96442;
+            box-shadow: 0 2px 16px rgba(201, 100, 66, 0.18);
+        }
+
+        .claude-chip {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1px;
+            border: 1px solid #e2ded5;
+            background: #f0eee6;
+            color: #4d4c47;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+        .claude-chip:hover {
+            background: #e6e4dc;
+            color: #1f1e1d;
+            border-color: #d6d2c7;
+            transform: translateY(-1px);
+        }
+        .claude-chip.active {
+            background: #1f1e1d;
+            color: #ffffff;
+            border-color: #1f1e1d;
+            box-shadow: 0 2px 8px rgba(31, 30, 29, 0.2);
+        }
+
+        .claude-card {
+            background: #ffffff;
+            border: 1px solid #e8e6df;
+            border-radius: 18px;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 8px rgba(31, 30, 29, 0.03);
+        }
+        .claude-card:hover {
+            border-color: #d8d5cd;
+            box-shadow: 0 10px 28px rgba(31, 30, 29, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .claude-faq-item {
+            background: #ffffff;
+            border: 1px solid #e8e6df;
+            border-radius: 16px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .claude-faq-item:hover {
+            border-color: #d8d5cd;
+            box-shadow: 0 4px 14px rgba(31, 30, 29, 0.05);
+        }
+
+        /* Mobile Fluid Modal Engine */
+        @media (max-width: 640px) {
+            .mobile-fullscreen-modal {
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+            .mobile-fullscreen-dialog {
+                max-width: 100vw !important;
+                width: 100vw !important;
+                height: 100dvh !important;
+                max-height: 100dvh !important;
+                border-radius: 0 !important;
+                border: none !important;
+            }
+        }
+
+        /* Toast Notification */
+        #globalToast {
+            position: fixed;
+            bottom: calc(24px + var(--sai-bottom));
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #1f1e1d;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+            z-index: 999999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: var(--font-claude-sans);
+        }
+        #globalToast.is-shown {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Mobile Quick Actions Dock */
+        #mobileQuickDock {
+            position: fixed;
+            bottom: max(16px, env(safe-area-inset-bottom));
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 70;
+            background: rgba(4, 16, 31, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 999px;
+            padding: 4px 8px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 16px rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        #mobileQuickDock.dock-hidden {
+            transform: translateX(-50%) translateY(120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .mobile-dock-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 8px;
+            border-radius: 999px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.2s ease;
+            min-height: 40px;
+            min-width: 46px;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-dock-btn:active {
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .mobile-dock-btn i, .mobile-dock-btn svg {
+            margin-bottom: 2px;
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -2013,6 +2535,9 @@
 
 <body
     class="selection:bg-white selection:text-black w-full max-w-full bg-[#04101f] text-white overflow-x-hidden antialiased">
+
+    <!-- Global Minimal Scroll Progress Indicator -->
+    <div id="scrollProgressBar" role="progressbar" aria-label="Scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <aside aria-label="System status"
         class="w-full bg-[#030d19] border-b border-white/10 py-1.5 px-3 sm:px-4 text-center z-[60] relative">
@@ -2067,15 +2592,17 @@
                             <a href="#testimonials">Reviews</a>
                             <a href="#contact">Contact</a>
                             <div class="nav-divider" role="separator" aria-hidden="true"></div>
-                            <button type="button" onclick="openHelpModal()" class="nav-btn" aria-label="Open Help Center">
-                                <i data-lucide="help-circle" class="w-4 h-4 text-cyan-300"></i>
+                            <button type="button" onclick="openHelpModal()" class="nav-btn"
+                                aria-label="Open Help Center">
+                                <i data-lucide="help-circle" class="w-4 h-4 icon-luminous-cyan"></i>
                                 <span>Help</span>
                             </button>
                             <button type="button" onclick="openBlogModal()" class="nav-btn" aria-label="Open Blog">
-                                <i data-lucide="book-open" class="w-4 h-4 text-cyan-300"></i>
+                                <i data-lucide="book-open" class="w-4 h-4 icon-luminous-cyan"></i>
                                 <span>Blog</span>
                             </button>
-                            <a class="enroll shimmer-btn" href="javascript:void(0)" onclick="openEnquiryModal('pro')">Start &rarr;</a>
+                            <a class="enroll shimmer-btn" href="javascript:void(0)"
+                                onclick="openEnquiryModal('pro')">Start &rarr;</a>
                         </nav>
                         <button class="burger" type="button" id="burgerBtn" aria-label="Open navigation"
                             aria-expanded="false" aria-controls="site-nav">
@@ -2088,7 +2615,8 @@
                 <div class="copy">
                     <div class="col eyebrow">
                         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                        <span class="ent-mask"><span class="ent-line" id="planetEyebrow">FORGE SOFTWARES • SCALE YOUR BRAND</span></span>
+                        <span class="ent-mask"><span class="ent-line" id="planetEyebrow">FORGE SOFTWARES • SCALE YOUR
+                                BRAND</span></span>
                     </div>
                     <h1 class="col title" id="planetHeadline">
                         <span class="ent-mask"><span class="ent-line">BUILD YOUR WEBSITE NOW.</span></span>
@@ -2105,14 +2633,18 @@
                         </a>
 
                         <!-- Planet Switcher Tabs Pill -->
-                        <div class="planet-switcher-tabs" id="planetTabs" role="tablist" aria-label="Select Architecture Planet">
-                            <button type="button" class="planet-tab-btn active" data-planet="earth" aria-selected="true" role="tab" aria-label="Earth Architecture">
+                        <div class="planet-switcher-tabs" id="planetTabs" role="tablist"
+                            aria-label="Select Architecture Planet">
+                            <button type="button" class="planet-tab-btn active" data-planet="earth" aria-selected="true"
+                                role="tab" aria-label="Earth Architecture">
                                 <span class="planet-dot bg-cyan-400"></span> EARTH
                             </button>
-                            <button type="button" class="planet-tab-btn" data-planet="venus" aria-selected="false" role="tab" aria-label="Venus Architecture">
+                            <button type="button" class="planet-tab-btn" data-planet="venus" aria-selected="false"
+                                role="tab" aria-label="Venus Architecture">
                                 <span class="planet-dot bg-amber-400"></span> VENUS
                             </button>
-                            <button type="button" class="planet-tab-btn" data-planet="mars" aria-selected="false" role="tab" aria-label="Mars AI Agents">
+                            <button type="button" class="planet-tab-btn" data-planet="mars" aria-selected="false"
+                                role="tab" aria-label="Mars AI Agents">
                                 <span class="planet-dot bg-rose-500"></span> MARS
                             </button>
                         </div>
@@ -2131,12 +2663,15 @@
         </section>
 
         <!-- SPEED ADVANTAGE STRIP -->
-        <aside aria-label="Speed advantage notice" class="w-full bg-[#020813] border-y border-white/10 py-3 px-4 sm:px-8 relative z-20">
-            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <aside aria-label="Speed advantage notice"
+            class="w-full bg-[#020813] border-y border-white/10 py-3 px-4 sm:px-8 relative z-20">
+            <div
+                class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <div class="flex items-center justify-center sm:justify-start gap-2.5">
                     <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
                     <p class="font-mono text-xs sm:text-sm uppercase tracking-wider text-white/90 font-bold">
-                        <strong class="text-cyan-300">2026 ADVANTAGE:</strong> Sub-100ms platforms convert 4.2× higher. Outpace your competition.
+                        <strong class="text-cyan-300">2026 ADVANTAGE:</strong> Sub-100ms platforms convert 4.2× higher.
+                        Outpace your competition.
                     </p>
                 </div>
                 <button type="button" onclick="openEnquiryModal('pro')"
@@ -2164,10 +2699,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                    <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal">
-                        <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                    <div class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal">
+                        <div class="icon-pod icon-pod-cyan w-13 h-13 sm:w-14 sm:h-14 mb-6">
+                            <i data-lucide="cpu" class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-cyan"></i>
                         </div>
                         <h3
                             class="text-xl sm:text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">
@@ -2176,11 +2710,9 @@
                             and custom API integrations engineered for continuous, fault-tolerant execution.</p>
                     </div>
 
-                    <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal"
-                        style="transition-delay: 100ms;">
-                        <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
-                            <i data-lucide="layout-template" class="w-6 h-6"></i>
+                    <div class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-100">
+                        <div class="icon-pod icon-pod-emerald w-13 h-13 sm:w-14 sm:h-14 mb-6">
+                            <i data-lucide="layout-template" class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-emerald"></i>
                         </div>
                         <h3
                             class="text-xl sm:text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">
@@ -2190,11 +2722,9 @@
                         </p>
                     </div>
 
-                    <div class="card-light-contrast p-6 sm:p-7 cursor-default group reveal sm:col-span-2 lg:col-span-1"
-                        style="transition-delay: 200ms;">
-                        <div
-                            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center mb-6 border-2 border-black font-extrabold icon-box-glow">
-                            <i data-lucide="message-square-dashed" class="w-6 h-6"></i>
+                    <div class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-200 sm:col-span-2 lg:col-span-1">
+                        <div class="icon-pod icon-pod-purple w-13 h-13 sm:w-14 sm:h-14 mb-6">
+                            <i data-lucide="message-square-dashed" class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-purple"></i>
                         </div>
                         <h3
                             class="text-xl sm:text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">
@@ -2473,7 +3003,7 @@
                         style="transition-delay: 100ms;">
                         <div
                             class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
-                            <i data-lucide="star" class="w-3 h-3 text-white fill-white"></i> BEST SELLING ⭐
+                            <i data-lucide="star" class="w-3.5 h-3.5 icon-luminous-amber fill-amber-400"></i> BEST SELLING ⭐
                         </div>
                         <div>
                             <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
@@ -2492,7 +3022,7 @@
                                     class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Scale</span>
                                 <h3
                                     class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
-                                    <i data-lucide="sparkles" class="w-5 h-5 text-black"></i> Pro ⭐
+                                    <i data-lucide="sparkles" class="w-5 h-5 icon-luminous-amber"></i> Pro ⭐
                                 </h3>
                                 <p class="text-black text-xs mt-2 font-medium">Growing businesses & startups</p>
                             </div>
@@ -2568,7 +3098,7 @@
                         style="transition-delay: 200ms;">
                         <div
                             class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
-                            <i data-lucide="crown" class="w-3.5 h-3.5 text-white"></i> VALUE FOR MONEY 👑
+                            <i data-lucide="crown" class="w-3.5 h-3.5 icon-luminous-amber"></i> VALUE FOR MONEY 👑
                         </div>
                         <div>
                             <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
@@ -2586,7 +3116,7 @@
                                     class="text-xs font-mono uppercase tracking-widest text-black font-extrabold block mb-1">Enterprise</span>
                                 <h3
                                     class="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest font-bubbledot text-black flex items-center gap-2">
-                                    <i data-lucide="crown" class="w-6 h-6 text-black"></i> Premium 👑
+                                    <i data-lucide="crown" class="w-6 h-6 icon-luminous-amber"></i> Premium 👑
                                 </h3>
                                 <p class="text-black text-xs mt-2 font-medium">Established businesses & premium brands
                                 </p>
@@ -2619,19 +3149,19 @@
                                         Tailored
                                         Design</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="bot"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
+                                        class="w-4 h-4 icon-luminous-purple shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
                                             Chatbot Integrated</strong></span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="globe"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Free Custom Domain
                                             (1st Year)</strong></span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="shield-check"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Enterprise SSL & Premium
+                                        class="w-4 h-4 icon-luminous-emerald shrink-0 mt-0.5"></i> <span>Enterprise SSL & Premium
                                         Hosting Setup</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="search-code"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced SEO + Technical
                                         Schema.org</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="zap"
-                                        class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Maximum Speed & Core Web
+                                        class="w-4 h-4 icon-luminous-cyan shrink-0 mt-0.5"></i> <span>Maximum Speed & Core Web
                                         Vitals Tuning</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="filter"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced Lead Capture
@@ -3388,8 +3918,8 @@
                         style="transition-delay: 200ms;">
                         <div>
                             <div
-                                class="bg-white text-black border-2 border-white w-12 h-12 rounded-2xl flex items-center justify-center mb-6 font-extrabold group-hover:scale-105 transition-transform">
-                                <i data-lucide="phone-call" class="w-6 h-6"></i>
+                                class="icon-pod icon-pod-cyan w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="phone-call" class="w-6 h-6 icon-luminous-cyan"></i>
                             </div>
                             <span class="text-[10px] font-mono uppercase tracking-widest text-white font-extrabold">24/7
                                 Priority Support</span>
@@ -3398,11 +3928,11 @@
                             <div class="space-y-3 font-mono text-xs sm:text-sm text-white font-bold">
                                 <a href="tel:+919697430658"
                                     class="flex items-center gap-2 hover:text-cyan-300 transition-colors min-h-[36px]">
-                                    <i data-lucide="phone" class="w-4 h-4 text-white shrink-0"></i> +91-9697430658
+                                    <i data-lucide="phone" class="w-4 h-4 icon-luminous-cyan shrink-0"></i> +91-9697430658
                                 </a>
                                 <a href="mailto:farmanshafi2007@gmail.com"
                                     class="flex items-center gap-2 hover:text-cyan-300 transition-colors break-all min-h-[36px]">
-                                    <i data-lucide="mail" class="w-4 h-4 text-white shrink-0"></i>
+                                    <i data-lucide="mail" class="w-4 h-4 icon-luminous-cyan shrink-0"></i>
                                     farmanshafi2007@gmail.com
                                 </a>
                                 <div class="flex items-center gap-3 pt-2">
@@ -3444,8 +3974,8 @@
             <div
                 class="w-full max-w-3xl mx-auto card-light-contrast rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 text-center reveal border-4 border-black shadow-2xl">
                 <div
-                    class="bg-black text-white w-14 sm:w-16 h-14 sm:h-16 flex items-center justify-center mx-auto mb-6 sm:mb-8 rounded-full border-2 border-black font-extrabold">
-                    <i data-lucide="rocket" class="w-6 sm:w-8 h-6 sm:h-8"></i>
+                    class="icon-pod icon-pod-cyan w-14 sm:w-16 h-14 sm:h-16 flex items-center justify-center mx-auto mb-6 sm:mb-8 rounded-full">
+                    <i data-lucide="rocket" class="w-6 sm:w-8 h-6 sm:h-8 icon-luminous-cyan"></i>
                 </div>
                 <h2 class="text-2xl sm:text-5xl font-bubbledot uppercase tracking-tight text-black mb-4 font-extrabold">
                     Initialize Protocol.</h2>
@@ -3763,227 +4293,330 @@
         </div>
     </div>
 
-    <!-- HELP CENTER MODAL (ALL 73 FAQS FULLY PRESERVED) -->
+    <!-- HELP CENTER MODAL (CLAUDE WEBSITE EDITORIAL STYLING & FULL MOBILE FLUIDITY) -->
     <div id="helpCenterModal"
-        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-2.5 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden"
-        role="dialog" aria-modal="true">
-        <div class="card-light-contrast bg-white max-w-6xl w-full max-h-[94dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border-2 border-black overflow-hidden rounded-2xl sm:rounded-3xl"
+        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden mobile-fullscreen-modal"
+        role="dialog" aria-modal="true" aria-labelledby="helpCenterTitle">
+        <div class="bg-[#faf9f5] text-[#1f1e1d] w-full h-full sm:h-auto sm:max-h-[92dvh] sm:max-w-5xl md:max-w-6xl flex flex-col relative shadow-[0_24px_80px_rgba(20,20,19,0.25)] transform scale-95 transition-transform duration-300 mx-auto border-0 sm:border border-[#e8e6df] overflow-hidden rounded-none sm:rounded-3xl mobile-fullscreen-dialog overscroll-contain"
             id="helpCenterContent">
 
-            <button type="button" onclick="closeHelpModal()"
-                class="absolute top-3 right-3 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all border border-black cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
-                aria-label="Close Help Center">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-
-            <div class="pt-6 sm:pt-8 px-4 sm:px-10 pb-5 shrink-0 bg-black text-white relative border-b-2 border-black">
-                <div class="flex items-center gap-2 mb-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
-                    <span
-                        class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white font-extrabold">Official
-                        Knowledge Portal</span>
-                </div>
-                <h2
-                    class="text-xl sm:text-3xl md:text-4xl font-bubbledot uppercase tracking-wide text-white font-extrabold">
-                    FORGE SOFTWARES — HELP CENTER</h2>
-                <p class="text-white/80 text-[11px] sm:text-sm font-sans mt-1.5 font-medium">Search solutions regarding
-                    pricing, domain ownership, maintenance windows, and AI bots.</p>
-
-                <div class="mt-4 sm:mt-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-                    <div class="relative flex-1 max-w-xl">
-                        <i data-lucide="search"
-                            class="w-4 h-4 text-black absolute left-3.5 top-1/2 -translate-y-1/2 z-10"></i>
-                        <input type="text" id="helpSearchInput"
-                            placeholder="Search questions (e.g., pricing, payment, chatbot, domain)..."
-                            class="w-full bg-white border-2 border-black rounded-full pl-10 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm font-mono text-black placeholder-black/60 focus:outline-none transition-all shadow-inner min-h-[44px] font-bold" />
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button type="button" id="expandAllFaqBtn"
-                            class="w-full sm:w-auto px-4 py-2 rounded-full bg-white text-black font-mono border-2 border-white transition-colors whitespace-nowrap cursor-pointer min-h-[44px] focus:outline-none shadow-sm font-extrabold">
-                            <i data-lucide="chevrons-down" class="w-3.5 h-3.5 inline-block mr-1"></i> Expand All
-                        </button>
-                    </div>
+            <!-- Claude Editorial Top Bar -->
+            <div class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+                <div class="flex items-center gap-3">
+                    <!-- Claude Coral Dot / Brand Icon -->
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
+                    <span class="text-xs sm:text-sm font-claude-sans font-semibold tracking-tight text-[#1f1e1d] flex items-center gap-1.5">
+                        <span class="font-bold text-[#1f1e1d]">Forge</span>
+                        <span class="text-[#73726c] font-normal">• Knowledge Base & Help</span>
+                    </span>
                 </div>
 
-                <div class="mt-4 help-pills-scroll font-mono text-[10px] sm:text-xs max-w-full" id="helpCategoryPills">
-                    <button type="button"
-                        class="helpCatFilterBtn active px-3.5 py-1.5 rounded-full bg-white text-black font-extrabold whitespace-nowrap cursor-pointer min-h-[38px] shrink-0"
-                        data-cat="all">All Topics (73)</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="1">1. Price & Payment</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="2">2. After You Pay</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="3">3. Ownership & Tech</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="4">4. Support & Help</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="5">5. AI Chatbot</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="6">6. Design & Changes</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="7">7. Refund Policy</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="8">8. Safety & Data</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="9">9. Contact Forge</button>
-                    <button type="button"
-                        class="helpCatFilterBtn px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-white/10 border border-white whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                        data-cat="10">10. About Us</button>
+                <div class="flex items-center gap-2">
+                    <button type="button" id="expandAllFaqBtn"
+                        class="px-3 sm:px-4 py-1.5 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#4d4c47] text-[11px] sm:text-xs font-claude-sans font-semibold transition-colors cursor-pointer focus:outline-none flex items-center gap-1.5 min-h-[36px]">
+                        <svg class="w-3.5 h-3.5 text-[#c96442] pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+                        <span id="expandAllFaqText">Expand All</span>
+                    </button>
+                    <button type="button" onclick="closeHelpModal()"
+                        class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
+                        aria-label="Close Help Center">
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
             </div>
 
-            <div class="overflow-y-auto custom-scrollbar p-4 sm:p-6 md:p-10 flex-1 space-y-6 bg-white text-black"
-                id="helpContentList">
-                <!-- Help items dynamically rendered via JavaScript -->
+            <!-- Claude Editorial Hero Search Banner -->
+            <div class="bg-[#ffffff] px-4 sm:px-8 pt-6 sm:pt-8 pb-5 border-b border-[#e8e6df] shrink-0 text-center relative">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0eee6] text-[#c96442] font-claude-sans font-semibold text-[10px] tracking-wider uppercase mb-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#c96442]"></span>
+                    Documentation & Answers
+                </div>
+                <h2 id="helpCenterTitle" class="text-2xl sm:text-4xl lg:text-5xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight mb-2">
+                    How can we <em class="italic font-serif text-[#c96442]">help you?</em>
+                </h2>
+                <p class="text-xs sm:text-sm font-claude-sans text-[#73726c] max-w-xl mx-auto mb-5 leading-relaxed">
+                    Search 73 verified engineering answers covering fixed pricing tiers, IP code ownership, domain setup, and autonomous AI agents.
+                </p>
+
+                <!-- Search Input Box with Guaranteed Inline SVG and Clear Button -->
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="claude-search-bar rounded-full flex items-center px-4 py-2.5 sm:py-3 gap-3 bg-white">
+                        <svg class="w-4 sm:w-5 h-4 sm:h-5 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="helpSearchInput"
+                            placeholder="Type keywords (pricing, deposit, domain, refund, AI agent)..."
+                            class="w-full bg-transparent border-none text-xs sm:text-sm font-claude-sans text-[#1f1e1d] placeholder-[#73726c] focus:outline-none" />
+                        <button type="button" id="helpClearSearchBtn" class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none" title="Clear search">&times;</button>
+                        <span id="helpFaqCountBadge" class="text-[10px] font-mono font-bold text-[#73726c] bg-[#f0eee6] px-2.5 py-0.5 rounded-full shrink-0">73 FAQS</span>
+                    </div>
+                </div>
+
+                <!-- Claude Quick Topic Shortcut Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3.5 mt-5 max-w-4xl mx-auto text-left">
+                    <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="1">
+                        <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#c96442] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        </div>
+                        <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Pricing & Billing</div>
+                        <div class="text-[10px] text-[#73726c] font-claude-sans">₹1,999 to ₹14,999</div>
+                    </div>
+
+                    <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="3">
+                        <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#2d6a4f] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Code Ownership</div>
+                        <div class="text-[10px] text-[#73726c] font-claude-sans">100% IP rights</div>
+                    </div>
+
+                    <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="5">
+                        <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#7b2cbf] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                        </div>
+                        <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">AI Chatbots</div>
+                        <div class="text-[10px] text-[#73726c] font-claude-sans">Autonomous agents</div>
+                    </div>
+
+                    <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="7">
+                        <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#b45309] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Refund Guarantee</div>
+                        <div class="text-[10px] text-[#73726c] font-claude-sans">7-day technical SLA</div>
+                    </div>
+                </div>
+
+                <!-- Claude Category Pills Row -->
+                <div class="mt-5 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 max-w-4xl mx-auto" id="helpCategoryPills">
+                    <button type="button" class="claude-chip helpCatFilterBtn active" data-cat="all">All Topics (73)</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="1">1. Pricing & Payment</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="2">2. After You Pay</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="3">3. Ownership & Tech</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="4">4. Support Windows</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="5">5. AI Chatbots</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="6">6. Design Revisions</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="7">7. Refund Policy</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="8">8. Data Security</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="9">9. Contact Forge</button>
+                    <button type="button" class="claude-chip helpCatFilterBtn" data-cat="10">10. About Us</button>
+                </div>
+            </div>
+
+            <!-- FAQ List View -->
+            <div class="overflow-y-auto custom-scrollbar p-3.5 sm:p-6 md:p-8 flex-1 space-y-3 bg-[#faf9f5] text-[#1f1e1d]"
+                id="helpContentList" style="-webkit-overflow-scrolling: touch; overscroll-behavior: contain;">
+                <!-- FAQ items rendered dynamically via renderHelpCenter() -->
+            </div>
+
+            <!-- Claude Editorial Bottom Contact Prompt -->
+            <div class="bg-[#ffffff] border-t border-[#e8e6df] px-4 sm:px-8 py-3 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-claude-sans">
+                <div class="flex items-center gap-2 text-[#73726c]">
+                    <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg>
+                    <span>Need technical clarifications? Connect directly with a senior engineer.</span>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                    <a href="tel:+919697430658"
+                        class="px-3.5 py-1.5 rounded-full bg-[#1f1e1d] text-white font-semibold hover:bg-black transition-colors flex items-center gap-1.5 shadow-sm min-h-[36px]">
+                        <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +91-9697430658
+                    </a>
+                    <button type="button" onclick="closeHelpModal(); openEnquiryModal('pro');"
+                        class="px-3.5 py-1.5 rounded-full border border-[#e8e6df] bg-[#ffffff] text-[#1f1e1d] hover:bg-[#f0eee6] font-semibold transition-colors min-h-[36px]">
+                        Book Consultation
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- BLOG MODAL -->
+    <!-- BLOG MODAL (CLAUDE WEBSITE EDITORIAL STYLING & FULL MOBILE FLUIDITY) -->
     <div id="blogModal"
-        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-2.5 sm:p-6 backdrop-blur-2xl transition-opacity duration-300 opacity-0 overflow-hidden"
-        role="dialog" aria-modal="true">
-        <div class="card-light-contrast bg-white max-w-5xl w-full max-h-[94dvh] flex flex-col relative shadow-2xl transform scale-95 transition-transform duration-300 mx-auto border-2 border-black rounded-2xl sm:rounded-3xl"
+        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden mobile-fullscreen-modal"
+        role="dialog" aria-modal="true" aria-labelledby="blogHeaderTitle">
+        <div class="bg-[#faf9f5] text-[#1f1e1d] w-full h-full sm:h-auto sm:max-h-[92dvh] sm:max-w-5xl md:max-w-6xl flex flex-col relative shadow-[0_24px_80px_rgba(20,20,19,0.25)] transform scale-95 transition-transform duration-300 mx-auto border-0 sm:border border-[#e8e6df] overflow-hidden rounded-none sm:rounded-3xl mobile-fullscreen-dialog overscroll-contain"
             id="blogContent">
 
-            <button type="button" onclick="closeBlogModal()"
-                class="absolute top-3 right-3 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full z-[100] active:scale-95 transition-all cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
-                aria-label="Close blog modal">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-
-            <div
-                class="pt-6 sm:pt-8 px-4 sm:px-10 pb-5 shrink-0 border-b-2 border-black relative overflow-hidden bg-black text-white rounded-t-[18px]">
-                <div class="flex items-center gap-2 mb-1.5">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shrink-0"></span>
-                    <span
-                        class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-white font-extrabold">Knowledge
-                        Hub & Insights</span>
-                </div>
-                <h2
-                    class="text-xl sm:text-3xl md:text-4xl font-bubbledot uppercase tracking-wide text-white font-extrabold">
-                    Forge Engineering Blog</h2>
-                <p class="text-white/80 text-[11px] sm:text-sm font-mono mt-1.5 font-bold">Architecture frameworks, AI
-                    agent deployment, and conversion dynamics.</p>
-
-                <div class="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                    <div class="relative flex-1 max-w-md">
-                        <i data-lucide="search"
-                            class="w-4 h-4 text-black absolute left-3.5 top-1/2 -translate-y-1/2 z-10"></i>
-                        <input type="text" id="blogSearchInput" placeholder="Search articles..."
-                            class="w-full bg-white border-2 border-black rounded-full pl-10 pr-4 py-2 text-xs sm:text-sm font-mono text-black placeholder-black/60 focus:outline-none transition-all min-h-[44px] font-bold" />
+            <!-- Claude Editorial Top Bar -->
+            <div class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="blogHeaderTitle" class="text-sm sm:text-base font-claude-serif font-bold tracking-tight text-[#1f1e1d]">Forge Journal</span>
+                        <span class="text-[11px] font-claude-sans text-[#73726c] hidden sm:inline">• Research, Systems & Blueprints</span>
                     </div>
-                    <div class="help-pills-scroll font-mono text-[10px] sm:text-[11px] max-w-full"
-                        id="blogFilterContainer">
-                        <button type="button"
-                            class="blogFilterBtn active px-3 py-1.5 rounded-full bg-white text-black font-extrabold whitespace-nowrap cursor-pointer min-h-[38px] shrink-0"
-                            data-filter="all">All</button>
-                        <button type="button"
-                            class="blogFilterBtn px-3 py-1.5 rounded-full bg-black text-white border border-white hover:bg-white/10 whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                            data-filter="ai">AI Agents</button>
-                        <button type="button"
-                            class="blogFilterBtn px-3 py-1.5 rounded-full bg-black text-white border border-white hover:bg-white/10 whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                            data-filter="web">Web Architecture</button>
-                        <button type="button"
-                            class="blogFilterBtn px-3 py-1.5 rounded-full bg-black text-white border border-white hover:bg-white/10 whitespace-nowrap cursor-pointer min-h-[38px] shrink-0 font-bold"
-                            data-filter="growth">Growth Logic</button>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="closeBlogModal()"
+                        class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
+                        aria-label="Close blog modal">
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Claude Blog Search & Filter Bar -->
+            <div class="bg-[#ffffff] px-4 sm:px-8 py-3.5 sm:py-4 border-b border-[#e8e6df] shrink-0">
+                <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                    <div class="relative flex-1 max-w-md">
+                        <div class="claude-search-bar rounded-full flex items-center px-3.5 py-2 sm:py-2.5 gap-2.5 bg-white">
+                            <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="blogSearchInput" placeholder="Search essays, AI architecture, latency..."
+                                class="w-full bg-transparent border-none text-xs sm:text-sm font-claude-sans text-[#1f1e1d] placeholder-[#73726c] focus:outline-none" />
+                            <button type="button" id="blogClearSearchBtn" class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none">&times;</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" id="blogFilterContainer">
+                        <button type="button" class="claude-chip blogFilterBtn active" data-filter="all">All Essays</button>
+                        <button type="button" class="claude-chip blogFilterBtn" data-filter="ai">
+                            <span class="w-2 h-2 rounded-full bg-[#c96442]"></span> AI & Agents
+                        </button>
+                        <button type="button" class="claude-chip blogFilterBtn" data-filter="web">
+                            <span class="w-2 h-2 rounded-full bg-[#2d6a4f]"></span> Web Architecture
+                        </button>
+                        <button type="button" class="claude-chip blogFilterBtn" data-filter="growth">
+                            <span class="w-2 h-2 rounded-full bg-[#b45309]"></span> Growth Logic
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="overflow-y-auto custom-scrollbar p-4 sm:p-6 md:p-10 flex-1 space-y-6 bg-white text-black">
-                <!-- Featured Article -->
-                <div
-                    class="card-light-contrast p-5 sm:p-6 border-2 border-black bg-white relative overflow-hidden group">
-                    <div class="flex flex-col lg:flex-row gap-5 items-start lg:items-center justify-between">
-                        <div class="space-y-2.5 flex-1">
-                            <div class="flex items-center gap-2.5 flex-wrap">
-                                <span
-                                    class="bg-black text-white border border-black px-2.5 py-0.5 rounded-full text-[9px] font-mono font-extrabold uppercase tracking-wider">Featured
-                                    Whitepaper</span>
-                                <span class="text-black/70 text-[10px] font-mono font-bold">6 min read</span>
-                            </div>
-                            <h3
-                                class="text-lg sm:text-xl font-extrabold font-bubbledot uppercase text-black tracking-wide leading-tight">
-                                Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Logic
-                            </h3>
-                            <p class="text-black text-xs sm:text-sm leading-relaxed max-w-2xl font-sans font-medium">
-                                Discover how high-growth platforms integrate custom LLM logic to qualify leads, schedule
-                                calendar invites, and answer multi-turn queries with zero human lag.
-                            </p>
+            <!-- Claude Main Container (Grid View vs Reader View) -->
+            <div class="overflow-y-auto custom-scrollbar p-4 sm:p-8 md:p-10 flex-1 space-y-6 sm:space-y-8 bg-[#faf9f5] text-[#1f1e1d]" id="blogScrollArea" style="-webkit-overflow-scrolling: touch; overscroll-behavior: contain;">
+
+                <!-- ARTICLE READER VIEW -->
+                <div id="blogReaderView" class="hidden max-w-3xl mx-auto bg-white p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#e8e6df] shadow-sm space-y-6">
+                    <div class="flex items-center justify-between gap-3 border-b border-[#e8e6df] pb-4">
+                        <button type="button" id="backToBlogListBtn"
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f0eee6] text-[#4d4c47] hover:bg-[#e6e4dc] text-xs font-claude-sans font-semibold transition-colors cursor-pointer min-h-[36px]">
+                            <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to all stories
+                        </button>
+                        <button type="button" id="copyArticleLinkBtn"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#e8e6df] hover:bg-[#f0eee6] text-[#73726c] text-xs font-claude-sans transition-colors cursor-pointer min-h-[36px]">
+                            <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <span>Share</span>
+                        </button>
+                    </div>
+
+                    <div id="blogReaderHeader" class="space-y-3 border-b border-[#e8e6df] pb-6">
+                        <!-- Dynamic article header content -->
+                    </div>
+
+                    <div id="blogReaderBody" class="prose prose-neutral max-w-none text-xs sm:text-sm leading-relaxed text-[#4d4c47] space-y-4 font-claude-sans">
+                        <!-- Dynamic article body content -->
+                    </div>
+
+                    <div class="pt-6 border-t border-[#e8e6df] flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#faf9f5] p-5 rounded-2xl border border-[#e8e6df]">
+                        <div>
+                            <div class="text-sm font-claude-serif font-bold text-[#1f1e1d]">Ready to deploy these architectures?</div>
+                            <div class="text-xs font-claude-sans text-[#73726c]">Let our team deploy your custom high-performance platform.</div>
                         </div>
-                        <button type="button" onclick="openEnquiryModal('pro')"
-                            class="apple-btn-dark shrink-0 py-3 px-5 text-[10px] font-mono uppercase tracking-widest cursor-pointer shadow-lg w-full sm:w-auto">
-                            Read Article <i data-lucide="chevron-right" class="w-3.5 h-3.5 ml-1 inline-block"></i>
+                        <button type="button" onclick="closeBlogModal(); openEnquiryModal('pro');"
+                            class="px-5 py-2.5 rounded-full bg-[#1f1e1d] hover:bg-black text-white font-claude-sans font-semibold text-xs transition-colors shadow-sm min-h-[40px]">
+                            Claim Deployment &rarr;
                         </button>
                     </div>
                 </div>
 
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full" id="blogGrid">
-                    <article
-                        class="blog-card card-light-contrast p-5 flex flex-col justify-between group transition-all"
-                        data-category="web">
-                        <div>
-                            <div
-                                class="flex items-center justify-between mb-2.5 text-[10px] font-mono text-black/70 font-bold">
-                                <span class="text-black font-extrabold uppercase">Web Architecture</span>
-                                <span>4 min read</span>
+                <!-- STORIES LIST VIEW -->
+                <div id="blogListView" class="space-y-6 sm:space-y-8">
+                    <!-- Claude Featured Hero Card -->
+                    <div class="claude-card p-6 sm:p-9 bg-white border border-[#e8e6df] relative overflow-hidden group cursor-pointer"
+                        data-story-id="ai-1">
+                        <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+                            <div class="space-y-3 flex-1">
+                                <div class="flex items-center gap-2.5 flex-wrap">
+                                    <span class="px-3 py-1 rounded-full text-[10px] font-claude-sans font-bold uppercase tracking-wider bg-[#f0eee6] text-[#c96442]">
+                                        Featured Essay • Forge Journal
+                                    </span>
+                                    <span class="text-[#73726c] text-xs font-claude-sans">6 min read</span>
+                                    <span class="text-[#73726c] text-xs font-claude-sans">• Sep 2026</span>
+                                </div>
+                                <h3 class="text-xl sm:text-3xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight leading-tight group-hover:text-[#c96442] transition-colors">
+                                    Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Inquiries
+                                </h3>
+                                <p class="text-[#4d4c47] text-xs sm:text-sm leading-relaxed max-w-2xl font-claude-sans">
+                                    Discover how modern platforms integrate constrained LLMs to qualify inbound leads, schedule calendar bookings, and resolve complex multi-turn product queries with zero human latency.
+                                </p>
+                                <div class="flex items-center gap-2 pt-2 text-xs font-claude-sans font-semibold text-[#c96442]">
+                                    <span>Read full essay</span>
+                                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </div>
                             </div>
-                            <h4
-                                class="text-base font-extrabold text-black uppercase tracking-tight mb-2.5 font-bubbledot">
-                                Why Static Speed Matters in High-Intent B2B Acquisition
-                            </h4>
-                            <p class="text-black text-[11px] sm:text-xs leading-relaxed mb-5 font-sans font-medium">
-                                A breakdown of how sub-100ms loading speeds lower bounce rates by 42% and create an
-                                immediate perception of enterprise authority.
-                            </p>
                         </div>
-                        <div
-                            class="pt-3 border-t-2 border-black flex items-center justify-between text-[10px] font-mono font-bold">
-                            <span class="text-black">Engineering Insights</span>
-                            <span
-                                class="text-black font-extrabold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read
-                                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>
-                        </div>
-                    </article>
+                    </div>
 
-                    <article
-                        class="blog-card card-light-contrast p-5 flex flex-col justify-between group transition-all"
-                        data-category="ai">
-                        <div>
-                            <div
-                                class="flex items-center justify-between mb-2.5 text-[10px] font-mono text-black/70 font-bold">
-                                <span class="text-black font-extrabold uppercase">AI Agents</span>
-                                <span>5 min read</span>
+                    <!-- Claude Story Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full" id="blogGrid">
+                        <!-- Card 1: Web Architecture -->
+                        <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            data-category="web" data-story-id="web-1">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs font-claude-sans">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#e6f4ea] text-[#2d6a4f]">
+                                        Web Architecture
+                                    </span>
+                                    <span class="text-[#73726c]">4 min read</span>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    Why Static Sub-100ms Speed Creates an Unfair Conversion Advantage
+                                </h4>
+                                <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
+                                    An architectural breakdown of how sub-100ms loading speeds lower bounce rates by 42% and establish immediate enterprise authority.
+                                </p>
                             </div>
-                            <h4
-                                class="text-base font-extrabold text-black uppercase tracking-tight mb-2.5 font-bubbledot">
-                                Preventing Hallucinations in Constrained Enterprise Sales Bots
-                            </h4>
-                            <p class="text-black text-[11px] sm:text-xs leading-relaxed mb-5 font-sans font-medium">
-                                Architectural blueprints for grounding LLMs strictly within your knowledge base with
-                                automated fallback to human phone operators.
-                            </p>
-                        </div>
-                        <div
-                            class="pt-3 border-t-2 border-black flex items-center justify-between text-[10px] font-mono font-bold">
-                            <span class="text-black">AI Systems</span>
-                            <span
-                                class="text-black font-extrabold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read
-                                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>
-                        </div>
-                    </article>
+                            <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <span>Read essay</span>
+                                <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: AI Systems -->
+                        <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            data-category="ai" data-story-id="ai-2">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs font-claude-sans">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#f3e8fd] text-[#7b2cbf]">
+                                        AI Research
+                                    </span>
+                                    <span class="text-[#73726c]">5 min read</span>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    Preventing Hallucinations in Constrained Enterprise Sales Bots
+                                </h4>
+                                <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
+                                    Architectural blueprints for grounding LLMs strictly within your proprietary knowledge base with deterministic operator handoffs.
+                                </p>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <span>Read essay</span>
+                                <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </article>
+
+                        <!-- Card 3: Growth & Conversion -->
+                        <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            data-category="growth" data-story-id="growth-1">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs font-claude-sans">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#fef7e0] text-[#b45309]">
+                                        Growth Logic
+                                    </span>
+                                    <span class="text-[#73726c]">3 min read</span>
+                                </div>
+                                <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    Zero-Friction Client Onboarding: Deploying in Under 72 Hours
+                                </h4>
+                                <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
+                                    How Forge eliminates weeks of agency back-and-forth by deploying ready-to-run static edge infrastructure with integrated domain registration.
+                                </p>
+                            </div>
+                            <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <span>Read essay</span>
+                                <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4287,7 +4920,7 @@
                             document.documentElement.classList.add('play');
                             setTimeout(() => {
                                 document.documentElement.classList.remove('anim', 'play');
-                            }, 1600);
+                            }, 900);
                         });
                     });
                 };
@@ -4517,9 +5150,28 @@
                 if (calcAdvanceVal) calcAdvanceVal.textContent = `₹${advance.toLocaleString('en-IN')}`;
                 if (calcBalanceVal) calcBalanceVal.textContent = `₹${balance.toLocaleString('en-IN')}`;
 
+                if (roiSpeedRange) {
+                    const min = parseFloat(roiSpeedRange.min) || 1;
+                    const max = parseFloat(roiSpeedRange.max) || 30;
+                    const val = parseFloat(roiSpeedRange.value) || 14;
+                    const pct = ((val - min) / (max - min)) * 100;
+                    roiSpeedRange.style.setProperty('--range-progress', `${pct}%`);
+                }
+
                 if (roiSpeedVal && roiSpeedRange) {
-                    const days = roiSpeedRange.value;
+                    const days = parseInt(roiSpeedRange.value, 10);
                     roiSpeedVal.textContent = days <= 3 ? `${days} Day(s) Express Rush` : `${days} Days Standard`;
+
+                    const calcStatusVal = document.getElementById('calcStatusVal');
+                    if (calcStatusVal) {
+                        if (days <= 3) {
+                            calcStatusVal.innerHTML = '<span class="text-amber-400 font-extrabold">⚡ Express Rush Priority (Sub-72h SLA)</span>';
+                        } else if (days <= 7) {
+                            calcStatusVal.innerHTML = '<span class="text-cyan-300 font-extrabold">⚡ Fast-Track Queue</span>';
+                        } else {
+                            calcStatusVal.innerHTML = '<span class="text-white font-extrabold">Standard One-Time Rate</span>';
+                        }
+                    }
                 }
             }
 
@@ -4545,6 +5197,9 @@
                 modalElement.classList.remove('hidden');
                 modalElement.classList.add('flex');
                 document.body.style.overflow = 'hidden';
+
+                const dock = document.getElementById('mobileQuickDock');
+                if (dock) dock.classList.add('dock-hidden');
 
                 if (newHash && window.location.hash !== newHash) {
                     try {
@@ -4581,6 +5236,7 @@
                     if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
                         lastActiveElement.focus();
                     }
+                    if (typeof handleScrollProgress === 'function') handleScrollProgress();
                 }, 300);
 
                 if (resetHash && window.location.hash && modalMap[window.location.hash]) {
@@ -4654,8 +5310,26 @@
                 }
             });
 
+            // Global Toast Notification Helper
+            window.showGlobalToast = function(msg) {
+                let toast = document.getElementById('globalToast');
+                if (!toast) {
+                    toast = document.createElement('div');
+                    toast.id = 'globalToast';
+                    document.body.appendChild(toast);
+                }
+                toast.textContent = msg;
+                toast.classList.add('is-shown');
+                clearTimeout(toast._timer);
+                toast._timer = setTimeout(() => {
+                    toast.classList.remove('is-shown');
+                }, 2800);
+            };
+
             const helpContentList = document.getElementById('helpContentList');
             const helpSearchInput = document.getElementById('helpSearchInput');
+            const helpClearSearchBtn = document.getElementById('helpClearSearchBtn');
+            const helpFaqCountBadge = document.getElementById('helpFaqCountBadge');
             const helpCatFilterBtns = document.querySelectorAll('.helpCatFilterBtn');
             const expandAllFaqBtn = document.getElementById('expandAllFaqBtn');
             let currentCategory = 'all';
@@ -4682,46 +5356,88 @@
                     catSection.className = 'space-y-3';
 
                     const catHeader = document.createElement('div');
-                    catHeader.className = 'flex items-center gap-2.5 border-b-2 border-black pb-2 mb-3';
+                    catHeader.className = 'flex items-center gap-2.5 border-b border-[#e8e6df] pb-2 mb-2.5 pt-1';
                     catHeader.innerHTML = `
-                        <div class="w-2.5 h-2.5 rounded-full bg-black shrink-0"></div>
-                        <h3 class="text-xs sm:text-sm font-extrabold text-black uppercase tracking-wide font-mono">${escapeHTML(cat.catName)}</h3>
-                        <span class="text-[10px] font-mono text-white bg-black px-2 py-0.5 rounded-full font-bold ml-auto shrink-0">${filteredItems.length} Q&A</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0"></span>
+                        <h3 class="text-xs sm:text-sm font-bold text-[#1f1e1d] uppercase tracking-wide font-claude-sans">${escapeHTML(cat.catName)}</h3>
+                        <span class="text-[10px] font-mono text-[#73726c] bg-[#f0eee6] px-2.5 py-0.5 rounded-full font-bold ml-auto shrink-0">${filteredItems.length} FAQs</span>
                     `;
                     catSection.appendChild(catHeader);
 
                     filteredItems.forEach((item, itemIdx) => {
                         const itemCard = document.createElement('div');
-                        itemCard.className = 'card-light-contrast p-4 border-2 border-black shadow-sm';
+                        itemCard.className = 'claude-faq-item p-4 sm:p-5 border border-[#e8e6df] bg-white rounded-2xl transition-all shadow-[0_1px_4px_rgba(20,20,19,0.03)]';
                         const contentId = `help-ans-${cat.catId}-${itemIdx}`;
                         const formattedAnswer = escapeHTML(item.a).replace(/\n/g, '<br>');
 
                         itemCard.innerHTML = `
                             <button type="button" class="w-full text-left flex items-start justify-between gap-3 cursor-pointer focus:outline-none help-toggle-trigger min-h-[44px]" aria-expanded="${allExpanded}" aria-controls="${contentId}">
-                                <h4 class="font-extrabold text-black text-xs sm:text-sm font-sans flex items-start gap-2 pointer-events-none">
-                                    <span class="text-black font-mono font-black shrink-0">Q:</span>
+                                <h4 class="font-bold text-[#1f1e1d] text-xs sm:text-sm font-claude-sans flex items-start gap-2.5 pointer-events-none leading-snug">
+                                    <span class="text-[#c96442] font-extrabold shrink-0">Q:</span>
                                     <span>${escapeHTML(item.q)}</span>
                                 </h4>
-                                <div class="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-black help-toggle-icon transition-transform duration-300 pointer-events-none" style="transform: rotate(${allExpanded ? '180deg' : '0deg'})">
-                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                                <div class="w-7 h-7 rounded-full bg-[#f0eee6] text-[#73726c] flex items-center justify-center shrink-0 pointer-events-none">
+                                    <svg class="w-4 h-4 text-[#73726c] transition-transform duration-250 pointer-events-none help-chevron shrink-0" style="transform: rotate(${allExpanded ? '180deg' : '0deg'});" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
                                 </div>
                             </button>
-                            <div id="${contentId}" class="help-answer-box text-xs sm:text-sm text-black font-sans leading-relaxed mt-2.5 pt-2.5 border-t border-black/30 font-medium ${allExpanded ? '' : 'hidden'}">
-                                <strong class="text-black font-extrabold block mb-1">Answer:</strong>
-                                ${formattedAnswer}
+                            <div id="${contentId}" class="help-answer-box text-xs sm:text-sm text-[#4d4c47] font-claude-sans leading-relaxed mt-3 pt-3 border-t border-[#f0eee6] ${allExpanded ? '' : 'hidden'}">
+                                <p class="mb-3">${formattedAnswer}</p>
+                                <div class="mt-3 pt-2.5 border-t border-[#f0eee6] flex flex-wrap items-center justify-between gap-2 text-xs text-[#73726c]">
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" class="faq-copy-btn px-2.5 py-1 rounded-full border border-[#e8e6df] bg-[#ffffff] hover:bg-[#f0eee6] text-[#73726c] hover:text-[#1f1e1d] text-[11px] font-claude-sans font-medium transition-colors flex items-center gap-1.5" title="Copy solution to clipboard">
+                                            <svg class="w-3 h-3 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            <span>Copy Solution</span>
+                                        </button>
+                                    </div>
+                                    <div class="flex items-center gap-2 feedback-btn-group">
+                                        <span class="text-[11px]">Helpful?</span>
+                                        <button type="button" class="faq-vote-btn px-2.5 py-0.5 rounded-full border border-[#e8e6df] hover:bg-[#f0eee6] text-[#4d4c47] text-[11px] font-medium transition-colors" data-vote="yes">👍 Yes</button>
+                                        <button type="button" class="faq-vote-btn px-2.5 py-0.5 rounded-full border border-[#e8e6df] hover:bg-[#f0eee6] text-[#4d4c47] text-[11px] font-medium transition-colors" data-vote="no">👎 No</button>
+                                    </div>
+                                </div>
                             </div>
                         `;
 
                         const toggleBtn = itemCard.querySelector('.help-toggle-trigger');
                         toggleBtn.addEventListener('click', () => {
                             const ansBox = itemCard.querySelector('.help-answer-box');
-                            const iconWrap = itemCard.querySelector('.help-toggle-icon');
+                            const chevron = itemCard.querySelector('.help-chevron');
                             if (ansBox) {
-                                const isHidden = ansBox.classList.contains('hidden');
-                                ansBox.classList.toggle('hidden', !isHidden);
-                                toggleBtn.setAttribute('aria-expanded', String(isHidden));
-                                if (iconWrap) iconWrap.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                                const isCurrentlyHidden = ansBox.classList.contains('hidden');
+                                ansBox.classList.toggle('hidden', !isCurrentlyHidden);
+                                toggleBtn.setAttribute('aria-expanded', String(isCurrentlyHidden));
+                                if (chevron) chevron.style.transform = isCurrentlyHidden ? 'rotate(180deg)' : 'rotate(0deg)';
                             }
+                        });
+
+                        const copyBtn = itemCard.querySelector('.faq-copy-btn');
+                        if (copyBtn) {
+                            copyBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const textToCopy = `Q: ${item.q}\n\nAnswer: ${item.a}`;
+                                if (navigator.clipboard && navigator.clipboard.writeText) {
+                                    navigator.clipboard.writeText(textToCopy).then(() => {
+                                        window.showGlobalToast('✓ Solution copied to clipboard!');
+                                    }).catch(() => {
+                                        window.showGlobalToast('✓ Answer ready!');
+                                    });
+                                } else {
+                                    window.showGlobalToast('✓ Solution copied!');
+                                }
+                            });
+                        }
+
+                        const voteBtns = itemCard.querySelectorAll('.faq-vote-btn');
+                        voteBtns.forEach(vBtn => {
+                            vBtn.addEventListener('click', (ev) => {
+                                ev.stopPropagation();
+                                const grp = itemCard.querySelector('.feedback-btn-group');
+                                if (grp) {
+                                    grp.innerHTML = `<span class="text-[#2d6a4f] font-semibold text-xs inline-flex items-center gap-1.5 font-claude-sans">✓ Thank you for your feedback!</span>`;
+                                }
+                            });
                         });
 
                         catSection.appendChild(itemCard);
@@ -4730,19 +5446,21 @@
                     helpContentList.appendChild(catSection);
                 });
 
+                if (helpFaqCountBadge) {
+                    helpFaqCountBadge.textContent = currentSearch ? `${totalMatches} MATCHES` : `${totalMatches} FAQS`;
+                }
+
                 if (totalMatches === 0) {
                     helpContentList.innerHTML = `
                         <div class="text-center py-12 px-4">
-                            <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mx-auto mb-3">
-                                <i data-lucide="help-circle" class="w-6 h-6"></i>
+                            <div class="w-12 h-12 rounded-full bg-[#f0eee6] text-[#c96442] flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-6 h-6 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                             </div>
-                            <h3 class="text-sm font-extrabold text-black font-mono uppercase">No matching questions found</h3>
-                            <p class="text-xs text-black/70 mt-1 max-w-sm mx-auto font-sans font-medium">Try typing another search term or click 'All Topics'.</p>
+                            <h3 class="text-sm font-bold text-[#1f1e1d] font-claude-sans">No matching questions found</h3>
+                            <p class="text-xs text-[#73726c] mt-1 max-w-sm mx-auto font-claude-sans">Try typing another search term or click 'All Topics'.</p>
                         </div>
                     `;
                 }
-
-                if (window.lucide) lucide.createIcons();
             }
 
             renderHelpCenter();
@@ -4750,42 +5468,225 @@
             if (helpSearchInput) {
                 helpSearchInput.addEventListener('input', (e) => {
                     currentSearch = e.target.value.toLowerCase().trim();
+                    if (helpClearSearchBtn) {
+                        helpClearSearchBtn.classList.toggle('hidden', !currentSearch);
+                    }
                     renderHelpCenter();
                 });
             }
 
+            if (helpClearSearchBtn) {
+                helpClearSearchBtn.addEventListener('click', () => {
+                    if (helpSearchInput) helpSearchInput.value = '';
+                    currentSearch = '';
+                    helpClearSearchBtn.classList.add('hidden');
+                    renderHelpCenter();
+                    helpSearchInput?.focus();
+                });
+            }
+
+            // Category Chip Click Handlers
             helpCatFilterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    helpCatFilterBtns.forEach(b => {
-                        b.classList.remove('bg-white', 'text-black', 'font-extrabold', 'active');
-                        b.classList.add('bg-black', 'text-white');
-                    });
-                    btn.classList.add('bg-white', 'text-black', 'font-extrabold', 'active');
-                    btn.classList.remove('bg-black', 'text-white');
-
+                    helpCatFilterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
                     currentCategory = btn.getAttribute('data-cat');
                     renderHelpCenter();
+                });
+            });
+
+            // Topic Shortcut Cards Click Handlers
+            document.querySelectorAll('.google-topic-card').forEach(topicCard => {
+                topicCard.addEventListener('click', () => {
+                    const catId = topicCard.getAttribute('data-cat');
+                    if (catId) {
+                        currentCategory = catId;
+                        helpCatFilterBtns.forEach(b => {
+                            b.classList.toggle('active', b.getAttribute('data-cat') === catId);
+                        });
+                        renderHelpCenter();
+                        helpContentList?.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 });
             });
 
             if (expandAllFaqBtn) {
                 expandAllFaqBtn.addEventListener('click', () => {
                     allExpanded = !allExpanded;
-                    expandAllFaqBtn.innerHTML = allExpanded ?
-                        '<i data-lucide="chevrons-up" class="w-3.5 h-3.5 inline-block mr-1"></i> Collapse All' :
-                        '<i data-lucide="chevrons-down" class="w-3.5 h-3.5 inline-block mr-1"></i> Expand All';
+                    const expandText = document.getElementById('expandAllFaqText');
+                    if (expandText) expandText.textContent = allExpanded ? 'Collapse All' : 'Expand All';
 
                     document.querySelectorAll('.help-toggle-trigger').forEach(t => t.setAttribute('aria-expanded', String(allExpanded)));
                     document.querySelectorAll('.help-answer-box').forEach(a => a.classList.toggle('hidden', !allExpanded));
-                    document.querySelectorAll('.help-toggle-icon').forEach(ic => ic.style.transform = allExpanded ? 'rotate(180deg)' : 'rotate(0deg)');
-                    if (window.lucide) lucide.createIcons();
+                    document.querySelectorAll('.help-chevron').forEach(ic => ic.style.transform = allExpanded ? 'rotate(180deg)' : 'rotate(0deg)');
                 });
             }
 
-            // Blog Filters
+            /* ═══════════════════════════════════════════════════════════════
+               CLAUDE BLOG JOURNAL DATA & INTERACTIVE STORY READER
+            ═══════════════════════════════════════════════════════════════ */
+            const blogArticlesData = {
+                'ai-1': {
+                    title: "Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Inquiries",
+                    category: "AI Research",
+                    catColor: "bg-[#f0eee6] text-[#c96442]",
+                    readTime: "6 min read",
+                    date: "September 2026",
+                    author: "Forge Engineering Labs",
+                    body: `
+                        <p class="font-semibold text-[#1f1e1d] text-sm sm:text-base leading-relaxed font-claude-sans">
+                            Traditional agency sales funnels lose between 40% to 65% of high-intent enterprise visitors simply due to response latency. When an enterprise prospect requests custom specifications or pricing at 11:00 PM, waiting until the next morning reduces sales conversion by over 50%.
+                        </p>
+                        <h4 class="text-base font-bold text-[#1f1e1d] font-claude-serif pt-2">The Solution: Constrained State Engines</h4>
+                        <p class="font-claude-sans text-xs sm:text-sm text-[#4d4c47] leading-relaxed">
+                            Rather than deploying hallucination-prone, open-ended generic chat widgets, modern enterprise architectures ground models within strict business boundaries:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-[#4d4c47] font-claude-sans">
+                            <li><strong>Strict Knowledge Grounding:</strong> The LLM is restricted to verified markdown parameters covering your SLAs, tiers, and code ownership.</li>
+                            <li><strong>Automated Budget Qualification:</strong> Validates requirements, budget thresholds, and deployment timelines before calendar slots are offered.</li>
+                            <li><strong>Seamless Calendar Sync:</strong> Synchronizes directly with your team calendar and fires automated SMS confirmations.</li>
+                            <li><strong>Human Phone Fallback:</strong> If confidence falls below 95%, the system immediately triggers senior human callback alerts.</li>
+                        </ul>
+                        <div class="p-4 bg-[#ffffff] rounded-2xl border-l-4 border-[#c96442] my-4 text-xs sm:text-sm font-claude-sans border border-[#e8e6df]">
+                            <strong class="text-[#1f1e1d]">Key Metric:</strong> Enterprise deployments running Forge autonomous workers capture an average 3.8× increase in qualified consultations in their first 30 days.
+                        </div>
+                    `
+                },
+                'web-1': {
+                    title: "Why Static Sub-100ms Speed Creates an Unfair Conversion Advantage",
+                    category: "Web Architecture",
+                    catColor: "bg-[#e6f4ea] text-[#2d6a4f]",
+                    readTime: "4 min read",
+                    date: "August 2026",
+                    author: "Forge Performance Architecture Group",
+                    body: `
+                        <p class="font-semibold text-[#1f1e1d] text-sm sm:text-base leading-relaxed font-claude-sans">
+                            Google Core Web Vitals and user research confirm that every 100ms delay in website response time reduces conversion intent by 7%. In high-ticket B2B transactions, speed is directly equated with technical competency.
+                        </p>
+                        <h4 class="text-base font-bold text-[#1f1e1d] font-claude-serif pt-2">Zero Database Latency at the Edge</h4>
+                        <p class="font-claude-sans text-xs sm:text-sm text-[#4d4c47] leading-relaxed">
+                            Traditional corporate websites assemble HTML dynamically on overloaded origin servers for every single request, resulting in high TTFB (Time to First Byte).
+                        </p>
+                        <p class="font-claude-sans text-xs sm:text-sm text-[#4d4c47] leading-relaxed">
+                            By pre-rendering digital architecture into pure, minified HTML/CSS/JS and distributing assets across global edge CDN nodes, Forge achieves First Contentful Paint (FCP) in under 80ms worldwide.
+                        </p>
+                        <div class="p-4 bg-[#ffffff] rounded-2xl border-l-4 border-[#2d6a4f] my-4 text-xs sm:text-sm font-claude-sans border border-[#e8e6df]">
+                            <strong class="text-[#1f1e1d]">Conversion Impact:</strong> Sub-100ms static web platforms feel instantaneous, lowering bounce rates by 42% and dramatically outperforming competitors on mobile.
+                        </div>
+                    `
+                },
+                'ai-2': {
+                    title: "Preventing Hallucinations in Constrained Enterprise Sales Bots",
+                    category: "AI Research",
+                    catColor: "bg-[#f3e8fd] text-[#7b2cbf]",
+                    readTime: "5 min read",
+                    date: "August 2026",
+                    author: "Forge AI Safety Group",
+                    body: `
+                        <p class="font-semibold text-[#1f1e1d] text-sm sm:text-base leading-relaxed font-claude-sans">
+                            Enterprise leaders frequently hesitate to adopt conversational AI due to legitimate fears of rogue promises, hallucinated discounting, or unauthorized commitments.
+                        </p>
+                        <h4 class="text-base font-bold text-[#1f1e1d] font-claude-serif pt-2">Three Anti-Hallucination Safeguards</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-[#4d4c47] font-claude-sans">
+                            <li><strong>Strict RAG Context Fencing:</strong> The agent cannot answer questions not explicitly referenced in the verified knowledge base.</li>
+                            <li><strong>Schema Validation:</strong> Numerical inputs such as pricing, dates, and discounts are validated against strict JSON schemas before being output.</li>
+                            <li><strong>Deterministic Escalation:</strong> When unsure, the model politely routes the user to human operators via phone (+91-9697430658) or WhatsApp.</li>
+                        </ol>
+                    `
+                },
+                'growth-1': {
+                    title: "Zero-Friction Client Onboarding: Deploying in Under 72 Hours",
+                    category: "Growth Logic",
+                    catColor: "bg-[#fef7e0] text-[#b45309]",
+                    readTime: "3 min read",
+                    date: "July 2026",
+                    author: "Forge Operations & Client Success",
+                    body: `
+                        <p class="font-semibold text-[#1f1e1d] text-sm sm:text-base leading-relaxed font-claude-sans">
+                            Traditional web agencies take 8 to 16 weeks to launch corporate websites, encumbered by endless wireframing meetings, vague specifications, and costly ongoing retainers.
+                        </p>
+                        <h4 class="text-base font-bold text-[#1f1e1d] font-claude-serif pt-2">The High-Velocity Playbook</h4>
+                        <p class="font-claude-sans text-xs sm:text-sm text-[#4d4c47] leading-relaxed">
+                            Forge eliminates friction through modular pre-engineered component primitives, ultra-fast DNS edge provisioning, and transparent fixed-tier packages.
+                        </p>
+                        <p class="font-claude-sans text-xs sm:text-sm text-[#4d4c47] leading-relaxed">
+                            Clients receive full ownership of clean HTML/CSS/JS repositories, free edge hosting infrastructure, and complete operational freedom from day one.
+                        </p>
+                    `
+                }
+            };
+
+            window.openBlogArticle = function(storyId) {
+                const story = blogArticlesData[storyId] || blogArticlesData['ai-1'];
+                const blogListView = document.getElementById('blogListView');
+                const blogReaderView = document.getElementById('blogReaderView');
+                const blogReaderHeader = document.getElementById('blogReaderHeader');
+                const blogReaderBody = document.getElementById('blogReaderBody');
+                const blogScrollArea = document.getElementById('blogScrollArea');
+
+                if (!blogReaderView || !blogReaderHeader || !blogReaderBody) return;
+
+                blogReaderHeader.innerHTML = `
+                    <div class="flex items-center gap-2.5 flex-wrap">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-claude-sans ${story.catColor}">
+                            ${escapeHTML(story.category)}
+                        </span>
+                        <span class="text-[#73726c] text-xs font-claude-sans">${escapeHTML(story.readTime)}</span>
+                        <span class="text-[#73726c] text-xs font-claude-sans">• ${escapeHTML(story.date)}</span>
+                    </div>
+                    <h2 class="text-xl sm:text-3xl lg:text-4xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight leading-tight">
+                        ${escapeHTML(story.title)}
+                    </h2>
+                    <div class="flex items-center gap-2 text-xs text-[#73726c] pt-1 font-claude-sans">
+                        <span class="w-6 h-6 rounded-full bg-[#1f1e1d] text-white flex items-center justify-center font-bold text-[10px]">F</span>
+                        <span>By <strong>${escapeHTML(story.author)}</strong></span>
+                    </div>
+                `;
+
+                blogReaderBody.innerHTML = story.body;
+
+                if (blogListView) blogListView.classList.add('hidden');
+                blogReaderView.classList.remove('hidden');
+                if (blogScrollArea) blogScrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            window.closeBlogReader = function() {
+                const blogListView = document.getElementById('blogListView');
+                const blogReaderView = document.getElementById('blogReaderView');
+                const blogScrollArea = document.getElementById('blogScrollArea');
+
+                if (blogReaderView) blogReaderView.classList.add('hidden');
+                if (blogListView) blogListView.classList.remove('hidden');
+                if (blogScrollArea) blogScrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            document.getElementById('backToBlogListBtn')?.addEventListener('click', window.closeBlogReader);
+
+            document.getElementById('copyArticleLinkBtn')?.addEventListener('click', () => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        window.showGlobalToast('✓ Story link copied to clipboard!');
+                    }).catch(() => {
+                        window.showGlobalToast('✓ Link copied!');
+                    });
+                } else {
+                    window.showGlobalToast('✓ Link copied!');
+                }
+            });
+
+            // Bind click to all elements with data-story-id
+            document.querySelectorAll('[data-story-id]').forEach(el => {
+                el.addEventListener('click', () => {
+                    const id = el.getAttribute('data-story-id');
+                    if (id) window.openBlogArticle(id);
+                });
+            });
+
+            // Claude Blog Filters
             const blogFilterBtns = document.querySelectorAll('.blogFilterBtn');
             const blogCards = document.querySelectorAll('.blog-card');
             const blogSearchInput = document.getElementById('blogSearchInput');
+            const blogClearSearchBtn = document.getElementById('blogClearSearchBtn');
             let currentBlogFilter = 'all';
             let currentBlogQuery = '';
 
@@ -4801,12 +5702,8 @@
 
             blogFilterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    blogFilterBtns.forEach(b => {
-                        b.classList.remove('bg-white', 'text-black', 'font-extrabold', 'active');
-                        b.classList.add('bg-black', 'text-white');
-                    });
-                    btn.classList.add('bg-white', 'text-black', 'font-extrabold', 'active');
-                    btn.classList.remove('bg-black', 'text-white');
+                    blogFilterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
                     currentBlogFilter = btn.getAttribute('data-filter') || 'all';
                     applyBlogFilters();
                 });
@@ -4815,7 +5712,20 @@
             if (blogSearchInput) {
                 blogSearchInput.addEventListener('input', (e) => {
                     currentBlogQuery = e.target.value.toLowerCase().trim();
+                    if (blogClearSearchBtn) {
+                        blogClearSearchBtn.classList.toggle('hidden', !currentBlogQuery);
+                    }
                     applyBlogFilters();
+                });
+            }
+
+            if (blogClearSearchBtn) {
+                blogClearSearchBtn.addEventListener('click', () => {
+                    if (blogSearchInput) blogSearchInput.value = '';
+                    currentBlogQuery = '';
+                    blogClearSearchBtn.classList.add('hidden');
+                    applyBlogFilters();
+                    blogSearchInput?.focus();
                 });
             }
 
@@ -4962,7 +5872,7 @@
             }, { threshold: 0.2 });
             counters.forEach(c => counterObserver.observe(c));
 
-            // Testimonials Slider
+            // Testimonials Slider with Touch-Swipe & Autoplay
             const testimonialTrack = document.getElementById('testimonialCarouselTrack');
             const prevTestimonialBtn = document.getElementById('prevTestimonialBtn');
             const nextTestimonialBtn = document.getElementById('nextTestimonialBtn');
@@ -4970,8 +5880,19 @@
             const testimonialDots = document.querySelectorAll('.testimonial-dot');
             const testimonialIdxLabel = document.getElementById('testimonialCurrentIdx');
             let currentTestimonialIndex = 0;
+            let testimonialAutoplayTimer = null;
+            let isTestimonialHovered = false;
 
             testimonialCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
+            });
+
+            // Interactive card spotlight for all light/dark cards
+            document.querySelectorAll('.card-light-contrast, .card-dark-contrast').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
@@ -5005,8 +5926,163 @@
             testimonialDots.forEach(dot => {
                 dot.addEventListener('click', () => updateTestimonialUI(parseInt(dot.getAttribute('data-index') || '0', 10)));
             });
+
+            // Touch Drag / Swipe on Testimonials Track
+            let testTouchStartX = 0;
+            let testTouchStartY = 0;
+            if (testimonialTrack) {
+                testimonialTrack.addEventListener('touchstart', (e) => {
+                    if (e.touches && e.touches[0]) {
+                        testTouchStartX = e.touches[0].clientX;
+                        testTouchStartY = e.touches[0].clientY;
+                    }
+                    isTestimonialHovered = true;
+                }, { passive: true });
+
+                testimonialTrack.addEventListener('touchend', (e) => {
+                    if (e.changedTouches && e.changedTouches[0]) {
+                        const diffX = e.changedTouches[0].clientX - testTouchStartX;
+                        const diffY = e.changedTouches[0].clientY - testTouchStartY;
+                        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+                            if (diffX < 0) {
+                                updateTestimonialUI((currentTestimonialIndex + 1) % testimonialCards.length);
+                            } else {
+                                updateTestimonialUI((currentTestimonialIndex - 1 + testimonialCards.length) % testimonialCards.length);
+                            }
+                        }
+                    }
+                    setTimeout(() => { isTestimonialHovered = false; }, 2000);
+                }, { passive: true });
+
+                testimonialTrack.addEventListener('mouseenter', () => { isTestimonialHovered = true; });
+                testimonialTrack.addEventListener('mouseleave', () => { isTestimonialHovered = false; });
+            }
+
+            // Smooth Testimonial Auto-Rotation (every 7 seconds when idle)
+            testimonialAutoplayTimer = setInterval(() => {
+                if (!isTestimonialHovered && testimonialCards.length > 1) {
+                    updateTestimonialUI((currentTestimonialIndex + 1) % testimonialCards.length);
+                }
+            }, 7000);
+
+            // Real-Time Scroll Progress Indicator & Back-To-Top Button
+            const scrollProgressBar = document.getElementById('scrollProgressBar');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            function handleScrollProgress() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+
+                if (scrollProgressBar) {
+                    scrollProgressBar.style.width = `${scrollPercent}%`;
+                    scrollProgressBar.setAttribute('aria-valuenow', Math.round(scrollPercent));
+                }
+
+                if (backToTopBtn) {
+                    if (scrollTop > 380) {
+                        backToTopBtn.classList.add('is-visible');
+                    } else {
+                        backToTopBtn.classList.remove('is-visible');
+                    }
+                }
+                const mobileQuickDock = document.getElementById('mobileQuickDock');
+                if (mobileQuickDock) {
+                    if (scrollTop > 220) {
+                        mobileQuickDock.classList.remove('dock-hidden');
+                    } else {
+                        mobileQuickDock.classList.add('dock-hidden');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', handleScrollProgress, { passive: true });
+            handleScrollProgress();
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Dynamic Active Navigation Link Scroll Spy
+            const navLinks = document.querySelectorAll('#site-nav a[href^="#"]');
+            const sectionsToTrack = [];
+            navLinks.forEach(link => {
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const sec = document.querySelector(targetId);
+                    if (sec) sectionsToTrack.push({ link, sec, id: targetId });
+                }
+            });
+
+            if (sectionsToTrack.length > 0 && 'IntersectionObserver' in window) {
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const match = sectionsToTrack.find(item => item.sec === entry.target);
+                            if (match) {
+                                navLinks.forEach(l => l.removeAttribute('aria-current'));
+                                match.link.setAttribute('aria-current', 'page');
+                            }
+                        }
+                    });
+                }, { rootMargin: '-20% 0px -65% 0px', threshold: 0 });
+
+                sectionsToTrack.forEach(item => navObserver.observe(item.sec));
+            }
+
+            // Global ESC key listener to close any open modal and navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    Object.values(modalMap).forEach(item => {
+                        if (item.modal && !item.modal.classList.contains('hidden')) {
+                            closeGenericModal(item.modal, item.content);
+                        }
+                    });
+                    if (siteNavRow && siteNavRow.dataset.open === 'true') {
+                        setBurgerOpen(false);
+                    }
+                }
+            });
+
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
         });
     </script>
+
+    <!-- Global Toast Notification Container -->
+    <div id="globalToast" role="status" aria-live="polite"></div>
+
+    <!-- Mobile Fluid Quick-Action Floating Dock (< 768px) -->
+    <nav id="mobileQuickDock" class="md:hidden dock-hidden" aria-label="Mobile Quick Navigation">
+        <button type="button" onclick="openEnquiryModal('pro')" class="mobile-dock-btn text-cyan-300">
+            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>Deploy</span>
+        </button>
+        <a href="https://wa.me/919697430658" target="_blank" rel="noopener noreferrer" class="mobile-dock-btn text-emerald-300">
+            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>WhatsApp</span>
+        </a>
+        <button type="button" onclick="openHelpModal()" class="mobile-dock-btn text-amber-300">
+            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>Help</span>
+        </button>
+        <button type="button" onclick="openBlogModal()" class="mobile-dock-btn text-purple-300">
+            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>Journal</span>
+        </button>
+        <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="mobile-dock-btn text-white">
+            <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+            <span>Top</span>
+        </button>
+    </nav>
+
+    <!-- Minimal Floating Back to Top Control -->
+    <button type="button" id="backToTopBtn" aria-label="Scroll to top of page" title="Back to top">
+        <svg class="w-5 h-5 icon-luminous-cyan pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
 </body>
 
 </html>
