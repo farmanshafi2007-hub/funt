@@ -798,33 +798,133 @@
             display: inline-block;
         }
 
-        .scroll {
+        .scroll,
+        .scroll-mouse-indicator {
             position: absolute;
-            z-index: 15;
+            z-index: 25;
             left: 50%;
             transform: translateX(-50%);
-            bottom: calc(20px + var(--sai-bottom));
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            bottom: calc(18px + var(--sai-bottom));
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 5px;
+            background: transparent;
+            border: none;
             cursor: pointer;
             pointer-events: auto;
-            transition: transform 0.3s var(--ease-spring), background 0.3s ease, border-color 0.3s ease;
-            min-height: 44px;
-            min-width: 44px;
+            text-decoration: none;
+            transition: transform 0.3s var(--ease-spring), opacity 0.3s ease;
         }
 
-        .scroll:hover {
-            transform: translateX(-50%) translateY(-3px);
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
+        .scroll:hover,
+        .scroll-mouse-indicator:hover {
+            transform: translateX(-50%) translateY(4px);
+        }
+
+        .scroll:hover .mouse-icon-body,
+        .scroll-mouse-indicator:hover .mouse-icon-body {
+            border-color: rgba(103, 232, 249, 0.9);
+            box-shadow: 0 0 22px rgba(103, 232, 249, 0.6), inset 0 0 10px rgba(103, 232, 249, 0.3);
+        }
+
+        .mouse-icon-body {
+            width: 26px;
+            height: 42px;
+            border-radius: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: rgba(4, 16, 31, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: center;
+            padding-top: 6px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mouse-wheel-track {
+            width: 3.5px;
+            height: 14px;
+            position: relative;
+        }
+
+        .mouse-wheel-dot {
+            display: block;
+            width: 3.5px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #38bdf8 0%, #a855f7 50%, #ff2d55 100%);
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+            animation: mouseWheelScroll 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        }
+
+        @keyframes mouseWheelScroll {
+            0% {
+                opacity: 0;
+                transform: translateY(-2px);
+            }
+            20% {
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(12px);
+            }
+            90%, 100% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+        }
+
+        .mouse-scroll-chevrons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            margin-top: -1px;
+        }
+
+        .chevron-arrow {
+            width: 6.5px;
+            height: 6.5px;
+            border-right: 2px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            transform: rotate(45deg);
+            animation: chevronDownBounce 1.8s infinite;
+        }
+
+        .chevron-arrow.ch-1 {
+            animation-delay: 0s;
+        }
+
+        .chevron-arrow.ch-2 {
+            animation-delay: 0.2s;
+            margin-top: -3px;
+            border-color: #38bdf8;
+        }
+
+        @keyframes chevronDownBounce {
+            0%, 100% {
+                opacity: 0.2;
+                transform: rotate(45deg) translate(-2px, -2px);
+            }
+            50% {
+                opacity: 1;
+                transform: rotate(45deg) translate(2px, 2px);
+            }
+        }
+
+        .mouse-scroll-text {
+            font-family: var(--font-code), monospace;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            white-space: nowrap;
         }
 
         .scroll svg {
@@ -1688,6 +1788,59 @@
             }
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           APPLE INTELLIGENCE & PRIVACY MULTI-COLOR GRADIENT SYSTEM
+        ═══════════════════════════════════════════════════════════════ */
+        .apple-text-gradient,
+        .apple-intelligence-gradient {
+            background: linear-gradient(90deg, #2997ff 0%, #0071e3 22%, #a855f7 48%, #c026d3 70%, #ff2d55 88%, #ff375f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            filter: drop-shadow(0 2px 14px rgba(168, 85, 247, 0.4));
+            background-size: 200% auto;
+            animation: appleGradientShift 6s ease infinite alternate;
+        }
+
+        .apple-text-gradient-dark {
+            background: linear-gradient(90deg, #005bb5 0%, #7c3aed 45%, #e11d48 85%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        @keyframes appleGradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           SCROLL-DRIVEN DOWNWARD MOTION & ELEMENT DISPLACEMENT
+        ═══════════════════════════════════════════════════════════════ */
+        .scroll-down-reactive {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        body.is-scrolling-down .scroll-down-drift {
+            transform: translate3d(0, 8px, 0);
+            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1);
+        }
+
+        .scroll-down-drift {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
         .reveal {
             opacity: 0;
             transform: translate3d(0, 20px, 0);
@@ -1698,6 +1851,110 @@
         .reveal.active {
             opacity: 1;
             transform: translate3d(0, 0, 0);
+        }
+
+        /* Downward scroll reveal: elements start above and glide down to settle */
+        .reveal-down {
+            opacity: 0;
+            transform: translate3d(0, -32px, 0);
+            transition: opacity 0.65s var(--ease-apple), transform 0.65s var(--ease-apple);
+            will-change: transform, opacity;
+        }
+
+        .reveal-down.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Floating HUD scroll mouse indicator */
+        .hud-mini-mouse {
+            width: 14px;
+            height: 22px;
+            border-radius: 8px;
+            border: 1.5px solid #67e8f9;
+            display: flex;
+            justify-content: center;
+            padding-top: 3px;
+            position: relative;
+        }
+
+        .hud-wheel-dot {
+            width: 2.5px;
+            height: 5px;
+            border-radius: 999px;
+            background: #67e8f9;
+            animation: hudWheelGlide 1.2s infinite;
+        }
+
+        @keyframes hudWheelGlide {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            70% {
+                transform: translateY(6px);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+        }
+
+        #floatingScrollMouseHud.is-active {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           APPLE & ANDROID ECOSYSTEM SHOWCASE CARDS & SIMULATOR
+        ═══════════════════════════════════════════════════════════════ */
+        .apple-glass-card {
+            background: rgba(10, 22, 42, 0.88);
+            border: 1.5px solid rgba(255, 255, 255, 0.16);
+            border-radius: 28px;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+            transition: all 0.35s var(--ease-spring);
+        }
+
+        .apple-glass-card:hover {
+            border-color: rgba(103, 232, 249, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .eco-device-tab {
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: var(--font-code), monospace;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.25s var(--ease-apple);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 40px;
+        }
+
+        .eco-device-tab:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .eco-device-tab.active {
+            color: #04101f;
+            background: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 4px 18px rgba(255, 255, 255, 0.35);
         }
 
         .bg-grid-dark {
@@ -2140,10 +2397,21 @@
         }
 
         /* Staggered Scroll-Reveal Delays */
-        .reveal-delay-100 { transition-delay: 100ms !important; }
-        .reveal-delay-200 { transition-delay: 200ms !important; }
-        .reveal-delay-300 { transition-delay: 300ms !important; }
-        .reveal-delay-400 { transition-delay: 400ms !important; }
+        .reveal-delay-100 {
+            transition-delay: 100ms !important;
+        }
+
+        .reveal-delay-200 {
+            transition-delay: 200ms !important;
+        }
+
+        .reveal-delay-300 {
+            transition-delay: 300ms !important;
+        }
+
+        .reveal-delay-400 {
+            transition-delay: 400ms !important;
+        }
 
         /* Minimal Spotlight Glow on Hover */
         .card-spotlight {
@@ -2174,16 +2442,19 @@
             filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.35));
             transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
         }
+
         .icon-luminous-emerald {
             color: #34d399 !important;
             filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.75)) drop-shadow(0 0 16px rgba(52, 211, 153, 0.35));
             transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
         }
+
         .icon-luminous-purple {
             color: #c084fc !important;
             filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.75)) drop-shadow(0 0 16px rgba(192, 132, 252, 0.35));
             transition: transform 0.25s var(--ease-apple), filter 0.25s ease;
         }
+
         .icon-luminous-amber {
             color: #fbbf24 !important;
             filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.75)) drop-shadow(0 0 16px rgba(251, 191, 36, 0.35));
@@ -2207,7 +2478,9 @@
             box-shadow: 0 8px 24px -4px rgba(56, 189, 248, 0.35), inset 0 0 14px rgba(56, 189, 248, 0.18) !important;
             color: #38bdf8 !important;
         }
-        .icon-pod-cyan:hover, .group:hover .icon-pod-cyan {
+
+        .icon-pod-cyan:hover,
+        .group:hover .icon-pod-cyan {
             border-color: #67e8f9 !important;
             box-shadow: 0 12px 32px rgba(56, 189, 248, 0.55), inset 0 0 20px rgba(103, 232, 249, 0.35) !important;
             transform: scale(1.08) translateY(-2px);
@@ -2219,7 +2492,9 @@
             box-shadow: 0 8px 24px -4px rgba(52, 211, 153, 0.35), inset 0 0 14px rgba(52, 211, 153, 0.18) !important;
             color: #34d399 !important;
         }
-        .icon-pod-emerald:hover, .group:hover .icon-pod-emerald {
+
+        .icon-pod-emerald:hover,
+        .group:hover .icon-pod-emerald {
             border-color: #34d399 !important;
             box-shadow: 0 12px 32px rgba(52, 211, 153, 0.55), inset 0 0 20px rgba(52, 211, 153, 0.35) !important;
             transform: scale(1.08) translateY(-2px);
@@ -2231,7 +2506,9 @@
             box-shadow: 0 8px 24px -4px rgba(192, 132, 252, 0.35), inset 0 0 14px rgba(192, 132, 252, 0.18) !important;
             color: #c084fc !important;
         }
-        .icon-pod-purple:hover, .group:hover .icon-pod-purple {
+
+        .icon-pod-purple:hover,
+        .group:hover .icon-pod-purple {
             border-color: #c084fc !important;
             box-shadow: 0 12px 32px rgba(192, 132, 252, 0.55), inset 0 0 20px rgba(192, 132, 252, 0.35) !important;
             transform: scale(1.08) translateY(-2px);
@@ -2243,7 +2520,9 @@
             box-shadow: 0 8px 24px -4px rgba(251, 191, 36, 0.35), inset 0 0 14px rgba(251, 191, 36, 0.18) !important;
             color: #fbbf24 !important;
         }
-        .icon-pod-amber:hover, .group:hover .icon-pod-amber {
+
+        .icon-pod-amber:hover,
+        .group:hover .icon-pod-amber {
             border-color: #fbbf24 !important;
             box-shadow: 0 12px 32px rgba(251, 191, 36, 0.55), inset 0 0 20px rgba(251, 191, 36, 0.35) !important;
             transform: scale(1.08) translateY(-2px);
@@ -2258,6 +2537,7 @@
             box-shadow: 0 1px 6px rgba(32, 33, 36, 0.12);
             transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
+
         .google-search-bar:focus-within {
             border-color: #1a73e8;
             box-shadow: 0 2px 12px rgba(26, 115, 232, 0.25);
@@ -2279,12 +2559,14 @@
             align-items: center;
             gap: 6px;
         }
+
         .google-chip:hover {
             background: #e8eaed;
             color: #202124;
             border-color: #bdc1c6;
             transform: translateY(-1px);
         }
+
         .google-chip.active {
             background: #202124;
             color: #ffffff;
@@ -2301,6 +2583,7 @@
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(32, 33, 36, 0.05);
         }
+
         .google-topic-card:hover {
             border-color: #1a73e8;
             box-shadow: 0 8px 24px rgba(26, 115, 232, 0.15);
@@ -2315,6 +2598,7 @@
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(32, 33, 36, 0.06);
         }
+
         .google-blog-card:hover {
             border-color: #dadce0;
             box-shadow: 0 14px 36px rgba(32, 33, 36, 0.14);
@@ -2328,6 +2612,7 @@
             transition: all 0.25s ease;
             box-shadow: 0 1px 3px rgba(32, 33, 36, 0.04);
         }
+
         .google-faq-card:hover {
             border-color: #bdc1c6;
             box-shadow: 0 4px 14px rgba(32, 33, 36, 0.08);
@@ -2352,6 +2637,7 @@
         .font-claude-serif {
             font-family: var(--font-claude-serif) !important;
         }
+
         .font-claude-sans {
             font-family: var(--font-claude-sans) !important;
         }
@@ -2362,6 +2648,7 @@
             box-shadow: 0 2px 10px rgba(31, 30, 29, 0.04);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .claude-search-bar:focus-within {
             border-color: #c96442;
             box-shadow: 0 2px 16px rgba(201, 100, 66, 0.18);
@@ -2384,12 +2671,14 @@
             gap: 6px;
             user-select: none;
         }
+
         .claude-chip:hover {
             background: #e6e4dc;
             color: #1f1e1d;
             border-color: #d6d2c7;
             transform: translateY(-1px);
         }
+
         .claude-chip.active {
             background: #1f1e1d;
             color: #ffffff;
@@ -2404,6 +2693,7 @@
             transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 2px 8px rgba(31, 30, 29, 0.03);
         }
+
         .claude-card:hover {
             border-color: #d8d5cd;
             box-shadow: 0 10px 28px rgba(31, 30, 29, 0.08);
@@ -2416,6 +2706,7 @@
             border-radius: 16px;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
+
         .claude-faq-item:hover {
             border-color: #d8d5cd;
             box-shadow: 0 4px 14px rgba(31, 30, 29, 0.05);
@@ -2427,6 +2718,7 @@
                 padding: 0 !important;
                 border-radius: 0 !important;
             }
+
             .mobile-fullscreen-dialog {
                 max-width: 100vw !important;
                 width: 100vw !important;
@@ -2484,6 +2776,7 @@
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             font-family: var(--font-claude-sans);
         }
+
         #globalToast.is-shown {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
@@ -2511,7 +2804,8 @@
     class="selection:bg-white selection:text-black w-full max-w-full bg-[#04101f] text-white overflow-x-hidden antialiased">
 
     <!-- Global Minimal Scroll Progress Indicator -->
-    <div id="scrollProgressBar" role="progressbar" aria-label="Scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="scrollProgressBar" role="progressbar" aria-label="Scroll progress" aria-valuenow="0" aria-valuemin="0"
+        aria-valuemax="100"></div>
 
     <aside aria-label="System status"
         class="w-full bg-[#030d19] border-b border-white/10 py-1.5 px-3 sm:px-4 text-center z-[60] relative">
@@ -2560,6 +2854,7 @@
                         </a>
                         <nav class="links" id="site-nav" aria-label="Primary Navigation">
                             <a href="#home" aria-current="page">Planets</a>
+                            <a href="#ecosystem">Apple &amp; Android</a>
                             <a href="#services-preview">Services</a>
                             <a href="#pricing">Pricing</a>
                             <a href="#roi-calculator">Calculator</a>
@@ -2593,7 +2888,7 @@
                                 BRAND</span></span>
                     </div>
                     <h1 class="col title" id="planetHeadline">
-                        <span class="ent-mask"><span class="ent-line">BUILD YOUR WEBSITE NOW.</span></span>
+                        <span class="ent-mask"><span class="ent-line">BUILD YOUR WEBSITE <span class="apple-text-gradient">NOW.</span></span></span>
                     </h1>
                     <div class="col rule"><span></span></div>
                     <p class="col lede" id="planetLede">
@@ -2626,13 +2921,19 @@
                 </div>
             </div>
 
-            <!-- Scroll to Explore Button -->
-            <button class="scroll" id="scrollExploreBtn" type="button"
-                aria-label="Scroll to explore pricing and capabilities">
-                <svg viewBox="0 0 26 33" fill="none" aria-hidden="true">
-                    <path d="M13 1.5 V31.5 M1.9 20.4 L13 31.5 L24.1 20.4" stroke="#ffffff" stroke-width="3"
-                        stroke-linecap="square" stroke-linejoin="miter" />
-                </svg>
+            <!-- Apple-Inspired Animated Hardware Scroll Mouse Indicator -->
+            <button class="scroll-mouse-indicator" id="scrollExploreBtn" type="button"
+                aria-label="Scroll down to explore Apple and Android ecosystem support, capabilities, and pricing">
+                <div class="mouse-icon-body">
+                    <div class="mouse-wheel-track">
+                        <span class="mouse-wheel-dot"></span>
+                    </div>
+                </div>
+                <div class="mouse-scroll-chevrons" aria-hidden="true">
+                    <span class="chevron-arrow ch-1"></span>
+                    <span class="chevron-arrow ch-2"></span>
+                </div>
+                <span class="mouse-scroll-text">SCROLL DOWN</span>
             </button>
         </section>
 
@@ -2655,6 +2956,409 @@
             </div>
         </aside>
 
+        <!-- SECTION 1.5: APPLE DEVICES & ANDROID ECOSYSTEM NATIVE COMPATIBILITY & PRIVACY SHOWCASE -->
+        <section id="ecosystem"
+            class="py-16 sm:py-24 px-4 sm:px-8 lg:px-16 border-b-2 border-white/15 bg-[#030914] text-white w-full relative z-20 overflow-hidden bg-grid-dark"
+            aria-label="Apple and Android Native Device Ecosystem Support">
+            
+            <!-- Ambient Radial Glow Backdrops -->
+            <div class="absolute -top-32 -left-32 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-blue-500/10 blur-[120px] pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-32 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-purple-500/10 blur-[120px] pointer-events-none"></div>
+            <div class="absolute -bottom-32 left-1/3 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
+
+            <div class="w-full max-w-7xl mx-auto relative z-10">
+                
+                <!-- Section Header: Apple Lock Icon & Affirmation Badge -->
+                <div class="text-center mb-12 sm:mb-16 reveal-down">
+                    <!-- Apple Privacy Lock Symbol from User Reference -->
+                    <div class="inline-flex flex-col items-center justify-center mb-5">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/5 border border-white/20 backdrop-blur-xl flex items-center justify-center shadow-2xl shadow-blue-500/10 mb-3 group hover:border-cyan-400/50 transition-all hover:scale-105">
+                            <svg class="w-9 h-9 sm:w-11 sm:h-11 text-white group-hover:text-cyan-300 transition-colors drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" viewBox="0 0 170 170" fill="currentColor" aria-label="Apple Privacy and Security Lock">
+                                <!-- Apple Privacy Lock Shackle -->
+                                <path d="M85 14 C71.5 14 60.5 25 60.5 38.5 L60.5 54 L70 54 L70 38.5 C70 30.2 76.7 23.5 85 23.5 C93.3 23.5 100 30.2 100 38.5 L100 54 L109.5 54 L109.5 38.5 C109.5 25 98.5 14 85 14 Z" fill="currentColor"/>
+                                <!-- Apple Body with Privacy Integration -->
+                                <path d="M117.8 88.5 C117.6 74.4 129.2 67.4 129.8 67 C123.3 57.5 113.1 56.1 109.5 55.7 C100.8 54.8 92.4 60.8 87.9 60.8 C83.4 60.8 76.5 55.8 69.3 55.9 C60 56 51.3 61.3 46.5 69.6 C36.8 86.4 44 111.2 53.4 124.8 C58 131.5 63.5 138.9 70.8 138.6 C77.8 138.3 80.5 134.1 88.9 134.1 C97.3 134.1 99.8 138.6 107.2 138.4 C114.7 138.3 119.5 131.7 124.1 125 C129.4 117.2 131.6 109.7 131.8 109.3 C131.5 109.2 118 104.1 117.8 88.5 Z" fill="currentColor"/>
+                                <!-- Precision Keyhole Interior -->
+                                <circle cx="88.5" cy="85" r="4.5" fill="#030914"/>
+                                <path d="M86.5 86 L90.5 86 L92 99 L85 99 Z" fill="#030914"/>
+                            </svg>
+                        </div>
+                        <!-- Ecosystem Badges -->
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 text-[11px] font-mono uppercase tracking-widest text-white/90">
+                            <i class="fa-brands fa-apple text-white text-xs"></i>
+                            <span>iOS &amp; macOS</span>
+                            <span class="text-white/30">•</span>
+                            <i class="fa-brands fa-android text-emerald-400 text-xs"></i>
+                            <span>Android 15+</span>
+                        </div>
+                    </div>
+
+                    <!-- Apple Signature Headline with Multi-Color Gradient Text -->
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight font-bubbledot">
+                        Great platforms come with great <span class="apple-text-gradient">privacy, speed &amp; power.</span>
+                    </h2>
+
+                    <!-- Direct User Answer Affirmation Banner -->
+                    <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-[10.5px] sm:text-xs font-bold uppercase tracking-widest shadow-lg shadow-emerald-500/10">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                        <span>YES — 100% NATIVELY ENGINEERED FOR APPLE &amp; ANDROID DEVICES</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm lg:text-base text-white/80 max-w-2xl mx-auto mt-4 font-sans font-medium leading-relaxed">
+                        Every digital platform engineered by Forge Softwares is verified for flawless performance across both ecosystems.
+                        Zero UI distortion, buttery 120Hz ProMotion response, dynamic safe area adaptation, and sub-100ms static speed on every screen.
+                    </p>
+                </div>
+
+                <!-- Ecosystem Pillars: Dual Device Architecture Cards (Scroll-Down Drift Reactive) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+                    
+                    <!-- Card 1: Apple Ecosystem Architecture -->
+                    <div class="apple-glass-card p-6 sm:p-8 relative overflow-hidden group reveal-down scroll-down-drift">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white text-black flex items-center justify-center text-2xl font-bold shadow-lg shadow-white/20">
+                                    <i class="fa-brands fa-apple"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white font-bubbledot tracking-wide">Apple Ecosystem</h3>
+                                    <p class="text-[11px] font-mono text-cyan-300 uppercase tracking-widest">iPhone 16 • Mac • iPad • Safari</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
+                                120Hz ProMotion
+                            </span>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-white/80 font-sans leading-relaxed mb-6 font-medium">
+                            Engineered for Apple Silicon (M1/M2/M3/M4 &amp; A18 Pro). Full WebKit optimization eliminates rubber-banding glitches, respects Dynamic Island notch safe-areas, and delivers instant app-like responsiveness.
+                        </p>
+
+                        <div class="space-y-3 font-sans text-xs sm:text-sm text-white/90">
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Apple Privacy &amp; Sandboxing:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Zero third-party trackers, strict CSP security headers, and on-device private processing.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="smartphone" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Dynamic Island &amp; Safe-Area Compliance:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Pixel-perfect adaptation for <code>env(safe-area-inset-top)</code> and iPhone 16 curved edge corners.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="credit-card" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Apple Pay &amp; Touch/Face ID WebAuthn:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">One-tap biometric authentication and instant checkout workflows supported natively.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">iOS Home Screen PWA:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Full standalone app experience with Retina touch icon, offline cache, and instant launch.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/60">
+                            <span>Lighthouse iOS Score: <strong class="text-emerald-400">100/100</strong></span>
+                            <span>WebKit Latency: <strong class="text-cyan-300">&lt; 38ms</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Android Ecosystem Architecture -->
+                    <div class="apple-glass-card p-6 sm:p-8 relative overflow-hidden group reveal-down scroll-down-drift reveal-delay-100">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-[#3ddc84] text-black flex items-center justify-center text-2xl font-bold shadow-lg shadow-[#3ddc84]/20">
+                                    <i class="fa-brands fa-android"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white font-bubbledot tracking-wide">Android Ecosystem</h3>
+                                    <p class="text-[11px] font-mono text-emerald-300 uppercase tracking-widest">Samsung • Pixel • Foldables • Chrome</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-400/15 text-emerald-300 border border-emerald-400/30">
+                                Android 15 Ready
+                            </span>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-white/80 font-sans leading-relaxed mb-6 font-medium">
+                            Optimized for Google Chrome Blink and V8 runtime engine. Flawless on high-refresh Samsung AMOLED displays, Google Pixel devices, and multi-window foldable postures with zero layout shifts.
+                        </p>
+
+                        <div class="space-y-3 font-sans text-xs sm:text-sm text-white/90">
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="zap" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Chromium V8 Engine Acceleration:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Ultra-lightweight DOM rendering with sub-50ms execution across 10,000+ Android models.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="palette" class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Material You &amp; Dynamic Theming:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Harmonious contrast with Android system dark mode and dynamic wallpaper color palettes.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="tablet" class="w-5 h-5 text-purple-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Foldable &amp; Tablet Posture Responsive:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Fluid dual-screen breakpoint layouts for Samsung Galaxy Z Fold, Flip, and Android tablets.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors">
+                                <i data-lucide="package" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Google Pay &amp; Play Store TWA Ready:</strong>
+                                    <span class="text-white/70 block text-xs mt-0.5">Instant 1-click UPI/Google Pay checkout + convertible to an installable Google Play APK.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/60">
+                            <span>Chrome Android Score: <strong class="text-emerald-400">100/100</strong></span>
+                            <span>First Contentful Paint: <strong class="text-emerald-300">&lt; 42ms</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Live Device Preview & Architecture Simulator -->
+                <div class="apple-glass-card p-6 sm:p-10 border border-white/20 reveal-down scroll-down-drift reveal-delay-200">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+                        <div>
+                            <div class="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-300 mb-1">
+                                <i data-lucide="monitor-smartphone" class="w-4 h-4"></i> Real-Time Multi-Device Simulator
+                            </div>
+                            <h3 class="text-lg sm:text-2xl font-extrabold text-white font-bubbledot">
+                                Test How Your Site Renders Across Devices
+                            </h3>
+                        </div>
+
+                        <!-- Device Selection Pills -->
+                        <div class="flex items-center flex-wrap gap-2" role="tablist" aria-label="Device Preview Tabs">
+                            <button type="button" class="eco-device-tab active" data-device="iphone" onclick="switchEcosystemDevice('iphone')" role="tab" aria-selected="true">
+                                <i class="fa-brands fa-apple text-sm"></i> iPhone 16 Pro
+                            </button>
+                            <button type="button" class="eco-device-tab" data-device="samsung" onclick="switchEcosystemDevice('samsung')" role="tab" aria-selected="false">
+                                <i class="fa-brands fa-android text-sm"></i> Galaxy S25
+                            </button>
+                            <button type="button" class="eco-device-tab" data-device="macbook" onclick="switchEcosystemDevice('macbook')" role="tab" aria-selected="false">
+                                <i class="fa-brands fa-apple text-sm"></i> MacBook Pro M4
+                            </button>
+                            <button type="button" class="eco-device-tab" data-device="pixel" onclick="switchEcosystemDevice('pixel')" role="tab" aria-selected="false">
+                                <i class="fa-brands fa-google text-sm"></i> Pixel 9 Pro
+                            </button>
+                            <button type="button" class="eco-device-tab" data-device="ipad" onclick="switchEcosystemDevice('ipad')" role="tab" aria-selected="false">
+                                <i class="fa-brands fa-apple text-sm"></i> iPad Pro
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Simulated Device Bezel Views -->
+                    <div class="w-full flex items-center justify-center min-h-[380px] sm:min-h-[420px] py-4">
+                        
+                        <!-- VIEW 1: iPhone 16 Pro Frame -->
+                        <div class="device-sim-screen flex flex-col items-center max-w-sm w-full mx-auto" data-screen="iphone">
+                            <div class="w-full max-w-[320px] rounded-[44px] border-[6px] border-[#2c2d30] bg-[#000000] p-3 shadow-2xl shadow-cyan-500/20 relative">
+                                <!-- Dynamic Island Pill -->
+                                <div class="w-24 h-6 bg-black rounded-full mx-auto mb-2 flex items-center justify-between px-3 border border-white/15">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span class="w-2 h-2 rounded-full bg-[#1c1c1e]"></span>
+                                </div>
+                                <!-- iPhone Screen Content -->
+                                <div class="rounded-[32px] bg-[#04101f] p-4 text-center border border-white/10 space-y-3">
+                                    <div class="flex items-center justify-between text-[10px] font-mono text-white/70 px-1">
+                                        <span>9:41</span>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-[9px]">5G</span>
+                                            <i data-lucide="wifi" class="w-3 h-3 text-white"></i>
+                                            <i data-lucide="battery" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                        </div>
+                                    </div>
+                                    <div class="w-full py-1 px-2.5 rounded-full bg-white/10 text-[9px] font-mono text-white/60 flex items-center justify-center gap-1">
+                                        <i data-lucide="lock" class="w-2.5 h-2.5 text-emerald-400"></i> forgesoftwares.in
+                                    </div>
+                                    <div class="py-4 space-y-2">
+                                        <span class="text-[9px] font-mono uppercase tracking-widest text-cyan-300 font-bold">iOS 18 Verified</span>
+                                        <h4 class="text-sm font-extrabold text-white font-bubbledot">Sub-100ms Edge Speed On iPhone</h4>
+                                        <p class="text-[11px] text-white/80 font-sans">120 FPS ProMotion fluidity with zero layout shifts.</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-mono text-emerald-300 flex items-center justify-between">
+                                        <span>Safari WebKit:</span>
+                                        <strong>100% Native Flawless</strong>
+                                    </div>
+                                    <button type="button" onclick="openEnquiryModal('pro')" class="w-full py-2 rounded-full bg-white text-black font-mono text-[10px] font-extrabold uppercase hover:bg-cyan-200 transition-colors">
+                                        Deploy For iOS &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="text-[11px] font-mono text-white/50 mt-3 font-semibold"> iPhone 16 Pro • Super Retina XDR OLED (120Hz)</span>
+                        </div>
+
+                        <!-- VIEW 2: Samsung Galaxy S25 Frame -->
+                        <div class="device-sim-screen hidden flex-col items-center max-w-sm w-full mx-auto" data-screen="samsung">
+                            <div class="w-full max-w-[320px] rounded-[36px] border-[5px] border-[#383a40] bg-[#000000] p-3 shadow-2xl shadow-emerald-500/20 relative">
+                                <!-- Center Punch-Hole Camera -->
+                                <div class="w-3 h-3 rounded-full bg-[#111113] border border-white/20 mx-auto mb-2"></div>
+                                <!-- Galaxy Screen Content -->
+                                <div class="rounded-[26px] bg-[#04101f] p-4 text-center border border-white/10 space-y-3">
+                                    <div class="flex items-center justify-between text-[10px] font-mono text-white/70 px-1">
+                                        <span>12:45</span>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-[9px] font-bold text-emerald-400">5G+</span>
+                                            <i data-lucide="wifi" class="w-3 h-3 text-white"></i>
+                                            <span class="text-[9px]">100%</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full py-1 px-2.5 rounded-full bg-white/10 text-[9px] font-mono text-white/60 flex items-center justify-center gap-1">
+                                        <i data-lucide="lock" class="w-2.5 h-2.5 text-emerald-400"></i> https://forgesoftwares.in
+                                    </div>
+                                    <div class="py-4 space-y-2">
+                                        <span class="text-[9px] font-mono uppercase tracking-widest text-emerald-300 font-bold">Android 15 / One UI 7</span>
+                                        <h4 class="text-sm font-extrabold text-white font-bubbledot">Dynamic AMOLED 2X Ultra Smooth</h4>
+                                        <p class="text-[11px] text-white/80 font-sans">Full V8 JavaScript engine compilation in 38ms.</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-mono text-emerald-300 flex items-center justify-between">
+                                        <span>Chrome Blink:</span>
+                                        <strong>100/100 Lighthouse</strong>
+                                    </div>
+                                    <button type="button" onclick="openEnquiryModal('pro')" class="w-full py-2 rounded-full bg-[#3ddc84] text-black font-mono text-[10px] font-extrabold uppercase hover:bg-emerald-300 transition-colors">
+                                        Deploy For Android &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="text-[11px] font-mono text-white/50 mt-3 font-semibold">🤖 Samsung Galaxy S25 Ultra • Dynamic AMOLED 2X</span>
+                        </div>
+
+                        <!-- VIEW 3: MacBook Pro M4 Frame -->
+                        <div class="device-sim-screen hidden flex-col items-center max-w-2xl w-full mx-auto" data-screen="macbook">
+                            <div class="w-full rounded-2xl border-[3px] border-[#3a3c42] bg-[#0c1322] p-4 shadow-2xl shadow-blue-500/20">
+                                <!-- macOS Window Controls -->
+                                <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+                                        <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                                        <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+                                    </div>
+                                    <div class="w-72 max-w-full py-1 px-3 rounded-md bg-white/10 text-[10px] font-mono text-white/70 flex items-center justify-center gap-1.5">
+                                        <i data-lucide="lock" class="w-3 h-3 text-emerald-400"></i> https://forgesoftwares.in/
+                                    </div>
+                                    <div class="flex items-center gap-2 text-white/40">
+                                        <i data-lucide="share" class="w-3.5 h-3.5"></i>
+                                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                    </div>
+                                </div>
+                                <div class="p-4 sm:p-6 bg-[#04101f] rounded-xl border border-white/10 text-center space-y-3">
+                                    <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-300 font-bold">macOS Sequoia • Safari 18 Verified</span>
+                                    <h4 class="text-base sm:text-xl font-extrabold text-white font-bubbledot">High-DPI Liquid Retina XDR Resolution</h4>
+                                    <p class="text-xs sm:text-sm text-white/80 max-w-md mx-auto font-sans font-medium">Native hardware GPU acceleration via WebGPU and zero memory leaks.</p>
+                                    <div class="grid grid-cols-3 gap-2 max-w-md mx-auto pt-2">
+                                        <div class="p-2 rounded-lg bg-white/5 text-[10px] font-mono"><strong class="text-emerald-400 block text-sm">34ms</strong> Static Edge</div>
+                                        <div class="p-2 rounded-lg bg-white/5 text-[10px] font-mono"><strong class="text-cyan-300 block text-sm">120 FPS</strong> Metal Sync</div>
+                                        <div class="p-2 rounded-lg bg-white/5 text-[10px] font-mono"><strong class="text-purple-400 block text-sm">0.0 CLS</strong> Zero Jitter</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] font-mono text-white/50 mt-3 font-semibold"> MacBook Pro 16" (M4 Max) • Liquid Retina XDR</span>
+                        </div>
+
+                        <!-- VIEW 4: Google Pixel 9 Pro Frame -->
+                        <div class="device-sim-screen hidden flex-col items-center max-w-sm w-full mx-auto" data-screen="pixel">
+                            <div class="w-full max-w-[320px] rounded-[40px] border-[5px] border-[#303338] bg-[#000000] p-3 shadow-2xl shadow-purple-500/20 relative">
+                                <div class="w-3.5 h-3.5 rounded-full bg-[#141517] border border-white/20 mx-auto mb-2"></div>
+                                <div class="rounded-[30px] bg-[#04101f] p-4 text-center border border-white/10 space-y-3">
+                                    <div class="flex items-center justify-between text-[10px] font-mono text-white/70 px-1">
+                                        <span>10:00</span>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-[9px] text-cyan-300">LTE+</span>
+                                            <i data-lucide="wifi" class="w-3 h-3 text-white"></i>
+                                            <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                        </div>
+                                    </div>
+                                    <div class="w-full py-1 px-2.5 rounded-full bg-white/10 text-[9px] font-mono text-white/60 flex items-center justify-center gap-1">
+                                        <i data-lucide="shield" class="w-2.5 h-2.5 text-emerald-400"></i> forgesoftwares.in
+                                    </div>
+                                    <div class="py-4 space-y-2">
+                                        <span class="text-[9px] font-mono uppercase tracking-widest text-purple-300 font-bold">Google Pixel 9 Pro</span>
+                                        <h4 class="text-sm font-extrabold text-white font-bubbledot">Pure Android Material You Integration</h4>
+                                        <p class="text-[11px] text-white/80 font-sans">Full Google Search Console &amp; Core Web Vitals optimization.</p>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-mono text-cyan-300 flex items-center justify-between">
+                                        <span>Play Store PWA:</span>
+                                        <strong>1-Click Install Ready</strong>
+                                    </div>
+                                    <button type="button" onclick="openEnquiryModal('pro')" class="w-full py-2 rounded-full bg-white text-black font-mono text-[10px] font-extrabold uppercase hover:bg-purple-200 transition-colors">
+                                        Deploy For Pixel &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="text-[11px] font-mono text-white/50 mt-3 font-semibold">🤖 Google Pixel 9 Pro • Super Actua Display (120Hz)</span>
+                        </div>
+
+                        <!-- VIEW 5: iPad Pro 13" Frame -->
+                        <div class="device-sim-screen hidden flex-col items-center max-w-xl w-full mx-auto" data-screen="ipad">
+                            <div class="w-full rounded-[30px] border-[6px] border-[#2f3136] bg-[#000000] p-4 shadow-2xl shadow-amber-500/20">
+                                <div class="rounded-[22px] bg-[#04101f] p-6 text-center border border-white/10 space-y-4">
+                                    <div class="flex items-center justify-between text-[10px] font-mono text-white/70">
+                                        <span>iPadOS 18</span>
+                                        <span class="py-0.5 px-3 rounded-full bg-white/10">Ultra Retina XDR Tandem OLED</span>
+                                        <span>100% Battery</span>
+                                    </div>
+                                    <div class="py-3 space-y-2">
+                                        <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold">Tablet &amp; Split-View Responsive</span>
+                                        <h4 class="text-base sm:text-xl font-extrabold text-white font-bubbledot">Adaptive Multi-Column Layout Grid</h4>
+                                        <p class="text-xs sm:text-sm text-white/80 max-w-md mx-auto font-sans">Effortlessly responds to portrait, landscape, Slide Over, and Stage Manager window sizes.</p>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-3">
+                                        <button type="button" onclick="openEnquiryModal('pro')" class="px-6 py-2 rounded-full bg-white text-black font-mono text-[11px] font-extrabold uppercase hover:bg-cyan-200 transition-colors">
+                                            Start Project &rarr;
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] font-mono text-white/50 mt-3 font-semibold"> iPad Pro 13" (M4) • Tandem OLED ProMotion</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bottom Ecosystem Conversion Strip -->
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/15 text-center sm:text-left reveal-down scroll-down-drift">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-400/20 text-emerald-300 flex items-center justify-center shrink-0">
+                            <i data-lucide="check-check" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm sm:text-base font-bold text-white font-bubbledot">Cross-Platform Certified For All Brands</h4>
+                            <p class="text-xs text-white/70 font-sans">iPhone, Samsung Galaxy, Pixel, iPad, Mac, Windows, Linux, Android TV &amp; Tablets.</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="openEnquiryModal('pro')" class="shimmer-btn px-6 py-3 font-mono text-xs font-black uppercase tracking-wider bg-white text-black rounded-full hover:bg-cyan-200 transition-all cursor-pointer whitespace-nowrap shadow-lg shadow-white/20">
+                        Deploy My Website Now &rarr;
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
         <!-- SECTION 2: SERVICES SECTION -->
         <section id="services-preview"
             class="py-16 sm:py-20 px-4 sm:px-8 lg:px-16 border-b-2 border-black bg-white text-black w-full relative z-20 bg-grid-light">
@@ -2665,7 +3369,7 @@
                         <i data-lucide="layers" class="w-3.5 h-3.5 text-white shrink-0"></i> Core Capabilities
                     </div>
                     <h2 class="text-2xl sm:text-5xl lg:text-6xl font-bubbledot uppercase text-black font-extrabold">
-                        Engineering Disciplines</h2>
+                        Engineering <span class="apple-text-gradient-dark">Disciplines</span></h2>
                     <p
                         class="text-black text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-bold px-2">
                         Specialized digital systems architected for rapid conversion and stability.
@@ -2684,7 +3388,8 @@
                             and custom API integrations engineered for continuous, fault-tolerant execution.</p>
                     </div>
 
-                    <div class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-100">
+                    <div
+                        class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-100">
                         <div class="icon-pod icon-pod-emerald w-13 h-13 sm:w-14 sm:h-14 mb-6">
                             <i data-lucide="layout-template" class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-emerald"></i>
                         </div>
@@ -2696,9 +3401,11 @@
                         </p>
                     </div>
 
-                    <div class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-200 sm:col-span-2 lg:col-span-1">
+                    <div
+                        class="card-light-contrast card-spotlight p-6 sm:p-7 cursor-default group reveal reveal-delay-200 sm:col-span-2 lg:col-span-1">
                         <div class="icon-pod icon-pod-purple w-13 h-13 sm:w-14 sm:h-14 mb-6">
-                            <i data-lucide="message-square-dashed" class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-purple"></i>
+                            <i data-lucide="message-square-dashed"
+                                class="w-6 sm:w-7 h-6 sm:h-7 icon-luminous-purple"></i>
                         </div>
                         <h3
                             class="text-xl sm:text-2xl font-extrabold text-black tracking-tight mb-2 uppercase font-bubbledot">
@@ -2878,7 +3585,7 @@
                         <i data-lucide="zap" class="w-3.5 h-3.5 text-white shrink-0"></i> Scalable Engineering Plans
                     </div>
                     <h2 class="text-2xl sm:text-5xl lg:text-7xl font-bubbledot uppercase text-black font-extrabold">
-                        Pricing Architecture</h2>
+                        Pricing <span class="apple-text-gradient-dark">Architecture</span></h2>
                     <p
                         class="text-black text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-bold px-2">
                         Transparent Tiers • Complete Ownership • Zero Hidden Fees
@@ -2977,7 +3684,8 @@
                         style="transition-delay: 100ms;">
                         <div
                             class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-white font-mono text-[10px] font-extrabold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-2xl whitespace-nowrap flex items-center gap-1.5 border-2 border-white z-20">
-                            <i data-lucide="star" class="w-3.5 h-3.5 icon-luminous-amber fill-amber-400"></i> BEST SELLING ⭐
+                            <i data-lucide="star" class="w-3.5 h-3.5 icon-luminous-amber fill-amber-400"></i> BEST
+                            SELLING ⭐
                         </div>
                         <div>
                             <div class="flex items-center justify-between mb-4 border-b-2 border-black pb-3 mt-2">
@@ -3123,19 +3831,22 @@
                                         Tailored
                                         Design</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="bot"
-                                        class="w-4 h-4 icon-luminous-purple shrink-0 mt-0.5"></i> <span><strong>✅ Autonomous AI
+                                        class="w-4 h-4 icon-luminous-purple shrink-0 mt-0.5"></i> <span><strong>✅
+                                            Autonomous AI
                                             Chatbot Integrated</strong></span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="globe"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span><strong>Free Custom Domain
                                             (1st Year)</strong></span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="shield-check"
-                                        class="w-4 h-4 icon-luminous-emerald shrink-0 mt-0.5"></i> <span>Enterprise SSL & Premium
+                                        class="w-4 h-4 icon-luminous-emerald shrink-0 mt-0.5"></i> <span>Enterprise SSL
+                                        & Premium
                                         Hosting Setup</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="search-code"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced SEO + Technical
                                         Schema.org</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="zap"
-                                        class="w-4 h-4 icon-luminous-cyan shrink-0 mt-0.5"></i> <span>Maximum Speed & Core Web
+                                        class="w-4 h-4 icon-luminous-cyan shrink-0 mt-0.5"></i> <span>Maximum Speed &
+                                        Core Web
                                         Vitals Tuning</span></li>
                                 <li class="flex items-start gap-2.5"><i data-lucide="filter"
                                         class="w-4 h-4 text-black shrink-0 mt-0.5"></i> <span>Advanced Lead Capture
@@ -3484,7 +4195,7 @@
                     class="text-xs font-mono uppercase tracking-widest text-cyan-300 block mb-2 font-extrabold">Interactive
                     Estimation</span>
                 <h3 class="text-2xl sm:text-4xl font-bubbledot uppercase text-white mb-4 font-extrabold">Project Scope
-                    Calculator</h3>
+                    <span class="apple-text-gradient">Calculator</span></h3>
                 <p class="text-xs sm:text-sm font-mono text-white mb-8 sm:mb-10 max-w-xl mx-auto font-bold px-2">Select
                     tier and desired deployment timeframe to calculate advance payment and budget requirements.</p>
 
@@ -3902,7 +4613,8 @@
                             <div class="space-y-3 font-mono text-xs sm:text-sm text-white font-bold">
                                 <a href="tel:+919697430658"
                                     class="flex items-center gap-2 hover:text-cyan-300 transition-colors min-h-[36px]">
-                                    <i data-lucide="phone" class="w-4 h-4 icon-luminous-cyan shrink-0"></i> +91-9697430658
+                                    <i data-lucide="phone" class="w-4 h-4 icon-luminous-cyan shrink-0"></i>
+                                    +91-9697430658
                                 </a>
                                 <a href="mailto:farmanshafi2007@gmail.com"
                                     class="flex items-center gap-2 hover:text-cyan-300 transition-colors break-all min-h-[36px]">
@@ -4275,11 +4987,13 @@
             id="helpCenterContent">
 
             <!-- Claude Editorial Top Bar -->
-            <div class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+            <div
+                class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
                 <div class="flex items-center gap-3">
                     <!-- Claude Coral Dot / Brand Icon -->
                     <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
-                    <span class="text-xs sm:text-sm font-claude-sans font-semibold tracking-tight text-[#1f1e1d] flex items-center gap-1.5">
+                    <span
+                        class="text-xs sm:text-sm font-claude-sans font-semibold tracking-tight text-[#1f1e1d] flex items-center gap-1.5">
                         <span class="font-bold text-[#1f1e1d]">Forge</span>
                         <span class="text-[#73726c] font-normal">• Knowledge Base & Help</span>
                     </span>
@@ -4288,74 +5002,118 @@
                 <div class="flex items-center gap-2">
                     <button type="button" id="expandAllFaqBtn"
                         class="px-3 sm:px-4 py-1.5 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#4d4c47] text-[11px] sm:text-xs font-claude-sans font-semibold transition-colors cursor-pointer focus:outline-none flex items-center gap-1.5 min-h-[36px]">
-                        <svg class="w-3.5 h-3.5 text-[#c96442] pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+                        <svg class="w-3.5 h-3.5 text-[#c96442] pointer-events-none" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="7 13 12 18 17 13"></polyline>
+                            <polyline points="7 6 12 11 17 6"></polyline>
+                        </svg>
                         <span id="expandAllFaqText">Expand All</span>
                     </button>
                     <button type="button" onclick="closeHelpModal()"
                         class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
                         aria-label="Close Help Center">
-                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
 
             <!-- Single Continuous Scroll Container: Entire Page Flows Naturally! -->
-            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain" id="helpScrollArea" style="-webkit-overflow-scrolling: touch;">
+            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain"
+                id="helpScrollArea" style="-webkit-overflow-scrolling: touch;">
 
                 <!-- Claude Editorial Hero Search Banner -->
                 <div class="bg-[#ffffff] px-4 sm:px-8 pt-6 sm:pt-8 pb-6 border-b border-[#e8e6df] text-center relative">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0eee6] text-[#c96442] font-claude-sans font-semibold text-[10px] tracking-wider uppercase mb-3">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0eee6] text-[#c96442] font-claude-sans font-semibold text-[10px] tracking-wider uppercase mb-3">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#c96442]"></span>
                         Documentation & Answers
                     </div>
-                    <h2 id="helpCenterTitle" class="text-2xl sm:text-4xl lg:text-5xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight mb-2">
+                    <h2 id="helpCenterTitle"
+                        class="text-2xl sm:text-4xl lg:text-5xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight mb-2">
                         How can we <em class="italic font-serif text-[#c96442]">help you?</em>
                     </h2>
                     <p class="text-xs sm:text-sm font-claude-sans text-[#73726c] max-w-xl mx-auto mb-5 leading-relaxed">
-                        Search 73 verified engineering answers covering fixed pricing tiers, IP code ownership, domain setup, and autonomous AI agents.
+                        Search 73 verified engineering answers covering fixed pricing tiers, IP code ownership, domain
+                        setup, and autonomous AI agents.
                     </p>
 
                     <!-- Search Input Box with Guaranteed Inline SVG and Clear Button -->
                     <div class="relative max-w-2xl mx-auto">
-                        <div class="claude-search-bar rounded-full flex items-center px-4 py-2.5 sm:py-3 gap-3 bg-white">
-                            <svg class="w-4 sm:w-5 h-4 sm:h-5 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <div
+                            class="claude-search-bar rounded-full flex items-center px-4 py-2.5 sm:py-3 gap-3 bg-white">
+                            <svg class="w-4 sm:w-5 h-4 sm:h-5 text-[#c96442] shrink-0 pointer-events-none"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
                             <input type="text" id="helpSearchInput"
                                 placeholder="Type keywords (pricing, deposit, domain, refund, AI agent)..."
                                 class="w-full bg-transparent border-none text-xs sm:text-sm font-claude-sans text-[#1f1e1d] placeholder-[#73726c] focus:outline-none" />
-                            <button type="button" id="helpClearSearchBtn" class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none" title="Clear search">&times;</button>
-                            <span id="helpFaqCountBadge" class="text-[10px] font-mono font-bold text-[#73726c] bg-[#f0eee6] px-2.5 py-0.5 rounded-full shrink-0">73 FAQS</span>
+                            <button type="button" id="helpClearSearchBtn"
+                                class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none"
+                                title="Clear search">&times;</button>
+                            <span id="helpFaqCountBadge"
+                                class="text-[10px] font-mono font-bold text-[#73726c] bg-[#f0eee6] px-2.5 py-0.5 rounded-full shrink-0">73
+                                FAQS</span>
                         </div>
                     </div>
 
                     <!-- Claude Quick Topic Shortcut Cards -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3.5 mt-5 max-w-4xl mx-auto text-left">
                         <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="1">
-                            <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#c96442] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
-                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#c96442] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg>
                             </div>
                             <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Pricing & Billing</div>
                             <div class="text-[10px] text-[#73726c] font-claude-sans">₹1,999 to ₹14,999</div>
                         </div>
 
                         <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="3">
-                            <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#2d6a4f] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
-                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#2d6a4f] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
                             </div>
                             <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Code Ownership</div>
                             <div class="text-[10px] text-[#73726c] font-claude-sans">100% IP rights</div>
                         </div>
 
                         <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="5">
-                            <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#7b2cbf] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
-                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#7b2cbf] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                                    <circle cx="12" cy="5" r="2"></circle>
+                                    <path d="M12 7v4"></path>
+                                    <line x1="8" y1="16" x2="8" y2="16"></line>
+                                    <line x1="16" y1="16" x2="16" y2="16"></line>
+                                </svg>
                             </div>
                             <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">AI Chatbots</div>
                             <div class="text-[10px] text-[#73726c] font-claude-sans">Autonomous agents</div>
                         </div>
 
                         <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="7">
-                            <div class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#b45309] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
-                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#f0eee6] text-[#b45309] flex items-center justify-center mb-1.5 group-hover:scale-105 transition-transform">
+                                <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
                             </div>
                             <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Refund Guarantee</div>
                             <div class="text-[10px] text-[#73726c] font-claude-sans">7-day technical SLA</div>
@@ -4363,17 +5121,27 @@
                     </div>
 
                     <!-- Claude Category Pills Row -->
-                    <div class="mt-5 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 max-w-4xl mx-auto" id="helpCategoryPills">
-                        <button type="button" class="claude-chip helpCatFilterBtn active" data-cat="all">All Topics (73)</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="1">1. Pricing & Payment</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="2">2. After You Pay</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="3">3. Ownership & Tech</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="4">4. Support Windows</button>
+                    <div class="mt-5 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 max-w-4xl mx-auto"
+                        id="helpCategoryPills">
+                        <button type="button" class="claude-chip helpCatFilterBtn active" data-cat="all">All Topics
+                            (73)</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="1">1. Pricing &
+                            Payment</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="2">2. After You
+                            Pay</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="3">3. Ownership &
+                            Tech</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="4">4. Support
+                            Windows</button>
                         <button type="button" class="claude-chip helpCatFilterBtn" data-cat="5">5. AI Chatbots</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="6">6. Design Revisions</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="7">7. Refund Policy</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="8">8. Data Security</button>
-                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="9">9. Contact Forge</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="6">6. Design
+                            Revisions</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="7">7. Refund
+                            Policy</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="8">8. Data
+                            Security</button>
+                        <button type="button" class="claude-chip helpCatFilterBtn" data-cat="9">9. Contact
+                            Forge</button>
                         <button type="button" class="claude-chip helpCatFilterBtn" data-cat="10">10. About Us</button>
                     </div>
                 </div>
@@ -4384,15 +5152,30 @@
                 </div>
 
                 <!-- Claude Editorial Bottom Contact Prompt -->
-                <div class="bg-[#ffffff] border-t border-[#e8e6df] px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-claude-sans">
+                <div
+                    class="bg-[#ffffff] border-t border-[#e8e6df] px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-claude-sans">
                     <div class="flex items-center gap-2 text-[#73726c]">
-                        <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line></svg>
+                        <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                            <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                            <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                            <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                            <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                        </svg>
                         <span>Need technical clarifications? Connect directly with a senior engineer.</span>
                     </div>
                     <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
                         <a href="tel:+919697430658"
                             class="px-3.5 py-1.5 rounded-full bg-[#1f1e1d] text-white font-semibold hover:bg-black transition-colors flex items-center gap-1.5 shadow-sm min-h-[36px]">
-                            <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
                             +91-9697430658
                         </a>
                         <button type="button" onclick="closeHelpModal(); openEnquiryModal('pro');"
@@ -4414,12 +5197,16 @@
             id="blogContent">
 
             <!-- Claude Editorial Top Bar -->
-            <div class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+            <div
+                class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
                 <div class="flex items-center gap-3">
                     <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
                     <div class="flex items-baseline gap-2">
-                        <span id="blogHeaderTitle" class="text-sm sm:text-base font-claude-serif font-bold tracking-tight text-[#1f1e1d]">Forge Journal</span>
-                        <span class="text-[11px] font-claude-sans text-[#73726c] hidden sm:inline">• Research, Systems & Blueprints</span>
+                        <span id="blogHeaderTitle"
+                            class="text-sm sm:text-base font-claude-serif font-bold tracking-tight text-[#1f1e1d]">Forge
+                            Journal</span>
+                        <span class="text-[11px] font-claude-sans text-[#73726c] hidden sm:inline">• Research, Systems &
+                            Blueprints</span>
                     </div>
                 </div>
 
@@ -4427,27 +5214,42 @@
                     <button type="button" onclick="closeBlogModal()"
                         class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
                         aria-label="Close blog modal">
-                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
 
             <!-- Single Continuous Scroll Container: Entire Blog Flows Naturally! -->
-            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain" id="blogScrollArea" style="-webkit-overflow-scrolling: touch;">
+            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain"
+                id="blogScrollArea" style="-webkit-overflow-scrolling: touch;">
 
                 <!-- Claude Blog Search & Filter Bar -->
                 <div class="bg-[#ffffff] px-4 sm:px-8 py-4 sm:py-5 border-b border-[#e8e6df]">
-                    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                    <div
+                        class="max-w-4xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
                         <div class="relative flex-1 max-w-md">
-                            <div class="claude-search-bar rounded-full flex items-center px-3.5 py-2 sm:py-2.5 gap-2.5 bg-white">
-                                <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                <input type="text" id="blogSearchInput" placeholder="Search essays, AI architecture, latency..."
+                            <div
+                                class="claude-search-bar rounded-full flex items-center px-3.5 py-2 sm:py-2.5 gap-2.5 bg-white">
+                                <svg class="w-4 h-4 text-[#c96442] shrink-0 pointer-events-none" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <input type="text" id="blogSearchInput"
+                                    placeholder="Search essays, AI architecture, latency..."
                                     class="w-full bg-transparent border-none text-xs sm:text-sm font-claude-sans text-[#1f1e1d] placeholder-[#73726c] focus:outline-none" />
-                                <button type="button" id="blogClearSearchBtn" class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none">&times;</button>
+                                <button type="button" id="blogClearSearchBtn"
+                                    class="hidden text-[#73726c] hover:text-[#1f1e1d] text-base p-1 cursor-pointer focus:outline-none">&times;</button>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" id="blogFilterContainer">
-                            <button type="button" class="claude-chip blogFilterBtn active" data-filter="all">All Essays</button>
+                            <button type="button" class="claude-chip blogFilterBtn active" data-filter="all">All
+                                Essays</button>
                             <button type="button" class="claude-chip blogFilterBtn" data-filter="ai">
                                 <span class="w-2 h-2 rounded-full bg-[#c96442]"></span> AI & Agents
                             </button>
@@ -4465,16 +5267,26 @@
                 <div class="p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8 max-w-4xl mx-auto">
 
                     <!-- ARTICLE READER VIEW -->
-                    <div id="blogReaderView" class="hidden bg-white p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#e8e6df] shadow-sm space-y-6">
+                    <div id="blogReaderView"
+                        class="hidden bg-white p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#e8e6df] shadow-sm space-y-6">
                         <div class="flex items-center justify-between gap-3 border-b border-[#e8e6df] pb-4">
                             <button type="button" id="backToBlogListBtn"
                                 class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f0eee6] text-[#4d4c47] hover:bg-[#e6e4dc] text-xs font-claude-sans font-semibold transition-colors cursor-pointer min-h-[36px]">
-                                <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                                <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                </svg>
                                 Back to all stories
                             </button>
                             <button type="button" id="copyArticleLinkBtn"
                                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#e8e6df] hover:bg-[#f0eee6] text-[#73726c] text-xs font-claude-sans transition-colors cursor-pointer min-h-[36px]">
-                                <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                <svg class="w-3.5 h-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                </svg>
                                 <span>Share</span>
                             </button>
                         </div>
@@ -4483,14 +5295,18 @@
                             <!-- Dynamic article header content -->
                         </div>
 
-                        <div id="blogReaderBody" class="prose prose-neutral max-w-none text-xs sm:text-sm leading-relaxed text-[#4d4c47] space-y-4 font-claude-sans">
+                        <div id="blogReaderBody"
+                            class="prose prose-neutral max-w-none text-xs sm:text-sm leading-relaxed text-[#4d4c47] space-y-4 font-claude-sans">
                             <!-- Dynamic article body content -->
                         </div>
 
-                        <div class="pt-6 border-t border-[#e8e6df] flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#faf9f5] p-5 rounded-2xl border border-[#e8e6df]">
+                        <div
+                            class="pt-6 border-t border-[#e8e6df] flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#faf9f5] p-5 rounded-2xl border border-[#e8e6df]">
                             <div>
-                                <div class="text-sm font-claude-serif font-bold text-[#1f1e1d]">Ready to deploy these architectures?</div>
-                                <div class="text-xs font-claude-sans text-[#73726c]">Let our team deploy your custom high-performance platform.</div>
+                                <div class="text-sm font-claude-serif font-bold text-[#1f1e1d]">Ready to deploy these
+                                    architectures?</div>
+                                <div class="text-xs font-claude-sans text-[#73726c]">Let our team deploy your custom
+                                    high-performance platform.</div>
                             </div>
                             <button type="button" onclick="closeBlogModal(); openEnquiryModal('pro');"
                                 class="px-5 py-2.5 rounded-full bg-[#1f1e1d] hover:bg-black text-white font-claude-sans font-semibold text-xs transition-colors shadow-sm min-h-[40px]">
@@ -4507,21 +5323,31 @@
                             <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
                                 <div class="space-y-3 flex-1">
                                     <div class="flex items-center gap-2.5 flex-wrap">
-                                        <span class="px-3 py-1 rounded-full text-[10px] font-claude-sans font-bold uppercase tracking-wider bg-[#f0eee6] text-[#c96442]">
+                                        <span
+                                            class="px-3 py-1 rounded-full text-[10px] font-claude-sans font-bold uppercase tracking-wider bg-[#f0eee6] text-[#c96442]">
                                             Featured Essay • Forge Journal
                                         </span>
                                         <span class="text-[#73726c] text-xs font-claude-sans">6 min read</span>
                                         <span class="text-[#73726c] text-xs font-claude-sans">• Sep 2026</span>
                                     </div>
-                                    <h3 class="text-xl sm:text-3xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight leading-tight group-hover:text-[#c96442] transition-colors">
+                                    <h3
+                                        class="text-xl sm:text-3xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight leading-tight group-hover:text-[#c96442] transition-colors">
                                         Deploying Autonomous AI Workers That Handle 80% of Top-Funnel Customer Inquiries
                                     </h3>
-                                    <p class="text-[#4d4c47] text-xs sm:text-sm leading-relaxed max-w-2xl font-claude-sans">
-                                        Discover how modern platforms integrate constrained LLMs to qualify inbound leads, schedule calendar bookings, and resolve complex multi-turn product queries with zero human latency.
+                                    <p
+                                        class="text-[#4d4c47] text-xs sm:text-sm leading-relaxed max-w-2xl font-claude-sans">
+                                        Discover how modern platforms integrate constrained LLMs to qualify inbound
+                                        leads, schedule calendar bookings, and resolve complex multi-turn product
+                                        queries with zero human latency.
                                     </p>
-                                    <div class="flex items-center gap-2 pt-2 text-xs font-claude-sans font-semibold text-[#c96442]">
+                                    <div
+                                        class="flex items-center gap-2 pt-2 text-xs font-claude-sans font-semibold text-[#c96442]">
                                         <span>Read full essay</span>
-                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform pointer-events-none"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -4530,71 +5356,98 @@
                         <!-- Claude Story Cards Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full" id="blogGrid">
                             <!-- Card 1: Web Architecture -->
-                            <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            <article
+                                class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
                                 data-category="web" data-story-id="web-1">
                                 <div class="space-y-3">
                                     <div class="flex items-center justify-between text-xs font-claude-sans">
-                                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#e6f4ea] text-[#2d6a4f]">
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#e6f4ea] text-[#2d6a4f]">
                                             Web Architecture
                                         </span>
                                         <span class="text-[#73726c]">4 min read</span>
                                     </div>
-                                    <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    <h4
+                                        class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
                                         Why Static Sub-100ms Speed Creates an Unfair Conversion Advantage
                                     </h4>
                                     <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
-                                        An architectural breakdown of how sub-100ms loading speeds lower bounce rates by 42% and establish immediate enterprise authority.
+                                        An architectural breakdown of how sub-100ms loading speeds lower bounce rates by
+                                        42% and establish immediate enterprise authority.
                                     </p>
                                 </div>
-                                <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <div
+                                    class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
                                     <span>Read essay</span>
-                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
                                 </div>
                             </article>
 
                             <!-- Card 2: AI Systems -->
-                            <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            <article
+                                class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
                                 data-category="ai" data-story-id="ai-2">
                                 <div class="space-y-3">
                                     <div class="flex items-center justify-between text-xs font-claude-sans">
-                                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#f3e8fd] text-[#7b2cbf]">
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#f3e8fd] text-[#7b2cbf]">
                                             AI Research
                                         </span>
                                         <span class="text-[#73726c]">5 min read</span>
                                     </div>
-                                    <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    <h4
+                                        class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
                                         Preventing Hallucinations in Constrained Enterprise Sales Bots
                                     </h4>
                                     <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
-                                        Architectural blueprints for grounding LLMs strictly within your proprietary knowledge base with deterministic operator handoffs.
+                                        Architectural blueprints for grounding LLMs strictly within your proprietary
+                                        knowledge base with deterministic operator handoffs.
                                     </p>
                                 </div>
-                                <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <div
+                                    class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
                                     <span>Read essay</span>
-                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
                                 </div>
                             </article>
 
                             <!-- Card 3: Growth & Conversion -->
-                            <article class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
+                            <article
+                                class="blog-card claude-card p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
                                 data-category="growth" data-story-id="growth-1">
                                 <div class="space-y-3">
                                     <div class="flex items-center justify-between text-xs font-claude-sans">
-                                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#fef7e0] text-[#b45309]">
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#fef7e0] text-[#b45309]">
                                             Growth Logic
                                         </span>
                                         <span class="text-[#73726c]">3 min read</span>
                                     </div>
-                                    <h4 class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
+                                    <h4
+                                        class="text-base sm:text-lg font-claude-serif font-normal text-[#1f1e1d] tracking-tight group-hover:text-[#c96442] transition-colors leading-snug">
                                         Zero-Friction Client Onboarding: Deploying in Under 72 Hours
                                     </h4>
                                     <p class="text-[#4d4c47] text-xs leading-relaxed font-claude-sans">
-                                        How Forge eliminates weeks of agency back-and-forth by deploying ready-to-run static edge infrastructure with integrated domain registration.
+                                        How Forge eliminates weeks of agency back-and-forth by deploying ready-to-run
+                                        static edge infrastructure with integrated domain registration.
                                     </p>
                                 </div>
-                                <div class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
+                                <div
+                                    class="pt-4 mt-4 border-t border-[#e8e6df] flex items-center justify-between text-xs font-claude-sans font-semibold text-[#c96442]">
                                     <span>Read essay</span>
-                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform pointer-events-none"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
                                 </div>
                             </article>
                         </div>
@@ -4676,6 +5529,7 @@
             earth: {
                 eyebrow: 'FORGE SOFTWARES • SCALE YOUR BRAND',
                 name: 'BUILD YOUR WEBSITE NOW.',
+                htmlName: 'BUILD YOUR WEBSITE <span class="apple-text-gradient">NOW.</span>',
                 label: 'EARTH',
                 cutout: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202005_3346cc4d-ec3b-44ab-825c-18e49f5021a.png',
                 still: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png',
@@ -4684,6 +5538,7 @@
             venus: {
                 eyebrow: 'HIGH-VELOCITY PERFORMANCE • SUB-100MS',
                 name: 'PRO MODERN ARCHITECTURE.',
+                htmlName: 'PRO MODERN <span class="apple-text-gradient">ARCHITECTURE.</span>',
                 label: 'VENUS',
                 cutout: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202012_640b239a-d08a-4200-adb2-741bbe129ac8.png',
                 still: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_cf55d1d8-7b59-4a64-80da-d72052ae974e.png',
@@ -4692,6 +5547,7 @@
             mars: {
                 eyebrow: '24/7 AUTONOMOUS REVENUE AGENTS',
                 name: 'AUTONOMOUS AI WORKERS.',
+                htmlName: 'AUTONOMOUS <span class="apple-text-gradient">AI WORKERS.</span>',
                 label: 'MARS',
                 cutout: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202018_3d559490-f613-4ed7-a3bb-3b7e9fc90fb8.png',
                 still: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_0ba6de7c-285d-43dc-b7ab-8c54c73707cb.png',
@@ -4741,7 +5597,7 @@
             if (eyebrowEl) eyebrowEl.textContent = targetData.eyebrow;
 
             const headlineLine = document.querySelector('#planetHeadline .ent-line');
-            if (headlineLine) headlineLine.textContent = targetData.name;
+            if (headlineLine) headlineLine.innerHTML = targetData.htmlName || targetData.name;
 
             const ledeEl = document.getElementById('planetLede');
             if (ledeEl) ledeEl.innerHTML = targetData.lede;
@@ -5291,7 +6147,7 @@
             });
 
             // Global Toast Notification Helper
-            window.showGlobalToast = function(msg) {
+            window.showGlobalToast = function (msg) {
                 let toast = document.getElementById('globalToast');
                 if (!toast) {
                     toast = document.createElement('div');
@@ -5596,7 +6452,7 @@
                 }
             };
 
-            window.openBlogArticle = function(storyId) {
+            window.openBlogArticle = function (storyId) {
                 const story = blogArticlesData[storyId] || blogArticlesData['ai-1'];
                 const blogListView = document.getElementById('blogListView');
                 const blogReaderView = document.getElementById('blogReaderView');
@@ -5630,7 +6486,7 @@
                 if (blogScrollArea) blogScrollArea.scrollTo({ top: 0, behavior: 'smooth' });
             };
 
-            window.closeBlogReader = function() {
+            window.closeBlogReader = function () {
                 const blogListView = document.getElementById('blogListView');
                 const blogReaderView = document.getElementById('blogReaderView');
                 const blogScrollArea = document.getElementById('blogScrollArea');
@@ -5813,8 +6669,8 @@
                 });
             }
 
-            // Scroll Reveal Observer
-            const reveals = document.querySelectorAll('.reveal');
+            // Scroll Reveal Observer (for both standard reveal and reveal-down)
+            const reveals = document.querySelectorAll('.reveal, .reveal-down');
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -5945,14 +6801,18 @@
                 }
             }, 7000);
 
-            // Real-Time Scroll Progress Indicator & Back-To-Top Button
+            // Real-Time Scroll Progress Indicator, Downward Parallax Physics & Back-To-Top Button
             const scrollProgressBar = document.getElementById('scrollProgressBar');
             const backToTopBtn = document.getElementById('backToTopBtn');
+            const floatingScrollHud = document.getElementById('floatingScrollMouseHud');
+            let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            let scrollDownHudTimer = null;
 
             function handleScrollProgress() {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrollPercent = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+                const scrollDelta = scrollTop - lastScrollY;
 
                 if (scrollProgressBar) {
                     scrollProgressBar.style.width = `${scrollPercent}%`;
@@ -5966,6 +6826,37 @@
                         backToTopBtn.classList.remove('is-visible');
                     }
                 }
+
+                // Downward Scroll Reaction & Momentum ("when ever down scrool elemts gets down")
+                if (scrollDelta > 2 && scrollTop > 60) {
+                    document.body.classList.add('is-scrolling-down');
+                    if (floatingScrollHud) floatingScrollHud.classList.add('is-active');
+
+                    clearTimeout(scrollDownHudTimer);
+                    scrollDownHudTimer = setTimeout(() => {
+                        document.body.classList.remove('is-scrolling-down');
+                        if (floatingScrollHud) floatingScrollHud.classList.remove('is-active');
+                    }, 320);
+                } else if (scrollDelta < -2) {
+                    document.body.classList.remove('is-scrolling-down');
+                    if (floatingScrollHud) floatingScrollHud.classList.remove('is-active');
+                }
+
+                // Fluid downward element parallax:
+                // As user scrolls down, elements with .scroll-down-reactive move down fluidly!
+                const reactiveElements = document.querySelectorAll('.scroll-down-reactive');
+                const vh = window.innerHeight;
+                reactiveElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < vh && rect.bottom > 0) {
+                        const progress = (vh - rect.top) / (vh + rect.height);
+                        const clamped = Math.max(0, Math.min(1, progress));
+                        const downwardOffset = (clamped * 24).toFixed(1);
+                        el.style.transform = `translate3d(0, ${downwardOffset}px, 0)`;
+                    }
+                });
+
+                lastScrollY = scrollTop;
             }
 
             window.addEventListener('scroll', handleScrollProgress, { passive: true });
@@ -5976,6 +6867,32 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
+
+            // Ecosystem Multi-Device Simulator Switcher
+            window.switchEcosystemDevice = function (deviceKey) {
+                const tabs = document.querySelectorAll('.eco-device-tab');
+                const screens = document.querySelectorAll('.device-sim-screen');
+
+                tabs.forEach(tab => {
+                    const isCurrent = tab.getAttribute('data-device') === deviceKey;
+                    tab.classList.toggle('active', isCurrent);
+                    tab.setAttribute('aria-selected', String(isCurrent));
+                });
+
+                screens.forEach(screen => {
+                    if (screen.getAttribute('data-screen') === deviceKey) {
+                        screen.classList.remove('hidden');
+                        screen.classList.add('flex');
+                    } else {
+                        screen.classList.add('hidden');
+                        screen.classList.remove('flex');
+                    }
+                });
+
+                if (window.lucide && typeof lucide.createIcons === 'function') {
+                    lucide.createIcons();
+                }
+            };
 
             // Dynamic Active Navigation Link Scroll Spy
             const navLinks = document.querySelectorAll('#site-nav a[href^="#"]');
@@ -6027,9 +6944,25 @@
     <!-- Global Toast Notification Container -->
     <div id="globalToast" role="status" aria-live="polite"></div>
 
+    <!-- Floating Scroll Mouse HUD Widget (Appears on Downward Scroll) -->
+    <div id="floatingScrollMouseHud" class="fixed bottom-6 left-6 z-40 hidden md:flex items-center gap-3 px-3.5 py-2 rounded-full bg-[#04101f]/90 backdrop-blur-xl border border-white/20 text-white shadow-2xl transition-all duration-300 pointer-events-none opacity-0 select-none" aria-hidden="true">
+        <div class="hud-mini-mouse">
+            <span class="hud-wheel-dot"></span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-[9px] font-mono uppercase tracking-widest text-cyan-300 font-bold flex items-center gap-1">
+                <span class="hud-scroll-arrow text-emerald-400 font-black">&darr;</span> SCROLLING DOWN
+            </span>
+            <span class="text-[8px] font-mono text-white/60 tracking-wider">Apple &amp; Android 120Hz</span>
+        </div>
+    </div>
+
     <!-- Minimal Floating Back to Top Control -->
     <button type="button" id="backToTopBtn" aria-label="Scroll to top of page" title="Back to top">
-        <svg class="w-5 h-5 icon-luminous-cyan pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        <svg class="w-5 h-5 icon-luminous-cyan pointer-events-none" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
     </button>
 </body>
 
