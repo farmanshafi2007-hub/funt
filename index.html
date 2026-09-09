@@ -10,7 +10,7 @@
     <title>Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers</title>
     <meta name="title" content="Forge Softwares | High-Speed Web Engineering & Autonomous AI Workers">
     <meta name="description"
-        content="Forge Softwares engineers ultra-high-speed web platforms, planetary-scale software infrastructure, and autonomous AI workers. Transparent pricing: Basic (₹2,999 / ~$40), Pro (₹11,999 / ~$150), Premium (₹30,000 / ~$400).">
+        content="Forge Softwares engineers ultra-high-speed web platforms, planetary-scale software infrastructure, and autonomous AI workers. Transparent pricing: Basic (₹2,999), Pro (₹11,999), Premium (₹25,000).">
     <meta name="keywords"
         content="Forge Softwares, Web Engineering, AI Workers, Autonomous Chatbots, Fast Websites, Srinagar Software Company, B2B Web Development, AI Automation, Enterprise Web Architecture">
     <meta name="author" content="Forge Softwares">
@@ -170,7 +170,7 @@
                   "@type": "Service",
                   "name": "Premium AI & Enterprise Architecture"
                 },
-                "price": "30000",
+                "price": "25000",
                 "priceCurrency": "INR"
               }
             ]
@@ -1690,15 +1690,14 @@
 
         .reveal {
             opacity: 0;
-            transform: translate3d(0, 24px, 0) scale(0.985);
-            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate3d(0, 20px, 0);
+            transition: all 0.6s var(--ease-apple);
             will-change: transform, opacity;
-            backface-visibility: hidden;
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0);
         }
 
         .bg-grid-dark {
@@ -1828,18 +1827,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
-        /* Pro pricing card pixel-perfect rendering with luxury subtle halo */
+        /* Pro pricing card pixel-perfect rendering */
         .pricing-card-pro {
             border: 3.5px solid #000000 !important;
             overflow: visible !important;
-            position: relative;
-            box-shadow: 0 14px 38px -10px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-        }
-
-        .pricing-card-pro:hover {
-            transform: translateY(-6px) scale(1.015);
-            box-shadow: 0 24px 54px -12px rgba(0, 0, 0, 0.22), 0 0 26px rgba(251, 191, 36, 0.35);
         }
 
         /* Universal Touch-Friendly Button Standards (Min 48px) */
@@ -2549,6 +2540,207 @@
                 scroll-behavior: auto !important;
             }
         }
+        /* ═══════════════════════════════════════════════════════════════
+           PREMIUM FORM & BUTTON ENHANCEMENTS
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* Enhanced Form Input Focus Glow */
+        #enquiryForm .relative:has(input:focus) {
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 2px 8px rgba(56, 189, 248, 0.12) !important;
+            transition: border-color 0.2s ease, box-shadow 0.3s ease !important;
+        }
+
+        #enquiryForm input:focus,
+        #enquiryForm select:focus {
+            outline: none !important;
+        }
+
+        #enquiryForm input::placeholder {
+            color: rgba(0, 0, 0, 0.4) !important;
+            font-weight: 500;
+        }
+
+        /* Input field subtle hover highlight */
+        #enquiryForm .relative:hover {
+            border-color: rgba(0, 0, 0, 0.6) !important;
+            transition: border-color 0.2s ease !important;
+        }
+
+        /* Captcha panel elevated glass effect */
+        #enquiryForm .bg-white.border-2.border-black.rounded-2xl {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 8px rgba(0,0,0,0.04) !important;
+        }
+
+        /* Modal header premium gradient overlay */
+        #enquiryContent > div:first-child {
+            background: linear-gradient(135deg, #000000 0%, #0a1628 40%, #0d1f3c 70%, #000000 100%) !important;
+        }
+
+        #enquiryContent > div:first-child::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Plan selector elevated design */
+        #enquiryForm .relative.rounded-2xl.border-2.border-black:has(select#preferredPlan) {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%) !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #enquiryForm .relative.rounded-2xl.border-2.border-black:has(select#preferredPlan):hover {
+            border-color: #38bdf8 !important;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        /* Submit button premium animated gradient */
+        #enquiryForm button[type="submit"] {
+            background: linear-gradient(135deg, #000000 0%, #0a1628 50%, #000000 100%) !important;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px !important;
+        }
+
+        #enquiryForm button[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        #enquiryForm button[type="submit"]:hover::before {
+            left: 100%;
+        }
+
+        #enquiryForm button[type="submit"]:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.2) !important;
+            transform: translateY(-2px) scale(1.01) !important;
+        }
+
+        #enquiryForm button[type="submit"]:active {
+            transform: translateY(0) scale(0.98) !important;
+        }
+
+        /* Label premium styling */
+        #enquiryForm label {
+            color: #1a1a2e !important;
+            letter-spacing: 1.5px;
+        }
+
+        /* Enhanced Pricing Card Buttons — Full Clickable Area */
+        .pricingBookBtn {
+            position: relative;
+            z-index: 5;
+            width: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .pricingBookBtn * {
+            pointer-events: none;
+        }
+
+        .pricingBookBtn:hover {
+            transform: translateY(-2px) scale(1.02) !important;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .pricingBookBtn:active {
+            transform: translateY(0) scale(0.97) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* All interactive buttons — universal click safety */
+        button, a[onclick], [role="button"] {
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        /* Click-through children for CTA and pricing buttons only */
+        .pricingBookBtn > *,
+        .hero-cta-btn > *,
+        .apple-btn-primary > *,
+        .apple-btn-dark > * {
+            pointer-events: none;
+        }
+
+        /* Hero CTA button pulse animation on idle */
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 0 rgba(103, 232, 249, 0.4); }
+            50% { box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 0 8px rgba(103, 232, 249, 0); }
+        }
+
+        .hero-cta-btn {
+            animation: ctaPulse 3s ease-in-out infinite;
+        }
+
+        .hero-cta-btn:hover {
+            animation: none;
+        }
+
+        /* Contact section buttons enhanced */
+        #contact button,
+        #contact a[onclick] {
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        /* Footer link buttons — improved tap targets */
+        footer button,
+        footer a {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Enhanced card hover transitions for pricing */
+        .card-light-contrast:has(.pricingBookBtn) {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+        }
+
+        .card-light-contrast:has(.pricingBookBtn):hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .card-dark-contrast:has(.pricingBookBtn):hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 24px 48px rgba(255, 255, 255, 0.12), 0 0 0 2px rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Smooth icon micro-interactions on hover */
+        .pricingBookBtn i {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pricingBookBtn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Success modal enhanced celebration */
+        #successContent {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 50%, #ffffff 100%) !important;
+        }
+
+        /* System status bar premium micro-gradient */
+        aside[aria-label="System status"] {
+            background: linear-gradient(90deg, #020a15 0%, #0a1628 50%, #020a15 100%) !important;
+        }
+
     </style>
 </head>
 
@@ -2570,7 +2762,7 @@
             <span class="hidden md:inline text-white/30">•</span>
             <span
                 class="text-cyan-300 hover:text-cyan-100 underline font-extrabold cursor-pointer transition-colors whitespace-nowrap"
-                onclick="openEnquiryModal('basic')">Deploy from ₹2,999 (~ $40) &rarr;</span>
+                onclick="openEnquiryModal('pro')">Claim ₹2,999 Deployment &rarr;</span>
         </div>
     </aside>
 
@@ -2644,7 +2836,7 @@
                     <div class="col rule"><span></span></div>
                     <p class="col lede" id="planetLede">
                         We engineer ultra-high-speed web platforms, sub-100ms static edge infrastructure, and autonomous
-                        AI workers. Transparent pricing starts at ₹2,999 (~ $40 USD). Book your engineering slot today!
+                        AI workers. Transparent pricing starts at ₹2,999. Book your engineering slot today!
                     </p>
                     <div class="col cta">
                         <a href="javascript:void(0)" onclick="openEnquiryModal('pro')" class="hero-cta-btn">
@@ -2968,21 +3160,19 @@
                                     <span class="text-xs sm:text-sm text-black/70 font-mono font-bold tracking-tight">~ $40 USD</span>
                                     <span class="text-xs text-black font-sans font-bold ml-auto">(One-Time)</span>
                                 </div>
-                                <div class="flex items-center justify-between mt-2 pt-1 border-t border-black/10">
-                                    <span class="text-[10px] text-black font-mono font-extrabold">Starter deployment</span>
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="text-[10px] font-mono text-black/40 line-through">₹4,999</span>
-                                        <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">Save 40%</span>
-                                    </div>
-                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete
+                                    starter
+                                    deployment</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('basic')"
                                 class="pricingBookBtn apple-btn-dark w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer">
-                                <span>Select Basic — ₹2,999</span>
+                                <span>Select Basic</span>
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">40% advance to start • 3-day support queue.</p>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Standard delivery
+                                queue
+                                with 3-day support.</p>
 
                             <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="file-text"
@@ -3060,21 +3250,19 @@
                                     <span class="text-xs sm:text-sm text-black/70 font-mono font-bold tracking-tight">~ $150 USD</span>
                                     <span class="text-xs text-black font-sans font-bold ml-auto">(One-Time)</span>
                                 </div>
-                                <div class="flex items-center justify-between mt-2 pt-1 border-t border-black/10">
-                                    <span class="text-[10px] text-black font-mono font-extrabold">Complete scale platform</span>
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="text-[10px] font-mono text-black/40 line-through">₹24,999</span>
-                                        <span class="text-[10px] font-mono font-bold text-amber-900 bg-amber-200 px-1.5 py-0.5 rounded">Save 52%</span>
-                                    </div>
-                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Complete
+                                    business
+                                    scale solution</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('pro')"
                                 class="pricingBookBtn apple-btn-dark shimmer-btn w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
-                                <span>Claim Pro Package — ₹11,999 ⭐</span>
+                                <span>Select Pro ⭐</span>
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">40% advance to start • 15-day dedicated maintenance support.</p>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 15-day
+                                dedicated
+                                maintenance support.</p>
 
                             <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="layers"
@@ -3154,25 +3342,22 @@
                             <div class="mb-6 font-mono">
                                 <div class="flex items-baseline flex-wrap gap-2">
                                     <span
-                                        class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹30,000</span>
+                                        class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">₹25,000</span>
                                     <span class="text-xs sm:text-sm text-black/70 font-mono font-bold tracking-tight">~ $400 USD</span>
                                     <span class="text-xs text-black font-sans font-bold ml-auto">(One-Time)</span>
                                 </div>
-                                <div class="flex items-center justify-between mt-2 pt-1 border-t border-black/10">
-                                    <span class="text-[10px] text-black font-mono font-extrabold">Autonomous AI suite</span>
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="text-[10px] font-mono text-black/40 line-through">₹65,000</span>
-                                        <span class="text-[10px] font-mono font-bold text-purple-950 bg-purple-100 px-1.5 py-0.5 rounded">Full IP + AI</span>
-                                    </div>
-                                </div>
+                                <span class="text-[10px] text-black font-mono block mt-1 font-extrabold">Autonomous AI &
+                                    enterprise suite</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('premium')"
                                 class="pricingBookBtn apple-btn-dark shimmer-btn w-full min-h-[48px] uppercase tracking-wider mb-2 cursor-pointer shadow-xl">
-                                <span>Deploy Premium — ₹30,000 👑</span>
+                                <span>Select Premium 👑</span>
                                 <i data-lucide="arrow-right"
                                     class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                             </button>
-                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">40% advance to start • 30 days priority dedicated support.</p>
+                            <p class="text-[10px] font-mono text-center text-black font-bold mb-6">Includes 30 days
+                                priority
+                                dedicated support.</p>
 
                             <ul class="space-y-3 border-t-2 border-black pt-6 text-xs text-black font-sans font-medium">
                                 <li class="flex items-start gap-2.5"><i data-lucide="infinity"
@@ -3218,30 +3403,6 @@
                             </ul>
                         </div>
                     </article>
-                </div>
-
-                <!-- Clean Psychological Deal-Closing Trust Banner -->
-                <div class="w-full bg-[#030d19] rounded-2xl p-5 sm:p-6 mb-12 border-2 border-white/20 text-white shadow-xl reveal">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="flex items-center gap-3.5">
-                            <div class="w-11 h-11 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0">
-                                <i data-lucide="shield-check" class="w-6 h-6 text-cyan-300"></i>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wide flex items-center gap-2 flex-wrap">
-                                    <span>Zero Financial Risk Policy</span>
-                                    <span class="text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded text-[11px] border border-cyan-500/30">40% Advance • 60% On Final Launch</span>
-                                </div>
-                                <p class="text-[11px] sm:text-xs text-white/70 font-sans mt-0.5 leading-relaxed">
-                                    You only pay the remaining balance after testing and approving your live platform. Complete 100% IP source code ownership transferred on completion.
-                                </p>
-                            </div>
-                        </div>
-                        <button type="button" onclick="openEnquiryModal('pro')"
-                            class="apple-btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-mono uppercase whitespace-nowrap shrink-0 cursor-pointer">
-                            Claim Your Slot &rarr;
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Complete 27-Parameter Feature Comparison Matrix Table -->
@@ -3303,7 +3464,7 @@
                                     <td
                                         class="py-3.5 px-3 text-center bg-black/5 border-x-2 border-black font-black text-base">
                                         ₹11,999 <span class="text-[10px] text-black/70 block">(~ $150 USD)</span></td>
-                                    <td class="py-3.5 px-3 text-center font-black text-base">₹30,000 <span class="text-[10px] text-black/70 block">(~ $400 USD)</span></td>
+                                    <td class="py-3.5 px-3 text-center font-black text-base">₹25,000 <span class="text-[10px] text-black/70 block">(~ $400 USD)</span></td>
                                 </tr>
                                 <tr>
                                     <th scope="row"
@@ -3583,9 +3744,9 @@
                             Tier</label>
                         <select id="roiTierSelect"
                             class="w-full bg-black border-2 border-white rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-white mb-6 focus:outline-none cursor-pointer font-bold">
-                            <option value="basic">BASIC TIER (₹2,999 / ~$40)</option>
-                            <option value="pro" selected>PRO ⭐ TIER (₹11,999 / ~$150)</option>
-                            <option value="premium">PREMIUM 👑 TIER (₹30,000 / ~$400)</option>
+                            <option value="basic">BASIC TIER (₹2,999)</option>
+                            <option value="pro" selected>PRO ⭐ TIER (₹11,999)</option>
+                            <option value="premium">PREMIUM 👑 TIER (₹25,000)</option>
                         </select>
 
                         <label for="roiSpeedRange"
@@ -3606,7 +3767,7 @@
                             <span class="text-[10px] text-white uppercase tracking-widest block mb-1 font-bold">Total
                                 Project Investment</span>
                             <span id="calcFinalVal"
-                                class="text-3xl sm:text-4xl font-extrabold text-cyan-300 block">₹11,999</span>
+                                class="text-3xl sm:text-4xl font-extrabold text-cyan-300 block">₹7,999</span>
                             <span id="calcStatusVal" class="text-xs text-white block mt-1 font-extrabold">Standard
                                 One-Time Rate</span>
                         </div>
@@ -3614,15 +3775,15 @@
                         <div class="pt-6 border-t-2 border-white mt-6">
                             <div class="flex justify-between text-xs mb-2">
                                 <span class="text-white font-medium">Project Total:</span>
-                                <span id="calcTotalSummary" class="text-white font-bold">₹11,999</span>
+                                <span id="calcTotalSummary" class="text-white font-bold">₹7,999</span>
                             </div>
                             <div class="flex justify-between text-xs mb-2">
                                 <span class="text-white font-extrabold">Initial 40% Advance:</span>
-                                <span id="calcAdvanceVal" class="text-cyan-300 font-extrabold text-base">₹4,800</span>
+                                <span id="calcAdvanceVal" class="text-cyan-300 font-extrabold text-base">₹3,200</span>
                             </div>
                             <div class="flex justify-between text-xs mb-4">
                                 <span class="text-white font-medium">Final 60% on Launch:</span>
-                                <span id="calcBalanceVal" class="text-white font-extrabold text-xs">₹7,199</span>
+                                <span id="calcBalanceVal" class="text-white font-extrabold text-xs">₹4,799</span>
                             </div>
                             <button type="button" onclick="openEnquiryModal('pro')"
                                 class="apple-btn-primary w-full !min-h-[44px] text-xs font-mono uppercase font-extrabold cursor-pointer">Start
@@ -4209,7 +4370,7 @@
                                 </div>
                                 <div id="planDisplayPrice"
                                     class="font-mono text-[11px] sm:text-xs font-bold text-black/70 mt-0.5 leading-tight">
-                                    ₹11,999 (~ $150 USD) One-Time
+                                    ₹11,999 One-Time
                                 </div>
                             </div>
                             <!-- Dropdown Chevron Pinned Right -->
@@ -4220,9 +4381,9 @@
                             <select id="preferredPlan" name="preferredPlan"
                                 class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 text-base appearance-none"
                                 aria-label="Select Engineering Package">
-                                <option value="Basic (₹2,999)">Basic Tier — ₹2,999 (~ $40 USD) (One-Time)</option>
-                                <option value="Pro ⭐ (₹11,999)" selected>Pro ⭐ Best Selling — ₹11,999 (~ $150 USD) (One-Time)</option>
-                                <option value="Premium 👑 (₹30,000)">Premium 👑 Enterprise — ₹30,000 (~ $400 USD) (One-Time)</option>
+                                <option value="Basic (₹2,999)">Basic Tier — ₹2,999 (One-Time)</option>
+                                <option value="Pro ⭐ (₹11,999)" selected>Pro ⭐ Best Selling — ₹11,999 (One-Time)</option>
+                                <option value="Premium 👑 (₹25,000)">Premium 👑 Enterprise — ₹25,000 (One-Time)</option>
                             </select>
                         </div>
                     </div>
@@ -4451,7 +4612,7 @@
                                 </svg>
                             </div>
                             <div class="text-xs font-bold text-[#1f1e1d] font-claude-sans">Pricing & Billing</div>
-                            <div class="text-[10px] text-[#73726c] font-claude-sans">₹2,999 to ₹30,000</div>
+                            <div class="text-[10px] text-[#73726c] font-claude-sans">₹2,999 to ₹25,000</div>
                         </div>
 
                         <div class="claude-card p-3 sm:p-4 cursor-pointer group google-topic-card" data-cat="3">
@@ -4908,7 +5069,7 @@
                 label: 'EARTH',
                 cutout: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202005_3346cc4d-ec3b-44ab-825c-18e49f5021a.png',
                 still: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260827_202133_508c64b8-a31e-4290-bdfc-1187df70e0a6.png',
-                lede: 'We engineer ultra-high-speed web platforms, sub-100ms static edge infrastructure, and autonomous AI workers. Transparent pricing starts at ₹2,999 (~ $40 USD). Book your engineering slot today!'
+                lede: 'We engineer ultra-high-speed web platforms, sub-100ms static edge infrastructure, and autonomous AI workers. Transparent pricing starts at ₹2,999. Book your engineering slot today!'
             },
             venus: {
                 eyebrow: 'HIGH-VELOCITY PERFORMANCE • SUB-100MS',
@@ -4990,7 +5151,7 @@
                 catId: "1",
                 catName: "1. PRICE & PAYMENT",
                 items: [
-                    { q: "Is the price shown the final price?", a: "Yes. The agreed price when you order is exact: Basic is ₹2,999 (~ $40 USD), Pro ⭐ Best Selling is ₹11,999 (~ $150 USD), and Premium 👑 Value for Money is ₹30,000 (~ $400 USD)." },
+                    { q: "Is the price shown the final price?", a: "Yes. The agreed price when you order is exact: Basic is ₹2,999 (~$40 USD), Pro ⭐ Best Selling is ₹11,999 (~$150 USD), and Premium 👑 Value for Money is ₹25,000 (~$400 USD)." },
                     { q: "Do I pay everything at once?", a: "No. You pay 40% in advance and the remaining 60% after the project is completed." },
                     { q: "How can I pay?", a: "We accept PayPal, UPI, Google Pay (GPay), MobiKwik, FamPay, and QR payments." },
                     { q: "Is the domain included?", a: "Premium 👑 plan includes a free custom domain for the 1st year. For Basic and Pro plans, custom domains can be configured upon request." },
@@ -5279,23 +5440,16 @@
                 }, { passive: true });
             }
 
-            // Glass Header on Scroll (rAF Throttled)
+            // Glass Header on Scroll
             const navbarEl = document.querySelector('.navbar');
             if (navbarEl) {
                 const scrollThreshold = 40;
                 let lastScrollState = false;
-                let navScrollTicking = false;
                 const onScroll = () => {
-                    if (!navScrollTicking) {
-                        navScrollTicking = true;
-                        requestAnimationFrame(() => {
-                            const scrolled = window.scrollY > scrollThreshold;
-                            if (scrolled !== lastScrollState) {
-                                navbarEl.classList.toggle('navbar-scrolled', scrolled);
-                                lastScrollState = scrolled;
-                            }
-                            navScrollTicking = false;
-                        });
+                    const scrolled = window.scrollY > scrollThreshold;
+                    if (scrolled !== lastScrollState) {
+                        navbarEl.classList.toggle('navbar-scrolled', scrolled);
+                        lastScrollState = scrolled;
                     }
                 };
                 window.addEventListener('scroll', onScroll, { passive: true });
@@ -5353,7 +5507,7 @@
             const pricingConfig = {
                 basic: { price: 2999 },
                 pro: { price: 11999 },
-                premium: { price: 30000 }
+                premium: { price: 25000 }
             };
 
             function calculateProjectEstimate() {
@@ -5478,9 +5632,9 @@
             document.getElementById('refreshCaptchaBtn')?.addEventListener('click', generateCaptcha);
 
             const planDisplayMap = {
-                'Basic (₹2,999)': { title: 'Basic Tier', price: '₹2,999 (~ $40 USD) One-Time' },
-                'Pro ⭐ (₹11,999)': { title: 'Pro ⭐ Best Selling', price: '₹11,999 (~ $150 USD) One-Time' },
-                'Premium 👑 (₹30,000)': { title: 'Premium 👑 Enterprise', price: '₹30,000 (~ $400 USD) One-Time' }
+                'Basic (₹2,999)': { title: 'Basic Tier', price: '₹2,999 One-Time' },
+                'Pro ⭐ (₹11,999)': { title: 'Pro ⭐ Best Selling', price: '₹11,999 One-Time' },
+                'Premium 👑 (₹25,000)': { title: 'Premium 👑 Enterprise', price: '₹25,000 One-Time' }
             };
 
             function syncPlanDropdownUI() {
@@ -5500,7 +5654,7 @@
                 const sel = document.getElementById('preferredPlan');
                 if (sel) {
                     if (preferredTier === 'basic') sel.value = "Basic (₹2,999)";
-                    else if (preferredTier === 'premium') sel.value = "Premium 👑 (₹30,000)";
+                    else if (preferredTier === 'premium') sel.value = "Premium 👑 (₹25,000)";
                     else sel.value = "Pro ⭐ (₹11,999)";
                 }
                 syncPlanDropdownUI();
@@ -6099,31 +6253,21 @@
             let testimonialAutoplayTimer = null;
             let isTestimonialHovered = false;
 
-            // High-Performance Interactive Card Spotlight with rAF Throttling
-            let spotlightRafActive = false;
-            document.querySelectorAll('.card-light-contrast, .card-dark-contrast, .testimonial-card').forEach(card => {
-                let rect = null;
-                card.addEventListener('mouseenter', () => {
-                    rect = card.getBoundingClientRect();
-                }, { passive: true });
-
+            testimonialCards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
-                    if (!rect) rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    if (!spotlightRafActive) {
-                        spotlightRafActive = true;
-                        requestAnimationFrame(() => {
-                            card.style.setProperty('--mouse-x', `${x}px`);
-                            card.style.setProperty('--mouse-y', `${y}px`);
-                            spotlightRafActive = false;
-                        });
-                    }
-                }, { passive: true });
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
+            });
 
-                card.addEventListener('mouseleave', () => {
-                    rect = null;
-                }, { passive: true });
+            // Interactive card spotlight for all light/dark cards
+            document.querySelectorAll('.card-light-contrast, .card-dark-contrast').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
             });
 
             function updateTestimonialUI(index) {
@@ -6214,16 +6358,7 @@
                 }
             }
 
-            let scrollProgressTicking = false;
-            window.addEventListener('scroll', () => {
-                if (!scrollProgressTicking) {
-                    scrollProgressTicking = true;
-                    requestAnimationFrame(() => {
-                        handleScrollProgress();
-                        scrollProgressTicking = false;
-                    });
-                }
-            }, { passive: true });
+            window.addEventListener('scroll', handleScrollProgress, { passive: true });
             handleScrollProgress();
 
             if (backToTopBtn) {
