@@ -2757,31 +2757,44 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           HERITAGE GROVE FOOTER DESIGN SYSTEM (STRICTLY SCOPED)
+           HERITAGE GROVE FOOTER DESIGN SYSTEM (8K BRIGHT & SPACIOUS)
         ═══════════════════════════════════════════════════════════════ */
         footer.site-footer {
-            --ink: #175A67;
-            --ink-soft: #2A707C;
-            --cream: #EAE3DE;
-            --max: 1440px;
-            --fs-nav: clamp(.9rem, .55vw + .75rem, 1.02rem);
-            --btn-hover: #0F454F;
+            --ink: #0d3b45;
+            --ink-soft: #1a5c69;
+            --cream: #faf7f2;
+            --cream-card: #ffffff;
+            --max: 1400px;
+            --fs-nav: clamp(0.92rem, 0.45vw + 0.8rem, 1.05rem);
+            --btn-hover: #07262d;
 
             position: relative;
             isolation: isolate;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            min-height: 100svh;
+            min-height: auto;
             overflow: hidden;
             overflow-wrap: break-word;
             background-color: var(--cream);
             color: var(--ink);
             font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
             padding:
-                clamp(2.25rem, 4.5vh, 4rem) max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right)) max(clamp(1.5rem, 3vh, 2.75rem), env(safe-area-inset-bottom)) max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
-            border-top: 1px solid rgba(23, 90, 103, 0.2);
+                clamp(3.5rem, 6.5vh, 5.5rem)
+                max(clamp(1.5rem, 4.5vw, 5rem), env(safe-area-inset-right))
+                max(clamp(2rem, 4vh, 3.5rem), env(safe-area-inset-bottom))
+                max(clamp(1.5rem, 4.5vw, 5rem), env(safe-area-inset-left));
+            border-top: 1px solid rgba(13, 59, 69, 0.15);
             text-align: left;
+        }
+
+        /* 8K Ultra-Bright Luminous Ambient Layer */
+        footer.site-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.2) 45%, rgba(255, 255, 255, 0.55) 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         footer.site-footer *,
@@ -2802,8 +2815,10 @@
             inset: 0;
             z-index: -2;
             pointer-events: none;
+            overflow: hidden;
         }
 
+        /* 8K Enhanced Video: High Vibrancy, Crystal Clarity & Full Brightness */
         .site-footer .footer-bg {
             position: absolute;
             inset: 0;
@@ -2812,7 +2827,11 @@
             object-fit: cover;
             object-position: center bottom;
             pointer-events: none;
-            animation: footer-fade-in 1.35s ease both;
+            filter: brightness(1.22) contrast(1.1) saturate(1.22);
+            image-rendering: -webkit-optimize-contrast;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            animation: footer-fade-in 1.2s ease both;
         }
 
         .site-footer .footer-inner {
@@ -2825,49 +2844,53 @@
             flex-direction: column;
         }
 
+        /* Enhanced Spacious 4-Column Grid (Architecture removed) */
         .site-footer .footer-grid {
             display: grid;
             align-items: start;
-            gap: clamp(1.5rem, 3vw, 3.25rem);
-            grid-template-columns: minmax(240px, 1.45fr) repeat(3, minmax(130px, .85fr)) minmax(260px, 1.25fr);
+            gap: clamp(2rem, 3.5vw, 4.25rem);
+            grid-template-columns: minmax(280px, 1.45fr) minmax(140px, 0.85fr) minmax(160px, 0.95fr) minmax(290px, 1.35fr);
         }
 
         .site-footer .brand-lockup {
             display: flex;
             align-items: center;
-            gap: clamp(.65rem, 1vw, 1rem);
+            gap: clamp(0.75rem, 1.2vw, 1.15rem);
         }
 
         .site-footer .brand-mark {
-            width: clamp(52px, 4.4vw, 74px);
+            width: clamp(54px, 4.5vw, 72px);
             height: auto;
             flex-shrink: 0;
+            filter: drop-shadow(0 2px 8px rgba(13, 59, 69, 0.12));
         }
 
         .site-footer .brand-name {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-weight: 500;
-            font-size: clamp(1.85rem, 2.5vw, 2.9rem);
-            line-height: 1;
+            font-weight: 600;
+            font-size: clamp(2rem, 2.6vw, 2.85rem);
+            line-height: 1.05;
             margin: 0;
             color: var(--ink);
+            letter-spacing: -0.01em;
         }
 
         .site-footer .brand-blurb {
-            margin-top: clamp(1.15rem, 2.4vh, 1.9rem);
-            max-width: 28ch;
-            line-height: 1.62;
+            margin-top: clamp(1.15rem, 2vh, 1.6rem);
+            max-width: 32ch;
+            line-height: 1.68;
             font-size: var(--fs-nav);
-            font-weight: 300;
+            font-weight: 400;
             color: var(--ink);
+            opacity: 0.92;
         }
 
         .site-footer .contact-list {
             list-style: none;
-            margin-top: clamp(1.15rem, 2.4vh, 1.9rem);
+            margin-top: clamp(1.25rem, 2.2vh, 1.75rem);
             display: flex;
             flex-direction: column;
-            gap: clamp(.6rem, 1.2vh, .95rem);
+            gap: clamp(0.75rem, 1.3vh, 1.05rem);
             font-size: var(--fs-nav);
             color: var(--ink);
         }
@@ -2876,33 +2899,37 @@
             display: flex;
             align-items: center;
             gap: 0.85rem;
+            line-height: 1.4;
         }
 
         .site-footer .contact-list svg {
-            width: 19px;
-            height: 19px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
             stroke: currentColor;
+            opacity: 0.85;
         }
 
         .site-footer .contact-list a {
             text-decoration: none;
-            transition: text-decoration 0.2s ease;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
             color: var(--ink);
+            font-weight: 400;
         }
 
         .site-footer .contact-list a:hover {
+            color: var(--btn-hover);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
 
         .site-footer .col-title {
-            margin: 0 0 clamp(1.15rem, 2.4vh, 1.85rem);
-            font-size: clamp(.95rem, .5vw + .8rem, 1.12rem);
+            margin: 0 0 clamp(1.2rem, 2.2vh, 1.65rem);
+            font-size: clamp(0.92rem, 0.45vw + 0.8rem, 1.08rem);
             font-weight: 600;
-            letter-spacing: .055em;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.3;
             color: var(--ink);
         }
 
@@ -2910,7 +2937,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: clamp(.62rem, 1.35vh, 1.05rem);
+            gap: clamp(0.7rem, 1.4vh, 1.05rem);
             font-size: var(--fs-nav);
         }
 
@@ -2918,39 +2945,53 @@
         .site-footer .link-list button {
             display: inline-block;
             text-decoration: none;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
             color: var(--ink);
             background: transparent;
             border: none;
             font-family: inherit;
             font-size: inherit;
+            font-weight: 400;
             text-align: left;
             cursor: pointer;
             padding: 0;
+            line-height: 1.4;
         }
 
         .site-footer .link-list a:hover,
         .site-footer .link-list button:hover {
-            opacity: 0.62;
-            transform: translateX(2px);
+            color: var(--btn-hover);
+            opacity: 0.75;
+            transform: translateX(3px);
         }
 
         .site-footer .newsletter p {
-            margin: 0 0 clamp(1rem, 2.2vh, 1.6rem);
+            margin: 0 0 clamp(1.1rem, 2vh, 1.5rem);
             max-width: 32ch;
-            line-height: 1.62;
+            line-height: 1.68;
             font-size: var(--fs-nav);
-            font-weight: 300;
+            font-weight: 400;
             color: var(--ink);
+            opacity: 0.92;
         }
 
+        /* Pristine 8K Ultra-Clean White Glass Subscribe Bar */
         .site-footer .subscribe {
             display: flex;
             flex-direction: row;
             width: 100%;
-            max-width: 380px;
-            border: 1px solid var(--ink);
-            background: rgba(255, 255, 255, 0.4);
+            max-width: 390px;
+            border: 1.5px solid var(--ink);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 18px rgba(13, 59, 69, 0.08);
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .site-footer .subscribe:focus-within {
+            border-color: var(--btn-hover);
+            box-shadow: 0 6px 24px rgba(13, 59, 69, 0.16);
         }
 
         .site-footer .subscribe input {
@@ -2959,34 +3000,35 @@
             border: 0;
             outline: 0;
             background: transparent;
-            padding: 0.95rem 1.05rem;
+            padding: 0.95rem 1.15rem;
             font-family: inherit;
             font-size: var(--fs-nav);
             color: var(--ink);
+            font-weight: 400;
         }
 
         .site-footer .subscribe input::placeholder {
             color: var(--ink-soft);
-            opacity: 0.85;
-        }
-
-        .site-footer .subscribe input:focus-visible {
-            box-shadow: inset 0 0 0 2px rgba(23, 90, 103, 0.25);
+            opacity: 0.75;
         }
 
         .site-footer .subscribe button {
             width: clamp(56px, 4vw, 66px);
             border: 0;
             background: var(--ink);
-            color: var(--cream);
+            color: #ffffff;
             display: grid;
             place-items: center;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, transform 0.15s ease;
         }
 
         .site-footer .subscribe button:hover {
             background: var(--btn-hover);
+        }
+
+        .site-footer .subscribe button:active {
+            transform: scale(0.96);
         }
 
         .site-footer .subscribe button svg {
@@ -2994,14 +3036,16 @@
             height: 22px;
         }
 
+        /* Spacious Luminous Bottom Row */
         .site-footer .footer-bottom {
-            margin-top: auto;
-            padding-top: clamp(2.5rem, 6vh, 4.5rem);
+            margin-top: clamp(3rem, 5.5vh, 4.5rem);
+            padding-top: clamp(2rem, 3.5vh, 2.75rem);
+            border-top: 1px solid rgba(13, 59, 69, 0.15);
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            gap: 1.25rem 2rem;
+            gap: 1.5rem 2.5rem;
             flex-wrap: wrap;
             width: 100%;
         }
@@ -3009,7 +3053,7 @@
         .site-footer .socials {
             display: flex;
             flex-direction: row;
-            gap: clamp(.9rem, 1.5vw, 1.5rem);
+            gap: clamp(1rem, 1.8vw, 1.65rem);
             align-items: center;
         }
 
@@ -3018,12 +3062,13 @@
             align-items: center;
             justify-content: center;
             color: var(--ink);
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
         }
 
         .site-footer .socials a:hover {
-            opacity: 0.65;
-            transform: translateY(-2px);
+            color: var(--btn-hover);
+            opacity: 0.7;
+            transform: translateY(-2.5px);
         }
 
         .site-footer .socials svg {
@@ -3034,11 +3079,15 @@
         .site-footer .legal {
             display: flex;
             flex-direction: row;
-            gap: clamp(1.15rem, 2.6vw, 3rem);
+            gap: clamp(1.25rem, 2.8vw, 3rem);
             flex-wrap: wrap;
             font-size: var(--fs-nav);
             color: var(--ink);
             align-items: center;
+        }
+
+        .site-footer .legal span {
+            font-weight: 400;
         }
 
         .site-footer .legal a,
@@ -3048,25 +3097,23 @@
             border: none;
             font-family: inherit;
             font-size: inherit;
+            font-weight: 400;
             text-decoration: none;
-            transition: text-decoration 0.2s ease;
+            transition: text-decoration 0.2s ease, color 0.2s ease;
             cursor: pointer;
             padding: 0;
         }
 
         .site-footer .legal a:hover,
         .site-footer .legal button:hover {
+            color: var(--btn-hover);
             text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         @keyframes footer-fade-in {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes footer-rise-in {
@@ -3074,7 +3121,6 @@
                 opacity: 0;
                 transform: translate3d(0, 14px, 0);
             }
-
             to {
                 opacity: 1;
                 transform: translate3d(0, 0, 0);
@@ -3096,126 +3142,76 @@
             animation: footer-rise-in .72s cubic-bezier(.22, 1, .36, 1) both;
         }
 
-        .site-footer .brand-lockup {
-            animation-delay: 0.04s;
-        }
+        .site-footer .brand-lockup { animation-delay: 0.04s; }
+        .site-footer .brand-blurb { animation-delay: 0.12s; }
+        .site-footer .contact-list li:nth-child(1) { animation-delay: 0.2s; }
+        .site-footer .contact-list li:nth-child(2) { animation-delay: 0.28s; }
+        .site-footer .contact-list li:nth-child(3) { animation-delay: 0.36s; }
 
-        .site-footer .brand-blurb {
-            animation-delay: 0.12s;
-        }
+        .site-footer .footer-grid > .col:nth-child(2) { --col-stagger: .16s; }
+        .site-footer .footer-grid > .col:nth-child(3) { --col-stagger: .26s; }
 
-        .site-footer .contact-list li:nth-child(1) {
-            animation-delay: 0.2s;
-        }
+        .site-footer .col .col-title { animation-delay: var(--col-stagger, .2s); }
+        .site-footer .col .link-list li:nth-child(1) { animation-delay: calc(var(--col-stagger, .2s) + .08s); }
+        .site-footer .col .link-list li:nth-child(2) { animation-delay: calc(var(--col-stagger, .2s) + .16s); }
+        .site-footer .col .link-list li:nth-child(3) { animation-delay: calc(var(--col-stagger, .2s) + .24s); }
+        .site-footer .col .link-list li:nth-child(4) { animation-delay: calc(var(--col-stagger, .2s) + .32s); }
+        .site-footer .col .link-list li:nth-child(5) { animation-delay: calc(var(--col-stagger, .2s) + .40s); }
+        .site-footer .col .link-list li:nth-child(6) { animation-delay: calc(var(--col-stagger, .2s) + .48s); }
 
-        .site-footer .contact-list li:nth-child(2) {
-            animation-delay: 0.28s;
-        }
+        .site-footer .newsletter .col-title { animation-delay: 0.36s; }
+        .site-footer .newsletter p { animation-delay: 0.44s; }
+        .site-footer .subscribe { animation-delay: 0.52s; }
 
-        .site-footer .contact-list li:nth-child(3) {
-            animation-delay: 0.36s;
-        }
+        .site-footer .socials a:nth-child(1) { animation-delay: 0.6s; }
+        .site-footer .socials a:nth-child(2) { animation-delay: 0.66s; }
+        .site-footer .socials a:nth-child(3) { animation-delay: 0.72s; }
+        .site-footer .socials a:nth-child(4) { animation-delay: 0.78s; }
 
-        .site-footer .footer-grid>.col:nth-child(2) {
-            --col-stagger: .16s;
-        }
-
-        .site-footer .footer-grid>.col:nth-child(3) {
-            --col-stagger: .24s;
-        }
-
-        .site-footer .footer-grid>.col:nth-child(4) {
-            --col-stagger: .32s;
-        }
-
-        .site-footer .col .col-title {
-            animation-delay: var(--col-stagger, .2s);
-        }
-
-        .site-footer .col .link-list li:nth-child(1) {
-            animation-delay: calc(var(--col-stagger, .2s) + .08s);
-        }
-
-        .site-footer .col .link-list li:nth-child(2) {
-            animation-delay: calc(var(--col-stagger, .2s) + .16s);
-        }
-
-        .site-footer .col .link-list li:nth-child(3) {
-            animation-delay: calc(var(--col-stagger, .2s) + .24s);
-        }
-
-        .site-footer .col .link-list li:nth-child(4) {
-            animation-delay: calc(var(--col-stagger, .2s) + .32s);
-        }
-
-        .site-footer .col .link-list li:nth-child(5) {
-            animation-delay: calc(var(--col-stagger, .2s) + .40s);
-        }
-
-        .site-footer .col .link-list li:nth-child(6) {
-            animation-delay: calc(var(--col-stagger, .2s) + .48s);
-        }
-
-        .site-footer .newsletter .col-title {
-            animation-delay: 0.4s;
-        }
-
-        .site-footer .newsletter p {
-            animation-delay: 0.48s;
-        }
-
-        .site-footer .subscribe {
-            animation-delay: 0.56s;
-        }
-
-        .site-footer .socials a:nth-child(1) {
-            animation-delay: 0.64s;
-        }
-
-        .site-footer .socials a:nth-child(2) {
-            animation-delay: 0.7s;
-        }
-
-        .site-footer .socials a:nth-child(3) {
-            animation-delay: 0.76s;
-        }
-
-        .site-footer .socials a:nth-child(4) {
-            animation-delay: 0.82s;
-        }
-
-        .site-footer .legal a:nth-child(1) {
-            animation-delay: 0.7s;
-        }
-
-        .site-footer .legal a:nth-child(2) {
-            animation-delay: 0.78s;
-        }
-
-        .site-footer .legal a:nth-child(3) {
-            animation-delay: 0.86s;
-        }
+        .site-footer .legal a:nth-child(1),
+        .site-footer .legal button:nth-child(1) { animation-delay: 0.66s; }
+        .site-footer .legal a:nth-child(2),
+        .site-footer .legal button:nth-child(2) { animation-delay: 0.74s; }
+        .site-footer .legal a:nth-child(3),
+        .site-footer .legal button:nth-child(3) { animation-delay: 0.82s; }
 
         @media (max-width: 1100px) {
             .site-footer .footer-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-                row-gap: clamp(2rem, 4vh, 2.75rem);
+                grid-template-columns: 1fr 1fr;
+                gap: clamp(2.25rem, 4.5vh, 3.25rem);
             }
 
-            .site-footer .brand,
-            .site-footer .newsletter {
+            .site-footer .brand {
                 grid-column: 1 / -1;
             }
 
             .site-footer .brand-blurb {
-                max-width: 42ch;
+                max-width: 48ch;
+            }
+
+            .site-footer .newsletter {
+                grid-column: 1 / -1;
+            }
+
+            .site-footer .newsletter p {
+                max-width: 48ch;
+            }
+
+            .site-footer .footer-media::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: clamp(56px, 18vw, 130px);
+                pointer-events: none;
+                z-index: 1;
+                background: linear-gradient(to bottom, #FAF7F2 0%, rgba(250, 247, 242, 0.75) 42%, rgba(250, 247, 242, 0) 100%);
             }
         }
 
         @media (max-width: 720px) {
             footer.site-footer {
-                height: auto;
-                min-height: 100svh;
                 padding-right: 0;
                 padding-bottom: 0;
                 padding-left: 0;
@@ -3225,9 +3221,9 @@
 
             .site-footer .footer-inner {
                 order: 0;
-                padding-right: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right));
-                padding-left: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
-                padding-bottom: clamp(1.25rem, 3vh, 2rem);
+                padding-right: max(clamp(1.25rem, 4.5vw, 4.5rem), env(safe-area-inset-right));
+                padding-left: max(clamp(1.25rem, 4.5vw, 4.5rem), env(safe-area-inset-left));
+                padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
             }
 
             .site-footer .footer-media {
@@ -3237,7 +3233,7 @@
                 flex-shrink: 0;
                 width: 100%;
                 height: auto;
-                margin-top: auto;
+                margin-top: 1rem;
                 z-index: 0;
             }
 
@@ -3254,76 +3250,49 @@
             }
 
             .site-footer .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: clamp(1.75rem, 5vw, 2.25rem);
+                grid-template-columns: 1fr;
+                gap: clamp(2rem, 5vw, 2.5rem);
             }
 
             .site-footer .brand-blurb {
-                max-width: 34ch;
+                max-width: 100%;
             }
 
             .site-footer .footer-bottom {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
-                padding-top: clamp(2rem, 7vh, 3rem);
+                padding-top: 2rem;
                 padding-bottom: clamp(1.25rem, 3vh, 2rem);
             }
 
             .site-footer .legal {
-                gap: 1.1rem 1.5rem;
+                gap: 1.1rem 1.6rem;
             }
 
-            .site-footer .link-list {
-                gap: 0.2rem;
-            }
-
+            .site-footer .link-list { gap: 0.4rem; }
             .site-footer .link-list a,
-            .site-footer .link-list button {
-                padding: 0.55rem 0;
-            }
-
-            .site-footer .contact-list {
-                gap: 0.25rem;
-            }
-
+            .site-footer .link-list button { padding: 0.45rem 0; }
+            .site-footer .contact-list { gap: 0.45rem; }
             .site-footer .contact-list a,
-            .site-footer .contact-list span {
-                padding: 0.4rem 0;
-            }
-
+            .site-footer .contact-list span { padding: 0.35rem 0; }
             .site-footer .legal a,
-            .site-footer .legal button {
-                padding: 0.45rem 0;
-            }
-
-            .site-footer .socials a {
-                padding: 0.3rem;
-                margin: -0.3rem;
-            }
-
-            .site-footer .socials svg {
-                width: 28px;
-                height: 28px;
-            }
-
+            .site-footer .legal button { padding: 0.4rem 0; }
+            .site-footer .socials a { padding: 0.35rem; margin: -0.35rem; }
+            .site-footer .socials svg { width: 28px; height: 28px; }
             .site-footer .subscribe input {
                 font-size: 16px;
-                padding: 1rem 1.05rem;
+                padding: 1rem 1.1rem;
             }
         }
 
         @media (max-width: 440px) {
             footer.site-footer {
-                --fs-nav: 0.92rem;
-            }
-
-            .site-footer .footer-grid {
-                gap: 1.35rem 1.25rem;
+                --fs-nav: 0.94rem;
             }
 
             .site-footer .col-title {
-                margin-bottom: 0.85rem;
+                margin-bottom: 0.95rem;
             }
 
             .site-footer .brand-blurb,
@@ -3332,20 +3301,12 @@
             }
 
             .site-footer .subscribe {
-                max-width: none;
-            }
-        }
-
-        @media (max-width: 359px) {
-            .site-footer .footer-grid {
-                grid-template-columns: 1fr;
+                max-width: 100%;
             }
         }
 
         @media (min-width: 721px) and (max-width: 1100px) {
             footer.site-footer {
-                height: auto;
-                min-height: 100svh;
                 padding-right: 0;
                 padding-bottom: 0;
                 padding-left: 0;
@@ -3355,9 +3316,9 @@
 
             .site-footer .footer-inner {
                 order: 0;
-                padding-right: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-right));
-                padding-left: max(clamp(1.25rem, 4vw, 4.5rem), env(safe-area-inset-left));
-                padding-bottom: clamp(1.25rem, 3vh, 2rem);
+                padding-right: max(clamp(1.5rem, 4vw, 4.5rem), env(safe-area-inset-right));
+                padding-left: max(clamp(1.5rem, 4vw, 4.5rem), env(safe-area-inset-left));
+                padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
             }
 
             .site-footer .footer-media {
@@ -3367,7 +3328,7 @@
                 flex-shrink: 0;
                 width: 100%;
                 height: auto;
-                margin-top: auto;
+                margin-top: 1.5rem;
                 z-index: 0;
             }
 
@@ -3381,20 +3342,6 @@
                 object-position: center bottom;
                 transform: none;
                 display: block;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .site-footer .footer-media::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                height: clamp(52px, 16vw, 120px);
-                pointer-events: none;
-                z-index: 1;
-                background: linear-gradient(to bottom, #EAE3DE 0%, rgba(234, 227, 222, 0.65) 38%, rgba(234, 227, 222, 0) 100%);
             }
         }
 
@@ -3405,7 +3352,7 @@
             }
 
             footer.site-footer {
-                background-color: #EAE3DE;
+                background-color: #FAF7F2;
                 background-image: url('https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4f690bd1-881a-4192-82f2-d714d34c8fb9.png');
                 background-position: center bottom;
                 background-size: cover;
@@ -4939,7 +4886,7 @@
                     </div>
 
                     <p class="brand-blurb">
-                        High-speed web platforms, planetary-scale digital infrastructure, and autonomous systems.
+                        Fast, modern websites and smart AI tools built to grow your business.
                     </p>
 
                     <ul class="contact-list">
@@ -4972,51 +4919,38 @@
 
                 <!-- Column 2: Navigation -->
                 <div class="col">
-                    <h4 class="col-title">Navigation</h4>
+                    <h4 class="col-title">Pages</h4>
                     <ul class="link-list">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#services-preview">Engineering</a></li>
-                        <li><a href="#pricing">Pricing Plans</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#about">About Protocol</a></li>
-                        <li><a href="#contact">Contact HQ</a></li>
+                        <li><a href="#services-preview">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Client & Legal -->
+                <!-- Column 3: Support & Legal -->
                 <div class="col">
-                    <h4 class="col-title">Client & Legal</h4>
+                    <h4 class="col-title">Support & Legal</h4>
                     <ul class="link-list">
-                        <li><button type="button" onclick="openHelpModal()">Help & Support</button></li>
-                        <li><button type="button" onclick="openTerms()">Terms & Conditions</button></li>
+                        <li><button type="button" onclick="openHelpModal()">Help Center</button></li>
+                        <li><button type="button" onclick="openTerms()">Terms of Service</button></li>
                         <li><button type="button" onclick="openPrivacy()">Privacy Policy</button></li>
-                        <li><button type="button" onclick="openEnquiryModal('pro')">Book Your Website</button></li>
-                        <li><button type="button" onclick="openBlogModal()">Forge Journal</button></li>
+                        <li><button type="button" onclick="openEnquiryModal('pro')">Book a Website</button></li>
+                        <li><button type="button" onclick="openBlogModal()">Articles & News</button></li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Platform & Architecture -->
-                <div class="col">
-                    <h4 class="col-title">Architecture</h4>
-                    <ul class="link-list">
-                        <li><span>Sub-100ms Edge CDN</span></li>
-                        <li><span>Autonomous AI Workers</span></li>
-                        <li><span>GitHub Edge Deployment</span></li>
-                        <li><span>Zero Database Latency</span></li>
-                        <li><span>Parent: Cobra • RUNO</span></li>
-                    </ul>
-                </div>
-
-                <!-- Column 5: Newsletter & Advisory -->
+                <!-- Column 4: Stay Updated / Newsletter -->
                 <div class="newsletter">
-                    <h4 class="col-title">Stay Informed</h4>
+                    <h4 class="col-title">Stay Updated</h4>
                     <p>
-                        Receive priority deployment notices, systems architecture insights, and direct engineering
-                        updates.
+                        Get our latest news, special offers, and helpful tips straight to your inbox.
                     </p>
                     <form class="subscribe"
                         onsubmit="event.preventDefault(); const inp = this.querySelector('input'); if(inp && inp.value){ if(window.showGlobalToast){ window.showGlobalToast('✓ Subscribed with ' + inp.value); } inp.value=''; }">
-                        <input type="email" placeholder="Enter your email" required
+                        <input type="email" placeholder="Your email address" required
                             aria-label="Email address for updates">
                         <button type="submit" aria-label="Subscribe to updates">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -5062,8 +4996,8 @@
                 </div>
 
                 <div class="legal">
-                    <span>&copy; <span id="copyrightYear">2026</span> Forge Softwares</span>
-                    <button type="button" onclick="openTerms()">Terms & Conditions</button>
+                    <span>&copy; <span id="copyrightYear">2026</span> Forge Softwares. All rights reserved.</span>
+                    <button type="button" onclick="openTerms()">Terms of Service</button>
                     <button type="button" onclick="openPrivacy()">Privacy Policy</button>
                     <button type="button" onclick="openHelpModal()">Support</button>
                 </div>
