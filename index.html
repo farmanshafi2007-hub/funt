@@ -2831,46 +2831,45 @@
         }
 
         #testimonials .testimonial-card {
-            background: rgba(10, 7, 5, 0.28) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1.5px solid rgba(224, 112, 32, 0.32) !important;
+            background: rgba(10, 7, 5, 0.44) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 1.5px solid rgba(251, 219, 175, 0.35) !important;
             border-radius: 1.5rem;
             color: var(--ronin-cream) !important;
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(251, 219, 175, 0.15), 0 0 25px rgba(224, 112, 32, 0.08);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55), inset 0 1px 1.5px rgba(255, 255, 255, 0.18), 0 0 25px rgba(224, 112, 32, 0.12);
             transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         #testimonials .testimonial-card:hover {
-            background: rgba(14, 9, 6, 0.38) !important;
+            background: rgba(14, 9, 6, 0.55) !important;
             border-color: var(--ronin-orange) !important;
-            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(251, 219, 175, 0.3), 0 0 32px var(--ronin-glow) !important;
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(251, 219, 175, 0.4), 0 0 32px var(--ronin-glow) !important;
             transform: translateY(-4px);
         }
 
-        /* Dedicated Liquid Glass Bars (Where star rating and client name are) */
+        /* Dedicated Liquid Glass Bars (Where star rating and client name are) - No Blur Fog */
         #testimonials .testimonial-liquid-bar {
-            background: linear-gradient(135deg, rgba(28, 18, 12, 0.62) 0%, rgba(12, 8, 6, 0.48) 100%) !important;
-            backdrop-filter: blur(16px) saturate(190%);
-            -webkit-backdrop-filter: blur(16px) saturate(190%);
-            border: 1px solid rgba(251, 219, 175, 0.26) !important;
-            box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.24),
-                        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5),
-                        0 8px 24px -4px rgba(0, 0, 0, 0.45),
-                        0 0 16px rgba(224, 112, 32, 0.14);
+            background: rgba(18, 12, 8, 0.72) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 1.5px solid rgba(251, 219, 175, 0.32) !important;
+            box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.26),
+                        0 8px 24px -4px rgba(0, 0, 0, 0.5),
+                        0 0 16px rgba(224, 112, 32, 0.15);
             transition: all 0.3s ease;
         }
 
         #testimonials .testimonial-card:hover .testimonial-liquid-bar {
-            border-color: rgba(224, 112, 32, 0.52) !important;
+            border-color: rgba(224, 112, 32, 0.6) !important;
             box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
-                        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5),
-                        0 10px 28px -4px rgba(0, 0, 0, 0.55),
-                        0 0 22px rgba(224, 112, 32, 0.25);
+                        0 10px 28px -4px rgba(0, 0, 0, 0.6),
+                        0 0 22px rgba(224, 112, 32, 0.28);
         }
 
         #testimonials .testimonial-quote-text {
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.75);
+            color: #FBDBAF !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.85);
         }
 
         #testimonials .testimonial-glow {
@@ -4809,29 +4808,20 @@
                 <div class="testimonials-reveal-img" id="testimonial-reveal-img"
                     style="background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_123709_183f0065-efb2-4bb2-a849-13aaa5af2f3f.png&w=1920&q=85');">
                 </div>
-
-                <!-- Dark Neural Vignette Layer (Transparent Liquid Glass Friendly) -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-b from-[#0a0807]/75 via-[#100b08]/40 to-[#0a0807]/80 pointer-events-none z-[3]">
-                </div>
-                <!-- Ambient Flame / Orange Glow -->
-                <div
-                    class="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_35%,rgba(224,112,32,0.26),transparent_70%)] pointer-events-none z-[3]">
-                </div>
             </div>
 
             <div class="w-full max-w-7xl mx-auto relative z-10">
                 <div class="text-center mb-12 sm:mb-16 reveal">
                     <div
-                        class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-[#FBDBAF] tracking-widest uppercase bg-[#0a0807]/85 px-4 sm:px-5 py-2 rounded-full font-mono border border-[#E07020]/60 mb-4 shadow-[0_0_20px_rgba(224,112,32,0.35)] backdrop-blur-md">
+                        class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-[#FBDBAF] tracking-widest uppercase bg-[#0a0807]/90 px-4 sm:px-5 py-2 rounded-full font-mono border border-[#E07020]/70 mb-4 shadow-[0_0_20px_rgba(224,112,32,0.35)]">
                         <i data-lucide="message-square-quote" class="w-3.5 h-3.5 text-[#E07020] shrink-0"></i> Verified
                         Feedback
                     </div>
                     <h2
-                        class="text-2xl sm:text-5xl lg:text-6xl font-orbitron uppercase text-[#FBDBAF] font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(224,112,32,0.3)]">
+                        class="text-2xl sm:text-5xl lg:text-6xl font-orbitron uppercase text-[#FBDBAF] font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(224,112,32,0.4)]">
                         Client Testimonials</h2>
                     <p
-                        class="text-[#FBDBAF]/80 text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-medium px-2">
+                        class="text-[#FBDBAF] text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-medium px-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                         Real experiences from founders, operators, and business leaders.
                     </p>
                 </div>
@@ -4848,12 +4838,12 @@
 
                     <div class="flex items-center gap-2">
                         <button type="button" id="prevTestimonialBtn"
-                            class="w-11 h-11 rounded-full border border-[#E07020]/50 bg-[#0a0807]/85 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px] backdrop-blur-md"
+                            class="w-11 h-11 rounded-full border border-[#E07020]/60 bg-[#0a0807]/90 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px]"
                             aria-label="Previous Testimonial">
                             <i data-lucide="arrow-left" class="w-4 h-4"></i>
                         </button>
                         <button type="button" id="nextTestimonialBtn"
-                            class="w-11 h-11 rounded-full border border-[#E07020]/50 bg-[#0a0807]/85 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px] backdrop-blur-md"
+                            class="w-11 h-11 rounded-full border border-[#E07020]/60 bg-[#0a0807]/90 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px]"
                             aria-label="Next Testimonial">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
