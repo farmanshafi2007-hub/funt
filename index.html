@@ -97,6 +97,12 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
+    <!-- Cyber Ronin // Neural Edges Theme Fonts: Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/b1314443e183d1cdd77049077c46facc?family=Orbitron-Medium"
+        rel="stylesheet" type="text/css">
+
     <!-- Comprehensive Structured Data (JSON-LD) for Search Engines -->
     <script type="application/ld+json">
     {
@@ -2757,6 +2763,162 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
+           CYBER RONIN // NEURAL EDGES THEME (FOR TESTIMONIALS SECTION)
+        ═══════════════════════════════════════════════════════════════ */
+        #testimonials {
+            --ronin-cream: #FBDBAF;
+            --ronin-muted: rgba(251, 219, 175, 0.72);
+            --ronin-label: rgba(251, 219, 175, 0.48);
+            --ronin-orange: #E07020;
+            --ronin-card: rgba(12, 8, 6, 0.28);
+            --ronin-border: rgba(224, 112, 32, 0.35);
+            --ronin-glow: rgba(224, 112, 32, 0.45);
+
+            background-color: #C45A18;
+            color: var(--ronin-cream);
+            position: relative;
+            cursor: crosshair;
+        }
+
+        #testimonials .heading-font,
+        #testimonials h2,
+        #testimonials .font-orbitron {
+            font-family: 'Orbitron-Medium', 'Orbitron', 'Inter', system-ui, sans-serif !important;
+            letter-spacing: 0.03em;
+        }
+
+        #testimonials .testimonials-base-img,
+        #testimonials .testimonials-reveal-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        #testimonials .testimonials-base-img {
+            z-index: 1;
+        }
+
+        #testimonials .testimonials-reveal-img {
+            z-index: 2;
+            pointer-events: none;
+            -webkit-mask-image: radial-gradient(circle 0px at -999px -999px, #fff, transparent);
+            mask-image: radial-gradient(circle 0px at -999px -999px, #fff, transparent);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            will-change: mask-image, -webkit-mask-image;
+        }
+
+        @keyframes heroImageIn {
+            from {
+                opacity: 0;
+                transform: scale(1.18);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #testimonials .hero-image-animate {
+            opacity: 0;
+            animation: heroImageIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.15s;
+        }
+
+        #testimonials .testimonial-card {
+            background: rgba(10, 7, 5, 0.28) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(224, 112, 32, 0.32) !important;
+            border-radius: 1.5rem;
+            color: var(--ronin-cream) !important;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(251, 219, 175, 0.15), 0 0 25px rgba(224, 112, 32, 0.08);
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        #testimonials .testimonial-card:hover {
+            background: rgba(14, 9, 6, 0.38) !important;
+            border-color: var(--ronin-orange) !important;
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.65), inset 0 1px 2px rgba(251, 219, 175, 0.3), 0 0 32px var(--ronin-glow) !important;
+            transform: translateY(-4px);
+        }
+
+        /* Dedicated Liquid Glass Bars (Where star rating and client name are) */
+        #testimonials .testimonial-liquid-bar {
+            background: linear-gradient(135deg, rgba(28, 18, 12, 0.62) 0%, rgba(12, 8, 6, 0.48) 100%) !important;
+            backdrop-filter: blur(16px) saturate(190%);
+            -webkit-backdrop-filter: blur(16px) saturate(190%);
+            border: 1px solid rgba(251, 219, 175, 0.26) !important;
+            box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.24),
+                        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5),
+                        0 8px 24px -4px rgba(0, 0, 0, 0.45),
+                        0 0 16px rgba(224, 112, 32, 0.14);
+            transition: all 0.3s ease;
+        }
+
+        #testimonials .testimonial-card:hover .testimonial-liquid-bar {
+            border-color: rgba(224, 112, 32, 0.52) !important;
+            box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
+                        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.5),
+                        0 10px 28px -4px rgba(0, 0, 0, 0.55),
+                        0 0 22px rgba(224, 112, 32, 0.25);
+        }
+
+        #testimonials .testimonial-quote-text {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.75);
+        }
+
+        #testimonials .testimonial-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            background: radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(224, 112, 32, 0.22), transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #testimonials .testimonial-card:hover .testimonial-glow {
+            opacity: 1;
+        }
+
+        #testimonials .testimonial-dot.active {
+            width: 1.75rem !important;
+            background-color: var(--ronin-orange) !important;
+            box-shadow: 0 0 14px rgba(224, 112, 32, 0.9) !important;
+        }
+
+        #testimonials .testimonial-dot:not(.active) {
+            width: 0.5rem !important;
+            background-color: rgba(251, 219, 175, 0.25) !important;
+        }
+
+        #testimonials .testimonial-dot:hover:not(.active) {
+            background-color: rgba(251, 219, 175, 0.6) !important;
+        }
+
+        @media (max-width: 900px) {
+
+            #testimonials .testimonials-base-img,
+            #testimonials .testimonials-reveal-img {
+                background-position: 40% center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #testimonials .hero-image-animate {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
            HERITAGE GROVE FOOTER DESIGN SYSTEM (8K BRIGHT & SPACIOUS)
         ═══════════════════════════════════════════════════════════════ */
         footer.site-footer {
@@ -3244,122 +3406,247 @@
             animation-delay: 0.82s;
         }
 
-        @media (max-width: 1100px) {
+        /* ═══════════════════════════════════════════════════════════════
+           RESPONSIVE FOOTER SYSTEM (DESKTOP MASTER • TABLET 2x2 • MOBILE 2-COL NAV)
+        ═══════════════════════════════════════════════════════════════ */
+
+        /* ─── TABLET (768px–1023px): CLEAN 2×2 GRID ─── */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            footer.site-footer {
+                padding:
+                    clamp(3rem, 5vh, 4rem) max(clamp(1.5rem, 3.5vw, 2.5rem), env(safe-area-inset-right)) max(clamp(2rem, 3.5vh, 2.75rem), env(safe-area-inset-bottom)) max(clamp(1.5rem, 3.5vw, 2.5rem), env(safe-area-inset-left));
+            }
+
             .site-footer .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: clamp(2.25rem, 4.5vh, 3.25rem);
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: clamp(2.25rem, 4vw, 3.25rem) clamp(2rem, 3.5vw, 3rem);
+                align-items: start;
             }
 
             .site-footer .brand {
-                grid-column: 1 / -1;
-            }
-
-            .site-footer .brand-blurb {
-                max-width: 48ch;
+                grid-column: auto;
             }
 
             .site-footer .newsletter {
-                grid-column: 1 / -1;
+                grid-column: auto;
             }
 
+            .site-footer .brand-blurb,
             .site-footer .newsletter p {
-                max-width: 48ch;
+                max-width: 36ch;
             }
 
-            .site-footer .footer-media::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                height: clamp(56px, 18vw, 130px);
-                pointer-events: none;
-                z-index: 1;
-                background: linear-gradient(to bottom, #FAF7F2 0%, rgba(250, 247, 242, 0.75) 42%, rgba(250, 247, 242, 0) 100%);
-            }
-        }
-
-        @media (max-width: 720px) {
-            footer.site-footer {
-                padding-right: 0;
-                padding-bottom: 0;
-                padding-left: 0;
-                overflow-x: hidden;
-                overflow-y: visible;
-            }
-
-            .site-footer .footer-inner {
-                order: 0;
-                padding-right: max(clamp(1.25rem, 4.5vw, 4.5rem), env(safe-area-inset-right));
-                padding-left: max(clamp(1.25rem, 4.5vw, 4.5rem), env(safe-area-inset-left));
-                padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
-            }
-
-            .site-footer .footer-media {
-                position: relative;
-                inset: auto;
-                order: 1;
-                flex-shrink: 0;
-                width: 100%;
-                height: auto;
-                margin-top: 1rem;
-                z-index: 0;
-            }
-
-            .site-footer .footer-bg {
-                position: relative;
-                inset: auto;
-                width: 100%;
-                height: auto;
-                max-width: 100%;
-                object-fit: contain;
-                object-position: center bottom;
-                transform: none;
-                display: block;
-            }
-
-            .site-footer .footer-grid {
-                grid-template-columns: 1fr;
-                gap: clamp(2rem, 5vw, 2.5rem);
-            }
-
-            .site-footer .brand-blurb {
+            .site-footer .subscribe {
                 max-width: 100%;
             }
 
             .site-footer .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
                 gap: 1.5rem;
-                padding-top: 2rem;
-                padding-bottom: clamp(1.25rem, 3vh, 2rem);
+                flex-wrap: wrap;
             }
 
             .site-footer .legal {
-                gap: 1.1rem 1.6rem;
+                gap: 1rem 1.75rem;
+            }
+        }
+
+        /* ─── MOBILE (320px–767px): COMPACT 2-COLUMN NAVIGATION & APPLE-STYLE PREMIUM ─── */
+        @media (max-width: 767px) {
+            footer.site-footer {
+                padding: 2.25rem max(20px, env(safe-area-inset-right)) max(1.75rem, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)) !important;
+                overflow-x: hidden;
+            }
+
+            .site-footer .footer-inner {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            /* Responsive Grid: Section 1 full width, Sections 2&3 in 2 columns side-by-side, Section 4 full width */
+            .site-footer .footer-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.65rem 1.15rem;
+                /* 26px equal vertical spacing between sections */
+                width: 100%;
+            }
+
+            /* Section 1: Forge Softwares (Full Width, Centered) */
+            .site-footer .brand {
+                grid-column: 1 / -1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+            }
+
+            .site-footer .brand-lockup {
+                justify-content: center;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .site-footer .brand-mark {
+                width: clamp(48px, 12vw, 56px);
+                height: auto;
+                flex-shrink: 0;
+            }
+
+            .site-footer .brand-name {
+                font-size: clamp(1.85rem, 5.5vw, 2.25rem);
+                text-align: center;
+                line-height: 1.1;
+            }
+
+            .site-footer .brand-blurb {
+                margin: 0.65rem auto 0;
+                text-align: center;
+                max-width: 34ch;
+                font-size: 0.92rem;
+                line-height: 1.55;
+            }
+
+            .site-footer .contact-list {
+                margin-top: 0.75rem;
+                align-items: center;
+                text-align: center;
+                gap: 0.45rem;
+                width: 100%;
+            }
+
+            .site-footer .contact-list li {
+                justify-content: center;
+                text-align: center;
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            /* Section 2: Pages (Left Column) */
+            .site-footer .footer-grid>.col:nth-of-type(1) {
+                grid-column: 1 / 2;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding-right: 0.35rem;
+            }
+
+            /* Section 3: Support & Legal (Right Column, Side-by-Side) */
+            .site-footer .footer-grid>.col:nth-of-type(2) {
+                grid-column: 2 / 3;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding-left: 0.35rem;
+            }
+
+            .site-footer .col-title {
+                text-align: left;
+                margin: 0 0 0.6rem;
+                font-size: 0.88rem;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink);
             }
 
             .site-footer .link-list {
-                gap: 0.4rem;
+                align-items: flex-start;
+                text-align: left;
+                gap: 0.42rem;
+                width: 100%;
+            }
+
+            .site-footer .link-list li {
+                text-align: left;
+                width: 100%;
             }
 
             .site-footer .link-list a,
             .site-footer .link-list button {
-                padding: 0.45rem 0;
+                text-align: left;
+                display: block;
+                padding: 0.15rem 0;
+                font-size: 0.88rem;
+                line-height: 1.4;
+                word-break: break-word;
             }
 
-            .site-footer .contact-list {
-                gap: 0.45rem;
+            .site-footer .link-list a:hover,
+            .site-footer .link-list button:hover {
+                transform: none;
+                opacity: 0.75;
             }
 
-            .site-footer .contact-list a,
-            .site-footer .contact-list span {
-                padding: 0.35rem 0;
+            /* Section 4: Stay Updated / Newsletter (Full Width Below Both Columns) */
+            .site-footer .newsletter {
+                grid-column: 1 / -1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                margin-top: 0.25rem;
             }
 
-            .site-footer .legal a,
-            .site-footer .legal button {
-                padding: 0.4rem 0;
+            .site-footer .newsletter .col-title {
+                text-align: center;
+                margin: 0 0 0.45rem;
+                font-size: 0.88rem;
+            }
+
+            .site-footer .newsletter p {
+                text-align: center;
+                margin: 0 auto 0.75rem;
+                max-width: 36ch;
+                font-size: 0.9rem;
+                line-height: 1.55;
+            }
+
+            /* Full-width email input bar with subscribe button attached */
+            .site-footer .subscribe {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+
+            .site-footer .subscribe input {
+                font-size: 16px;
+                /* Prevents auto-zoom on iOS */
+                padding: 0.8rem 0.95rem;
+                min-width: 0;
+            }
+
+            .site-footer .subscribe button {
+                width: 52px;
+                flex-shrink: 0;
+            }
+
+            /* Section 5: Centered Bottom Copyright Row & Socials */
+            .site-footer .footer-bottom {
+                margin-top: 1.65rem;
+                padding-top: 1.25rem;
+                border-top: 1px solid rgba(13, 59, 69, 0.15);
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.95rem;
+                width: 100%;
+            }
+
+            .site-footer .socials {
+                justify-content: center;
+                gap: 1.15rem;
+                margin: 0 auto;
             }
 
             .site-footer .socials a {
@@ -3368,75 +3655,59 @@
             }
 
             .site-footer .socials svg {
-                width: 28px;
-                height: 28px;
+                width: 24px;
+                height: 24px;
             }
 
-            .site-footer .subscribe input {
-                font-size: 16px;
-                padding: 1rem 1.1rem;
+            .site-footer .legal {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.45rem;
+                font-size: 0.85rem;
+                width: 100%;
+            }
+
+            .site-footer .legal span,
+            .site-footer .legal a,
+            .site-footer .legal button {
+                text-align: center;
+                padding: 0.15rem 0;
             }
         }
 
-        @media (max-width: 440px) {
+        /* ─── EXTRA COMPACT (320px–380px): BALANCED FONT & SAFE MARGINS ─── */
+        @media (max-width: 380px) {
             footer.site-footer {
-                --fs-nav: 0.94rem;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
             }
 
-            .site-footer .col-title {
-                margin-bottom: 0.95rem;
+            .site-footer .footer-grid {
+                gap: 1.45rem 0.75rem;
+            }
+
+            .site-footer .brand-name {
+                font-size: 1.75rem;
             }
 
             .site-footer .brand-blurb,
             .site-footer .newsletter p {
-                max-width: none;
+                font-size: 0.85rem;
             }
 
-            .site-footer .subscribe {
-                max-width: 100%;
-            }
-        }
-
-        @media (min-width: 721px) and (max-width: 1100px) {
-            footer.site-footer {
-                padding-right: 0;
-                padding-bottom: 0;
-                padding-left: 0;
-                overflow-x: hidden;
-                overflow-y: visible;
+            .site-footer .contact-list li,
+            .site-footer .link-list a,
+            .site-footer .link-list button {
+                font-size: 0.84rem;
             }
 
-            .site-footer .footer-inner {
-                order: 0;
-                padding-right: max(clamp(1.5rem, 4vw, 4.5rem), env(safe-area-inset-right));
-                padding-left: max(clamp(1.5rem, 4vw, 4.5rem), env(safe-area-inset-left));
-                padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
-            }
-
-            .site-footer .footer-media {
-                position: relative;
-                inset: auto;
-                order: 1;
-                flex-shrink: 0;
-                width: 100%;
-                height: auto;
-                margin-top: 1.5rem;
-                z-index: 0;
-            }
-
-            .site-footer .footer-bg {
-                position: relative;
-                inset: auto;
-                width: 100%;
-                height: auto;
-                max-width: 100%;
-                object-fit: contain;
-                object-position: center bottom;
-                transform: none;
-                display: block;
+            .site-footer .subscribe input {
+                padding: 0.75rem 0.85rem;
             }
         }
 
+        /* ─── PREFERS REDUCED MOTION ─── */
         @media (prefers-reduced-motion: reduce) {
             .site-footer .footer-bg {
                 display: none;
@@ -3451,17 +3722,11 @@
                 background-repeat: no-repeat;
             }
 
-            @media (max-width: 1100px) {
-                footer.site-footer {
-                    background-size: 100% auto;
-                }
-            }
-
-            .site-footer .footer-media::after {
-                content: none;
-            }
-
-            .site-footer .socials a {
+            .site-footer .socials a,
+            .site-footer .brand-lockup,
+            .site-footer .brand-blurb,
+            .site-footer .col-title,
+            .site-footer .subscribe {
                 animation: none;
             }
 
@@ -4527,43 +4792,68 @@
             </div>
         </section>
 
-        <!-- SECTION 7: TESTIMONIALS SECTION -->
+        <!-- SECTION 7: TESTIMONIALS SECTION (CYBER RONIN // NEURAL EDGES THEME) -->
         <section id="testimonials"
-            class="py-20 sm:py-24 px-4 sm:px-8 lg:px-16 border-b-2 border-black bg-white text-black w-full bg-grid-light relative overflow-hidden"
+            class="py-20 sm:py-24 px-4 sm:px-8 lg:px-16 border-b-2 border-[#E07020]/40 w-full relative overflow-hidden"
             aria-label="Customer Testimonials">
+
+            <!-- Cyber Ronin Dual-Layer Neural Artwork & Spotlight Target -->
+            <div class="testimonials-media-wrap absolute inset-0 pointer-events-none overflow-hidden z-0"
+                aria-hidden="true">
+                <!-- BASE Cyber Ronin hero image -->
+                <div class="testimonials-base-img hero-image-animate"
+                    style="background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85');">
+                </div>
+
+                <!-- REVEAL Cyber Ronin hero image (neural edges spotlight target) -->
+                <div class="testimonials-reveal-img" id="testimonial-reveal-img"
+                    style="background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_123709_183f0065-efb2-4bb2-a849-13aaa5af2f3f.png&w=1920&q=85');">
+                </div>
+
+                <!-- Dark Neural Vignette Layer (Transparent Liquid Glass Friendly) -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-[#0a0807]/75 via-[#100b08]/40 to-[#0a0807]/80 pointer-events-none z-[3]">
+                </div>
+                <!-- Ambient Flame / Orange Glow -->
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_35%,rgba(224,112,32,0.26),transparent_70%)] pointer-events-none z-[3]">
+                </div>
+            </div>
+
             <div class="w-full max-w-7xl mx-auto relative z-10">
                 <div class="text-center mb-12 sm:mb-16 reveal">
                     <div
-                        class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-white tracking-widest uppercase bg-black px-4 sm:px-5 py-2 rounded-full font-mono border-2 border-black mb-4 shadow-xl">
-                        <i data-lucide="message-square-quote" class="w-3.5 h-3.5 text-white shrink-0"></i> Verified
+                        class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-[#FBDBAF] tracking-widest uppercase bg-[#0a0807]/85 px-4 sm:px-5 py-2 rounded-full font-mono border border-[#E07020]/60 mb-4 shadow-[0_0_20px_rgba(224,112,32,0.35)] backdrop-blur-md">
+                        <i data-lucide="message-square-quote" class="w-3.5 h-3.5 text-[#E07020] shrink-0"></i> Verified
                         Feedback
                     </div>
                     <h2
-                        class="text-2xl sm:text-5xl lg:text-6xl font-bubbledot uppercase text-black font-extrabold tracking-tight">
+                        class="text-2xl sm:text-5xl lg:text-6xl font-orbitron uppercase text-[#FBDBAF] font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(224,112,32,0.3)]">
                         Client Testimonials</h2>
                     <p
-                        class="text-black text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-bold px-2">
+                        class="text-[#FBDBAF]/80 text-xs sm:text-sm font-mono tracking-widest uppercase mt-3 max-w-xl mx-auto font-medium px-2">
                         Real experiences from founders, operators, and business leaders.
                     </p>
                 </div>
 
                 <!-- Carousel Controls & Status Bar -->
                 <div class="flex items-center justify-between gap-4 mb-6 sm:mb-8 max-w-6xl mx-auto px-2">
-                    <div class="flex items-center gap-2 font-mono text-xs font-extrabold text-black">
-                        <span class="w-2.5 h-2.5 rounded-full bg-black"></span>
+                    <div class="flex items-center gap-2 font-mono text-xs font-extrabold text-[#FBDBAF]">
+                        <span
+                            class="w-2.5 h-2.5 rounded-full bg-[#E07020] shadow-[0_0_10px_rgba(224,112,32,0.9)]"></span>
                         <span id="testimonialCurrentIdx">01</span>
-                        <span class="text-black/40">/</span>
-                        <span class="text-black/60">05</span>
+                        <span class="text-[#FBDBAF]/40">/</span>
+                        <span class="text-[#FBDBAF]/70">05</span>
                     </div>
 
                     <div class="flex items-center gap-2">
                         <button type="button" id="prevTestimonialBtn"
-                            class="w-11 h-11 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px]"
+                            class="w-11 h-11 rounded-full border border-[#E07020]/50 bg-[#0a0807]/85 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px] backdrop-blur-md"
                             aria-label="Previous Testimonial">
                             <i data-lucide="arrow-left" class="w-4 h-4"></i>
                         </button>
                         <button type="button" id="nextTestimonialBtn"
-                            class="w-11 h-11 rounded-full border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px]"
+                            class="w-11 h-11 rounded-full border border-[#E07020]/50 bg-[#0a0807]/85 text-[#FBDBAF] hover:bg-[#E07020] hover:text-black hover:shadow-[0_0_22px_rgba(224,112,32,0.6)] transition-all duration-300 flex items-center justify-center cursor-pointer focus:outline-none active:scale-95 shadow-md min-h-[44px] min-w-[44px] backdrop-blur-md"
                             aria-label="Next Testimonial">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
@@ -4577,41 +4867,45 @@
 
                     <!-- 1. Ashiq Bashir (4.5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
                         data-index="0">
                         <div class="testimonial-glow"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div class="flex items-center gap-1 text-black" aria-label="Rating: 4.5 out of 5 stars">
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star-half" class="w-4 h-4 fill-black text-black"></i>
-                                    <span class="font-mono text-xs font-black ml-1.5 text-black">4.5</span>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <!-- Liquid Glass Top Bar (Stars & Rating) -->
+                            <div class="testimonial-liquid-bar testimonial-bar-top flex items-center justify-between gap-3 mb-5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl">
+                                <div class="flex items-center gap-1 text-[#E07020]"
+                                    aria-label="Rating: 4.5 out of 5 stars">
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star-half" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <span class="font-mono text-xs font-black ml-1.5 text-[#FBDBAF] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">4.5</span>
                                 </div>
                                 <div
-                                    class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="quote" class="w-4 h-4"></i>
+                                    class="w-8 h-8 rounded-full bg-[#E07020]/20 text-[#FBDBAF] flex items-center justify-center border border-[#E07020]/50 shrink-0 group-hover:bg-[#E07020] group-hover:text-black transition-colors duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i>
                                 </div>
                             </div>
-                            <p class="text-sm sm:text-[15px] font-sans text-black leading-relaxed font-medium mb-8">
+                            <p
+                                class="testimonial-quote-text text-sm sm:text-[15px] font-sans text-[#FBDBAF] leading-relaxed font-normal mb-6 px-1">
                                 "Very nice premium website made by Forge Softwares. The entire experience was smooth,
                                 professional, and easy from start to finish. One of the best experiences I've had while
                                 getting a website built."
                             </p>
                         </div>
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
+                        <!-- Liquid Glass Bottom Bar (Avatar & Client Name) -->
+                        <div class="testimonial-liquid-bar testimonial-bar-bottom flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl relative z-10 mt-auto">
                             <div
-                                class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
+                                class="w-11 h-11 rounded-full bg-[#E07020]/25 text-[#FBDBAF] flex items-center justify-center font-orbitron text-xs font-bold border border-[#E07020] shrink-0 tracking-wider shadow-[0_0_12px_rgba(224,112,32,0.45),inset_0_1px_1px_rgba(255,255,255,0.3)]">
                                 AB
                             </div>
                             <div class="flex flex-col">
                                 <h4
-                                    class="font-extrabold font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                                    class="font-bold font-orbitron text-xs sm:text-sm text-[#FBDBAF] tracking-wide uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                                     Ashiq Bashir</h4>
                                 <span
-                                    class="text-[10px] font-mono text-black/70 font-bold uppercase tracking-wider mt-0.5">Verified
+                                    class="text-[10px] font-mono text-[#FBDBAF]/80 font-medium uppercase tracking-wider mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Verified
                                     Business Client</span>
                             </div>
                         </div>
@@ -4619,40 +4913,44 @@
 
                     <!-- 2. Rakesh (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
                         data-index="1">
                         <div class="testimonial-glow"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <!-- Liquid Glass Top Bar (Stars & Rating) -->
+                            <div class="testimonial-liquid-bar testimonial-bar-top flex items-center justify-between gap-3 mb-5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl">
+                                <div class="flex items-center gap-1 text-[#E07020]"
+                                    aria-label="Rating: 5 out of 5 stars">
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <span class="font-mono text-xs font-black ml-1.5 text-[#FBDBAF] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">5.0</span>
                                 </div>
                                 <div
-                                    class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="quote" class="w-4 h-4"></i>
+                                    class="w-8 h-8 rounded-full bg-[#E07020]/20 text-[#FBDBAF] flex items-center justify-center border border-[#E07020]/50 shrink-0 group-hover:bg-[#E07020] group-hover:text-black transition-colors duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i>
                                 </div>
                             </div>
-                            <p class="text-sm sm:text-[15px] font-sans text-black leading-relaxed font-medium mb-8">
+                            <p
+                                class="testimonial-quote-text text-sm sm:text-[15px] font-sans text-[#FBDBAF] leading-relaxed font-normal mb-6 px-1">
                                 "The minimal aesthetic elevated our brand authority instantly. Combined with system
                                 optimizations, our conversion velocity accelerated."
                             </p>
                         </div>
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
+                        <!-- Liquid Glass Bottom Bar (Avatar & Client Name) -->
+                        <div class="testimonial-liquid-bar testimonial-bar-bottom flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl relative z-10 mt-auto">
                             <div
-                                class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
+                                class="w-11 h-11 rounded-full bg-[#E07020]/25 text-[#FBDBAF] flex items-center justify-center font-orbitron text-xs font-bold border border-[#E07020] shrink-0 tracking-wider shadow-[0_0_12px_rgba(224,112,32,0.45),inset_0_1px_1px_rgba(255,255,255,0.3)]">
                                 R
                             </div>
                             <div class="flex flex-col">
                                 <h4
-                                    class="font-extrabold font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                                    class="font-bold font-orbitron text-xs sm:text-sm text-[#FBDBAF] tracking-wide uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                                     Rakesh</h4>
                                 <span
-                                    class="text-[10px] font-mono text-black/70 font-bold uppercase tracking-wider mt-0.5">Enterprise
+                                    class="text-[10px] font-mono text-[#FBDBAF]/80 font-medium uppercase tracking-wider mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Enterprise
                                     Client</span>
                             </div>
                         </div>
@@ -4660,40 +4958,44 @@
 
                     <!-- 3. Balram (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
                         data-index="2">
                         <div class="testimonial-glow"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <!-- Liquid Glass Top Bar (Stars & Rating) -->
+                            <div class="testimonial-liquid-bar testimonial-bar-top flex items-center justify-between gap-3 mb-5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl">
+                                <div class="flex items-center gap-1 text-[#E07020]"
+                                    aria-label="Rating: 5 out of 5 stars">
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <span class="font-mono text-xs font-black ml-1.5 text-[#FBDBAF] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">5.0</span>
                                 </div>
                                 <div
-                                    class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="quote" class="w-4 h-4"></i>
+                                    class="w-8 h-8 rounded-full bg-[#E07020]/20 text-[#FBDBAF] flex items-center justify-center border border-[#E07020]/50 shrink-0 group-hover:bg-[#E07020] group-hover:text-black transition-colors duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i>
                                 </div>
                             </div>
-                            <p class="text-sm sm:text-[15px] font-sans text-black leading-relaxed font-medium mb-8">
+                            <p
+                                class="testimonial-quote-text text-sm sm:text-[15px] font-sans text-[#FBDBAF] leading-relaxed font-normal mb-6 px-1">
                                 "Forge Softwares delivered exactly what we wanted. The website feels fast, clean, and
                                 premium. Our business looks much more professional now."
                             </p>
                         </div>
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
+                        <!-- Liquid Glass Bottom Bar (Avatar & Client Name) -->
+                        <div class="testimonial-liquid-bar testimonial-bar-bottom flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl relative z-10 mt-auto">
                             <div
-                                class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
+                                class="w-11 h-11 rounded-full bg-[#E07020]/25 text-[#FBDBAF] flex items-center justify-center font-orbitron text-xs font-bold border border-[#E07020] shrink-0 tracking-wider shadow-[0_0_12px_rgba(224,112,32,0.45),inset_0_1px_1px_rgba(255,255,255,0.3)]">
                                 B
                             </div>
                             <div class="flex flex-col">
                                 <h4
-                                    class="font-extrabold font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                                    class="font-bold font-orbitron text-xs sm:text-sm text-[#FBDBAF] tracking-wide uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                                     Balram</h4>
                                 <span
-                                    class="text-[10px] font-mono text-black/70 font-bold uppercase tracking-wider mt-0.5">Commercial
+                                    class="text-[10px] font-mono text-[#FBDBAF]/80 font-medium uppercase tracking-wider mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Commercial
                                     Founder</span>
                             </div>
                         </div>
@@ -4701,40 +5003,44 @@
 
                     <!-- 4. Sunil (4.5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
                         data-index="3">
                         <div class="testimonial-glow"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div class="flex items-center gap-1 text-black" aria-label="Rating: 4.5 out of 5 stars">
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star-half" class="w-4 h-4 fill-black text-black"></i>
-                                    <span class="font-mono text-xs font-black ml-1.5 text-black">4.5</span>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <!-- Liquid Glass Top Bar (Stars & Rating) -->
+                            <div class="testimonial-liquid-bar testimonial-bar-top flex items-center justify-between gap-3 mb-5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl">
+                                <div class="flex items-center gap-1 text-[#E07020]"
+                                    aria-label="Rating: 4.5 out of 5 stars">
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star-half" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <span class="font-mono text-xs font-black ml-1.5 text-[#FBDBAF] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">4.5</span>
                                 </div>
                                 <div
-                                    class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="quote" class="w-4 h-4"></i>
+                                    class="w-8 h-8 rounded-full bg-[#E07020]/20 text-[#FBDBAF] flex items-center justify-center border border-[#E07020]/50 shrink-0 group-hover:bg-[#E07020] group-hover:text-black transition-colors duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i>
                                 </div>
                             </div>
-                            <p class="text-sm sm:text-[15px] font-sans text-black leading-relaxed font-medium mb-8">
+                            <p
+                                class="testimonial-quote-text text-sm sm:text-[15px] font-sans text-[#FBDBAF] leading-relaxed font-normal mb-6 px-1">
                                 "Simple process, great communication, and a beautiful website. Everything works smoothly
                                 on both mobile and desktop."
                             </p>
                         </div>
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
+                        <!-- Liquid Glass Bottom Bar (Avatar & Client Name) -->
+                        <div class="testimonial-liquid-bar testimonial-bar-bottom flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl relative z-10 mt-auto">
                             <div
-                                class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
+                                class="w-11 h-11 rounded-full bg-[#E07020]/25 text-[#FBDBAF] flex items-center justify-center font-orbitron text-xs font-bold border border-[#E07020] shrink-0 tracking-wider shadow-[0_0_12px_rgba(224,112,32,0.45),inset_0_1px_1px_rgba(255,255,255,0.3)]">
                                 S
                             </div>
                             <div class="flex flex-col">
                                 <h4
-                                    class="font-extrabold font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                                    class="font-bold font-orbitron text-xs sm:text-sm text-[#FBDBAF] tracking-wide uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                                     Sunil</h4>
                                 <span
-                                    class="text-[10px] font-mono text-black/70 font-bold uppercase tracking-wider mt-0.5">Startup
+                                    class="text-[10px] font-mono text-[#FBDBAF]/80 font-medium uppercase tracking-wider mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Startup
                                     Operator</span>
                             </div>
                         </div>
@@ -4742,40 +5048,44 @@
 
                     <!-- 5. Ahmad (5/5) -->
                     <article
-                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start card-light-contrast p-5 sm:p-9 flex flex-col justify-between group transition-all duration-400 border-2 border-black hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative overflow-hidden"
+                        class="testimonial-card flex-none w-[calc(100vw-2.5rem)] sm:w-[380px] lg:w-[410px] snap-start p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
                         data-index="4">
                         <div class="testimonial-glow"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div class="flex items-center gap-1 text-black" aria-label="Rating: 5 out of 5 stars">
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-black text-black"></i>
-                                    <span class="font-mono text-xs font-black ml-1.5 text-black">5.0</span>
+                        <div class="relative z-10 flex flex-col flex-1">
+                            <!-- Liquid Glass Top Bar (Stars & Rating) -->
+                            <div class="testimonial-liquid-bar testimonial-bar-top flex items-center justify-between gap-3 mb-5 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl">
+                                <div class="flex items-center gap-1 text-[#E07020]"
+                                    aria-label="Rating: 5 out of 5 stars">
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-[#E07020] text-[#E07020] drop-shadow-[0_0_6px_rgba(224,112,32,0.7)]"></i>
+                                    <span class="font-mono text-xs font-black ml-1.5 text-[#FBDBAF] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">5.0</span>
                                 </div>
                                 <div
-                                    class="w-9 h-9 rounded-full bg-black/5 text-black flex items-center justify-center border border-black/20 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="quote" class="w-4 h-4"></i>
+                                    class="w-8 h-8 rounded-full bg-[#E07020]/20 text-[#FBDBAF] flex items-center justify-center border border-[#E07020]/50 shrink-0 group-hover:bg-[#E07020] group-hover:text-black transition-colors duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
+                                    <i data-lucide="quote" class="w-3.5 h-3.5"></i>
                                 </div>
                             </div>
-                            <p class="text-sm sm:text-[15px] font-sans text-black leading-relaxed font-medium mb-8">
+                            <p
+                                class="testimonial-quote-text text-sm sm:text-[15px] font-sans text-[#FBDBAF] leading-relaxed font-normal mb-6 px-1">
                                 "Professional work with a modern minimal design. The performance and overall quality
                                 exceeded my expectations."
                             </p>
                         </div>
-                        <div class="flex items-center gap-3.5 pt-5 border-t-2 border-black/15 relative z-10">
+                        <!-- Liquid Glass Bottom Bar (Avatar & Client Name) -->
+                        <div class="testimonial-liquid-bar testimonial-bar-bottom flex items-center gap-3.5 p-3 sm:p-3.5 rounded-2xl relative z-10 mt-auto">
                             <div
-                                class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-mono text-xs font-black border-2 border-black shrink-0 tracking-wider shadow-sm">
+                                class="w-11 h-11 rounded-full bg-[#E07020]/25 text-[#FBDBAF] flex items-center justify-center font-orbitron text-xs font-bold border border-[#E07020] shrink-0 tracking-wider shadow-[0_0_12px_rgba(224,112,32,0.45),inset_0_1px_1px_rgba(255,255,255,0.3)]">
                                 A
                             </div>
                             <div class="flex flex-col">
                                 <h4
-                                    class="font-extrabold font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                                    class="font-bold font-orbitron text-xs sm:text-sm text-[#FBDBAF] tracking-wide uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                                     Ahmad</h4>
                                 <span
-                                    class="text-[10px] font-mono text-black/70 font-bold uppercase tracking-wider mt-0.5">Product
+                                    class="text-[10px] font-mono text-[#FBDBAF]/80 font-medium uppercase tracking-wider mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Product
                                     Director</span>
                             </div>
                         </div>
@@ -4785,19 +5095,19 @@
                 <!-- Carousel Dot Indicators -->
                 <div class="flex items-center justify-center gap-2 mt-6 sm:mt-8" id="testimonialDotsContainer">
                     <button type="button"
-                        class="testimonial-dot w-7 h-2 rounded-full bg-black transition-all duration-300 cursor-pointer focus:outline-none"
+                        class="testimonial-dot active w-7 h-2 rounded-full bg-[#E07020] shadow-[0_0_12px_rgba(224,112,32,0.85)] transition-all duration-300 cursor-pointer focus:outline-none"
                         data-index="0" aria-label="Go to testimonial 1"></button>
                     <button type="button"
-                        class="testimonial-dot w-2 h-2 rounded-full bg-black/20 hover:bg-black/50 transition-all duration-300 cursor-pointer focus:outline-none"
+                        class="testimonial-dot w-2 h-2 rounded-full bg-[#FBDBAF]/25 hover:bg-[#FBDBAF]/60 transition-all duration-300 cursor-pointer focus:outline-none"
                         data-index="1" aria-label="Go to testimonial 2"></button>
                     <button type="button"
-                        class="testimonial-dot w-2 h-2 rounded-full bg-black/20 hover:bg-black/50 transition-all duration-300 cursor-pointer focus:outline-none"
+                        class="testimonial-dot w-2 h-2 rounded-full bg-[#FBDBAF]/25 hover:bg-[#FBDBAF]/60 transition-all duration-300 cursor-pointer focus:outline-none"
                         data-index="2" aria-label="Go to testimonial 3"></button>
                     <button type="button"
-                        class="testimonial-dot w-2 h-2 rounded-full bg-black/20 hover:bg-black/50 transition-all duration-300 cursor-pointer focus:outline-none"
+                        class="testimonial-dot w-2 h-2 rounded-full bg-[#FBDBAF]/25 hover:bg-[#FBDBAF]/60 transition-all duration-300 cursor-pointer focus:outline-none"
                         data-index="3" aria-label="Go to testimonial 4"></button>
                     <button type="button"
-                        class="testimonial-dot w-2 h-2 rounded-full bg-black/20 hover:bg-black/50 transition-all duration-300 cursor-pointer focus:outline-none"
+                        class="testimonial-dot w-2 h-2 rounded-full bg-[#FBDBAF]/25 hover:bg-[#FBDBAF]/60 transition-all duration-300 cursor-pointer focus:outline-none"
                         data-index="4" aria-label="Go to testimonial 5"></button>
                 </div>
             </div>
@@ -5772,53 +6082,624 @@
         </div>
     </div>
 
-    <!-- TERMS & PRIVACY MODALS -->
+    <!-- TERMS & PRIVACY MODALS (CLAUDE WEBSITE EDITORIAL STYLING & FULL MOBILE FLUIDITY) -->
     <div id="termsModal"
-        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden"
-        role="dialog" aria-modal="true">
-        <div class="card-light-contrast bg-white max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-5 sm:p-8 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto border-2 border-black"
+        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden mobile-fullscreen-modal"
+        role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+        <div class="bg-[#faf9f5] text-[#1f1e1d] w-full h-full sm:h-auto sm:max-h-[92dvh] sm:max-w-4xl flex flex-col relative shadow-[0_24px_80px_rgba(20,20,19,0.25)] transform scale-95 transition-transform duration-300 mx-auto border-0 sm:border border-[#e8e6df] overflow-hidden rounded-none sm:rounded-3xl mobile-fullscreen-dialog overscroll-contain"
             id="termsContent">
-            <button type="button" onclick="closeTerms()"
-                class="absolute top-3 right-3 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
-                aria-label="Close modal"><i data-lucide="x" class="w-4 h-4"></i></button>
-            <div class="text-center mb-6 border-b-2 border-black pb-4">
-                <h3 class="text-xl sm:text-2xl font-bubbledot text-black uppercase tracking-widest font-extrabold">Terms
-                    & Conditions</h3>
-            </div>
+
+            <!-- Claude Editorial Top Bar -->
             <div
-                class="overflow-y-auto custom-scrollbar pr-2 text-xs md:text-sm text-black leading-relaxed space-y-4 font-sans font-medium">
-                <p><strong>1. Payment Schedule:</strong> Projects require a standard 40% advance deposit prior to
-                    engineering kick-off, with the remaining 60% payable upon final milestone verification and
-                    deployment.</p>
-                <p><strong>2. Ownership & Codebase:</strong> 100% full intellectual property and code ownership
-                    transfers unconditionally to the client upon receipt of final project payment.</p>
-                <p><strong>3. Maintenance & Warranty:</strong> All deployments are backed by included maintenance
-                    support windows (Basic: 3 days, Pro: 15 days, Premium: 30 days priority). The Premium Tier includes
-                    an explicit 7-day technical refund guarantee if technical criteria are unmet.</p>
-                <p><strong>4. Domain & Infrastructure:</strong> Custom domain registration is provided free for the
-                    first year with the Premium Tier. GitHub edge hosting infrastructure is deployed free with zero
-                    recurring hosting costs from Forge.</p>
+                class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
+                    <div class="flex items-baseline gap-2">
+                        <span
+                            class="text-sm sm:text-base font-claude-serif font-bold tracking-tight text-[#1f1e1d]">Forge
+                            Softwares</span>
+                        <span class="text-[11px] font-claude-sans text-[#73726c] hidden sm:inline">• Terms of Use</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="closeTerms()"
+                        class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
+                        aria-label="Close Terms of Use">
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Single Continuous Scroll Container with Claude Editorial Styling -->
+            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain p-5 sm:p-8 md:p-10 space-y-6"
+                id="termsScrollArea" style="-webkit-overflow-scrolling: touch;">
+
+                <!-- Header Banner -->
+                <div class="border-b border-[#e8e6df] pb-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0eee6] text-[#c96442] font-claude-sans font-semibold text-[11px] tracking-wider uppercase mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#c96442]"></span>
+                        Legal & Governance
+                    </div>
+                    <h2 id="termsTitle"
+                        class="text-2xl sm:text-4xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight">
+                        Terms of Use — <span class="italic text-[#c96442]">Forge Softwares</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm font-claude-sans text-[#73726c] mt-2">
+                        Effective Date: <span class="font-semibold text-[#1f1e1d]">12 September 2026</span>
+                    </p>
+                    <div class="mt-4 bg-white p-4 sm:p-5 rounded-2xl border border-[#e8e6df] shadow-sm">
+                        <p class="text-sm sm:text-base font-claude-sans text-[#4d4c47] leading-relaxed">
+                            These Terms of Use govern your access to and use of the Forge Softwares website and
+                            services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Terms Sections -->
+                <div class="space-y-6 font-claude-sans text-sm sm:text-base text-[#4d4c47]">
+
+                    <!-- 1. Acceptance of Terms -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">1</span>
+                            Acceptance of Terms
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            By accessing or using our website or services, you agree to these Terms of Use.
+                        </p>
+                    </div>
+
+                    <!-- 2. Our Services -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">2</span>
+                            Our Services
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Forge Softwares provides services including:
+                        </p>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Website Design & Development
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                AI Agents & Automation
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Software Development
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                UI/UX Design
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Business Digital Solutions
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Quotes & Payments -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">3</span>
+                            Quotes & Payments
+                        </h3>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Project pricing is provided through custom quotations or published pricing.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Work begins after the agreed advance payment is received.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Remaining payments must be completed according to the agreed project
+                                    timeline.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Additional features or revisions outside the agreed scope may incur extra
+                                    charges.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Revisions -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">4</span>
+                            Revisions
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Each project includes the number of revisions agreed before development begins. Additional
+                            revisions may require additional payment.
+                        </p>
+                    </div>
+
+                    <!-- 5. Client Responsibilities -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">5</span>
+                            Client Responsibilities
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Clients are responsible for providing:
+                        </p>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Accurate project requirements.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Content, images, logos, and branding materials they own or have permission to use.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Timely feedback and approvals.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 6. Intellectual Property -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">6</span>
+                            Intellectual Property
+                        </h3>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Clients own the final project after full payment is completed, unless otherwise
+                                    agreed.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Forge Softwares retains ownership of internal tools, templates, frameworks, and
+                                    reusable code used during development.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 7. Acceptable Use -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">7</span>
+                            Acceptable Use
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            You agree not to use our website or services for unlawful, fraudulent, harmful, or abusive
+                            purposes.
+                        </p>
+                    </div>
+
+                    <!-- 8. Third-Party Content -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">8</span>
+                            Third-Party Content
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We are not responsible for third-party websites, APIs, hosting providers, or external
+                            services linked from our website.
+                        </p>
+                    </div>
+
+                    <!-- 9. Limitation of Liability -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">9</span>
+                            Limitation of Liability
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Forge Softwares is not liable for indirect, incidental, or consequential damages arising
+                            from the use of our website or services, including downtime caused by third-party providers.
+                        </p>
+                    </div>
+
+                    <!-- 10. Service Availability -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">10</span>
+                            Service Availability
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We may update, modify, suspend, or discontinue parts of our website or services at any time
+                            without prior notice.
+                        </p>
+                    </div>
+
+                    <!-- 11. Termination -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">11</span>
+                            Termination
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We reserve the right to refuse or terminate services if these terms are violated or if
+                            payment obligations are not met.
+                        </p>
+                    </div>
+
+                    <!-- 12. Changes to Terms -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">12</span>
+                            Changes to Terms
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            These Terms of Use may be updated at any time. Continued use of our website constitutes
+                            acceptance of the revised terms.
+                        </p>
+                    </div>
+
+                    <!-- 13. Contact 9697430658 -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">13</span>
+                            Contact 9697430658
+                        </h3>
+                        <div class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <p class="font-semibold text-[#1f1e1d]">Forge Softwares</p>
+                            <p class="flex items-center gap-2">
+                                <span class="text-[#73726c]">Phone:</span>
+                                <a href="tel:+919697430658" class="text-[#c96442] hover:underline font-semibold">+91 9697430658</a>
+                            </p>
+                            <p class="flex items-center gap-2">
+                                <span class="text-[#73726c]">Website:</span>
+                                <a href="https://forgesoftwares.in" target="_blank" rel="noopener noreferrer"
+                                    class="text-[#c96442] hover:underline font-semibold">forgesoftwares.in</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Close Button in Modal -->
+                <div class="pt-4 border-t border-[#e8e6df] flex justify-end">
+                    <button type="button" onclick="closeTerms()"
+                        class="px-5 py-2.5 rounded-full bg-[#1f1e1d] hover:bg-[#33322e] text-white text-xs font-claude-sans font-semibold tracking-wide transition-colors cursor-pointer focus:outline-none">
+                        Close Terms of Use
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
 
     <div id="privacyModal"
-        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/90 z-[9999] hidden flex-col items-center justify-center p-3 sm:p-4 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden"
-        role="dialog" aria-modal="true">
-        <div class="card-light-contrast bg-white max-w-4xl w-[95%] sm:w-full max-h-[85dvh] p-5 sm:p-8 flex flex-col relative transform scale-95 transition-transform duration-300 mx-auto border-2 border-black"
+        class="fixed top-0 left-0 w-full h-[100dvh] bg-black/80 z-[9999] hidden flex-col items-center justify-center p-0 sm:p-4 md:p-6 backdrop-blur-xl transition-opacity duration-300 opacity-0 overflow-hidden mobile-fullscreen-modal"
+        role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+        <div class="bg-[#faf9f5] text-[#1f1e1d] w-full h-full sm:h-auto sm:max-h-[92dvh] sm:max-w-4xl flex flex-col relative shadow-[0_24px_80px_rgba(20,20,19,0.25)] transform scale-95 transition-transform duration-300 mx-auto border-0 sm:border border-[#e8e6df] overflow-hidden rounded-none sm:rounded-3xl mobile-fullscreen-dialog overscroll-contain"
             id="privacyContent">
-            <button type="button" onclick="closePrivacy()"
-                class="absolute top-3 right-3 bg-black text-white w-9 h-9 flex items-center justify-center rounded-full z-20 cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
-                aria-label="Close modal"><i data-lucide="x" class="w-4 h-4"></i></button>
-            <div class="text-center mb-6 border-b-2 border-black pb-4">
-                <h3 class="text-xl sm:text-2xl font-bubbledot text-black uppercase tracking-widest font-extrabold">
-                    Privacy Policy</h3>
-            </div>
+
+            <!-- Claude Editorial Top Bar -->
             <div
-                class="overflow-y-auto custom-scrollbar pr-2 text-xs md:text-sm text-black leading-relaxed space-y-4 font-sans font-medium">
-                <p>We enforce strict enterprise data processing protocols. Client identity details, contact information,
-                    codebase repositories, and operational metrics are strictly used for deployment communication and
-                    are never transferred, leased, or sold to any third-party entities.</p>
+                class="bg-[#ffffff] border-b border-[#e8e6df] px-4 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shrink-0 relative z-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#c96442] shrink-0" aria-hidden="true"></div>
+                    <div class="flex items-baseline gap-2">
+                        <span
+                            class="text-sm sm:text-base font-claude-serif font-bold tracking-tight text-[#1f1e1d]">Forge
+                            Softwares</span>
+                        <span class="text-[11px] font-claude-sans text-[#73726c] hidden sm:inline">• Privacy
+                            Policy</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="closePrivacy()"
+                        class="w-9 h-9 rounded-full bg-[#f0eee6] hover:bg-[#e6e4dc] text-[#73726c] hover:text-[#1f1e1d] flex items-center justify-center transition-colors cursor-pointer focus:outline-none min-h-[36px] min-w-[36px]"
+                        aria-label="Close Privacy Policy">
+                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Single Continuous Scroll Container with Claude Editorial Styling -->
+            <div class="overflow-y-auto custom-scrollbar flex-1 w-full bg-[#faf9f5] text-[#1f1e1d] overscroll-contain p-5 sm:p-8 md:p-10 space-y-6"
+                id="privacyScrollArea" style="-webkit-overflow-scrolling: touch;">
+
+                <!-- Header Banner -->
+                <div class="border-b border-[#e8e6df] pb-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0eee6] text-[#c96442] font-claude-sans font-semibold text-[11px] tracking-wider uppercase mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#c96442]"></span>
+                        Data Protection & Trust
+                    </div>
+                    <h2 id="privacyTitle"
+                        class="text-2xl sm:text-4xl font-claude-serif font-normal text-[#1f1e1d] tracking-tight">
+                        Privacy Policy — <span class="italic text-[#c96442]">Forge Softwares</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm font-claude-sans text-[#73726c] mt-2">
+                        Effective Date: <span class="font-semibold text-[#1f1e1d]">12 September 2026</span>
+                    </p>
+                    <div class="mt-4 bg-white p-4 sm:p-5 rounded-2xl border border-[#e8e6df] shadow-sm">
+                        <p class="text-sm sm:text-base font-claude-sans text-[#4d4c47] leading-relaxed">
+                            Forge Softwares ("Forge", "we", "our", or "us") provides website development, AI automation,
+                            software development, and related digital services. This Privacy Policy explains how we
+                            collect, use, and protect your information when you use our website or services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Policy Sections -->
+                <div class="space-y-6 font-claude-sans text-sm sm:text-base text-[#4d4c47]">
+
+                    <!-- 1. Information We Collect -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">1</span>
+                            Information We Collect
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We may collect:
+                        </p>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Name
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Email address
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Phone number
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Business or company name
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Project requirements and messages submitted through contact forms
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0 mt-2"></span>
+                                <span>Technical information such as IP address, browser type, device information, and
+                                    website usage analytics.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. How We Use Your Information -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">2</span>
+                            How We Use Your Information
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We use your information to:
+                        </p>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Respond to inquiries.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Provide quotes and project consultations.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Deliver website and software development services.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Improve our website and services.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Send project updates and important service-related communication.
+                            </li>
+                        </ul>
+                        <!-- Highlight Box -->
+                        <div
+                            class="ml-8 mt-3 p-3.5 rounded-xl bg-[#c96442]/10 border border-[#c96442]/20 flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-[#c96442] shrink-0"></span>
+                            <p class="text-xs sm:text-sm font-semibold text-[#c96442]">
+                                We do not sell your personal information to third parties.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Cookies & Analytics -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">3</span>
+                            Cookies & Analytics
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Our website may use cookies and analytics tools to understand visitor behavior and improve
+                            performance. You can disable cookies through your browser settings.
+                        </p>
+                    </div>
+
+                    <!-- 4. Data Security -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">4</span>
+                            Data Security
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We use reasonable technical and organizational measures to protect your information from
+                            unauthorized access, misuse, or disclosure. However, no internet transmission is completely
+                            secure.
+                        </p>
+                    </div>
+
+                    <!-- 5. Third-Party Services -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">5</span>
+                            Third-Party Services
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We may use trusted third-party services such as hosting providers, payment processors,
+                            analytics platforms, and communication tools. These providers process data according to
+                            their own privacy policies.
+                        </p>
+                    </div>
+
+                    <!-- 6. Data Retention -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">6</span>
+                            Data Retention
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We keep your information only as long as necessary to provide services, comply with legal
+                            obligations, resolve disputes, and enforce agreements.
+                        </p>
+                    </div>
+
+                    <!-- 7. Your Rights -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">7</span>
+                            Your Rights
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            You may request to:
+                        </p>
+                        <ul class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Access your personal information.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Correct inaccurate information.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Delete your information, where legally permitted.
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#c96442] shrink-0"></span>
+                                Contact us regarding privacy-related concerns.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 8. Children's Privacy -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">8</span>
+                            Children's Privacy
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            Our services are not intended for children under the age required by applicable law. We do
+                            not knowingly collect personal information from children.
+                        </p>
+                    </div>
+
+                    <!-- 9. Changes to This Policy -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-2">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">9</span>
+                            Changes to This Policy
+                        </h3>
+                        <p class="text-[#4d4c47] leading-relaxed pl-8">
+                            We may update this Privacy Policy from time to time. The latest version will always be
+                            available on this page with the updated effective date.
+                        </p>
+                    </div>
+
+                    <!-- 10. Contact 9697430658 -->
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#e8e6df] shadow-sm space-y-3">
+                        <h3
+                            class="text-lg sm:text-xl font-claude-serif font-semibold text-[#1f1e1d] flex items-center gap-2.5">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#f0eee6] text-[#c96442] text-xs font-bold font-claude-sans flex items-center justify-center shrink-0">10</span>
+                            Contact 9697430658
+                        </h3>
+                        <div class="pl-8 space-y-2 text-sm text-[#4d4c47]">
+                            <p class="font-semibold text-[#1f1e1d]">Forge Softwares</p>
+                            <p class="flex items-center gap-2">
+                                <span class="text-[#73726c]">Phone:</span>
+                                <a href="tel:+919697430658" class="text-[#c96442] hover:underline font-semibold">+91 9697430658</a>
+                            </p>
+                            <p class="flex items-center gap-2">
+                                <span class="text-[#73726c]">Website:</span>
+                                <a href="https://forgesoftwares.in" target="_blank" rel="noopener noreferrer"
+                                    class="text-[#c96442] hover:underline font-semibold">forgesoftwares.in</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Close Button in Modal -->
+                <div class="pt-4 border-t border-[#e8e6df] flex justify-end">
+                    <button type="button" onclick="closePrivacy()"
+                        class="px-5 py-2.5 rounded-full bg-[#1f1e1d] hover:bg-[#33322e] text-white text-xs font-claude-sans font-semibold tracking-wide transition-colors cursor-pointer focus:outline-none">
+                        Close Privacy Policy
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -7051,12 +7932,14 @@
                 currentTestimonialIndex = Math.max(0, Math.min(index, testimonialCards.length - 1));
                 if (testimonialIdxLabel) testimonialIdxLabel.textContent = String(currentTestimonialIndex + 1).padStart(2, '0');
                 testimonialDots.forEach((dot, idx) => {
-                    if (idx === currentTestimonialIndex) {
+                    const isActive = idx === currentTestimonialIndex;
+                    dot.classList.toggle('active', isActive);
+                    if (isActive) {
                         dot.classList.remove('w-2', 'bg-black/20');
-                        dot.classList.add('w-7', 'bg-black');
+                        dot.classList.add('w-7');
                     } else {
-                        dot.classList.remove('w-7', 'bg-black');
-                        dot.classList.add('w-2', 'bg-black/20');
+                        dot.classList.remove('w-7');
+                        dot.classList.add('w-2');
                     }
                 });
                 const targetCard = testimonialCards[currentTestimonialIndex];
@@ -7067,6 +7950,46 @@
                     });
                 }
             }
+
+            // Cyber Ronin // Neural Edges Spotlight Effect
+            (function initCyberRoninSpotlight() {
+                const section = document.getElementById('testimonials');
+                const revealImg = document.getElementById('testimonial-reveal-img');
+                if (!section || !revealImg) return;
+
+                function updateSpotlight(clientX, clientY) {
+                    const rect = revealImg.getBoundingClientRect();
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+
+                    const width = window.innerWidth;
+                    let radius = 260;
+                    if (width < 480) {
+                        radius = 130;
+                    } else if (width < 720) {
+                        radius = 170;
+                    }
+
+                    const maskGradient = `radial-gradient(circle ${radius}px at ${x}px ${y}px, #fff 0%, #fff 40%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.12) 88%, transparent 100%)`;
+
+                    revealImg.style.webkitMaskImage = maskGradient;
+                    revealImg.style.maskImage = maskGradient;
+                }
+
+                section.addEventListener('mousemove', function (e) {
+                    updateSpotlight(e.clientX, e.clientY);
+                });
+
+                section.addEventListener('touchmove', function (e) {
+                    if (e.touches && e.touches.length > 0) {
+                        updateSpotlight(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+
+                // Initial spotlight centered in section
+                const rect = section.getBoundingClientRect();
+                updateSpotlight(rect.left + rect.width * 0.5, rect.top + rect.height * 0.4);
+            })();
 
             nextTestimonialBtn?.addEventListener('click', () => updateTestimonialUI((currentTestimonialIndex + 1) % testimonialCards.length));
             prevTestimonialBtn?.addEventListener('click', () => updateTestimonialUI((currentTestimonialIndex - 1 + testimonialCards.length) % testimonialCards.length));
